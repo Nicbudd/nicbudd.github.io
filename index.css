@@ -7,8 +7,9 @@ h1{
 }
 h2{
   font-family: 'Noto Sans';
+  font-color: 'red';
   font-weight: normal;
-  font-size: 16px;
+  font-size: 12px;
 }
 p{
   font-family: 'Noto Sans';
