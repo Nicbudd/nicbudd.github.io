@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway'700);
 @import url('https://fonts.googleapis.com/css?family=Raleway');
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
@@ -13,16 +14,16 @@
 
 head{
 	background-color: #C6C6C6;
-	font-family: 'Noto Sans';
+	font-family: 'Raleway';
 }
 
 body{
 	background-color: #C6C6C6;
-	font-family: 'Noto Sans';
+	font-family: 'Raleway';
 	}
 
 h1{
-	font-weight: normal;
+	font-weight: bold;
 	font-size: 50px;
 	color: #303030;
 }
@@ -48,7 +49,6 @@ div.goBackButton {
 	text-align: center;
 }
 a{
-	font-family: 'Noto Sans';
 	font-weight: normal;
 	font-size: 16px;
 	color: #316FA6;
