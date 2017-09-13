@@ -43,6 +43,17 @@ div.goBackButton {
 	background-color: #6DB88D;
 	text-align: center;
 }
+div.menuOptionOne {
+    position: fixed;
+    bottom: 30px;
+    right: 0;
+    width: 125px;
+	font-size: 24px;
+	font-weight: bold;
+	color: #C6C6C6;
+	background-color: #6DB88D;
+	text-align: center;
+}
 a{
 	font-weight: normal;
 	font-size: 16px;
