@@ -11,15 +11,10 @@
 #C6C6C6 - Lighter Gray
 */
 
-head{
-	background-color: #C6C6C6;
-	font-family: 'Raleway';
-}
-
 body{
 	background-color: #C6C6C6;
 	font-family: 'Raleway';
-	padding: 0px;
+	padding-left: 0px;
 	}
 
 h1{
