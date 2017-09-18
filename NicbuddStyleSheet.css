@@ -56,6 +56,7 @@ div.menuOptionOne {
 	text-align: center;
 }
 div.rightMenu ul{
+	width:200px;
 	position: fixed;
 	height: 100%;
 	right: 0;
@@ -75,6 +76,17 @@ div.rightMenu li {
 	padding: 8px 16px;
 	display: block;
 	
+
+}
+
+div.rightMenu li.active{
+	background-color: #C14747;
+
+}
+
+div.rightMenu li:hover{
+	background-color: #C14747;
+	font-size: 25px;
 
 }
 
