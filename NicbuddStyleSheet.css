@@ -17,7 +17,7 @@ head{
 body{
 	background-color: #C6C6C6;
 	font-family: 'Raleway';
-	margin-right: 200px;
+	margin-right: 210px;
 	}
 
 h1{
@@ -92,3 +92,9 @@ a{
 	text-decoration: none;
 }
 
+div.notification{
+	
+	background-color:#C14747;
+	margin-right: 0px;
+	padding: 5px;
+}
