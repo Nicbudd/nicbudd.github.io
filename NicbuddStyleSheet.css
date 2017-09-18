@@ -17,27 +17,27 @@ head{
 body{
 	background-color: #C6C6C6;
 	font-family: 'Raleway';
-	margin-right: 210px;
+	margin-right: 13.5em;
 	}
 
 h1{
 	font-weight: bold;
-	font-size: 50px;
+	font-size: 3em;
 	color: #303030;
 }
 h2{
   font-weight: normal;
-  font-size: 20px;
+  font-size: 1.5em;
   color: #303030;
 }
 p{
 	font-weight: normal;
-	font-size: 16px;
+	font-size: 1em;
 	color: #303030;
 }
 
 div.rightMenu ul{
-	width:200px;
+	width:12.5em;
 	position: fixed;
 	height: 100%;
 	right: 0;
@@ -52,9 +52,9 @@ div.rightMenu ul{
 
 div.rightMenu li {
 	font-weight: bold;
-	font-size: 20px;
+	font-size: 1em;
 	color: #C6C6C6;
-	padding: 8px 16px;
+	padding: 0.5em 1em;
 	display: block;
 	
 
@@ -67,27 +67,27 @@ div.rightMenu li.active{
 
 div.rightMenu li.anchor{
 	background-color:#316FA6;
-	font-size:30px;
+	font-size:2em;
 
 }
 
 div.rightMenu li:hover:not(.anchor){
 	background-color: #C14747;
-	font-size: 25px;
+	font-size: 1.5em;
 
 }
 
 div.rightMenu hr{
 	border-style: solid;
 	color: #C6C6C6;
-	border-width: 5px;
+	border-width: 0.25em;
 	margin-top: 0;
     margin-bottom: 0;
 }
 
 a{
 	font-weight: normal;
-	font-size: 16px;
+	font-size: 1em;
 	color: #316FA6;
 	text-decoration: none;
 }
@@ -95,6 +95,6 @@ a{
 div.notification{
 	
 	background-color:#C14747;
-	margin-right: 0px;
-	padding: 5px;
+	margin-right: 0;
+	padding: 0.25em;
 }
