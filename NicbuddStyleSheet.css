@@ -84,10 +84,24 @@ div.rightMenu li.active{
 
 }
 
-div.rightMenu li:hover{
+div.rightMenu li.anchor{
+	background-color:#316FA6;
+	font-size:30px;
+
+}
+
+div.rightMenu li:hover:not(.anchor){
 	background-color: #C14747;
 	font-size: 25px;
 
+}
+
+div.rightMenu hr{
+	border-style: solid;
+	color: #C6C6C6;
+	border-width: 5px;
+	margin-top: 0;
+    margin-bottom: 0;
 }
 
 a{
@@ -96,3 +110,4 @@ a{
 	color: #316FA6;
 	text-decoration: none;
 }
+
