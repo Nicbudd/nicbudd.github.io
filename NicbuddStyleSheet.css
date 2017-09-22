@@ -18,22 +18,21 @@ body{
 	background-color: #C6C6C6;
 	font-family: 'Raleway';
 	margin-right: 13.5em;
+	color: #303030;
 	}
 
 h1{
 	font-weight: bold;
 	font-size: 3em;
-	color: #303030;
+	
 }
 h2{
   font-weight: normal;
   font-size: 1.5em;
-  color: #303030;
 }
 p{
 	font-weight: normal;
 	font-size: 1em;
-	color: #303030;
 }
 
 div.rightMenu ul{
