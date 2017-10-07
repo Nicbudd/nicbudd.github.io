@@ -36,7 +36,7 @@ p{
 }
 
 div.rightMenu ul{
-	width:12.5em;
+	width: 10em;
 	position: fixed;
 	height: 100%;
 	right: 0;
@@ -45,14 +45,14 @@ div.rightMenu ul{
     padding: 0;
 	background-color: #6DB88D;
 	list-style-type: none;
-	overflow: auto;
+	overflow: hidden;
 	text-align: center;
 	margin-left: 1em;
 }
 
 div.rightMenu li {
 	font-weight: bold;
-	font-size: 1.25em;
+	font-size: 1em;
 	color: #C6C6C6;
 	padding: 0.25em;
 	display: block;
@@ -67,20 +67,20 @@ div.rightMenu li.active{
 
 div.rightMenu li.anchor{
 	background-color:#316FA6;
-	font-size:2em;
+	font-size:1.5em;
 
 }
 
 div.rightMenu li:hover:not(.anchor){
 	background-color: #C14747;
-	font-size: 1.5em;
+	font-size: 1.125em;
 
 }
 
 div.rightMenu hr{
 	border-style: solid;
 	color: #C6C6C6;
-	border-width: 0.25em;
+	border-width: 0.125em;
 	margin-top: 0;
     margin-bottom: 0;
 }
