@@ -9,6 +9,10 @@ Nicbudd Weather Office
 
 		<link rel="stylesheet" href="NicbuddStyleSheet.css">
 		<style>
+		* {
+    box-sizing: border-box;
+}
+		
 		#Level-E {color:#B25EAE; font-size:4em; font-weight: bold; text-align: center;}
 		#Level-D {color:#C14747; font-size:4em; font-weight: bold; text-align: center;}
 		#Level-C {color:#B2825E; font-size:4em; font-weight: bold; text-align: center;}
@@ -17,18 +21,33 @@ Nicbudd Weather Office
 		
 				.column {
     float: left;
-    width: 17%;
-    padding: 15px;
-	margin: 0;
+    width: 20%;
+    padding: 2em;
+}
 
+.column{
+	text-align: center;
+	 padding: 0;
+	}
+
+.column ul{
+ list-style-type: none;
+ padding: 0;
 }
 
 .row:after {
     content: "";
     display: table;
-    clear: both;		
-	margin: 0;	
-
+    clear: both;
+	}
+	
+@media (max-width:800px) {
+    .column {
+        width: 100%;
+    }
+	}
+	
+	
 	
 		</style>
 </head>
