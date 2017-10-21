@@ -1,15 +1,35 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans');
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:400,700');
+@import url('https://fonts.googleapis.com/css?family=Oswald:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:100,200,300,400,500,600,700,800,900');
+
 
 /*The colors for this website are
 #316FA6 - Blue
 #6DB88D - Green
+#37BD6F - New Green
 #C14747 - Red
 #949494 - Gray
 #303030 - Black
 #C6C6C6 - Lighter Gray
 */
+
+*{
+	box-sizing: border-box;
+	}
+	
+::-moz-selection { /* Code for Firefox */
+    color: #C3C3C3;
+    background: #316fa6;
+	}
+
+::selection {
+    color: #C3C3C3;
+    background: #316fa6;
+}
+
 
 head{
 }
@@ -22,24 +42,52 @@ body{
 	}
 
 h1{
+	font-family: 'Fira Sans';
 	font-weight: bold;
+	text-transform: uppercase;
 	font-size: 3em;
 	
 }
 h2{
-  font-weight: normal;
+font-family: 'Fira Sans';
+  font-weight: bold;
   font-size: 1.5em;
 }
 h3{
-	font-weight: normal;
+	font-family: 'Fira Sans';
+	font-weight: bold;
 	font-size: 1.25em;
+}
+
+h6{
+	font-family: 'Fira Sans';
+	font-weight: bold;
+	font-size: 1em;
+	margin: 0;
 }
 p{
 	font-weight: normal;
-	font-size: 0.75em;
+	font-size: 1em;
+}
+
+hr{
+	border-style: solid;
+	color: #303030;
+	border-width: 0.125em;
+	margin-top: 0;
+    margin-bottom: 0;
+}
+
+mark{
+	color: #C3C3C3;
+	background: #C14747;
+	font-weight: bold;
 }
 
 div.rightMenu ul{
+	font-family: 'Fira Sans';
+	font-weight: bold;
+	font-size: 1em;
 	width: 10em;
 	position: fixed;
 	height: 100%;
@@ -56,7 +104,7 @@ div.rightMenu ul{
 
 div.rightMenu li {
 	font-weight: bold;
-	font-size: 1em;
+	font-size: 1.25em;
 	color: #C6C6C6;
 	padding: 0.25em;
 	display: block;
@@ -71,13 +119,23 @@ div.rightMenu li.active{
 
 div.rightMenu li.anchor{
 	background-color:#316FA6;
-	font-size:1.5em;
+	font-size:1.75em;
 
+}
+
+div.rightMenu li.anchor::-moz-selection { /* Code for Firefox */
+    color: #C3C3C3;
+    background: #C14747;
+	}
+
+div.rightMenu li.anchor::selection {
+    color: #C3C3C3;
+    background: #C14747;
 }
 
 div.rightMenu li:hover:not(.anchor){
 	background-color: #C14747;
-	font-size: 1.125em;
+	font-size: 1.375em;
 
 }
 
