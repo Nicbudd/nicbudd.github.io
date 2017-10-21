@@ -14,6 +14,13 @@
 
 <style>
 
+		#Level-E {color:#B25EAE; font-size:2em; font-weight: bold; text-align: center; margin:0.25em;}
+		#Level-D {color:#C14747; font-size:2em; font-weight: bold; text-align: center; margin:0.25em;}
+		#Level-C {color:#B2825E; font-size:2em; font-weight: bold; text-align: center; margin:0.25em;}
+		#Level-B {color:#6DB88D; font-size:2em; font-weight: bold; text-align: center; margin:0.25em;}
+		#Level-A {color:#316FA6; font-size:2em; font-weight: bold; text-align: center; margin:0.25em;}
+
+
 div.bigredbutton{
 width:12em;
 background-color: #C14747;
@@ -26,14 +33,15 @@ text-align: center;
 
 div.block{
 float: left;
-width: 400px;
-height: 300px;
 border-style: solid;
 border-color: #303030;
-border-width:  2px;
+border-width:  5px;
+border-radius: 5px;
 text-align: center;
-margin: 2em;
+margin: 1em;
 display: block;
+padding: 0;
+position: relative;
 }
 
 div.blockParty:after{
@@ -41,7 +49,38 @@ div.blockParty:after{
     display: table;
     clear: both;
 	}
+	
+	.blockTitle{
+	margin:4px 0;
+	font-size: 20px;
+	font-weight:bold;
+	}
 
+	.column {
+    float: left;
+    width: 120px;
+    padding: 1em;
+	text-align: center;
+	padding: 0;
+}
+
+
+	.column ul{
+ list-style-type: none;
+ padding: 0;
+}
+
+	.row:after {
+    content: "";
+    display: table;
+    clear: both;
+	}
+	
+	img{
+	margin: 0;
+	}
+	
+	
 </style>
 
 </head>
@@ -83,10 +122,111 @@ div.blockParty:after{
   <br>
   
   <div class="blockParty">
+  
+  
   <div class="block">
-  Hello everyone my names Nicbudd and today I will be doing a house tour
+  <p class="blockTitle">Atlantic Sea Surface Temperatures (SST)</p>
+  <img src="http://www.ospo.noaa.gov/data/sst/contour/usatlant.cf.gif" alt="Ocean Temps" width="400" height="600"  >
   </div>
+  
+  <div class="block">
+  <p class="blockTitle">Atlantic Tropical Cyclone Activity</p>
+  <img src="http://www.nhc.noaa.gov/xgtwo/two_atl_0d0.png" alt="Ocean Temps" width="400" height="250"  >
   </div>
+  
+  
+  
+  
+  
+  <!--Warnings-->
+  
+  
+  
+  
+  
+  <div class="block" style="width:610px">
+  <a href="TropicalWeather.html"><div class="blockTitle" style="margin-left:0.5em;color:#303030;text-align:left;">NWO Warnings</div></a>
+  <div class="blockTitle" style="right:0;top:0;position:absolute;"> Update: Sept. 6 2017, 15:29 UTC</div>
+  
+  
+  
+  	<div class="row">
+	
+	
+<div class="column">
+<p id="Level-E"> E5 </p>
+	<ul>
+			<li>Florida</li>
+	</ul>
+		</div>
+		
+		
+	<div class="column">
+<p id="Level-D"> D5 </p>
+<ul>
+<li>Georgia</li>
+<li>South Carolina</li>
+<li>North Carolina</li>
+<li>Virignia</li>
+</ul>
+		</div>
+		
+		
+		
+	<div class="column">
+<p id="Level-C"> C5 </p>
+<ul>
+	<li>West Virginia</li>
+<li>Maryland</li>
+<li>Delaware</li>
+<li>Tennessee</li>
+<li>Kentucky</li>
+	<li>New Jersey</li>
+	<li>Alabama</li>
+</ul>
+		</div>
+		
+		
+		
+	<div class="column">
+<p id="Level-B"> B5 </p>	
+	<ul>
+		<li>Pennsylvania</li>
+	</ul>
+		
+		</div>
+		
+		
+		
+	<div class="column">
+<p id="Level-A"> A5 </p>
+<ul>
+<li>New York</li>
+<li>New England</li>
+<li>Mississippi</li>
+<li>Loiusiana</li>
+</ul>
+		</div>
+		
+		
+		
+		</div>
+		
+		
+		
+		
+		<p class="notification" style="margin: 0;"> Please note that the warnings put out by the NWO do not reflect the thoughts and opinions expressed by the NHC, please consult them before making decisions related to tropical weather. </p>
+  </div>
+  
+  
+  
+  <!-- /Warnings-->
+  
+  
+  
+  </div>
+  
+  <hr>
   
 	<!-- Body goes here %%% -->
 	<h2>Satellite & Radar</h2>
