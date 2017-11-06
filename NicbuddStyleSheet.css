@@ -118,6 +118,14 @@ div.rightMenu li {
 
 }
 
+/*meant for rightmenu*/
+div.rightMenu li.verticalhr {
+	width:0.25em;
+	background-color:#C3C3C3;
+	padding:0;
+}
+
+
 div.rightMenu li.active{
 	background-color: #C14747;
 
@@ -138,7 +146,7 @@ div.rightMenu li.anchor::selection {
     background: #C14747;
 }
 
-div.rightMenu li:hover:not(.anchor){
+div.rightMenu li:hover:not(.anchor):not(.verticalhr){
 	background-color: #C14747;
 
 }
@@ -152,12 +160,6 @@ div.rightMenu li:hover:not(.anchor){
 
 }*/
 
-/*meant for rightmenu*/
-div.rightMenu li.verticalhr {
-	width:0.25em;
-	background-color:#C3C3C3;
-	padding:0;
-}
 
 
 
