@@ -2,7 +2,7 @@
 
 /*
 #0E7C7B - Dark Green
-#17BEEB - Light Green
+#17BEBB - Light Green
 #D4F4DD - Greenish White
 #D62246 - Red
 #4B1D3F - Dark Purple
@@ -100,6 +100,14 @@ td, th{
 	padding: 4px;
 	border: 2px solid black;
 }
+
+.price{
+	background-color: #17BEBB;
+	color: #FFFFFF;
+	font-weight: bold;
+	text-decoration: none;
+}
+
 
 @media (max-width: 800px){
 	th, td{
