@@ -117,17 +117,20 @@ td, th{
 		width:100%;
 	}
 	body{
-		margin:0;
+		margin:8px;
 	}
 }
 
-@media (max-width: 485px){
+@media (max-width: 480px){
 	th, td{
 	font-size: 15px;
 	}
+	body{
+		margin:4px;
+	}
 }
 
-@media (max-width:375px){
+@media (max-width:365px){
 	th, td{
 	font-size: 12px;
 	}
