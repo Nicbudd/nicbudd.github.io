@@ -97,8 +97,9 @@ table{
 }
 td, th{
 	font-size: 20px;
-	padding: 4px;
+	padding: 2px;
 	border: 2px solid black;
+	text-align: center;
 }
 
 .price{
@@ -106,22 +107,27 @@ td, th{
 	color: #FFFFFF;
 	font-weight: bold;
 	text-decoration: none;
+	text-align: center;
 }
 
 
 @media (max-width: 800px){
-	th, td{
-	width:20%;
+	table{
+		margin:0;
+		width:100%;
+	}
+	body{
+		margin:0;
 	}
 }
 
-@media (max-width: 440px){
+@media (max-width: 485px){
 	th, td{
 	font-size: 15px;
 	}
 }
 
-@media (max-width: 345px){
+@media (max-width:375px){
 	th, td{
 	font-size: 12px;
 	}
