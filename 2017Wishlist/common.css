@@ -126,6 +126,10 @@ td, th{
 	padding: 5px 10px 5px 10px;
 }
 
+div.nav{
+	border: 4px solid black;
+}
+
 .image{
 	width:500px;
 	border:2px solid black;
@@ -192,7 +196,7 @@ td, th{
 	width:350px;
 	}
 	.nav{
-		font-size: 30px;
+		font-size: 25px;
 	}
 }
 
