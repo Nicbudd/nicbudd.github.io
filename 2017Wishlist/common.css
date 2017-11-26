@@ -198,6 +198,9 @@ div.nav{
 	.nav{
 		font-size: 25px;
 	}
+	h3{
+		font-size: 16px;
+	}
 }
 
 @media (max-width:365px){
