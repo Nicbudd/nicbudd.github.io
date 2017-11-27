@@ -22,7 +22,7 @@
 	background-color: #303030;
 	width: 100%;
 	color: #C6C6C6;
-	margin: 1.25em 0 0 0;
+	margin: 0;
 	top: 0;
 	left: 0;
 	padding: 0.25em;
@@ -32,7 +32,7 @@
 	div.blogPost{
 	/*background-color: #48AD73;*/
 	display: block;
-	margin: 2em 0 2em 0;
+	margin: 16px 8px 16px 8px;
 	position: relative;
 	border: solid #303030 4px;
 	}
@@ -82,7 +82,9 @@
 	right: 0;
 	}
 	
+	@media screen and (min-width: 600px){
 	
+	}
 	</style>
 
 </head>
@@ -92,29 +94,22 @@
 <body>
 	
 
-<div class="title"> 
+
+	<ul class="topnav">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="CubeStuff.html">Cubing</a></li>
+			<li><a href="Weather.html">Weather</a></li>
+			<li><a href="Other.html">Other</a></li>
+			<li><a href="Blog.html" class="active">My Blog</a></li>
+	</ul>
+	
+	<div class="title"> 
 <h1>
 	Blog
 	</h1>
 	</div>
 	
 	
-	<div class="rightMenu">
-			<ul>
-			
-			<!-- This is the menu. When a new item gets added, copy paste the following to each category -->
-			<li class="anchor">Menu</li>
-			<a href="index.html" ><li>Home</li></a>
-			<a href="CubeStuff.html"><li>Cubing</li></a>
-			<a href="Weather.html"><li>Weather</li></a>
-			<a href="Other.html"><li>Other</li></a>
-			<a href="Blog.html"><li class="active">My Blog</li></a>
-			
-			
-			<!-- This is the menu. When a new item gets added, copy paste the above to each category -->
-		
-			</ul>
-		</div>
 	
 	
 	<div class="blogPost">

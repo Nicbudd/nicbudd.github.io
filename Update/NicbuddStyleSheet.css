@@ -51,11 +51,10 @@
 /* basic element styling */
 
 body{
-	background-color: #C6C6C6;
+	background-color: #C3C3C3;
 	font-family: 'Raleway';
-	margin: 2em 1em 1em 1em;
+	margin: 0;
 	color: #303030;
-	margin:
 	}
 
 h1{
@@ -63,7 +62,6 @@ h1{
 	font-weight: bold;
 	text-transform: uppercase;
 	font-size: 3em;
-	
 }
 h2{
 font-family: 'Fira Sans';
@@ -131,85 +129,46 @@ mark{
 
 
 
-/* menu */
+/* topnav */
 
-div.rightMenu{
-	white-space: nowrap;
-	overflow: auto;
-}
-div.rightMenu ul{
-	font-family: 'Fira Sans';
-	font-weight: bold;
-	font-size: 1em;
-	width: 100%;
-	overflow: auto;
-	/*height: 2.75em;*/
-	position: fixed;
-	left: 0;
-	top: 0;
-	margin: 0;
-    padding: 0;
-	background-color: #48AD73;
+ul.topnav {
 	list-style-type: none;
-	text-align: center;
-	z-index: 10;
-	/*border-bottom: 4px #C3C3C3;
-	border-bottom-style: solid;*/
-	box-shadow: 0 1px 10px #303030;
-	white-space: nowrap;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #48AD73;
 }
-div.rightMenu li {
-	font-weight: bold;
-	font-size: 1.25em;
+
+ul.topnav li{
+	float: left;
+}
+
+ul.topnav li a{
+	display: block;
 	color: #C3C3C3;
-	padding: 0.5em;
-	display: inline-block;
-	width:auto;
-	margin:0;
-	float:left;
+	text-align: center;
+	padding: 10px 12px;
+	text-decoration: none;
+	font-weight: bold;
+	font-family: 'Fira Sans';
+	font-size: 20px;
 }
-/*meant for rightmenu*/
-div.rightMenu li.verticalhr {
-	width:0.25em;
-	background-color:#C3C3C3;
-	padding:0;
-	margin:0;
-	height: 44px;
+
+ul.topnav li a:hover:not(.active){
+	background-color: #316FA6;
 }
-div.rightMenu li.active{
-	background-color: #C14747;
 
+ul.topnav li a.active {
+	background-color: #316FA6;
 }
-div.rightMenu li.anchor{
-	background-color:#316FA6;
 
+ul.topnav li.right {
+	float: right;
 }
-div.rightMenu li.anchor::-moz-selection { /* Code for Firefox */
-    color: #C3C3C3;
-    background: #C14747;
-	}
-div.rightMenu li.anchor::selection {
-    color: #C3C3C3;
-    background: #C14747;
+
+@media screen and (max-width: 600px){
+	ul.topnav li.right, ul.topnav li {float: none;}
 }
-div.rightMenu li:hover:not(.anchor):not(.verticalhr){
-	background-color: #C14747;
-
-}
-/*div.rightMenu hr{
-	border-style: solid;
-	color: #C6C6C6;
-	border-width: 0.125em;
-	margin-top: 0;
-    margin-bottom: 0;
-
-}*/
-
-
-
-
-
-
 
 
 
@@ -219,17 +178,37 @@ div.rightMenu li:hover:not(.anchor):not(.verticalhr){
 
 /* responsive */
 
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+}
+
+
+
 @media (max-width:500px) {
 	
 	
-    div.rightMenu li {
+    div.topMenu li {
 		text-align: center;
 		font-size: 0.75em;
 		
     }
 	
 	
-	div.rightMenu ul{
+	div.topMenu ul{
 		height: 1.625em;
 	}
 	
