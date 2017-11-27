@@ -16,11 +16,20 @@
 #C6C6C6 - Lighter Gray
 */
 
+
+
+
+
+
+
+
+
+/* universals */
+
 *{
 	box-sizing: border-box;
 	}
 	
-
 ::-moz-selection { /* Code for Firefox */
     color: #C3C3C3;
     background: #316fa6;
@@ -32,8 +41,14 @@
 }
 
 
-head{
-}
+
+
+
+
+
+
+
+/* basic element styling */
 
 body{
 	background-color: #C6C6C6;
@@ -72,6 +87,12 @@ p{
 	font-size: 1em;
 }
 
+a{
+	font-weight: normal;
+	color: #316FA6;
+	text-decoration: none;
+}
+
 hr{
 	border-style: solid;
 	color: #303030;
@@ -86,11 +107,36 @@ mark{
 	font-weight: bold;
 }
 
+
+
+
+
+
+
+
+
+/* custom classes */
+
+.notification{
+	
+	background-color:#C14747;
+	margin-right: 0;
+	padding: 0.25em;
+}
+
+
+
+
+
+
+
+
+/* menu */
+
 div.rightMenu{
 	white-space: nowrap;
 	overflow: auto;
 }
-
 div.rightMenu ul{
 	font-family: 'Fira Sans';
 	font-weight: bold;
@@ -112,7 +158,6 @@ div.rightMenu ul{
 	box-shadow: 0 1px 10px #303030;
 	white-space: nowrap;
 }
-
 div.rightMenu li {
 	font-weight: bold;
 	font-size: 1.25em;
@@ -123,7 +168,6 @@ div.rightMenu li {
 	margin:0;
 	float:left;
 }
-
 /*meant for rightmenu*/
 div.rightMenu li.verticalhr {
 	width:0.25em;
@@ -132,39 +176,26 @@ div.rightMenu li.verticalhr {
 	margin:0;
 	height: 44px;
 }
-
-
 div.rightMenu li.active{
 	background-color: #C14747;
 
 }
-
 div.rightMenu li.anchor{
 	background-color:#316FA6;
 
 }
-
 div.rightMenu li.anchor::-moz-selection { /* Code for Firefox */
     color: #C3C3C3;
     background: #C14747;
 	}
-
 div.rightMenu li.anchor::selection {
     color: #C3C3C3;
     background: #C14747;
 }
-
 div.rightMenu li:hover:not(.anchor):not(.verticalhr){
 	background-color: #C14747;
 
 }
-
-
-
-.dropdown{
-	position: relative;
-}
-
 /*div.rightMenu hr{
 	border-style: solid;
 	color: #C6C6C6;
@@ -174,6 +205,19 @@ div.rightMenu li:hover:not(.anchor):not(.verticalhr){
 
 }*/
 
+
+
+
+
+
+
+
+
+
+
+
+
+/* responsive */
 
 @media (max-width:500px) {
 	
@@ -190,17 +234,4 @@ div.rightMenu li:hover:not(.anchor):not(.verticalhr){
 	}
 	
 	
-	}
-
-a{
-	font-weight: normal;
-	color: #316FA6;
-	text-decoration: none;
-}
-
-.notification{
-	
-	background-color:#C14747;
-	margin-right: 0;
-	padding: 0.25em;
 }
