@@ -172,6 +172,7 @@ ul.topnav li a.active {
 
 ul.topnav li.right {
 	float: right;
+	background-color: #C14747
 }
 
 @media screen and (max-width: 600px){
