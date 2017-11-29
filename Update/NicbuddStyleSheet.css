@@ -234,24 +234,6 @@ ul.topnav li.right {
 	}
 }
 
-
-@media (max-width:500px) {
-	
-	
-    div.topMenu li {
-		text-align: center;
-		font-size: 0.75em;
-		
-    }
-	
-	
-	div.topMenu ul{
-		height: 1.625em;
-	}
-	
-	
-}
-
 @media screen and (max-width:400px){
 	h1{
 		font-size: 2em;
@@ -261,5 +243,8 @@ ul.topnav li.right {
 	}
 	h3{
 		font-size: 1em;
+	}
+	ul.topnav li.right, ul.topnav li {
+		font-size: 14px;
 	}
 }
