@@ -23,7 +23,79 @@
 	padding: 0.25em 0.5em;
 	}
 
+	table{
+	padding:0;
+	}
+
+	@media screen and (max-width: 1000px){
+	table{
+	width: 100%;
+	}
+	}
 	
+	@media screen and (max-width: 850px){
+	.shrink{
+	 font-size:12px;
+	}
+	th {
+	font-size: 12px;
+	}
+	}
+	
+	@media screen and (max-width: 700px){
+	table, thead, tbody, th, td, tr{
+			display: block; 
+	}
+	thead tr{
+		postition: absolute; 
+		top: -9999px;
+		left: -9999px;
+	}
+	tr{
+		border: 1px solid #303030
+		}
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #303030; 
+		position: relative;
+		padding-left: 50%; 
+		font-size: 16px;
+		border-left: 2px solid #303030;
+		border-right: 2px solid #303030;
+	}
+	.shrink{
+	font-size: 16px;
+	}
+	td:before { 
+		position: absolute;
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+		font-weight:bold;
+	}
+	td:nth-of-type(1):before { content: "Event"; }
+	td:nth-of-type(2):before { content: "Main"; }
+	td:nth-of-type(3):before { content: "# of Solves"; }
+	td:nth-of-type(4):before { content: "Best Single"; }
+	td:nth-of-type(5):before { content: "Mean of 3"; }
+	td:nth-of-type(6):before { content: "Average of 5"; }
+	td:nth-of-type(7):before { content: "Average of 12"; }
+	td:nth-of-type(8):before { content: "Average of 50"; }
+	td:nth-of-type(9):before { content: "Average of 100"; }
+	td:nth-of-type(10):before { content: "Average of 1000"; }
+	
+	th{
+	display: none;
+	font-size: 16px;
+}
+
+table{
+border-width: 0px;
+}
 	
 	</style>
 	
@@ -32,134 +104,158 @@
 
 <body>
 	
-	<div class="rightMenu">
-			<ul>
-			
-			<!-- This is the menu. When a new item gets added, copy paste the following to each category -->
-			<li class="anchor">Menu</li>
-			<a href="index.html" ><li>Home</li></a>
-			<a href="CubeStuff.html"><li class="active">Cubing</li></a>
-			<a href="Weather.html"><li>Weather</li></a>
-			<a href="Other.html"><li>Other</li></a>
-			<a href="Blog.html"><li>My Blog</li></a>
-			<!-- This is the menu. When a new item gets added, copy paste the above to each category -->
-			
-			<li class="verticalhr"></li>
-			<a href="HowToSolve.html"><li>How to Solve</li></a>
-			<a href="Acheivements.html"><li class="active">Acheivements</li></a>
-		
-		
+			<ul class="topnav">
+			<li><a href="index.html" class="active">Home</a></li>
+			<li><a href="CubeStuff.html">Cubing</a></li>
+			<li><a href="Weather.html">Weather</a></li>
+			<li><a href="Other.html">Other</a></li>
+			<li><a href="Blog.html">My Blog</a></li>
 			</ul>
-		</div>
-	
-	<h1>
 		
-	Cubing Acheivements
-		
-	</h1>
-  
-	<h3>Last Update: November 19, 2017</h3>
 	
+	<h1>Cubing Acheivements	</h1>
+	
+
+	
+
+	
+
+	
+
     <h2>On CSTimer</h2>
-	
+	<h2 style>Last Update: November 19, 2017</h2>
 	
 	<table>
+	<thead>
 	<tr>
 	<th>Event</th>
+	<th>Main</th>
 	<th># of Solves</th>
 	<th>Best Single</th>
 	<th>Mean of 3</th>
 	<th>Average of 5</th>
 	<th>Average of 12</th>
+	<th>Average of 50</th>
 	<th>Average of 100</th>
 	<th>Average of 1000</th>
 	</tr>
+	</thead>
 	
 	<tr>
-	<th>2x2</th>
+	<td>2x2</td>
+	<td class="shrink">Cyclone Boys Feihu 2x2 (Sculpted)</td>
 	<td>108</td>
-	<td>4.344</td>
-	<td>7.109</td>
-	<td>7.109</td>
-	<td>8.707</td>
-	<td>11.680</td>
+	<td>4.34</td>
+	<td>7.11</td>
+	<td>7.11</td>
+	<td>8.70</td>
+	<td>10.58</td>
+	<td>11.68</td>
 	<td>-</td>
 	</tr>
 	
 	<tr>
-	<th>3x3</th>
-	<td>2039</td>
-	<td>15.252</td>
-	<td>19.135</td>
-	<td>20.628</td>
-	<td>22.775</td>
-	<td>24.612</td>
-	<td>28.173</td>
+	<td>3x3</td>
+	<td class="shrink">QiYi Valk 3</td>
+	<td>2129</td>
+	<td>15.25</td>
+	<td>19.13</td>
+	<td>20.62</td>
+	<td>22.77</td>
+	<td>24.04</td>
+	<td>24.52</td>
+	<td>27.57</td>
 	</tr>
 	
 	<tr>
-	<th>4x4</th>
-	<td>31</td>
-	<td>1:56.780</td>
-	<td>2:06.357</td>
-	<td>2:10.288</td>
-	<td>2:11.693</td>
-	<td>-</td>
-	<td>-</td>
-	</tr>
-	
-	<tr>
-	<th>5x5</th>
-	<td>14</td>
-	<td>3:59.511</td>
-	<td>4:19.692</td>
-	<td>4:33.459</td>
-	<td>5:40.054</td>
-	<td>-</td>
-	<td>-</td>
-	</tr>
-	
-	<tr>
-	<th>7x7</th>
-	<td>6</td>
-	<td>11:33.860</td>
-	<td>12:15.350</td>
-	<td>13:29.177</td>
+	<td>4x4</td>
+	<td class="shrink">Cyclone Boys Mini 4x4</td>
+	<td>34</td>
+	<td>1:42.66</td>
+	<td>1:52.86</td>
+	<td>1:59.43</td>
+	<td>2:07.40</td>
 	<td>-</td>
 	<td>-</td>
 	<td>-</td>
 	</tr>
 	
 	<tr>
-	<th>3x3 OH<br>(One-Handed)</th>
-	<td>39</td>
-	<td>57.494</td>
-	<td>1:03.834</td>
-	<td>1:06.219</td>
-	<td>1:08.335</td>
+	<td>5x5</td>
+	<td class="shrink">YuXin Cloud 5x5</td>
+	<td>18</td>
+	<td>3:30.35</td>
+	<td>3:53.52</td>
+	<td>4:03.24</td>
+	<td>4:33.90</td>
+	<td>-</td>
 	<td>-</td>
 	<td>-</td>
 	</tr>
 	
+	<tr>
+	<td>7x7</td>
+	<td class="shrink">MoFang JiaoShi MF7S 7x7</td>
+	<td>7</td>
+	<td>10:55.77</td>
+	<td>11:49.81</td>
+	<td>12:15.35</td>
+	<td>-</td>
+	<td>-</td>
+	<td>-</td>
+	<td>-</td>
+	</tr>
+	
+	<tr>
+	<td>3x3 OH<br>(One-Handed)</td>
+	<td class="shrink">Rubiks SpeedCube (RSC)</td>
+	<td>41</td>
+	<td>47.99</td>
+	<td>1:03.83</td>
+	<td>1:03.36</td>
+	<td>1:08.33</td>
+	<td>-</td>
+	<td>-</td>
+	<td>-</td>
+	</tr>
+	
+	<tr>
+	<td>3x3 Feet</td>
+	<td class="shrink">Gans 356 Air (Ultimate)</td>
+	<td>1</td>
+	<td>9:39.28</td>
+	<td>-</td>
+	<td>-</td>
+	<td>-</td>
+	<td>-</td>
+	<td>-</td>
+	<td>-</td>
+	</tr>
+	
+	<thead>
 	<tr>
 	<th>Event</th>
+	<th>Main</th>
 	<th># of Solves</th>
 	<th>Best Single</th>
 	<th>Mean of 3</th>
 	<th>Average of 5</th>
 	<th>Average of 12</th>
+	<th>Average of 50</th>
 	<th>Average of 100</th>
 	<th>Average of 1000</th>
 	</tr>
-	
+	</thead>
 	<!--
 	<tr>
-	<td>Event</td>
+	<th>Event</th>
+	<td>Main</td>
 	<td># of Solves</td>
 	<td>Best Single</td>
 	<td>Mean of 3</td>
 	<td>Average of 5</td>
 	<td>Average of 12</td>
+	<td>Average of 50</td>
 	<td>Average of 100</td>
 	<td>Average of 1000</td>
 	</tr>
@@ -167,7 +263,8 @@
 	
 	
 	</table>
-	<!-- Body goes here %%% -->
+	
+	</table>
 	
 	
 </body>

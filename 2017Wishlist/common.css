@@ -97,7 +97,6 @@ p{
 table{
 	border: 2px solid black;
 	border-collapse: collapse;
-	center: 0;
 }
 td, th{
 	font-size: 20px;
