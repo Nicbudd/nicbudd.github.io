@@ -7,38 +7,32 @@ Nicbudd's Rubiks Stuff
 <head>
 	<link rel="stylesheet" href="NicbuddStyleSheet.css">
 	<link rel="icon" href="polygon7.png" size="32x32" type="image/png">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-	<script src="https://molarmanful.github.io/gCube/gcube.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="roofpig_and_three.min.js"></script>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<script src="gCubeThing.js"></script>
+	<meta charset="utf-8">
+	
+<script>
+	ROOFPIG_CONF_N1 = "colors=F:#48AD73 B:#316FA6 U:#C6C6C6 D:#949494 R:#C14747 L:#B2825E"
+	ROOFPIG_CONF_O1 = "colors=F:#C14747 B:#B2825E U:#7C56B5 D:#C6C6C6 R:#48AD73 L:#316FA6|colored=u|solved=U-"
+</script>
+	
 	
 	<style> 
 	
+	.rp{width: 200px; height: 200px; border: 2px solid #303030; margin: 20px;}
 	
-	g-cube {
-  position: absolute;
-}
-.scheme .face {
-  background-color: #303030;
-}
-.scheme .faceUp .sticker {
-  background-color: #C6C6C6;
-}
-.scheme .faceDown .sticker {
-  background-color: #B25EAE;
-}
-.scheme .faceLeft .sticker {
-  background-color: #B2825E;
-}
-.scheme .faceRight .sticker {
-  background-color: #C14747;
-}
-.scheme .faceFront .sticker {
-  background-color: #48AD73;
-}
-.scheme .faceBack .sticker {
-  background-color: #316FA6;
-}
+	.roofpig-button {
+	border: 2px solid #303030;
+	box-shadow: none;
+	text-shadow: none;
+	border-radius: 0px;
+	}
+	
+	.roofpig.button:hover {
+	background-color: #C3C3C3;
+	}
+
 
 
    </style>
@@ -47,9 +41,9 @@ Nicbudd's Rubiks Stuff
 
 <body>
 
-	<h2>This isn't mine, I got this code from someone else</h2>
+	<h2>This is roofpig, BTW</h2>
 
-<g-cube><g-scramble>/random</g-scramble></g-cube>
+<div class="roofpig rp" data-config="alg=r U R' U' r' F R F'|base=N1"></div>
+<div class="roofpig rp" data-config="alg=r U R' U' r' F R F'|base=O1"></div>
 	
-
 </body>
