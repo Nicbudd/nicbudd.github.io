@@ -10,85 +10,89 @@
 	How To Solve
 
 	</title>
+	<!-- U2 R2 F2 L2 F' U2 B F2 R2 F R2 D' U2 F R B' D2 L' D U F' -->
 
 	<link rel="stylesheet" href="NicbuddStyleSheet.css">
 	<link rel="icon" href="polygon7.png" size="32x32" type="image/png">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="roofpig_and_three.min.js"></script>
 
-</head>
+		<script>
+	ROOFPIG_CONF_N1 = "colors=F:#48AD73 B:#316FA6 U:#C6C6C6 D:#949494 R:#C14747 L:#B2825E"
+	ROOFPIG_CONF_N2 = "colors=F:#C14747 B:#B2825E U:#949494 D:#C6C6C6 R:#48AD73 L:#316FA6"
+	ROOFPIG_CONF_O2 = "colors=F:#C14747 B:#B2825E U:#7C56B5 D:#C6C6C6 R:#48AD73 L:#316FA6|colored=u|solved=U-"
+</script>
 
+	
+	<style>
 
-<style>
+	
+	.rp{
+	width: 200px;
+	height: 200px; 
+	border: 2px solid #303030; 
+	margin: 2px 2px 2px 22px;
+	float: right;
+	}
+	
+	.roofpig-button {
+	border: 2px solid #303030;
+	box-shadow: none;
+	text-shadow: none;
+	border-radius: 0px;
+	}
+	
+	.roofpig.button:hover {
+	background-color: #C3C3C3;
+	}
 
-table{
-
-margin:auto;
-border: 1.25em solid #C6C6C6;
-
-}
-
-td{
-margin:1.25em;
-
-border: 1.25em solid #C6C6C6;
-
-}
-
-a.tableText{
-
-
-text-align: center;
-
-font-weight: bold;
-	font-size: 2em;
-	color: #C6C6C6;
-	padding: 0.5em 1em;
-
-}
 
 </style>
+	
+</head>
 
 <body>
 
-
-
-
-<div class="rightMenu">
-			<ul>
-			
-			<!-- This is the menu. When a new item gets added, copy paste the following to each category -->
-			<li class="anchor">Menu</li>
-			<a href="index.html" ><li>Home</li></a>
-			<a href="CubeStuff.html"><li class="active">Cubing</li></a>
-			<a href="Weather.html"><li>Weather</li></a>
-			<a href="Other.html"><li>Other</li></a>
-			<a href="Blog.html"><li>My Blog</li></a>
-			<!-- This is the menu. When a new item gets added, copy paste the above to each category -->
-			<li class="verticalhr"></li>
-			<a href="HowToSolve.html"><li class="active">How to Solve</li></a>
-			<a href="Acheivements.html"><li>Acheivements</li></a>
-			
+	<ul class="topnav">
+			<li><a href="index.html">Home</a></li>
+			<li><a href="CubeStuff.html" class="active">Cubing</a></li>
+			<li><a href="Weather.html">Weather</a></li>
+			<li><a href="Other.html">Other</a></li>
+			<li><a href="Blog.html">My Blog</a></li>
 			</ul>
-</div>
-			
-			
 	
-
-	
-	<table>
-	<tr>
-	<td style="background-color:#48AD73;"><a href="HowToSolveEasy.html" class="tableText">The Beginners Method</a></td>
-	<td style="background-color:#C14747;"><a href="HowToSolveHard.html" class="tableText">How I Solve It</a></td>
-	</tr>
-	</table>
+	<h1>
+		
+	Easy Method
+		
+	</h1>
   
 	
 	
-	<!-- Body goes here %%% -->
+	<p>Before I get started explaining how to solve a cube, I would like to go over some basics about the cube.</p>
+
+<p>It is harder to solve the cube if you think about it in terms of “sides”, like solving the white side, then the blue side, etc. Instead, think of it as “pieces” to put in the right places.</p>
+
+	<div class="roofpig rp" data-config="alg=U R F2 B2 U|base=N1|colored=U*/e */m"></div>
 	
+<p>There are 3 types of pieces: “centers”, which don’t move; “edges”, which have 2 sides; and “corners”, which have 3 sides.</p>
+
+<p>Now that you know that, we can learn how to solve the cube.</p>
 	
+<p>The first step is to solve the “cross”. The “cross” is a shape that can be built on a cube that is made by putting 4 edge pieces of one color in the correct spots, so that it lines up with the centers. </p>
 	
+<p>The animation to the right (above on mobile) is how I solved the cross in an actual solve I did. I do the cross a little differently from how you will learn to do it. I keep track of multiple pieces at a time and where they are reletive to each other. For now, you will learn to do it one piece at a time.</p>
 	
+	<div class="roofpig rp" data-config="alg=R y2 F R y' x x' F' R F y2 F D F' R2|base=N1|colored=U*/e */m"></div>
+	
+	<p>To solve the cross, find the white center and turn the cube so that it is on the top. On the example on the right, you can see the white center is already at the top at the start of the animation.</p>
+	
+	<p>The next step is to find an edge piece with white on one edge. This will be edge #1. All edges have 2 sides, and a white edge can have one of four other colors on it: Green, Red, Blue, or Orange. The one I chose in my example is the white and orange edge.</p>
+	
+	<p>When you have identified your edge, align the edge so that the other color, in my case orange, is right next to it's center. Click the "+" button twice to show how I rotate the cube to see the white-orange edge, and then make one move to align the orange side with the orange center.</p>
+
+
 
 </body>
 	
