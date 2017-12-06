@@ -181,6 +181,9 @@ ul.topnav li.right {
 		position: static;
 		font-size: 20px;
 	}
+	body{
+	margin: 8px;
+	}
 	
 	
 }
