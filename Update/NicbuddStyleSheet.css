@@ -177,8 +177,14 @@ ul.topnav li.right {
 
 @media screen and (max-width: 600px){
 	ul.topnav li.right, ul.topnav li {float: none;}
-	body{ margin-top: 228px}
-	ul.topnav {position: sticky;}
+	ul.topnav {
+		position: static;
+		font-size: 20px;
+	}
+	body{
+	margin: 8px;
+	}
+	
 	
 }
 
@@ -227,7 +233,11 @@ ul.topnav li.right {
 
 
 
-
+@media screen and (max-width:850px){
+	ul.topnav li a{
+	font-size:14px;
+	}
+}
 
 @media (max-width:650px){
 	th, td{
