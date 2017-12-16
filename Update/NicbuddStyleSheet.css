@@ -162,11 +162,15 @@ ul.topnav li a{
 	font-size: 20px;
 }
 
-ul.topnav li a:hover:not(.active){
-	background-color: #316FA6;
+ul.topnav li a:hover:not(.active):not(.anchor){
+	background-color: #C14747;
 }
 
 ul.topnav li a.active {
+	background-color: #C14747;
+}
+
+ul.topnav li a.anchor {
 	background-color: #316FA6;
 }
 
