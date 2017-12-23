@@ -132,6 +132,9 @@ mark{
 
 
 
+
+
+
 /* topnav */
 
 ul.topnav {
@@ -176,7 +179,6 @@ ul.topnav li a.anchor {
 
 ul.topnav li.right {
 	float: right;
-	background-color: #C14747
 }
 
 @media screen and (max-width: 600px){
@@ -193,6 +195,26 @@ ul.topnav li.right {
 }
 
 
+/*SideNav*/
+
+ul.sidenav{
+	height:100%;
+	border: 2px solid #303030;
+	background-color:#C3C3C3;
+	width: 15%;
+	position: fixed;
+	right: 0;
+	margin: 0;
+	list-style: none;
+	padding: 8px;
+	text-align: center;
+}
+
+ul.sidenav li a {
+	color:#303030;
+	display:block;
+	margin: 2px;
+}
 
 
 
