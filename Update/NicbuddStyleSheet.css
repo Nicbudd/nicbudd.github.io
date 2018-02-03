@@ -55,7 +55,7 @@ body{
 	font-family: 'Lato', sans-serif;
 	margin: 50px 8px 8px 8px;
 	color: #303030;
-	
+	overflow:visible;
 	}
 
 h1{
@@ -311,6 +311,15 @@ ul.topnav li a.icon{
 @media (max-width:650px){
 	th, td{
 		font-size:0.75em
+	}
+	h1{
+		text-align:center;
+	}
+	h2{
+		text-align:center;
+	}
+	h3{
+		text-align:center;
 	}
 }
 

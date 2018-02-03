@@ -3,6 +3,8 @@
 <html>
 
 <head>
+	
+	
 	<title>
 
 	Personal Bests
@@ -12,6 +14,7 @@
 	<link rel="stylesheet" href="NicbuddStyleSheet.css">
 	<link rel="icon" href="polygon7.png" size="32x32" type="image/png">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 	<style>
 	
 	table, td, th{
@@ -23,7 +26,80 @@
 	padding: 0.25em 0.5em;
 	}
 
+	table{
+	padding:0;
+	}
+
+	@media screen and (max-width: 1000px){
+	table{
+	width: 100%;
+	}
 	
+	}
+	
+	@media screen and (max-width: 850px){
+	.shrink{
+	 font-size:12px;
+	}
+	th {
+	font-size: 12px;
+	}
+	}
+	
+	@media screen and (max-width: 750px){
+	table, thead, tbody, th, td, tr{
+			display: block; 
+	}
+	thead tr{
+		postition: absolute; 
+		top: -9999px;
+		left: -9999px;
+	}
+	tr{
+		border: 1px solid #303030
+		}
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #303030; 
+		position: relative;
+		padding-left: 50%; 
+		font-size: 16px;
+		border-left: 2px solid #303030;
+		border-right: 2px solid #303030;
+	}
+	.shrink{
+	font-size: 16px;
+	}
+	td:before { 
+		position: absolute;
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+		font-weight:bold;
+	}
+	td:nth-of-type(1):before { content: "Event"; }
+	td:nth-of-type(2):before { content: "Main"; }
+	td:nth-of-type(3):before { content: "# of Solves"; }
+	td:nth-of-type(4):before { content: "Best Single"; }
+	td:nth-of-type(5):before { content: "Mean of 3"; }
+	td:nth-of-type(6):before { content: "Average of 5"; }
+	td:nth-of-type(7):before { content: "Average of 12"; }
+	td:nth-of-type(8):before { content: "Average of 50"; }
+	td:nth-of-type(9):before { content: "Average of 100"; }
+	td:nth-of-type(10):before { content: "Average of 1000"; }
+	
+	th{
+	display: none;
+	font-size: 16px;
+}
+
+table{
+border-width: 0px;
+}
 	
 	</style>
 	
@@ -32,40 +108,40 @@
 
 <body>
 	
-	<div class="rightMenu">
-			<ul>
+			<ul class="topnav">
+			<li><a href="#" class="anchor">Menu</a></li>
+			<li><a href="#" class="icon anchor"> <i class="fas fa-bars"></i></a></li>
 			
-			<!-- This is the menu. When a new item gets added, copy paste the following to each category -->
-			<li class="anchor">Menu</li>
-			<a href="index.html" ><li>Home</li></a>
-			<a href="CubeStuff.html"><li class="active">Cubing</li></a>
-			<a href="Weather.html"><li>Weather</li></a>
-			<a href="Other.html"><li>Other</li></a>
-			<a href="Blog.html"><li>My Blog</li></a>
-			<!-- This is the menu. When a new item gets added, copy paste the above to each category -->
+			<li><a href="index.html">Home</a></li>
+			<li><a href="index.html" class="icon"> <i class="fas fa-home"></i></a></li>
 			
-			<li class="verticalhr"></li>
-			<a href="HowToSolve.html"><li>How to Solve</li></a>
-			<a href="Acheivements.html"><li class="active">Acheivements</li></a>
-		
-		
+			<li><a href="CubeStuff.html">Cubing</a></li>
+			<li><a href="CubeStuff.html" class="icon"> <i class="fas fa-th"></i></a></li>
+			
+			<li><a href="Acheivements.html" class="active">Acheivements</a></li>
+			<li><a href="Acheivements.html" class="icon active"> <i class="fas fa-trophy"></i></a></li>
+			
+			<li><a href="HowToSolve.html">How To Solve</a></li>
+			<li><a href="HowToSolve.html" class="icon"> <i class="fas fa-question-circle"></i></a></li>
+			
+			
 			</ul>
-		</div>
-	
-	<h1>
 		
-	Cubing Acheivements
-		
-	</h1>
 	
+	<h1>Cubing Acheivements	</h1>
+	
+
+	
+
 	<h2>WCA ID: <a href="https://www.worldcubeassociation.org/persons/2017ZERB01">2017ZERB01</a></h2>
-  
-	<h3>Last Update: December 25, 2017</h3>
+
 	
+
     <h2>On CSTimer</h2>
-	
+	<h2 style>Last Update: February 2, 2018</h2>
 	
 	<table>
+	<thead>
 	<tr>
 	<th>Event</th>
 	<th>Main</th>
@@ -78,50 +154,51 @@
 	<th>Average of 100</th>
 	<th>Average of 1000</th>
 	</tr>
+	</thead>
 	
 	<tr>
-	<th>2x2</th>
-	<td>MoYu WeiPo 2x2</td>
-	<td>253</td>
+	<td>2x2</td>
+	<td class="shrink">MoYu WeiPo 2x2</td>
+	<td>322</td>
 	<td>3.49</td>
 	<td>5.73</td>
 	<td>5.30</td>
 	<td>6.73</td>
 	<td>8.06</td>
-	<td>8.86</td>
+	<td>8.45</td>
 	<td>-</td>
 	</tr>
 	
 	<tr>
-	<th>3x3</th>
-	<td>Gans Air SM (Blue Nuts, DNM-37)</td>
-	<td>3719</td>
+	<td>3x3</td>
+	<td class="shrink">Gans Air SM (Blue Nuts)</td>
+	<td>4072</td>
 	<td>13.15</td>
 	<td>17.40</td>
 	<td>18.58</td>
 	<td>20.26</td>
-	<td>22.64</td>
-	<td>23.10</td>
-	<td>24.59</td>
+	<td>22.37</td>
+	<td>22.93</td>
+	<td>24.34</td>
 	</tr>
 	
 	<tr>
-	<th>4x4</th>
-	<td>MoYu AoSu GTSM 4x4</td>
-	<td>91</td>
+	<td>4x4</td>
+	<td class="shrink">MoYu AoSu GTS M</td>
+	<td>114</td>
 	<td>1:18.75</td>
-	<td>1:30.36</td>
-	<td>1:36.12</td>
-	<td>1:40.59</td>
-	<td>1:48.91</td>
-	<td>-</td>
+	<td>1:26.74</td>
+	<td>1:28.57</td>
+	<td>1:36.34</td>
+	<td>1:44.50</td>
+	<td>1:54.25</td>
 	<td>-</td>
 	</tr>
 	
 	<tr>
-	<th>5x5</th>
-	<td>YuXin Cloud 5x5</td>
-	<td>40</td>
+	<td>5x5</td>
+	<td class="shrink">YuXin Cloud 5x5</td>
+	<td>45</td>
 	<td>2:48.10</td>
 	<td>3:02.49</td>
 	<td>3:08.80</td>
@@ -132,49 +209,36 @@
 	</tr>
 	
 	<tr>
-	<th>6x6</th>
-	<td>YuXin Red 6x6</td>
-	<td>7</td>
-	<td>6:41.44</td>
-	<td>6:59.77</td>
-	<td>7:06.87</td>
-	<td>-</td>
+	<td>6x6</td>
+	<td class="shrink">YuXin Red 6x6</td>
+	<td>12</td>
+	<td>5:48.82</td>
+	<td>6:41.07</td>
+	<td>6:47.32</td>
+	<td>DNF</td>
 	<td>-</td>
 	<td>-</td>
 	<td>-</td>
 	</tr>
 	
 	<tr>
-	<th>7x7</th>
-	<td>MoFang JiaoShi MF7S 7x7</td>
-	<td>14</td>
+	<td>7x7</td>
+	<td class="shrink">MoFang JiaoShi MF7S 7x7</td>
+	<td>16</td>
 	<td>9:33.85</td>
 	<td>10:06.59</td>
 	<td>10:12.78</td>
-	<td>11:24.40</td>
+	<td>11:01.35</td>
 	<td>-</td>
 	<td>-</td>
 	<td>-</td>
 	</tr>
 	
 	<tr>
-	<th>8x8</th>
-	<td>YuXin HuangLong 8x8</td>
-	<td>1</td>
-	<td>26:58.90</td>
-	<td>-</td>
-	<td>-</td>
-	<td>-</td>
-	<td>-</td>
-	<td>-</td>
-	<td>-</td>
-	</tr>
-	
-	<tr>
-	<th>9x9</th>
-	<td>YuXin HuangLong 9x9</td>
+	<td>8x8</td>
+	<td class="shrink">YuXin Huanglong 8x8</td>
 	<td>2</td>
-	<td>30:15.00</td>
+	<td>21:24.37</td>
 	<td>-</td>
 	<td>-</td>
 	<td>-</td>
@@ -184,24 +248,11 @@
 	</tr>
 	
 	<tr>
-	<th>3x3 OH<br>(One-Handed)</th>
-	<td>Gans Air SM</td>
-	<td>77</td>
-	<td>41.10</td>
-	<td>49.22</td>
-	<td>49.16</td>
-	<td>55.11</td>
-	<td>1:02.22</td>
-	<td>-</td>
-	<td>-</td>
-	</tr>
-	
-	<tr>
-	<th>3x3 Feet</th>
-	<td>Rubiks Brand</td>
+	<td>9x9</td>
+	<td class="shrink">YuXin Huanglong 9x9</td>
 	<td>3</td>
-	<td>7:08.72</td>
-	<td>9:19.65</td>
+	<td>30:13.89</td>
+	<td>34:18.10</td>
 	<td>-</td>
 	<td>-</td>
 	<td>-</td>
@@ -209,6 +260,33 @@
 	<td>-</td>
 	</tr>
 	
+	<tr>
+	<td>3x3 OH<br>(One-Handed)</td>
+	<td class="shrink">Gans Air SM</td>
+	<td>84</td>
+	<td>29.14</td>
+	<td>43.00</td>
+	<td>49.16</td>
+	<td>51.25</td>
+	<td>1:00.07</td>
+	<td>-</td>
+	<td>-</td>
+	</tr>
+	
+	<tr>
+	<td>3x3 Feet</td>
+	<td class="shrink">Rubik's Cube</td>
+	<td>4</td>
+	<td>7:08.72</td>
+	<td>8:40.57</td>
+	<td>-</td>
+	<td>-</td>
+	<td>-</td>
+	<td>-</td>
+	<td>-</td>
+	</tr>
+	
+	<thead>
 	<tr>
 	<th>Event</th>
 	<th>Main</th>
@@ -221,7 +299,7 @@
 	<th>Average of 100</th>
 	<th>Average of 1000</th>
 	</tr>
-	
+	</thead>
 	<!--
 	<tr>
 	<th>Event</th>
@@ -238,10 +316,10 @@
 	-->
 	
 	
-	</table>
-	<!-- Body goes here %%% -->
 	
-	<h2>Milestones</h2>
+	</table>
+	
+		<h2>Milestones</h2>
 	
 	<ul>
 	<li>1/19/18: 29.14 3x3 OH PB</li>

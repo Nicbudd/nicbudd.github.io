@@ -11,28 +11,27 @@
 
 	<link rel="stylesheet" href="NicbuddStyleSheet.css">
 	<link rel="icon" href="polygon7.png" size="32x32" type="image/png">
-	<link href = "https://fonts.googleapis.com/css?family=Open+Sans+Condensed:400,700" type = "text/css" rel = "stylesheet"/>
-	<link href = "https://fonts.googleapis.com/css?family=Open+Sans:400,700" type = "text/css" rel = "stylesheet"/>
+	<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
 	<style>
 	
 	
-	div.title h1{
+	div.blog h1{
 	background-color: #303030;
-	width: 100%;
 	color: #C6C6C6;
-	margin: 1.25em 0 0 0;
+	margin: 16px 8px 16px 8px;
 	top: 0;
 	left: 0;
 	padding: 0.25em;
 	box-sizing: border-box;
+	position:relative;
 	}
 	
 	div.blogPost{
 	/*background-color: #48AD73;*/
 	display: block;
-	margin: 2em 0 2em 0;
+	margin: 16px 8px 16px 8px;
 	position: relative;
 	border: solid #303030 4px;
 	}
@@ -42,47 +41,48 @@
 	margin: 0;
 	}
 	
-	div.blogPost h2{
+div.blogPost ul.title{
+	list-style-type: none;
+    margin: 0;
+	padding:0;
+	background-color:#316fa6;
+	top:0;
+	left:0;
+	width:100%
 	display: block;
-	background-color: #316FA6;
-	color: #C6C6C6;
-	font-weight: bold;
-	padding-top: 0.125em;
-	padding-bottom: 0.125em;
-	padding-left: 0.5em;
-	padding-right: 0.5em;
-	margin: 0;
-	font-size: 1.5em;
-	}
-	
-	div.blogPost h2::-moz-selection { /* Code for Firefox */
-    color: #C3C3C3;
-    background-color: #C14747;
-	}
+	overflow: hidden;
+}
 
-   div.blogPost h2::selection {
-    color: #C3C3C3;
-    background-color: #C14747;
+div.blogPost ul.title li h2{
+margin: 0;
+padding:4px 8px;
+float:left;
+font-size:24px;
+display: block;
+color: #C3C3C3;
+}
+
+div.blogPost ul.title li h6{
+margin: 0;
+padding:4px 8px;
+float:right;
+font-size:24px;
+display: block;
+background-color: #C14747;
+color: #C3C3C3;
 }
 
 	
-	div.date{
-	display: block;
-	background-color: #C14747;
-	color: #C6C6C6;
-	font-weight: bold;
-	padding-top: 0.125em;
-	padding-bottom: 0.125em;
-	padding-left: 0.5em;
-	padding-right: 0.5em;
-	margin: 0;
-	font-size: 1.5em;
-	position: absolute;
-	top: 0;
-	right: 0;
+	@media screen and (max-width: 700px){
+	div.blogPost ul.title li h2{
+		text-align: center;
+        float: none;
 	}
-	
-	
+	div.blogPost ul.title li h6{
+		text-align: center;
+        float: none;
+	}
+	}
 	</style>
 
 </head>
@@ -92,34 +92,43 @@
 <body>
 	
 
-<div class="title"> 
+
+	<ul class="topnav">
+			
+			<li><a href="#" class="anchor">Menu</a></li>
+			<li><a href="#" class="icon anchor"> <i class="fas fa-bars"></i></a></li>
+			
+			<li><a href="index.html">Home</a></li>
+			<li><a href="index.html" class="icon "> <i class="fas fa-home"></i></a></li>
+			
+			<li><a href="CubeStuff.html">Cubing</a></li>
+			<li><a href="CubeStuff.html" class="icon"><i class="fas fa-th"></i></a></li>
+			
+			<li><a href="Weather.html">Weather</a></li>
+			<li><a href="Weather.html" class="icon"><i class="fas fa-cloud"></i></a></li>
+			
+			<li><a href="Other.html">Other</a></li>
+			<li><a href="Other.html" class="icon"><i class="fas fa-folder"></i></a></li>
+			
+			<li><a href="Blog.html" class="active">Blog</a></li>
+			<li><a href="Blog.html" class="icon active"><i class="fas fa-comment"></i></a></li>
+			
+			</ul>
+	
+	<div class="blog"> 
 <h1>
 	Blog
 	</h1>
 	</div>
 	
 	
-	<div class="rightMenu">
-			<ul>
-			
-			<!-- This is the menu. When a new item gets added, copy paste the following to each category -->
-			<li class="anchor">Menu</li>
-			<a href="index.html" ><li>Home</li></a>
-			<a href="CubeStuff.html"><li>Cubing</li></a>
-			<a href="Weather.html"><li>Weather</li></a>
-			<a href="Other.html"><li>Other</li></a>
-			<a href="Blog.html"><li class="active">My Blog</li></a>
-			
-			
-			<!-- This is the menu. When a new item gets added, copy paste the above to each category -->
-		
-			</ul>
-		</div>
 	
 	
 	<div class="blogPost">
-		<h2> Words do not describe it. </h2>
-		<h6><div class="date">August 22, 2017</div></h6>
+	<ul class="title">
+		<li><h2> Words do not describe it. </h2></li>
+		<li><h6>August 22, 2017</h6></li>
+	</ul>
 		
 <p>I woke up Sunday, 9:00 am. Today, we are going to Illinois to see the eclipse. I've been anticipating this for the past two years. Two years ago, it was "August 21, 2017". In January, it was "August 21st". In the beginning of August, it was "The 21st". A few days ago, it was just "Monday". Now it's just "Tomorrow". My dad gets up at 11:00 am and we pack until 12:30 am. We say our last goodbyes and we're off.
 
@@ -159,8 +168,10 @@
 	</div>
 	
 	<div class="blogPost">
-	<h2> Do I have autism?</h2> 
-		<h6><div class="date">August 18, 2017</div></h6>
+	<ul class="title">
+		<li><h2> Do I have autism?</h2> </li>
+		<li><h6>August 18, 2017</h6></li>
+	</ul>
 		
 	<p>I was intending to do Part 2 of the Yearly Recap, but I am too tired and something else got in the way so I wanna talk about this instead.
 
@@ -175,8 +186,10 @@
 	
 	
 	<div class="blogPost">
-	<h2> Yearly Recap, Part 1</h2> 
-		<h6><div class="date">August 17, 2017</div></h6>
+	<ul class="title">
+		<li><h2> Yearly Recap, Part 1</h2> </li>
+		<li><h6>August 17, 2017</h6></li>
+	</ul>
 		
 		<p>Alright everyone! Time for your yearly recap of what's going on in my life! I wanna make this a daily thing, to write before I go to bed, but first off...
 </p>
@@ -214,8 +227,10 @@
 	</div>
 	
 	<div class="blogPost">
-	<h2> Updates</h2> 
-		<h6><div class="date">November 15, 2016</div></h6>
+	<ul class="title">
+		<li><h2> Updates</h2> </li>
+		<li><h6>November 15, 2016</h6></li>
+	</ul>
 		
 		<p>I've been gone for very long, from this blog, (I'm a sophomore in High School now) and from making conlangs (if you haven't seen my work on conlangs, visit this. I haven't been on here a lot because I just have no motivation to tell everyone about my life, and this will probably remain dead, but I will still work on some other stuff.
 

@@ -6,7 +6,6 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:100,200,300,400,500,600,700,800,900');
 @import url('https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900');
 
-
 /*The colors for this website are
 #316FA6 - Blue
 #6DB88D - Green
@@ -17,11 +16,20 @@
 #C6C6C6 - Lighter Gray
 */
 
+
+
+
+
+
+
+
+
+/* universals */
+
 *{
 	box-sizing: border-box;
 	}
 	
-
 ::-moz-selection { /* Code for Firefox */
     color: #C3C3C3;
     background: #316fa6;
@@ -33,15 +41,21 @@
 }
 
 
-head{
-}
+
+
+
+
+
+
+
+/* basic elements*/
 
 body{
-	background-color: #C6C6C6;
-	font-family: 'Raleway';
-	margin: 2em 1em 1em 1em;
+	background-color: #C3C3C3;
+	font-family: 'Lato', sans-serif;
+	margin: 50px 8px 8px 8px;
 	color: #303030;
-	margin:
+	overflow:visible;
 	}
 
 h1{
@@ -49,12 +63,13 @@ h1{
 	font-weight: bold;
 	text-transform: uppercase;
 	font-size: 3em;
-	
+	margin: 1em, 0, 1em, 0;
 }
 h2{
 font-family: 'Fira Sans';
   font-weight: bold;
   font-size: 1.5em;
+  margin: 1em, 0, 1em, 0;
 }
 h3{
 	font-family: 'Fira Sans';
@@ -73,6 +88,12 @@ p{
 	font-size: 1em;
 }
 
+a{
+	font-weight: normal;
+	color: #316FA6;
+	text-decoration: none;
+}
+
 hr{
 	border-style: solid;
 	color: #303030;
@@ -87,121 +108,240 @@ mark{
 	font-weight: bold;
 }
 
-div.rightMenu{
-	white-space: nowrap;
-	overflow: auto;
-}
-
-div.rightMenu ul{
-	font-family: 'Fira Sans';
-	font-weight: bold;
-	font-size: 1em;
-	width: 100%;
-	overflow: auto;
-	/*height: 2.75em;*/
-	position: fixed;
-	left: 0;
-	top: 0;
-	margin: 0;
-    padding: 0;
-	background-color: #48AD73;
-	list-style-type: none;
-	text-align: center;
-	z-index: 10;
-	/*border-bottom: 4px #C3C3C3;
-	border-bottom-style: solid;*/
-	box-shadow: 0 1px 10px #303030;
-	white-space: nowrap;
-}
-
-div.rightMenu li {
-	font-weight: bold;
-	font-size: 1.25em;
-	color: #C3C3C3;
-	padding: 0.5em;
-	display: inline-block;
-	width:auto;
-	margin:0;
-	float:left;
-}
-
-/*meant for rightmenu*/
-div.rightMenu li.verticalhr {
-	width:0.25em;
-	background-color:#C3C3C3;
-	padding:0;
-	margin:0;
-	height: 44px;
-}
-
-
-div.rightMenu li.active{
-	background-color: #C14747;
-
-}
-
-div.rightMenu li.anchor{
-	background-color:#316FA6;
-
-}
-
-div.rightMenu li.anchor::-moz-selection { /* Code for Firefox */
-    color: #C3C3C3;
-    background: #C14747;
-	}
-
-div.rightMenu li.anchor::selection {
-    color: #C3C3C3;
-    background: #C14747;
-}
-
-div.rightMenu li:hover:not(.anchor):not(.verticalhr){
-	background-color: #C14747;
-
-}
 
 
 
-.dropdown{
-	position: relative;
-}
-
-/*div.rightMenu hr{
-	border-style: solid;
-	color: #C6C6C6;
-	border-width: 0.125em;
-	margin-top: 0;
-    margin-bottom: 0;
-
-}*/
 
 
-@media (max-width:500px) {
-	
-	
-    div.rightMenu li {
-		text-align: center;
-		font-size: 0.75em;
-		
-    }
-	
-	
-	div.rightMenu ul{
-		height: 1.625em;
-	}
-	
-	
-	}
 
-a{
-	font-weight: normal;
-	color: #316FA6;
-	text-decoration: none;
-}
+
+
+/* custom classes */
 
 .notification{
 	
 	background-color:#C14747;
 	margin-right: 0;
 	padding: 0.25em;
+}
+
+.blur {
+    -webkit-filter: blur(15px); /* Safari 6.0 - 9.0 */
+    filter: blur(15px);
+}
+
+.construction{
+
+width: 100%;
+background-color: #303030;
+color: #C3C3C3;
+text-align: center;
+position: fixed;
+top: 40%;
+left: 0;
+z-index: 3;
+vertical-align: middle;
+padding: 10px;
+margin: 0;
+display: block;
+float:left;
+}
+
+.construction h1{
+font-family: "Raleway";
+font-weight: 100;
+}
+
+
+
+
+
+
+
+
+
+/* topnav */
+
+ul.topnav {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #48AD73;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1;
+}
+
+ul.topnav li{
+	float: left;
+}
+
+ul.topnav li a{
+	display: block;
+	color: #C3C3C3;
+	text-align: center;
+	padding: 10px 12px;
+	text-decoration: none;
+	font-weight: bold;
+	font-family: 'Fira Sans';
+	font-size: 20px;
+}
+
+ul.topnav li a:hover:not(.active):not(.anchor){
+	background-color: #C14747;
+}
+
+ul.topnav li .active {
+	background-color: #C14747;
+}
+
+ul.topnav li .anchor {
+	background-color: #316FA6;
+}
+
+ul.topnav li.right {
+	float: right;
+}
+
+ul.topnav li a.icon{
+		display: none;
+		color: #C3C3C3;
+		text-align: center;
+		padding: 16px 18px;
+		text-decoration: none;
+		font-size: 32px;
+	}
+
+@media screen and (max-width: 600px){
+
+	ul.topnav li a{
+		display: none;
+	}
+	ul.topnav li a.icon{
+		display: block;
+	}
+	body{
+		margin: 76px 8px 8px 8px;
+	}
+	
+}
+
+@media screen and (max-width: 500px){
+
+	ul.topnav li a.icon{
+		font-size:24px;
+		padding: 10px 12px;
+	}
+	body{
+		margin: 54px 8px 8px 8px;
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+/*columns*/
+
+/* For mobile phones: */
+[class*="col-"] {
+	float: left;
+    padding: 15px;
+    width: 100%;
+}
+@media only screen and (min-width: 600px) {
+    /* For tablets: */
+    .col-m-1 {width: 8.33%;}
+    .col-m-2 {width: 16.66%;}
+    .col-m-3 {width: 25%;}
+    .col-m-4 {width: 33.33%;}
+    .col-m-5 {width: 41.66%;}
+    .col-m-6 {width: 50%;}
+    .col-m-7 {width: 58.33%;}
+    .col-m-8 {width: 66.66%;}
+    .col-m-9 {width: 75%;}
+    .col-m-10 {width: 83.33%;}
+    .col-m-11 {width: 91.66%;}
+    .col-m-12 {width: 100%;}
+}
+@media only screen and (min-width: 768px) {
+    /* For desktop: */
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*responsive*/
+
+@media (max-width:650px){
+	th, td{
+		font-size:0.75em
+	}
+	h1{
+		text-align:center;
+	}
+	h2{
+		text-align:center;
+	}
+	h3{
+		text-align:center;
+	}
+}
+
+@media screen and (max-width: 500px){
+ .construction h1{
+ font-size: 2em;
+ }
+
+@media screen and (max-width:400px){
+	h1{
+		font-size: 2.5em;
+		text-align: center;
+	}
+	h2{
+		font-size: 1.25em;
+		text-align: center;
+	}
+	h3{
+		font-size: 1em;
+		text-align: center;
+	}
+	ul.topnav li.right, ul.topnav li {
+		font-size: 14px;
+	}
 }
