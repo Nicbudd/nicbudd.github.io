@@ -48,7 +48,7 @@
 
 
 
-/* basic element styling */
+/* basic elements*/
 
 body{
 	background-color: #C3C3C3;
@@ -125,7 +125,32 @@ mark{
 	padding: 0.25em;
 }
 
+.blur {
+    -webkit-filter: blur(15px); /* Safari 6.0 - 9.0 */
+    filter: blur(15px);
+}
 
+.construction{
+
+width: 100%;
+background-color: #303030;
+color: #C3C3C3;
+text-align: center;
+position: fixed;
+top: 40%;
+left: 0;
+z-index: 3;
+vertical-align: middle;
+padding: 10px;
+margin: 0;
+display: block;
+float:left;
+}
+
+.construction h1{
+font-family: "Raleway";
+font-weight: 100;
+}
 
 
 
@@ -219,6 +244,15 @@ ul.topnav li a.icon{
 
 
 
+
+
+
+
+
+
+
+/*columns*/
+
 /* For mobile phones: */
 [class*="col-"] {
 	float: left;
@@ -259,11 +293,31 @@ ul.topnav li a.icon{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*responsive*/
+
 @media (max-width:650px){
 	th, td{
 		font-size:0.75em
 	}
 }
+
+@media screen and (max-width: 500px){
+ .construction h1{
+ font-size: 2em;
+ }
 
 @media screen and (max-width:400px){
 	h1{
