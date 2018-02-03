@@ -17,6 +17,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="roofpig_and_three.min.js"></script>
+	<link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 
 		<script>
 	ROOFPIG_CONF_N1 = "colors=F:#48AD73 B:#316FA6 U:#C6C6C6 D:#949494 R:#C14747 L:#B2825E"
@@ -47,6 +48,35 @@
 	background-color: #C3C3C3;
 	}
 
+	.blur {
+    -webkit-filter: blur(15px); /* Safari 6.0 - 9.0 */
+    filter: blur(15px);
+}
+
+.construction{
+
+width: 100%;
+background-color: #303030;
+color: #C3C3C3;
+text-align: center;
+position: sticky;
+top: 40%;
+z-index: 3;
+vertical-align: middle;
+padding: 10px;
+}
+
+.construction h1{
+font-family: "Raleway";
+font-weight: 100;
+}
+
+@media screen and (max-width: 500px){
+ .construction h1{
+ font-size: 2em;
+ }
+ 
+}
 
 </style>
 	
@@ -55,12 +85,26 @@
 <body>
 
 	<ul class="topnav">
-			<li><a href="index.html">Home</a></li>
-			<li><a href="CubeStuff.html" class="active">Cubing</a></li>
-			<li><a href="Weather.html">Weather</a></li>
-			<li><a href="Other.html">Other</a></li>
-			<li><a href="Blog.html">My Blog</a></li>
+			<li><a href="#" class="anchor">Menu</a></li>
+			<li><a href="#" class="icon anchor"> <i class="fas fa-bars"></i></a></li>
+			
+			<li><a href="CubeStuff.html">Cubing</a></li>
+			<li><a href="CubeStuff.html" class="icon"> <i class="fas fa-home"></i></a></li>
+			
+			<li><a href="Acheivements.html">Acheivements</a></li>
+			<li><a href="Acheivements.html" class="icon"> <i class="fas fa-trophy"></i></a></li>
+			
+			<li><a href="HowToSolve.html" class="active">How To Solve</a></li>
+			<li><a href="HowToSolve.html" class="icon active"> <i class="fas fa-question-circle"></i></a></li>
+			
+			
 			</ul>
+	
+	<div class="construction">
+	<h1>Under Construction</h1>
+	</div>
+	
+	<div class="blur">
 	
 	<h1>
 		
@@ -92,7 +136,7 @@
 	
 	<p>When you have identified your edge, align the edge so that the other color, in my case orange, is right next to it's center. Click the "+" button twice to show how I rotate the cube to see the white-orange edge, and then make one move to align the orange side with the orange center.</p>
 
-
+</div>
 
 </body>
 	
