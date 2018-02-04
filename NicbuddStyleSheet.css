@@ -6,6 +6,9 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:100,200,300,400,500,600,700,800,900');
 @import url('https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900');
 
+
+
+
 /*The colors for this website are
 #316FA6 - Blue
 #6DB88D - Green
@@ -59,26 +62,26 @@ body{
 	}
 
 h1{
-	font-family: 'Fira Sans';
+	font-family: 'Fira Sans', sans-serif;
 	font-weight: bold;
 	text-transform: uppercase;
 	font-size: 3em;
 	margin: 1em, 0, 1em, 0;
 }
 h2{
-font-family: 'Fira Sans';
+font-family: 'Fira Sans', sans-serif;
   font-weight: bold;
   font-size: 1.5em;
   margin: 1em, 0, 1em, 0;
 }
 h3{
-	font-family: 'Fira Sans';
+	font-family: 'Fira Sans', sans-serif;
 	font-weight: bold;
 	font-size: 1.25em;
 }
 
 h6{
-	font-family: 'Fira Sans';
+	font-family: 'Fira Sans', sans-serif;
 	font-weight: bold;
 	font-size: 1em;
 	margin: 0;
@@ -148,7 +151,7 @@ float:left;
 }
 
 .construction h1{
-font-family: "Raleway";
+font-family: "Raleway", sans-serif;
 font-weight: 100;
 }
 
@@ -186,7 +189,7 @@ ul.topnav li a{
 	padding: 10px 12px;
 	text-decoration: none;
 	font-weight: bold;
-	font-family: 'Fira Sans';
+	font-family: 'Fira Sans', sans-serif;
 	font-size: 20px;
 }
 
@@ -210,9 +213,9 @@ ul.topnav li a.icon{
 		display: none;
 		color: #C3C3C3;
 		text-align: center;
-		padding: 16px 18px;
+		padding: 14px 16px;
 		text-decoration: none;
-		font-size: 32px;
+		font-size: 28px;
 	}
 
 @media screen and (max-width: 600px){
@@ -224,12 +227,12 @@ ul.topnav li a.icon{
 		display: block;
 	}
 	body{
-		margin: 76px 8px 8px 8px;
+		margin: 80px 8px 8px 8px;
 	}
 	
 }
 
-@media screen and (max-width: 500px){
+@media screen and (max-width: 400px){
 
 	ul.topnav li a.icon{
 		font-size:24px;
@@ -308,7 +311,7 @@ ul.topnav li a.icon{
 
 /*responsive*/
 
-@media (max-width:650px){
+@media (max-width:600px){
 	th, td{
 		font-size:0.75em
 	}
@@ -321,12 +324,12 @@ ul.topnav li a.icon{
 	h3{
 		text-align:center;
 	}
-}
-
-@media screen and (max-width: 500px){
- .construction h1{
+	
+	 .construction h1{
  font-size: 2em;
  }
+ 
+}
 
 @media screen and (max-width:400px){
 	h1{
