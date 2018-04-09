@@ -20,6 +20,84 @@
 	background-color:#c14747
 	}
 	
+		table, td, th{
+	text-align:center;
+	border:#303030;
+	border-width: 2px;
+	border-style: solid;
+	border-collapse: collapse;
+	padding: 0.25em 0.5em;
+	}
+
+	table{
+	padding:0;
+	margin-bottom: 32px;
+	margin-top: 16px;
+	}
+	
+	
+	@media screen and (max-width: 850px){
+	table{
+	font-size:14px;
+	font-weight:bold;
+	}
+	}
+	
+	@media screen and (max-width: 768px){
+	table, thead, tbody, th, td, tr{
+			display: block; 
+	}
+	thead tr{
+		postition: absolute; 
+		top: -9999px;
+		left: -9999px;
+	}
+	tr{
+		border: 1px solid #303030
+		}
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #303030; 
+		position: relative;
+		padding-left: 50%; 
+		font-size: 16px;
+		border-left: 2px solid #303030;
+		border-right: 2px solid #303030;
+	}
+	.shrink{
+	font-size: 16px;
+	}
+	td:before { 
+		position: absolute;
+		top: 6px;
+		left: 6px;
+		width: 45%; 
+		padding-right: 10px; 
+		white-space: nowrap;
+		font-weight:bold;
+	}
+	td:nth-of-type(1):before { content: "Event"; }
+	td:nth-of-type(2):before { content: "Main"; }
+	td:nth-of-type(3):before { content: "# of Solves"; }
+	td:nth-of-type(4):before { content: "Best Single"; }
+	td:nth-of-type(5):before { content: "Mean of 3"; }
+	td:nth-of-type(6):before { content: "Average of 5"; }
+	td:nth-of-type(7):before { content: "Average of 12"; }
+	td:nth-of-type(8):before { content: "Average of 50"; }
+	td:nth-of-type(9):before { content: "Average of 100"; }
+	td:nth-of-type(10):before { content: "Average of 1000"; }
+	
+	th{
+	display: none;
+	font-size: 16px;
+}
+
+table{
+border-width: 0px;
+}
+	}
 	</style>
 	
 	
@@ -39,7 +117,208 @@
   
 	
 	<p><a href="CubeSim.html">Check this out maybe?</a> Maybe not, I'm still working on it.<p>
+		<h3>WCA ID: <a href="https://www.worldcubeassociation.org/persons/2017ZERB01">2017ZERB01</a></h3>
 
+		
+		<hr>
+		
+		<h2>Milestones</h2>
+	
+	<h3>Last Update: March 2, 2018</h3>
+	
+	<table>
+	<thead>
+	<tr>
+	<th>Event</th>
+	<th>Main</th>
+	<th># of Solves</th>
+	<th>Best Single</th>
+	<th>Mean of 3</th>
+	<th>Average of 5</th>
+	<th>Average of 12</th>
+	<th>Average of 50</th>
+	<th>Average of 100</th>
+	<th>Average of 1000</th>
+	</tr>
+	</thead>
+	
+	<tr>
+	<td>2x2</td>
+	<td class="shrink">MoYu WeiPo 2x2</td>
+	<td>369</td>
+	<td>3.49</td>
+	<td>5.73</td>
+	<td>5.30</td>
+	<td>6.73</td>
+	<td>8.06</td>
+	<td>8.31</td>
+	<td>-</td>
+	</tr>
+	
+	<tr>
+	<td>3x3</td>
+	<td class="shrink">MoYu Weilong GTS2M</td>
+	<td>4564</td>
+	<td>13.15</td>
+	<td>17.40</td>
+	<td>18.58</td>
+	<td>19.45</td>
+	<td>21.45</td>
+	<td>22.26</td>
+	<td>23.52</td>
+	</tr>
+	
+	<tr>
+	<td>4x4</td>
+	<td class="shrink">MoYu AoSu GTS M / QiYi WuQue 4x4</td>
+	<td>147</td>
+	<td>1:18.75</td>
+	<td>1:26.74</td>
+	<td>1:28.57</td>
+	<td>1:33.74</td>
+	<td>1:38.58</td>
+	<td>1:43.58</td>
+	<td>-</td>
+	</tr>
+	
+	<tr>
+	<td>5x5</td>
+	<td class="shrink">YuXin Cloud 5x5</td>
+	<td>57</td>
+	<td><a href = "https://youtu.be/xfhq57ROFdI?t=29m57s">2:45.52</a></td>
+	<td>2:56.73</td>
+	<td>3:02.56</td>
+	<td>3:08.51</td>
+	<td>3:30.51</td>
+	<td>-</td>
+	<td>-</td>
+	</tr>
+	
+	<tr>
+	<td>6x6</td>
+	<td class="shrink">YuXin Red 6x6</td>
+	<td>19</td>
+	<td><a href = "https://youtu.be/UikNRZmOc9k?t=1h3m53s">5:30.52</a></td>
+	<td>5:37.85</td>
+	<td>5:57.95</td>
+	<td>6:38.75</td>
+	<td>-</td>
+	<td>-</td>
+	<td>-</td>
+	</tr>
+	
+	<tr>
+	<td>7x7</td>
+	<td class="shrink">QiYi WuJi 7x7</td>
+	<td>24</td>
+	<td>8:55.83</td>
+	<td>9:27.97</td>
+	<td>9:24.81</td>
+	<td>9:52.52</td>
+	<td>-</td>
+	<td>-</td>
+	<td>-</td>
+	</tr>
+	
+	<tr>
+	<td>8x8</td>
+	<td class="shrink">YuXin Huanglong 8x8</td>
+	<td>2</td>
+	<td>21:24.37</td>
+	<td>-</td>
+	<td>-</td>
+	<td>-</td>
+	<td>-</td>
+	<td>-</td>
+	<td>-</td>
+	</tr>
+	
+	<tr>
+	<td>9x9</td>
+	<td class="shrink">YuXin Huanglong 9x9</td>
+	<td>4</td>
+	<td><a href = "https://youtu.be/xfhq57ROFdI?t=1h1m25s">28:02.99</a></td>
+	<td>29:30.63</td>
+	<td>-</td>
+	<td>-</td>
+	<td>-</td>
+	<td>-</td>
+	<td>-</td>
+	</tr>
+	
+	<tr>
+	<td>3x3 OH<br>(One-Handed)</td>
+	<td class="shrink">Gans Air SM</td>
+	<td>101</td>
+	<td>29.14</td>
+	<td>43.00</td>
+	<td>43.25</td>
+	<td>49.51</td>
+	<td>55.90</td>
+	<td>1:12.47</td>
+	<td>-</td>
+	</tr>
+	
+	<tr>
+	<td>3x3 Feet</td>
+	<td class="shrink">Rubik's Cube</td>
+	<td>4</td>
+	<td>7:08.72</td>
+	<td>8:40.57</td>
+	<td>-</td>
+	<td>-</td>
+	<td>-</td>
+	<td>-</td>
+	<td>-</td>
+	</tr>
+	
+	<thead>
+	<tr>
+	<th>Event</th>
+	<th>Main</th>
+	<th># of Solves</th>
+	<th>Best Single</th>
+	<th>Mean of 3</th>
+	<th>Average of 5</th>
+	<th>Average of 12</th>
+	<th>Average of 50</th>
+	<th>Average of 100</th>
+	<th>Average of 1000</th>
+	</tr>
+	</thead>
+	<!--
+	<tr>
+	<th>Event</th>
+	<td>Main</td>
+	<td># of Solves</td>
+	<td>Best Single</td>
+	<td>Mean of 3</td>
+	<td>Average of 5</td>
+	<td>Average of 12</td>
+	<td>Average of 50</td>
+	<td>Average of 100</td>
+	<td>Average of 1000</td>
+	</tr>
+	-->
+	
+	
+	
+	</table>
+	
+	
+<hr>
+
+<div class="blogPost">
+	<ul class="title">
+		<li><h2>Midcoast Cubing 2018</h2></li>
+		<li><h6>April 14, 2018</h6></li>
+	</ul>
+	
+	<h2>Preparation</h2>
+	
+	<p>
+	
+	</div>
 	
 	<!-- Link http://roudai.net/visualcube/visualcube.php?size=200&sch=C6C6C6,C14747,48AD73,B25EAE,B2825E,316FA6&cc=303030 -->
 	

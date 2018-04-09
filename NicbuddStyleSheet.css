@@ -5,6 +5,7 @@
 @import url('https://fonts.googleapis.com/css?family=Oswald:100,200,300,400,500,600,700,800,900');
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:100,200,300,400,500,600,700,800,900');
 @import url('https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:100,200,300,400,500,600,700,800,900');
 
 
 
@@ -13,6 +14,7 @@
 #316FA6 - Blue
 #6DB88D - Green
 #48AD73 - New Green
+#3BA769 - New New Green
 #C14747 - Red
 #949494 - Gray
 #303030 - Black
@@ -56,7 +58,7 @@
 body{
 	background-color: #C3C3C3;
 	font-family: 'Lato', sans-serif;
-	margin: 58px 70px 8px 8px;
+	margin: 58px 8px 8px 8px;
 	color: #303030;
 	overflow:visible;
 	}
@@ -66,25 +68,26 @@ h1{
 	font-weight: bold;
 	text-transform: uppercase;
 	font-size: 3em;
-	margin: 1em, 0, 1em, 0;
+	margin: 1em, 70px, 1em, 0;
 }
 h2{
 font-family: 'Fira Sans', sans-serif;
   font-weight: bold;
-  font-size: 1.5em;
-  margin: 1em, 0, 1em, 0;
+  font-size: 2em;
+  margin: 1em, 70px, 1em, 0;
 }
 h3{
 	font-family: 'Fira Sans', sans-serif;
 	font-weight: bold;
 	font-size: 1.25em;
+	margin: 1em, 70px, 1em, 0;
 }
 
 h6{
 	font-family: 'Fira Sans', sans-serif;
 	font-weight: bold;
 	font-size: 1em;
-	margin: 0;
+	margin: 1em, 70px, 1em, 0;
 }
 p{
 	font-weight: normal;
@@ -101,9 +104,10 @@ hr{
 	border-style: solid;
 	color: #303030;
 	border-width: 0.125em;
-	margin-top: 0;
-    margin-bottom: 0;
+	margin-top: 4px;
+    margin-bottom: 4px;
 }
+
 
 mark{
 	color: #C3C3C3;
@@ -111,7 +115,10 @@ mark{
 	font-weight: bold;
 }
 
-
+table{
+	margin-bottom: 16px;
+	margin-top: 16px;
+}
 
 
 
@@ -171,7 +178,7 @@ ul.topnav {
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	background-color: #48AD73;
+	background-color: #3BA769;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -230,44 +237,6 @@ ul.topnav li a.icon{
 	width: auto;
 	
 }
-	
-@media screen and (max-width: 600px){
-
-	ul.topnav li a{
-		display: none;
-	}
-	ul.topnav li a.icon{
-		display: block;
-	}
-	body{
-		margin-top: 76px;
-		margin-right: 8px;
-	}
-	
-.tn-five-item li{
-	width: 20%;
-	
-}
-	
-.tn-six-item li{
-	width: 16.66%;
-	
-}
-	
-}
-
-@media screen and (max-width: 400px){
-
-	ul.topnav li a.icon{
-		font-size:24px;
-		padding: 10px 12px;
-	}
-	body{
-		margin-top: 64px;
-	}
-	
-}
-
 
 
 
@@ -285,7 +254,7 @@ ul.sidenav {
 	margin: 0;
 	padding: 0;
 	overflow: hidden;
-	background-color: #48AD73;
+	background-color: #3BA769;
 	position: fixed;
 	top: 50%;
 	transform: translate(0%, -50%);
@@ -319,7 +288,7 @@ ul.sidenav li a.redhover:hover{
 }
 
 ul.sidenav li a.green{
-	background-color:#48AD73;
+	background-color:#3BA769;
 }
 
 ul.sidenav li a.greenhover:hover{
@@ -361,7 +330,99 @@ ul.sidenav li a.mobileS{
 	display: none;	
 }
 
+
+
+
+/*blog posts*/
+
+	.bigblacktitle h1{
+	background-color: #303030;
+	color: #C6C6C6;
+	margin: 16px 0px 16px 0px;
+	top: 0;
+	left: 0;
+	padding: 0.25em;
+	box-sizing: border-box;
+	position:relative;
+	}
+	
+	.blogPost{
+	/*background-color: #48AD73;*/
+	display: block;
+	margin: 16px 0px 16px 0px;
+	position: relative;
+	border: solid #303030 4px;
+	}
+	
+	.blogPost p{
+	padding: 0.5em;
+	margin: 0;
+	}
+	
+	.blogPost h2{
+	margin-left: 8px;
+	margin-right: 8px;
+	}
+	
+	.blogPost ul.title{
+	list-style-type: none;
+    margin: 0;
+	padding:0;
+	background-color:#316fa6;
+	top:0;
+	left:0;
+	width:100%
+	display: block;
+	overflow: hidden;
+}
+
+	.blogPost ul.title li h2{
+	margin: 0;
+	padding:4px 8px;
+	float:left;
+	font-size:24px;
+	display: block;
+	color: #C3C3C3;
+}
+
+	.blogPost ul.title li h6{
+	margin: 0;
+	padding:4px 8px;
+	float:right;
+	font-size:24px;
+	display: block;
+	background-color: #C14747;
+	color: #C3C3C3;
+}
+
+	
+	@media screen and (max-width: 768px){
+
+	}
+
+
+
+
+
+
+
+
+
+
+/*responsive*/
+
+
+
+
+
+
+/*for tablets*/
+
+
 @media screen and (max-width: 768px){
+	
+	/*screen size indicator*/
+	
 	ul.sidenav li a.desktop{
 	display: none;
 }
@@ -375,121 +436,27 @@ ul.sidenav li a.mobileS{
 	display: none;	
 }
 	
-}
-
-@media screen and (max-width: 600px){
-	ul.sidenav li a.desktop{
-	display: none;
-}
-ul.sidenav li a.tablet{
-	display: none;
-}
-ul.sidenav li a.mobileL{
-	display: block;	
-}
-ul.sidenav li a.mobileS{
-	display: none;	
-}
-
- ul.sidenav {
+	/*blog*/
 	
-	bottom: 0;
-	width: 100%;
-	top: auto;
-	transform: none;
-	right: auto;
-	left:0;
-}
-
-ul.sidenav li{
-	float:left;
-	width:20%;
-	
-}
-}
-
-@media screen and (max-width: 400px){
-	ul.sidenav li a.desktop{
-	display: none;
-}
-ul.sidenav li a.tablet{
-	display: none;
-}
-ul.sidenav li a.mobileL{
-	display: none;	
-}
-ul.sidenav li a.mobileS{
-	display: block;	
-}
-	ul.sidenav li a{
-		font-size:24px;
-		padding: 10px 12px;
+		div.blogPost ul.title li h2{
+		text-align: center;
+        float: none;
 	}
+	div.blogPost ul.title li h6{
+		text-align: center;
+        float: none;
+	}
+	
 }
 
 
+/*for large smartphones*/
 
-}
-
-
-/*columns*/
-
-/* For mobile phones: */
-[class*="col-"] {
-	float: left;
-    padding: 15px;
-    width: 100%;
-}
-@media only screen and (min-width: 600px) {
-    /* For tablets: */
-    .col-m-1 {width: 8.33%;}
-    .col-m-2 {width: 16.66%;}
-    .col-m-3 {width: 25%;}
-    .col-m-4 {width: 33.33%;}
-    .col-m-5 {width: 41.66%;}
-    .col-m-6 {width: 50%;}
-    .col-m-7 {width: 58.33%;}
-    .col-m-8 {width: 66.66%;}
-    .col-m-9 {width: 75%;}
-    .col-m-10 {width: 83.33%;}
-    .col-m-11 {width: 91.66%;}
-    .col-m-12 {width: 100%;}
-}
-@media only screen and (min-width: 768px) {
-    /* For desktop: */
-    .col-1 {width: 8.33%;}
-    .col-2 {width: 16.66%;}
-    .col-3 {width: 25%;}
-    .col-4 {width: 33.33%;}
-    .col-5 {width: 41.66%;}
-    .col-6 {width: 50%;}
-    .col-7 {width: 58.33%;}
-    .col-8 {width: 66.66%;}
-    .col-9 {width: 75%;}
-    .col-10 {width: 83.33%;}
-    .col-11 {width: 91.66%;}
-    .col-12 {width: 100%;}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*responsive*/
 
 @media (max-width:600px){
+	
+	/*various*/ 
+	
 	h1{
 		text-align:center;
 	}
@@ -499,14 +466,72 @@ ul.sidenav li a.mobileS{
 	h3{
 		text-align:center;
 	}
-	
 	 .construction h1{
- font-size: 2em;
- }
+	font-size: 2em;
+	}
  
+ /*topnav*/
+ 
+ 	ul.topnav li a{
+		display: none;
+	}
+	ul.topnav li a.icon{
+		display: block;
+	}
+	body{
+		margin-top: 76px;
+		margin-right: 8px;
+	}
+	.tn-five-item li{
+	width: 20%;
+	}
+	.tn-six-item li{
+	width: 16.66%;
+	}
+	
+	/*sidenav*/
+	
+	 ul.sidenav {
+	bottom: 0;
+	width: 100%;
+	top: auto;
+	transform: none;
+	right: auto;
+	left:0;
+}
+ul.sidenav li{
+	float:left;
+	width:20%;
+}
+body{
+	margin-bottom:72px;
 }
 
+	/*screen size indicator*/
+	
+		ul.sidenav li a.desktop{
+	display: none;
+}
+ul.sidenav li a.tablet{
+	display: none;
+}
+ul.sidenav li a.mobileL{
+	display: block;	
+}
+ul.sidenav li a.mobileS{
+	display: none;	
+}
+	
+}
+
+
+/*for small smartphones*/
+
+
 @media screen and (max-width:400px){
+	
+	/*various*/ 
+	
 	h1{
 		font-size: 2.5em;
 		text-align: center;
@@ -522,4 +547,40 @@ ul.sidenav li a.mobileS{
 	ul.topnav li.right, ul.topnav li {
 		font-size: 14px;
 	}
+	
+	/*topnav*/
+	
+		ul.topnav li a.icon{
+		font-size:24px;
+		padding: 10px 12px;
+	}
+	body{
+		margin-top: 64px;
+	}
+	
+	/*sidenav*/
+	
+	ul.sidenav li a{
+		font-size:24px;
+		padding: 10px 12px;
+	}
+	body{
+	margin-bottom:56px;
+}
+	
+	/*screen size indicator*/
+	
+		ul.sidenav li a.desktop{
+	display: none;
+}
+ul.sidenav li a.tablet{
+	display: none;
+}
+ul.sidenav li a.mobileL{
+	display: none;	
+}
+ul.sidenav li a.mobileS{
+	display: block;	
+}
+	
 }
