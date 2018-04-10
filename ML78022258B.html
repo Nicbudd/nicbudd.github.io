@@ -4,6 +4,31 @@
 	
 	<head>
 	<link rel = "stylesheet" href = "squirrelpages.css"></link>
+	<script>
+
+var countDownDate = new Date("April 12, 2018 3:15:00").getTime();
+
+var x = setInterval(function() {
+
+  var now = new Date().getTime();
+
+  var distance = countDownDate - now;
+
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  document.getElementById("countdown").innerHTML =  "Time until <br> Operation: Bloknorag <br>" + days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "START INVASION";
+  }
+}, 1000);
+</script>
+	
 	</head>
 	
 	<body>
@@ -11,13 +36,14 @@
 	<h1>SQUIRREL INVASION INITIATIVE</h1>
 	
 	<img src="SquirrelAndCrossbones.svg" width="150">
-	<h2>Operation:Bloknorag</h2>
+	<h2>Operation: Bloknorag</h2>
 	
 	
 	<p title="God, I have the humor of a 5 year old">Good morning agent D. Z. Nuts</p>
 	<p>We confirmed you received the note containing the special password: "ML78022258B"</p>
 	<p>The documents containing specific details about the invasion are linked below</p>
-	<div class="download">DOWNLOAD</div>
+	<a href="INVASION_DOCUMENTS.zip" download><div class="download">DOWNLOAD</div>
+	<div id="countdown"></div>
 	
 	</body>
 	

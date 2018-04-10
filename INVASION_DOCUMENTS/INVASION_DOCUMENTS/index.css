@@ -1,0 +1,151 @@
+/* Colors:
+#30397F - Dark
+#ADB6FF - Light
+#6071FF - Middle
+#565B7F - Less Saturated
+#4D5BCC - More Saturated
+#303040 - Black
+#E7E7F0 - White
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:100,200,300,400,500,600,700,800,900');
+
+*{
+	box-sizing: border-box;
+}
+
+a{
+	text-decoration: none;
+}
+
+
+body{
+	background-color: #30397F;
+	margin:0;
+	padding:0;
+	color:#303040;
+	font-family:Roboto;
+	text-align:center;
+}
+
+img{
+	border-radius: 8px;
+}
+
+.alien-squirrels{
+	animation-name: AAAA;
+	animation-duration: 0.5s;
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	font-size:16px;
+}
+
+@keyframes AAAA {
+	
+	0% {background-color:red;}
+	25% {background-color:orange;}
+	50% {background-color:yellow;}
+	75% {background-color:orange;}
+	100% {background-color:red;}
+}
+
+.text-log{
+	padding: 16px;
+	text-decoration: underline;
+	color:#b2b2bb;
+	border:2px solid #b2b2bb;
+	margin-top:16px;
+	margin-bottom:16px;
+	font-family:Roboto Mono;
+	text-transform:lowercase;
+}
+
+.continue{
+	background-color:#565B7F;
+	margin:auto;
+	padding:8px;
+	font-size:20px;
+	color:#EEEEFF;
+	text-align:center;
+	width:200px;
+	margin-top: 32px;
+	margin-bottom: 32px;
+	-webkit-transition: width 0.5s, font-size 0.5s, padding 0.5s; /* For Safari 3.1 to 6.0 */
+    transition: width 0.5s, font-size 0.5s, padding 0.5s;
+}
+
+.continue:hover{
+	padding:12px;
+	font-size:24px;
+	width:250px;
+}
+
+.chat-log{
+	border-top: 3px solid #303040;
+	border-bottom: 3px solid #303040;
+	padding:4px;
+}
+
+.chat-log-header{
+	font-family:Roboto Mono;
+	margin-bottom: 16px;
+}
+
+.text{
+width:100%;
+display: inline-block;
+font-family:Roboto;
+}
+
+.my-text{
+	background-color:#D3D3D9;
+	float:left;
+	margin-right:40%;
+	padding:8px;
+	border-radius:8px;
+	display: inline-block;
+	text-align: left;
+}
+
+.your-text{
+	background-color:#1188FE;
+	color:#EEEEFF;
+	text-align: right;
+	float:right;
+	margin-left:40%;
+	padding:8px;
+	border-radius:8px;
+	display: inline-block;
+}
+
+.you-text{
+	background-color:#2DC116;
+	color:#EEEEFF;
+	text-align: right;
+	float:right;
+	margin-left:40%;
+	padding:8px;
+	border-radius:8px;
+	display: inline-block;
+}
+
+
+h1{
+	font-size:48px;
+	text-align: center;
+}
+
+h2{
+	margin:0;
+	padding:0;
+	font-weight:normal;
+}
+
+.center-element{
+	margin:auto;
+	padding: 16px;
+	top:0%;
+	background-color:#EEEEFF;
+	width:80%; 
+}
