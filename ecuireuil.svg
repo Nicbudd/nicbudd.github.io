@@ -1,20 +1,5 @@
-	<!DOCTYPE html>
-	
-	<html>
-	
-	<head>
-	<link rel = "stylesheet" href = "https://nicbudd.github.io/birthdayBoiCSS.css"></link>
-	<script>
-	
-	var squirrelsLeft = 3;	
-	
-	</script>
-	</head>
-	
-	<body>
-	
-		<div class="squirrel" id="squirrel1" onclick="squirrelsLeft = squirrelsLeft - 1;document.getElementById('squirrel1').style.display='none'">
-	
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
    xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -71,35 +56,3 @@
        style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.59906411;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0" />
   </g>
 </svg>
-
-	
-	</div>
-	
-	
-	
-	
-	
-	<div class="center-element">
-	<h1>Chapter 5: Invasion</h1>
-	
-	
-	<div class="chat-log"><div class="chat-log-header"> <p>Date: April 12, 2018 19:21 UTC <br> Log Name: Battle Pt. 2</p></div>
-
-	<div class="text"><div class="my-text">Oh, wow. That's convenient</div></div>
-	<div class="text"><div class="my-text">Alright, now click on them to kill them!</div></div>
-	
-	</div>
-	
-	
-	</div>
-	
-	
-	
-	
-	
-
-
-
-	</body>
-	
-	</html>

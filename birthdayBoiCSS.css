@@ -164,3 +164,13 @@ h2{
 	background-color:#EEEEFF;
 	width:80%; 
 }
+
+
+
+.squirrel{
+	position:fixed;
+	top:0px;
+	left:0px;
+	width:150px;
+	height:150px;
+}
