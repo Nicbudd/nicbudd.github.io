@@ -168,9 +168,28 @@ h2{
 
 
 .squirrel{
-	position:fixed;
-	top:0px;
-	left:0px;
+		position:fixed;
 	width:150px;
 	height:150px;
+}
+
+#squirrel1{
+
+	top:76%;
+	left:23%;
+	
+}
+
+#squirrel2{
+
+	top:5%;
+	right:10%;
+	
+}
+
+#squirrel3{
+
+	top:5%;
+	right:10%;
+	
 }
