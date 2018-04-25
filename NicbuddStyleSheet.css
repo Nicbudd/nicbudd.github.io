@@ -468,6 +468,10 @@ ul.sidenav li a.mobileS{
         float: none;
 	}
 	
+	#noscript{
+		width:60%;
+	}
+	
 }
 
 
@@ -500,7 +504,7 @@ ul.sidenav li a.mobileS{
 		display: block;
 	}
 	body{
-		margin-top: 76px;
+		margin-top: 72px;
 		margin-right: 8px;
 	}
 	.tn-five-item li{
@@ -542,6 +546,11 @@ ul.sidenav li a.mobileL{
 ul.sidenav li a.mobileS{
 	display: none;	
 }
+
+#noscript{
+		width:100%;
+	}
+	
 	
 }
 
@@ -576,7 +585,7 @@ ul.sidenav li a.mobileS{
 		padding: 10px 12px;
 	}
 	body{
-		margin-top: 64px;
+		margin-top: 60px;
 	}
 	
 	/*sidenav*/
