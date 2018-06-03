@@ -13,6 +13,14 @@
 	<link rel="stylesheet" href="NicbuddStyleSheet.css">
 	<script src = "import.js" type = "text/javascript"></script>
 	<script src = "importTopNavCube.js" type = "text/javascript"></script>
+	<script src="roofpig_and_three.min.js"></script>
+	<meta charset="utf-8">
+	
+	<script>
+	ROOFPIG_CONF_N1 = "colors=F:#48AD73 B:#316FA6 U:#C6C6C6 D:#949494 R:#C14747 L:#B2825E"
+	ROOFPIG_CONF_N2 = "colors=F:#C14747 B:#B2825E U:#949494 D:#C6C6C6 R:#48AD73 L:#316FA6"
+	ROOFPIG_CONF_O2 = "colors=F:#C14747 B:#B2825E U:#7C56B5 D:#C6C6C6 R:#48AD73 L:#316FA6|colored=u|solved=U-"
+</script>
 	
 	<style>
 	
@@ -98,6 +106,40 @@ table{
 border-width: 0px;
 }
 	}
+	
+		.rp{
+	width: 200px;
+	height: 200px; 
+	border: 2px solid #303030; 
+	margin: 2px 2px 36px 2px;
+	}
+	
+	.roofpig-button {
+	border: 2px solid #303030;
+	box-shadow: none;
+	text-shadow: none;
+	border-radius: 0px;
+	}
+	
+	.roofpig.button:hover {
+	background-color: #C3C3C3;
+	}
+
+	.bluebox{
+	border: 4px solid #316fa6;
+	}
+	
+	.greenbox{
+	border: 4px solid #48ad73;
+	}
+	
+	.redbox{
+	border: 4px solid #c14747;
+	padding:8px;
+	}
+	
+	
+	
 	</style>
 	
 	
@@ -118,211 +160,48 @@ border-width: 0px;
 	
 	<p><a href="CubeSim.html">Check this out maybe?</a> Maybe not, I'm still working on it.<p>
 		<h3>WCA ID: <a href="https://www.worldcubeassociation.org/persons/2017ZERB01">2017ZERB01</a></h3>
+		<h3><a href="https://cubepb.com/user/196005">CubePB Page</a></h3>
 
 		
-		<hr>
-		
-		<h2>Milestones</h2>
-	
-	<h3>Last Update: May 16, 2018</h3>
-	
-	<table>
-	<thead>
-	<tr>
-	<th>Event</th>
-	<th>Main</th>
-	<th># of Solves</th>
-	<th>Best Single</th>
-	<th>Mean of 3</th>
-	<th>Average of 5</th>
-	<th>Average of 12</th>
-	<th>Average of 100</th>
-	<th>Average of 1000</th>
-	</tr>
-	</thead>
-	
-	<tr>
-	<td>2x2</td>
-	<td class="shrink">MoYu WeiPo 2x2</td>
-	<td>407</td>
-	<td>3.49</td>
-	<td>5.18</td>
-	<td>5.30</td>
-	<td>6.73</td>
-	<td>8.31</td>
-	<td>-</td>
-	</tr>
-	
-	<tr>
-	<td>3x3</td>
-	<td class="shrink">MoYu Weilong GTS2M / GANS Air SM</td>
-	<td>6074</td>
-	<td>12.11</td>
-	<td>15.77</td>
-	<td>16.34</td>
-	<td>18.30</td>
-	<td>20.51</td>
-	<td>21.47</td>
-	</tr>
-	
-	<tr>
-	<td>4x4</td>
-	<td class="shrink">MoYu AoSu GTS M / QiYi WuQue 4x4</td>
-	<td>178</td>
-	<td>1:18.15</td>
-	<td>1:26.74</td>
-	<td>1:28.57</td>
-	<td>1:33.74</td>
-	<td>1:40.41</td>
-	<td>-</td>
-	</tr>
-	
-	<tr>
-	<td>5x5</td>
-	<td class="shrink">YuXin Cloud 5x5</td>
-	<td>65</td>
-	<td><a href = "https://youtu.be/xfhq57ROFdI?t=29m57s">2:45.52</a></td>
-	<td>2:56.73</td>
-	<td>3:02.56</td>
-	<td>3:07.32</td>
-	<td>-</td>
-	<td>-</td>
-	</tr>
-	
-	<tr>
-	<td>6x6</td>
-	<td class="shrink">YuXin Red 6x6</td>
-	<td>20</td>
-	<td><a href = "https://youtu.be/UikNRZmOc9k?t=1h3m53s">5:30.52</a></td>
-	<td>5:37.85</td>
-	<td>5:56.09</td>
-	<td>6:31.20</td>
-	<td>-</td>
-	<td>-</td>
-	</tr>
-	
-	<tr>
-	<td>7x7</td>
-	<td class="shrink">QiYi WuJi 7x7</td>
-	<td>32</td>
-	<td>8:08.39</td>
-	<td>8:40.42</td>
-	<td>8:54.12</td>
-	<td>9:09.94</td>
-	<td>-</td>
-	<td>-</td>
-	</tr>
-	
-	<tr>
-	<td>8x8</td>
-	<td class="shrink">YuXin Huanglong 8x8</td>
-	<td>2</td>
-	<td>21:24.37</td>
-	<td>-</td>
-	<td>-</td>
-	<td>-</td>
-	<td>-</td>
-	<td>-</td>
-	</tr>
-	
-	<tr>
-	<td>9x9</td>
-	<td class="shrink">YuXin Huanglong 9x9</td>
-	<td>5</td>
-	<td><a href = "https://youtu.be/xfhq57ROFdI?t=1h1m25s">28:02.99</a></td>
-	<td>29:04.95</td>
-	<td>29:48.95</td>
-	<td>-</td>
-	<td>-</td>
-	<td>-</td>
-	</tr>
-	
-	<tr>
-	<td>3x3 OH<br>(One-Handed)</td>
-	<td class="shrink">Gans Air SM</td>
-	<td>114</td>
-	<td>29.14</td>
-	<td>42.82</td>
-	<td>43.25</td>
-	<td>49.21</td>
-	<td>1:01.25</td>
-	<td>-</td>
-	</tr>
-	
-	<tr>
-	<td>3x3 Feet</td>
-	<td class="shrink">Rubik's Brand Cube</td>
-	<td>4</td>
-	<td>7:08.72</td>
-	<td>8:40.57</td>
-	<td>-</td>
-	<td>-</td>
-	<td>-</td>
-	<td>-</td>
-	</tr>
-	
-	<tr>
-	<td>Roux</td>
-	<td class="shrink">See 3x3</td>
-	<td>52</td>
-	<td>30.87</td>
-	<td>41.49</td>
-	<td>42.77</td>
-	<td>46.91</td>
-	<td>-</td>
-	<td>-</td>
-	</tr>
-	
-	<tr>
-	<td>Videotaped</td>
-	<td class="shrink">See 3x3</td>
-	<td>27</td>
-	<td><a href = "https://youtu.be/0Uc8E58E4lc?t=6m48s">12.46</a></td>
-	<td>18.07</td>
-	<td>19.47</td>
-	<td>20.75</td>
-	<td>-</td>
-	<td>-</td>
-	</tr>
-	
-	<thead>
-	<tr>
-	<th>Event</th>
-	<th>Main</th>
-	<th># of Solves</th>
-	<th>Best Single</th>
-	<th>Mean of 3</th>
-	<th>Average of 5</th>
-	<th>Average of 12</th>
-	<th>Average of 100</th>
-	<th>Average of 1000</th>
-	</tr>
-	</thead>
-	
-	https://youtu.be/0Uc8E58E4lc?t=6m48s
-	<!--
-	<tr>
-	<th>Event</th>
-	<td>Main</td>
-	<td># of Solves</td>
-	<td>Best Single</td>
-	<td>Mean of 3</td>
-	<td>Average of 5</td>
-	<td>Average of 12</td>
-	<td>Average of 50</td>
-	<td>Average of 100</td>
-	<td>Average of 1000</td>
-	</tr>
-	-->
-	
-	
-	
-	</table>
 	
 	<!-- Link http://roudai.net/visualcube/visualcube.php?size=200&sch=C6C6C6,C14747,48AD73,B25EAE,B2825E,316FA6&cc=303030 -->
 	
 	
 	<hr>
+	
+	<h2>Reconstructions</h2>
+	
+	<h3>12.46 VPB Single</h3>
+	
+	<iframe  class="displayNonMobile" width="560" height="315" src="https://www.youtube.com/embed/0Uc8E58E4lc?start=407" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+	
+	<h3><a href="https://youtu.be/0Uc8E58E4lc?t=6m47s" class="displayMobile">Video</a></h3>
+	
+	<p class="sidenote">
+	Stats for nerds:<br>
+	12.46 Seconds, 45 STM, 3.61 TPS<br>
+	y x2 //inspection<br>
+	F2 L' R //xcross<br>
+	y' L' U' L y U' R U2 R' U2 R U' R' //pair2<br>
+	y2 U2 R U R' U2 R U' R' //pair3<br>
+	y' U R U R' U2 R U R' //pair4 <br>
+	U2 F R U R' U' F' //OLL (45, "T")<br>
+	U2 M2' U M' U2 M U M2' //PLL (Ua Perm)</p>
+	
+	<div class="roofpig rp" data-config="alg=y x2 F2 L' R y' L' U' L y U' R U2 R' U2 R U' R' y2 U2 R U R' U2 R U' R' y' U R U R' U2 R U R' U2 F R U R' U' F' U2 M2' U M' U2 M U M2' |base=N1"></div>
+
+	<p>So when I started the solve, I found a very easy XCross on white. Normally I don't make a XCrosses in solves, but this one was so obvious and easy to make that it would be stupid to not make it. After inspection, where I did <b>y x2</b>, all I had to do was 3 moves, <b>F2 L' R</b>.
+	</p><p>The first pair I saw was oddly the Orange-Blue pair.  I stupidly took the edge out by rotating <b>y'</b> and doing <b>L' U' L</b>. This was bad because I took it out unpaired, which meant I had to spend extra time pairing it up, with <b>y U' R U2 R'</b> before inserting it with <b>U2 R U' R'</b>.
+	</p><p>While I was inserting the Orange-Blue pair I noticed the Red-Green pair was paired up before I broke it up. Normally I am not good with lookahead, so this was convenient because I now knew where those were. Unfortunately I didn't do the easier Blue-Red pair because I was focused on the Red-Green pair.  I did <b>y2</b>, which is bad because I could've done it from the back, but right now I am terrible at doing pairs from the back, and then <b>U2 R U R'</b> to pair them up, and <b> U2 R U' R'</b> to insert it.
+	</p><p>The last pair was pretty standard for me. I rotated to face the slot with <b>y'</b>, moved the corner out of the way with <b>U</b> and took the edge out with <b>R U R'</b>, which paired the pieces up. I then did <b>U2 R U R'</b> to insert it.
+	</p><p>OLL was pretty easy, and it was a case I already know very well.  This is the point in the video that I sit up and realize that I'm gonna get an amazing time.
+	</p><p>PLL was a U-Perm, which is where I kinda messed up. I used to use the <R, U> alg, but I had just started to retrain myself to do the <M, U> version.  I didn't have very good finger tricks for it at the time, and I was nervous seeing that the time was at under 10 seconds and I just had to do U Perm. Maybe if I had done it faster I would've gotten a sub-12 time, and that would be my overall PB. Whatever the case I still got an amazing time and I'm proud of it.
+	</p>
+
+	
+	
+	
+	
 	
 </body>
 	
