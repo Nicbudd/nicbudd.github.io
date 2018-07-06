@@ -420,7 +420,7 @@ ul.sidenav li a.mobileS{
 	position: relative;
 	border: solid #303030 4px;
 	padding: 8px;
-	padding-top: 40px;
+	padding-top: 44px;
 	
 	}
 
@@ -592,6 +592,10 @@ ul.sidenav li a.mobileS{
 }
 	
 	/*blog*/
+	
+	.blogPost{
+		padding-top:80px;
+	}
 	
 		div.blogPost ul.title li h2{
 		text-align: center;
