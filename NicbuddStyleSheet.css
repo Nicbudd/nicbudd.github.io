@@ -559,7 +559,7 @@ ul.sidenav li a.mobileS{
 		display:none;
 		
 	}
-	.displayNotMobileS{
+	.displayNonMobileS{
 		display:none;
 	}
 }
@@ -687,7 +687,7 @@ ul.sidenav li{
 	width:20%;
 }
 body{
-	margin-bottom:72px;
+	margin-bottom:80px;
 }
 
 	/*screen size indicator*/
@@ -762,7 +762,7 @@ ul.sidenav li a.mobileS{
 		padding: 10px 12px;
 	}
 	body{
-	margin-bottom:56px;
+	margin-bottom:64px;
 }
 	
 	/*screen size indicator*/
