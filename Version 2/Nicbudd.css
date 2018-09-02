@@ -1,0 +1,156 @@
+/*Colors
+#316FA6 - Blue
+#48AD73 - Green 1
+#3BA769 - Green 2
+#C14747 - Red
+#303030 - Black
+#E6E6E6 - Lighter Gray
+#C3C3C3 - Light Gray
+#949494 - Gray
+#6DB88D - Old Green
+*/
+
+
+/*Universals*/
+
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900');
+
+body{
+	background-color: #949494;
+	color: #303030;
+	text-align:center;
+	font-family: Noto Sans, sans-serif;
+	margin:0;
+}
+
+h1{
+	font-family: Lato, sans-serif;
+	margin:0;
+	padding-top: 0.67em;
+    padding-bottom: 0.67em;
+}
+
+p{
+	margin:0;
+	padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+
+/*Color Blocks*/
+
+.lightergrayblock{
+	
+	width:75%;
+	background-color:#E6E6E6;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.greenblock{
+	
+	width:75%;
+	background-color:#48AD73;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.backblock{
+	
+	position:fixed;
+	left:12.5%;
+	width:75%;
+	height:100%;
+	top:0;
+	z-index:-1;
+	background-color:#E6E6E6;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+
+
+
+
+
+
+/*Navbar*/
+
+
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #303030;
+}
+
+
+
+.navbar li {
+    float: left;
+}
+
+.navbar li a, .dropbtn {
+    display: inline-block;
+    color: #E6E6E6;
+    text-align: center;
+    padding: 10px 12px;
+    text-decoration: none;
+}
+
+.dropbtn{
+	position: relative;
+	
+}
+
+.navbar li a:hover, .dropdown:hover .dropbtn {
+    background-color: #316FA6;
+}
+
+li.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #C3C3C3;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    padding: 10px 12px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+	
+}
+
+.navbar li .dropdown-content a {
+	color: #303030;
+}
+
+.navbar li .dropdown-content a:hover {
+	background-color: #C14747;
+	color: #E6E6E6;
+	}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
