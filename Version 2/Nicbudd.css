@@ -1,13 +1,40 @@
 /*Colors
 #316FA6 - Blue
+White Text - Legible
+Black Text - Only Large
+
 #48AD73 - Green 1
+White Text - Not Legible
+Black Text - Legible
+
 #3BA769 - Green 2
+White Text - Not Legible
+Black Text - Legible
+
 #C14747 - Red
+White Text - Legible
+Black Text - Only Large
+
 #303030 - Black
+White Text - Legible
+Black Text - Not Legible
+
 #E6E6E6 - Lighter Gray
+White Text - Not Legible
+Black Text - Legible
+
 #C3C3C3 - Light Gray
+White Text - Not Legible
+Black Text - Legible
+
 #949494 - Gray
+White Text - Not Legible
+Black Text - Legible
+
 #6DB88D - Old Green
+White Text - Not Legible
+Black Text - Legible
+
 */
 
 
@@ -17,8 +44,16 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans:100,200,300,400,500,600,700,800,900');
 @import url('https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900');
 
+:root {
+	
+	--margin-border-color: #e6e6e6;
+	--margin-border-width: 0px;
+	
+	
+}
+
 body{
-	background-color: #949494;
+	background-color: #C3C3C3;
 	color: #303030;
 	text-align:center;
 	font-family: Noto Sans, sans-serif;
@@ -30,6 +65,29 @@ h1{
 	margin:0;
 	padding-top: 0.67em;
     padding-bottom: 0.67em;
+	font-size:3em;
+	text-transform:uppercase;
+	font-weight:800;
+}
+
+h2{
+	font-family: Lato, sans-serif;
+	margin:0;
+	padding-top: 0.83em;
+    padding-bottom: 0.83em;
+	font-size:2em;
+	text-transform:uppercase;
+	font-weight:600;
+}
+
+h3{
+	font-family: Lato, sans-serif;
+	margin:0;
+	padding-top: 1em;
+    padding-bottom: 1em;
+	font-size:1.5em;
+	text-transform:uppercase;
+	font-weight:800;
 }
 
 p{
@@ -49,29 +107,106 @@ p{
 
 .lightergrayblock{
 	
-	width:75%;
+	width:90%;
 	background-color:#E6E6E6;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top: 0;
 	margin-bottom: 0;
+	border-left:var(--margin-border-width) solid var(--margin-border-color);
+	border-right:var(--margin-border-width) solid var(--margin-border-color);
+	padding:8px;
 }
 
-.greenblock{
-	
-	width:75%;
-	background-color:#48AD73;
+.grayblock{
+	/*Please don't use this*/
+	width:90%;
+	background-color:#949494;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top: 0;
 	margin-bottom: 0;
+	border-left:var(--margin-border-width) solid var(--margin-border-color);
+	border-right:var(--margin-border-width) solid var(--margin-border-color);
+	padding:8px;
 }
+
+.lightgrayblock{
+	
+	width:90%;
+	background-color:#C3C3C3;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 0;
+	margin-bottom: 0;
+	border-left:var(--margin-border-width) solid var(--margin-border-color);
+	border-right:var(--margin-border-width) solid var(--margin-border-color);
+	padding:8px;
+}
+
+.greenblock{
+	
+	width:90%;
+	background-color:#3BA769;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 0;
+	margin-bottom: 0;
+	border-left:var(--margin-border-width) solid var(--margin-border-color);
+	border-right:var(--margin-border-width) solid var(--margin-border-color);
+	padding:8px;
+}
+
+.blueblock{
+	
+	width:90%;
+	background-color:#316FA6;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 0;
+	margin-bottom: 0;
+	color:#E6E6E6;
+	border-left:var(--margin-border-width) solid var(--margin-border-color);
+	border-right:var(--margin-border-width) solid var(--margin-border-color);
+	padding:8px;
+}
+
+.redblock{
+	
+	width:90%;
+	background-color:#C14747;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 0;
+	margin-bottom: 0;
+	color:#E6E6E6;
+	border-left:var(--margin-border-width) solid var(--margin-border-color);
+	border-right:var(--margin-border-width) solid var(--margin-border-color);
+	padding:8px;
+}
+
+.blackblock{
+	
+	width:90%;
+	background-color:#303030;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 0;
+	margin-bottom: 0;
+	color:#E6E6E6;
+	border-left:var(--margin-border-width) solid var(--margin-border-color);
+	border-right:var(--margin-border-width) solid var(--margin-border-color);
+	padding:8px;
+}
+
+
+
 
 .backblock{
 	
 	position:fixed;
-	left:12.5%;
-	width:75%;
+	left:5%;
+	width:90%;
 	height:100%;
 	top:0;
 	z-index:-1;
@@ -80,6 +215,8 @@ p{
 	margin-right:auto;
 	margin-top: 0;
 	margin-bottom: 0;
+	border-left:var(--margin-border-width) solid var(--margin-border-color);
+	border-right:var(--margin-border-width) solid var(--margin-border-color);
 }
 
 
@@ -88,7 +225,7 @@ p{
 
 
 
-/*Navbar*/
+/*navbar*/
 
 
 .navbar {
