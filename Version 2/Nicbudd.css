@@ -105,6 +105,11 @@ p{
     box-sizing: border-box;
 }
 
+hr{
+	border-style: solid;
+	color: #949494;
+}
+
 
 
 
@@ -224,7 +229,20 @@ p{
 	border-right:var(--margin-border-width) solid var(--margin-border-color);
 }
 
-
+.bottomblock{
+	
+	width:90%;
+	background-color:#C3C3C3;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 0;
+	margin-bottom: 0;
+	border-left:var(--margin-border-width) solid var(--margin-border-color);
+	border-right:var(--margin-border-width) solid var(--margin-border-color);
+	padding-top:20px;
+	padding-bottom:20px;
+	color:#949494;
+}
 
 
 
@@ -239,6 +257,8 @@ p{
     padding: 0;
     overflow: hidden;
     background-color: #303030;
+	font-size: 1em;
+	font-weight: 600;
 }
 
 
@@ -305,36 +325,24 @@ li.dropdown {
 
 /*custom classes*/
 
-#backtotopbutton{
-	position:fixed;
-	width:50px;
-	height:50px;
+#backtotopbutton a{
+		position:fixed;
+	padding:20px;
 	bottom: 5px;
 	right: 5px;
 	background-color:#303030;
+	border: 2px solid #C3C3C3;
 	border-radius: 16px;
-	-webkit-transition: width 0.5s, height 0.5s, background-color 0.5s;
-	transition: width 0.5s, height 0.5s, background-color 0.5s;
-	font-size:0em;
-}
-
-#backtotopbutton a{
-	
-	color:#303030;
-	-webkit-transition:color 0.5s;
-	transition:color 0.5s;
-	
-}
-
-#backtotopbutton:hover{
-	background-color:#316fa6;
-	height:80px;
-	width:100px;
-	font-size: 1em;
+	-webkit-transition: width 0.5s, height 0.5s, background-color 0.5s, font-size 0.5s, padding 0.5s;
+	transition: width 0.5s, height 0.5s, background-color 0.5s, font-size 0.5s, padding 0.5s;
+	color:#E6E6E6;
+	display:block;
+	font-size:1em;
 }
 
 #backtotopbutton:hover a{
-	
-	color:#E6E6E6;
-	
+	padding:30px;
+		font-size: 1.5em;
+		background-color:#316fa6;
 }
+
