@@ -149,6 +149,11 @@ hr{
 	color: #949494;
 }
 
+img{
+	max-width: 100%;
+    height: auto;
+}
+
 
 
 
@@ -257,28 +262,9 @@ hr{
 	
 	--center-content-width: 100%;
 	--center-content-width-inv: 0%;
-	--half-center-content-width-inv: 0%;
 	
 }
 	
-}
-
-
-.backblock{
-	
-	position:fixed;
-	left:var(--half-center-content-width-inv);
-	width:var(--center-content-width);
-	height:100%;
-	top:0;
-	z-index:-1;
-	background-color:#E6E6E6;
-	margin-left:auto;
-	margin-right:auto;
-	margin-top: 0;
-	margin-bottom: 0;
-	border-left:var(--margin-border-width) solid var(--margin-border-color);
-	border-right:var(--margin-border-width) solid var(--margin-border-color);
 }
 
 .bottomblock{
@@ -446,3 +432,43 @@ li.dropdown {
 
 
 
+.listbar {
+	display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.listbar > div a{
+display:block;
+text-decoration: none;
+    text-align: center;
+}
+
+
+/*
+Add these lines to your html style page:
+
+#(nameoflistbar).listbar{
+	
+	 background-color: ;
+	
+}
+
+#(nameoflistbar).listbar > div{
+	
+	  line-height: ;
+
+	
+}
+
+#(nameoflistbar).listbar > div a{
+	
+	margin: ;
+  font-size: ;
+	background-color: ;
+	color: ;
+}
+
+
+
+*/
