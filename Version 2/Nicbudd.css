@@ -1,4 +1,6 @@
-/*Colors
+/*
+
+Colors
 #316FA6 - Blue
 White Text - Legible
 Black Text - Only Large
@@ -35,6 +37,15 @@ Black Text - Legible
 White Text - Not Legible
 Black Text - Legible
 
+
+
+Breaks:
+
+Desktop: 768px+
+Tablet: 600px-768px
+MobileL: 400px-600px
+MobileS: 300px-400px
+
 */
 
 
@@ -48,9 +59,12 @@ Black Text - Legible
 	
 	--margin-border-color: #e6e6e6;
 	--margin-border-width: 0px;
-	
+	--center-content-width: 90%;
+	--center-content-width-inv: 10%;
+	--half-center-content-width-inv: 5%;
 	
 }
+
 
 a{
 	color:#316FA6;
@@ -101,11 +115,36 @@ p{
     padding-bottom: 1em;
 }
 
+@media screen and (max-width: 600px){
+	
+	h1{
+		font-size: 2.25em;
+	}
+	
+	h2{
+		font-size: 1.5em;
+	}
+	
+	h3{
+		font-size: 1.125em;
+	}
+
+}
+
+@media screen and (max-width: 400px){
+	
+	p{
+		font-size: 0.85em;
+	}
+}
+
+
 * {
     box-sizing: border-box;
 }
 
 hr{
+	border-width:1px;
 	border-style: solid;
 	color: #949494;
 }
@@ -115,9 +154,11 @@ hr{
 
 /*Color Blocks*/
 
+
+
 .lightergrayblock{
 	
-	width:90%;
+	width:var(--center-content-width);
 	background-color:#E6E6E6;
 	margin-left:auto;
 	margin-right:auto;
@@ -130,7 +171,7 @@ hr{
 
 .grayblock{
 	/*Please don't use this*/
-	width:90%;
+	width:var(--center-content-width);
 	background-color:#949494;
 	margin-left:auto;
 	margin-right:auto;
@@ -143,7 +184,7 @@ hr{
 
 .lightgrayblock{
 	
-	width:90%;
+	width:var(--center-content-width);
 	background-color:#C3C3C3;
 	margin-left:auto;
 	margin-right:auto;
@@ -156,7 +197,7 @@ hr{
 
 .greenblock{
 	
-	width:90%;
+	width:var(--center-content-width);
 	background-color:#3BA769;
 	margin-left:auto;
 	margin-right:auto;
@@ -169,7 +210,7 @@ hr{
 
 .blueblock{
 	
-	width:90%;
+	width:var(--center-content-width);
 	background-color:#316FA6;
 	margin-left:auto;
 	margin-right:auto;
@@ -183,7 +224,7 @@ hr{
 
 .redblock{
 	
-	width:90%;
+	width:var(--center-content-width);
 	background-color:#C14747;
 	margin-left:auto;
 	margin-right:auto;
@@ -197,7 +238,7 @@ hr{
 
 .blackblock{
 	
-	width:90%;
+	width:var(--center-content-width);
 	background-color:#303030;
 	margin-left:auto;
 	margin-right:auto;
@@ -210,13 +251,24 @@ hr{
 }
 
 
+@media screen and (max-width:768px){
+	
+	:root {
+	
+	--center-content-width: 100%;
+	--center-content-width-inv: 0%;
+	--half-center-content-width-inv: 0%;
+	
+}
+	
+}
 
 
 .backblock{
 	
 	position:fixed;
-	left:5%;
-	width:90%;
+	left:var(--half-center-content-width-inv);
+	width:var(--center-content-width);
 	height:100%;
 	top:0;
 	z-index:-1;
@@ -231,7 +283,7 @@ hr{
 
 .bottomblock{
 	
-	width:90%;
+	width:var(--center-content-width);
 	background-color:#C3C3C3;
 	margin-left:auto;
 	margin-right:auto;
@@ -241,10 +293,19 @@ hr{
 	border-right:var(--margin-border-width) solid var(--margin-border-color);
 	padding-top:20px;
 	padding-bottom:20px;
+	
 	color:#949494;
 }
 
+@media screen and (max-width:768px){
+	
+.bottomblock p{
+	padding: 8px;
+	padding-left: 78px;
+	padding-right: 78px;
+}
 
+}
 
 
 
@@ -259,21 +320,28 @@ hr{
     background-color: #303030;
 	font-size: 1em;
 	font-weight:400;
+	width:100%;
 }
 
 
 
 .navbar li {
     float: left;
+
+}
+
+.navbar-icons li{
+		width:16.66%;
 }
 
 .navbar li a, .dropbtn {
-    display: inline-block;
+    display: block;
     color: #E6E6E6;
     text-align: center;
     padding: 10px 12px;
     text-decoration: none;
 }
+
 
 .dropbtn{
 	position: relative;
@@ -282,7 +350,12 @@ hr{
 
 .navbar li a:hover, .dropdown:hover .dropbtn {
     background-color: #316FA6;
+	
 }
+
+.navbar-icons li.dropdown{
+		width:16.66%;
+} 
 
 li.dropdown {
     display: inline-block;
@@ -292,8 +365,16 @@ li.dropdown {
     display: none;
     position: absolute;
     background-color: #C3C3C3;
-    min-width: 160px;
     z-index: 1;
+
+}
+
+.navbar-words .dropdown-content {
+	min-width:160px;
+}
+
+.navbar-icons .dropdown-content {
+	width:16.66%;
 }
 
 .dropdown-content a {
@@ -317,7 +398,24 @@ li.dropdown {
     display: block;
 }
 
+.navbar-icons{
+	display: none;
+}
 
+@media screen and (max-width:600px){
+	.navbar-icons{
+		display: block;
+	}
+	.navbar-words{
+		display:none;
+	}
+}
+
+@media screen and (max-width:400px){
+	.navbar-icons{
+		font-size:0.75em;
+	}
+}
 
 
 
@@ -327,7 +425,7 @@ li.dropdown {
 
 #backtotopbutton a{
 		position:fixed;
-	padding:20px;
+	padding:16px;
 	bottom: 5px;
 	right: 5px;
 	background-color:#303030;
@@ -341,8 +439,10 @@ li.dropdown {
 }
 
 #backtotopbutton:hover a{
-	padding:30px;
+	padding:24px;
 		font-size: 1.5em;
 		background-color:#316fa6;
 }
+
+
 
