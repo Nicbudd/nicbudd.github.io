@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>
+
+	Weather Homepage
+
+	</title>
+
+	<script src = "https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<link rel="stylesheet" href="NicbuddStyleSheet.css">
+	<script src = "import.js" type = "text/javascript"></script>
+	<script src = "importTopNavWeather.js" type = "text/javascript"></script>
+	
+<style>
+	
+	#weather {
+	background-color:#c14747
+	}
+
+
+		#Level-E {color:#B25EAE; font-size:2em; font-weight: bold; text-align: center; margin:0.25em;}
+		#Level-D {color:#C14747; font-size:2em; font-weight: bold; text-align: center; margin:0.25em;}
+		#Level-C {color:#B2825E; font-size:2em; font-weight: bold; text-align: center; margin:0.25em;}
+		#Level-B {color:#48AD73; font-size:2em; font-weight: bold; text-align: center; margin:0.25em;}
+		#Level-A {color:#316FA6; font-size:2em; font-weight: bold; text-align: center; margin:0.25em;}
+
+li{
+overflow: ellipses;
+}
+		
+
+div.block{
+float: left;
+border-style: solid;
+border-color: #303030;
+border-width:  5px;
+border-radius: 5px;
+text-align: center;
+margin: 1em;
+display: block;
+padding: 0;
+position: relative;
+}
+
+div.blockParty:after{
+	content: "";
+    display: table;
+    clear: both;
+	}
+	
+	.blockTitle{
+	margin:4px 0;
+	font-size: 20px;
+	font-weight:bold;
+	}
+
+	.column {
+    float: left;
+    width: 120px;
+    padding: 1em;
+	text-align: center;
+	padding: 0;
+}
+
+
+	.column ul{
+ list-style-type: none;
+ padding: 0;
+}
+
+	.row:after {
+    content: "";
+    display: table;
+    clear: both;
+	}
+	
+	img{
+	margin: 0;
+	}
+	
+
+	
+</style>
+
+</head>
+
+<body>
+  
+  
+	<h1>
+		
+	Weather Monitoring Homepage
+		
+	</h1>
+  
+  
+   <!-- <div class="blockParty">
+  
+  
+<div class="block">
+  <p class="blockTitle">28W Visible Imagery</p>
+  <img src="http://www.ssd.noaa.gov/PS/TROP/floaters/28W/imagery/vis-animated.gif" width="600px" height="400px">
+  </div>
+  
+  
+  
+  
+  
+  
+  <!--Warnings--><!--
+  
+  
+  
+  
+  
+  <div class="block" style="width:610px">
+  <a href="NWO.html"><div class="blockTitle" style="margin-left:0.5em;color:#303030;text-align:left;">NWO Warnings</div></a>
+  <div class="blockTitle" style="right:0;top:0;position:absolute;"> Update: Sept. 6 2017, 15:29 UTC</div>
+  
+  
+  
+  	<div class="row">
+	
+	
+<div class="column">
+<p id="Level-E"> E0</p>
+	<ul>
+	</ul>
+		</div>
+		
+		
+	<div class="column">
+<p id="Level-D"> D0</p>
+<ul>
+</ul>
+		</div>
+		
+		
+		
+	<div class="column">
+<p id="Level-C"> C0 </p>
+<ul>
+
+</ul>
+		</div>
+		
+		
+		
+	<div class="column">
+<p id="Level-B"> B0 </p>	
+	<ul>
+	</ul>
+		
+		</div>
+		
+		
+		
+	<div class="column">
+<p id="Level-A"> A0 </p>
+<ul>
+</ul>
+		</div>
+		
+		
+		
+		</div>
+		
+		
+		
+		
+		<p class="notification" style="margin: 0;"> Please note that the warnings put out by the NWO do not reflect the thoughts and opinions expressed by the NHC, please consult them before making decisions related to tropical weather. </p>
+  </div>
+  
+  
+  
+  <!-- /Warnings--> <!--
+  
+  
+  
+  
+  
+  
+
+  
+  <div class="block">
+  <p class="blockTitle">Active Storms</p>
+  <table style="width:100%">
+  
+  <tr>
+  <th>West Pacific</th>
+  </tr>
+  
+  <tr>
+  <td>25W - Typhoon Damrey</td>
+  </tr>
+ 
+  
+  </table>
+  </div>
+    
+ 
+         <div class="block">
+  <p class="blockTitle">East Pacific Tropical Cyclone Activity</p>
+  <img src="http://www.nhc.noaa.gov/xgtwo/two_pac_0d0.png" width="400" height="250"  >
+  </div>
+  
+
+
+       <div class="block">
+  <p class="blockTitle">Atlantic Tropical Cyclone Activity</p>
+  <img src="http://www.nhc.noaa.gov/xgtwo/two_atl_0d0.png" width="400" height="250"  >
+  </div>
+  
+ 
+  
+  <div class="block" style="display:none;">
+  <p class="blockTitle">Atlantic Sea Surface Temperatures (SST)</p>
+  <img src="http://www.ospo.noaa.gov/data/sst/contour/usatlant.cf.gif" width="400" height="600"  >
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  </div> 
+  
+  <hr> -->
+  
+	<!-- Body goes here %%% -->
+	<h2>Satellite & Radar</h2>
+	<ul>
+		<li><a href="http://www.nhc.noaa.gov/satellite.php">(NHC/NOAA) Satellite Imagery</a></li>
+		<li><a href="http://weather.cod.edu/satrad/exper/">(College of DuPage) GOES 16 Imagery</a></li>
+		<li><a href="http://rammb.cira.colostate.edu/ramsdis/online/goes-16.asp">(RAMMB@ColoState) GOES 16 Imagery</a></li>
+		<li><a href="http://rammb.cira.colostate.edu/ramsdis/online/goes-west_goes-east.asp">(RAMMB@ColoState) GOES West / GOES EAST Imagery</a></li>
+		<li><a href="http://rammb.cira.colostate.edu/ramsdis/online/tropical.asp">(RAMMB@ColoState) Tropical Imagery</a></li>
+		<li><a href="http://rammb-slider.cira.colostate.edu">(RAMMB@ColoState) SLIDER</a></li>
+		<li><a href="https://weather.msfc.nasa.gov/GOES/">(MSFC/NASA) Customizable Images from NASA</a></li>
+		<li><a href="https://radar.weather.gov">(NWS/NOAA) Radar Imagery</a></li>
+		<li><a href="https://www.wunderground.com/weather-radar">(Wunderground) Radar Imagery</a></li>
+	</ul>
+	
+	<h2>Other Links</h2>
+	<ul>
+		<li><a href="https://nhc.noaa.gov">National Hurricane Center</a></li>
+		<li><a href="https://www.tropicaltidbits.com">Tropical Tidbits</a></li>
+		<li><a href="https://www.tropicaltidbits.com">Tropical Tidbits</a></li>
+		<li><a href="https://www.tropicaltidbits.com">Tropical Tidbits</a></li>
+		<li><a href="https://www.tropicaltidbits.com">Tropical Tidbits</a></li>
+	</ul>
+	
+	<h2>Old Links</h2>
+	<ul>
+	
+	<li><a href="http://www.intellicast.com/Storm/Hurricane/AtlanticAnalysis.aspx">http://www.intellicast.com/Storm/Hurricane/AtlanticAnalysis.aspx</a></li>
+	<li><a href="http://www.force-13.com/">http://www.force-13.com/</a></li>
+	<li><a href="http://www.force-13.com/links.html">http://www.force-13.com/links.html</a></li>
+	<li><a href="https://www.tropicaltidbits.com">Tropical Tidbits</a></li>
+	<li><a href="http://www.nhc.noaa.gov/">http://www.nhc.noaa.gov/</a></li>
+	<li><a href="http://www.ospo.noaa.gov/Products/ocean/sst/contour/index.html">http://www.ospo.noaa.gov/Products/ocean/sst/contour/index.html</a></li>
+	<li><a href="http://mag.ncep.noaa.gov/">http://mag.ncep.noaa.gov/</a></li>
+	<li><a href="http://www.nrlmry.navy.mil/">http://www.nrlmry.navy.mil/</a></li>
+	<li><a href="http://earth.nullschool.net/">http://earth.nullschool.net/</a></li>
+	<li><a href="http://moe.met.fsu.edu/tcgengifs/">http://moe.met.fsu.edu/tcgengifs/</a></li>
+	<li><a href="http://tropic.ssec.wisc.edu/#">http://wms.ssec.wisc.edu/</a></li>
+	<li><a href="http://wms.ssec.wisc.edu/">http://wms.ssec.wisc.edu/</a></li>
+	<li><a href="http://www.meteoearth.com/">http://www.meteoearth.com/</a></li>
+	<li><a href="http://spaghettimodels.com/">http://spaghettimodels.com/</a></li>
+	<li><a href="http://www.cyclocane.com/">http://www.cyclocane.com/</a></li>
+	<li><a href="http://derecho.math.uwm.edu/">http://derecho.math.uwm.edu/</a></li>
+	<li><a href="http://moe.met.fsu.edu/~rhart/web.php">http://moe.met.fsu.edu/~rhart/web.php</a></li>
+	<li><a href="http://himawari8.nict.go.jp/">http://himawari8.nict.go.jp/</a></li>
+	<li><a href="http://199.9.2.143/tcdat/sectors/atcf_sector_file">http://199.9.2.143/tcdat/sectors/atcf_sector_file</a></li>
+	<li><a href="http://rammb.cira.colostate.edu/products/tc_realtime/season.asp?storm_season=2015">http://rammb.cira.colostate.edu/products/tc_realtime/season.asp?storm_season=2015</a></li>
+	<li><a href="http://www.usno.navy.mil/JTWC/">Tropical Tidbits</a></li>
+	<li><a href="https://www.tropicaltidbits.com">Tropical Tidbits</a></li>
+	<li><a href="https://www.tropicaltidbits.com">Tropical Tidbits</a></li>
+	<li><a href="https://www.tropicaltidbits.com">Tropical Tidbits</a></li>
+	<li><a href="https://www.tropicaltidbits.com">Tropical Tidbits</a></li>
+	<li><a href="https://www.tropicaltidbits.com">Tropical Tidbits</a></li>
+	<li><a href="https://www.tropicaltidbits.com">Tropical Tidbits</a></li>
+	
+
+	<!-- http://www.intellicast.com/Storm/Hurricane/AtlanticAnalysis.aspx
+
+http://www.force-13.com/
+
+http://www.force-13.com/links.html
+
+http://www.tropicaltidbits.com/
+
+http://www.nhc.noaa.gov/
+
+http://www.ospo.noaa.gov/Products/ocean/sst/contour/index.html
+
+http://mag.ncep.noaa.gov/
+
+http://www.nrlmry.navy.mil/
+
+http://earth.nullschool.net/
+
+http://moe.met.fsu.edu/tcgengifs/
+
+http://tropic.ssec.wisc.edu/#
+
+http://wms.ssec.wisc.edu/
+
+http://www.meteoearth.com/
+
+http://spaghettimodels.com/
+
+http://www.cyclocane.com/
+
+http://derecho.math.uwm.edu/
+
+http://moe.met.fsu.edu/~rhart/web.php
+
+http://moe.met.fsu.edu/cyclonephase/
+
+http://himawari8.nict.go.jp/
+
+http://199.9.2.143/tcdat/sectors/atcf_sector_file
+
+http://rammb.cira.colostate.edu/products/tc_realtime/season.asp?storm_season=2015
+
+http://www.usno.navy.mil/JTWC/
+
+http://www.jma.go.jp/en/typh/
+
+http://www.cma.gov.cn/en2014/weather/Warnings/
+
+http://www.accuweather.com/en/weather-blogs/weathermatrix
+
+http://www.cpc.ncep.noaa.gov/products/precip/CWlink/pna/pna.shtml
+
+http://www.cpc.ncep.noaa.gov/products/precip/CWlink/daily_ao_index/ao.shtml
+
+http://www.cpc.ncep.noaa.gov/products/precip/CWlink/pna/nao.shtml
+
+http://www.cpc.ncep.noaa.gov/products/precip/CWlink/MJO/enso.shtml
+
+https://climate.ncsu.edu/climate/patterns/ENSO.html -->
+
+	</ul>
+	
+</body>
+	
+</html>

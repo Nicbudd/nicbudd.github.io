@@ -3,26 +3,99 @@
 <html>
 
 <head>
+	<title>
 
-<script src = "https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<link rel="stylesheet" href="Nicbudd.css">
-<script src = "import.js" type = "text/javascript"></script>
+	Blog
 
-<title>Blog</title>
+	</title>
+	<script src = "https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<link rel="stylesheet" href="NicbuddStyleSheet.css">
+	<script src = "import.js" type = "text/javascript"></script>
+	<script src = "importTopNavIndex.js" type = "text/javascript"></script>
+	
+	<style>
+	
+	#blog {
+	background-color:#c14747
+	}
+	
+	div.blogPost{
+	/*background-color: #48AD73;*/
+	display: block;
+	margin: 16px 0px 16px 0px;
+	position: relative;
+	border: solid #303030 4px;
+	}
+	
+	div.blogPost p{
+	padding: 0.5em;
+	margin: 0;
+	}
+	
+div.blogPost ul.title{
+	list-style-type: none;
+    margin: 0;
+	padding:0;
+	background-color:#316fa6;
+	top:0;
+	left:0;
+	width:100%
+	display: block;
+	overflow: hidden;
+}
+
+div.blogPost ul.title li h2{
+margin: 0;
+padding:4px 8px;
+float:left;
+font-size:24px;
+display: block;
+color: #C3C3C3;
+}
+
+div.blogPost ul.title li h6{
+margin: 0;
+padding:4px 8px;
+float:right;
+font-size:24px;
+display: block;
+background-color: #C14747;
+color: #C3C3C3;
+}
+
+	
+	@media screen and (max-width: 768px){
+	div.blogPost ul.title li h2{
+		text-align: center;
+        float: none;
+	}
+	div.blogPost ul.title li h6{
+		text-align: center;
+        float: none;
+	}
+	}
+	</style>
+
 </head>
 
+
+
 <body>
-<noscript><div id="noscript"><h2>Uh-oh!</h2><p>It appears that javascript is not working here, for whatever reason.</p><p>Sadly, this site doesn't work without javascript. You might be able to see it looks a bit... broken.</p><p>Please enable javascript or switch to a browser that is compatible with javascript if you want to continue browsing this website.</p><p>If you don't want to, that's ok too. I'll just be sad that you cant see my website.</p><h2>;(</h2></div></noscript>
 
-
-
-<div class="lightergrayblock"><h1>Blog</h1>
-
-
-
-</div><div class="redblock"><h2>The incredible story of my own mother</h2>
-<h4>February 28th, 2018</h4>
-<p>Today is Rare Disease Day (February 28th), and I would like to talk about what life is like living with someone with Ehlers-Danlos Syndrome.
+	<div class="bigblacktitle"> 
+<h1>
+	Blog
+	</h1>
+	</div>
+	
+		<div class="blogPost">
+	<ul class="title">
+		<li><h2>The incredible story of my own mother.</h2></li>
+		<li><h6>February 28, 2018</h6></li>
+	</ul>
+	
+	
+	<p>Today is Rare Disease Day (February 28th), and I would like to talk about what life is like living with someone with Ehlers-Danlos Syndrome.
 
 	</p><p>For those who don't know, Ehlers-Danlos Syndrome (EDS) is a genetic disease that affects connective tissue all across the body. It is caused by a mutation to DNA that inhibits production of certain types of Collagen, which is a molecule that is crucial to the structure of your body and an integral part of the cellular structure of your body.
 
@@ -35,12 +108,15 @@
 </p><p>And despite all of this, she is the most powerful woman that I know. She fought back this, her rough childhood, having to raise a baby and work a job at 17, and she built her life from the ground up. She is confident, she is smart, she commands people, she brings attention, she brings power, and she set aside her hardships and used her greatest strengths and abilities to work her way up in her job and position, and to gain wealth for us, to get out of the poverty her parents lived in to take me and my brother to a better neighborhood, in an bigger house, and to give us the ability to go to whatever college we choose.
 
 </p><p>Her story is why I want to be like her. I talk to her occasionally, not often enough, so that I can see how she does it. I want to be like her. Even though this EDS barrier holds her back, she still gets up every day and trys to be the best person she can. Hell, if I was in her shoes, I wouldn't be able to handle it and give up. She is the only person I know who could handle such a horrible condition and still be as good as she is.
-		</p>
+		</p></div>
+	
+	
+	<div class="blogPost">
+	<ul class="title">
+		<li><h2> Words do not describe it. </h2></li>
+		<li><h6>August 22, 2017</h6></li>
+	</ul>
 		
-		
-
-</div><div class="blackblock"><h2>Words do not describe it</h2>
-
 <p>I woke up Sunday, 9:00 am. Today, we are going to Illinois to see the eclipse. I've been anticipating this for the past two years. Two years ago, it was "August 21, 2017". In January, it was "August 21st". In the beginning of August, it was "The 21st". A few days ago, it was just "Monday". Now it's just "Tomorrow". My dad gets up at 11:00 am and we pack until 12:30 am. We say our last goodbyes and we're off.
 
 </p><p>At first, it was a little interesting. I hadn't been out of the state in over a month. We visited Vermont, which was a little different. Then it was Massachusetts, still a little different. New York was where it started to get weird. The land was flat, the rocks were black, and I had that "We're not in Kansas anymore" feeling. We stayed in New York for a very long time. A long enough time for the sun to start setting.
@@ -73,22 +149,13 @@
 
 </p><p>It's been 6 hours and I'm still trying to process it. We still have 3 more days on this trip and St. Louis, Chicago, Toronto, and Ottawa are all still on the itinerary, but the eclipse beats all of those cities combined.
 
-</p><p>If a total solar eclipse ever passes any where near you, go to it. Bring your family. Bring your entire family. Bring your friends, your cousins, and everyone you care about. They will never ever forget it.
+</p><p>If a total solar eclipse ever passes any where near you, go to it. Bring your family. Bring your entire family. Bring your friends, your cousin's, and everyone you care about. They will never ever forget it.
 	</p>
+	
+	</div>
+	
+	
 
-
-
-
-<!--
-
-copy paste this line above for extra blocks
-
-</div><div class="%%color%%block"><h2><!--%% Header %%</h2>
-
--->
-
-
-
-</div></body>
-
+</body>
+	
 </html>

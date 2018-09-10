@@ -69,51 +69,6 @@
 background-color: #303030;
 }
 
-#cubepages{
-	
-	flex-flow: row wrap;
-
-}
-
-#cubepages > div{
-	
-	  line-height:40px;
-
-	
-}
-
-#cubepages > div a{
-	border-radius:8px;
-	margin:10px;
-	font-size:20px;
-	border: 4px solid #C3C3C3;
-	background-color:#E6E6E6;
-	color:#316FA6;
-	padding: 8px;
-	transition: font-size 0.5s, line-height 0.5s;
-}
-
-@media screen and (min-width:768px){
-#cubepages > div a:hover{
-	font-size:24px;
-	line-height:55px;
-}
-}
-
-@media screen and (max-width:400px){
-#cubepages > div{
-line-height:30px;
-}
-
-
-#cubepages > div a{
-
-margin:8px;
-font-size:16px;
-padding:4px;
-}
-}
-
 .eventgrid{
 
 display: flex;
@@ -132,27 +87,10 @@ margin-bottom: 10px;
 font-size: 48px;
 }
 
-
-
-
-
-.algsims{
-
-display: flex;
-flex-flow: row wrap;
-justify-content: center;
-
-
-}
-
 .rpcontain{
 padding: 8px;
 margin-top: 10px;
 margin-bottom: 10px;
-}
-
-.algsims h4{
-
 }
 
 .roofpig-algtext{
@@ -178,7 +116,7 @@ margin-bottom: 10px;
 
 <p>I like to solve twisty puzzles in my free time. Every so often, I compete in national and local competitions to beat my fastest times. You can find my fastest times in competition on my WCA profile. You can find my fastest times at home on my CubePB page. You can find reconstructions of my solves down below, in my competitions section.</p>
 
-<div class="listbar" id="cubepages">
+<div class="buttonlist">
 <div><a href="https://www.worldcubeassociation.org/persons/2017ZERB01">WCA Profile</a></div>
 <div><a href="https://cubepb.com/user/196005">CubePB Page</a></div>
 <div><a href="#comps">Competitions</a></div>
@@ -247,7 +185,7 @@ These are the algorithms I have learned and use in my solves.
 
 
 <h3>OLL</h3>
-<div class="algsims">
+<div class="standardflexwrap">
 <div class="rpcontain"><h4>OLL 21</h4><div class="roofpig rp" data-config="alg=F R U R' U' R U R' U' R U R' U' F' |base=O2"></div></div>
 <div class="rpcontain"><h4>OLL 22</h4><div class="roofpig rp" data-config="alg=R U2 R2' U' R2 U' R2' U2' R |base=O2"></div></div>
 <div class="rpcontain"><h4>OLL 23</h4><div class="roofpig rp" data-config="alg=R2 D' R U2 R' D R U2 R |base=O2"></div></div>
@@ -268,7 +206,7 @@ These are the algorithms I have learned and use in my solves.
 <div class="rpcontain"><h4>OLL 33</h4><div class="roofpig rp" data-config="alg=R U R' U' R' F R F'|base=O2"></div></div>
 <div class="rpcontain"><h4>OLL 35</h4><div class="roofpig rp" data-config="alg=R U2 R2' F R F' R U2 R' |base=O2"></div></div>
 <div class="rpcontain"><h4>OLL 37</h4><div class="roofpig rp" data-config="alg=F R U' R' U' R U R' F'|base=O2"></div></div>
-<div class="rpcontain"><h4>OLL 43</h4><div class="roofpig rp" data-config="alg=f' L' U' L U f |base=O2"></div></div>
+<div class="rpcontain"><h4>OLL 43</h4><div class="roofpig rp" data-config="alg=F' U' L' U L F|base=O2"></div></div>
 <div class="rpcontain"><h4>OLL 44</h4><div class="roofpig rp" data-config="alg= F U R U' R' F'|base=O2"></div></div>
 <div class="rpcontain"><h4>OLL 45</h4><div class="roofpig rp" data-config="alg=F R U R' U' F'|base=O2"></div></div>
 <div class="rpcontain"><h4>OLL 48</h4><div class="roofpig rp" data-config="alg=F R U R' U' R U R' U' F' |base=O2"></div></div>
@@ -279,7 +217,7 @@ These are the algorithms I have learned and use in my solves.
 
 
 <h3>PLL</h3>
-<div class="algsims">
+<div class="standardflexwrap">
 <div class="rpcontain"><h4>Aa Perm</h4><div class="roofpig rp" data-config="alg=x R' U R' D2 R U' R' D2 R2 |base=N2"></div></div>
 <div class="rpcontain"><h4>Ab Perm</h4><div class="roofpig rp" data-config="alg=x R D' R U2 R' D R U2 R2|base=N2"></div></div>
 <div class="rpcontain"><h4>E Perm</h4><div class="roofpig rp" data-config="alg=x' R U' R' D R U R' D' R U R' D R U' R' D'|base=N2"></div></div>
