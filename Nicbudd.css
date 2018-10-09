@@ -54,6 +54,7 @@ MobileS: 300px-400px
 
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans:100,200,300,400,500,600,700,800,900');
 @import url('https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900');
+@charset "UTF-8";
 
 :root {
 	
@@ -212,6 +213,46 @@ ul, ol{
 
 li{
 	overflow: ellipses;
+}
+
+input{
+	border: 2px solid #303030;
+	background: #E6E6E6;
+	padding: 4px 8px;
+	font-family: Noto Sans, sans-serif;
+	margin: 4px;
+	color: #303030;
+}
+
+input:focus{
+	border: 2px solid #316FA6;
+}
+
+button {
+	border: 2px solid #303030;
+	background: #E6E6E6;
+	padding: 4px 8px;
+	font-family: Lato, Noto Sans, sans-serif;
+	margin: 4px;
+	text-transform:uppercase;
+	font-size: 1.125em;
+	font-weight:600;
+	color: #303030;
+	border-radius: 8px;
+}
+
+button:hover{
+	/*background-color: #C3C3C3;*/
+	background-color: #316FA6;
+	color:#E6E6E6;
+	border-color: #316FA6;
+	cursor:pointer;
+}
+
+@media screen and (min-width:768px){
+	button{
+		transition: color 0.5s, background-color 0.5s, border 0.5s;
+	}
 }
 
 ::-webkit-scrollbar {
@@ -421,10 +462,10 @@ li.dropdown {
 	bottom: 5px;
 	right: 5px;
 	background-color:#303030;
-	border: 2px solid #C3C3C3;
+	border: 4px solid #C3C3C3;
 	border-radius: 16px;
-	-webkit-transition: width 0.5s, height 0.5s, background-color 0.5s, font-size 0.5s, padding 0.5s;
-	transition: width 0.5s, height 0.5s, background-color 0.5s, font-size 0.5s, padding 0.5s;
+	-webkit-transition: width 0.5s, height 0.5s, background-color 0.5s, font-size 0.5s, padding 0.5s, border-radius 0.5s, border-width 0.5s;
+	transition: width 0.5s, height 0.5s, background-color 0.5s, font-size 0.5s, padding 0.5s, border-radius 0.5s, border-width 0.5s;
 	color:#E6E6E6;
 	display:block;
 	font-size:1em;
@@ -435,6 +476,8 @@ li.dropdown {
 	padding:24px;
 		font-size: 1.5em;
 		background-color:#316fa6;
+		border-radius: 24px;
+		border-width: 6px;
 }
 }
 
@@ -600,6 +643,35 @@ border-width: 2px;
 }
 }
 
+#metarBlocks {
+	display:flex;
+	flex-flow: row wrap;
+justify-content: center;
+}
+
+.metarBlock{
+	border: 2px solid #303030;
+	margin: 8px;
+	padding: 6px;
+	max-width: 300px;
+	border-radius: 8px;
+}
+
+.metarBlock h5{
+	padding-top: 0.5em;
+	padding-bottom: 0.25em;
+}
+
+.metarBlock p{
+	font-size: 0.85em;
+}
+
+
+
+
+
+
+
 
 
 /*display classes*/
@@ -760,7 +832,30 @@ border-width: 2px;
     background: #316FA6; 
 }
 
+.lightergrayblock input{
+	border: 2px solid #303030;
+	background: #E6E6E6;
+}
 
+.lightergrayblock input:focus{
+	border: 2px solid #316FA6;
+}
+
+.lightergrayblock button{
+	border: 2px solid #303030;
+	background: #E6E6E6;
+	color: #303030;
+}
+
+.lightergrayblock button:hover{
+	background-color: #316FA6;
+	color:#E6E6E6;
+	border-color: #316FA6;
+}
+
+.lightergrayblock .metarBlock{
+border: 2px solid #303030;
+}
 
 
 
@@ -823,7 +918,30 @@ border-width: 2px;
     background: #303030; 
 }
 
+.lightgrayblock input{
+	border: 2px solid #303030;
+	background: #E6E6E6;
+}
 
+.lightgrayblock input:focus{
+	border: 2px solid #316FA6;
+}
+
+.lightgrayblock button{
+	border: 2px solid #303030;
+	background: #C3C3C3;
+	color: #303030;
+}
+
+.lightgrayblock button:hover{
+	background-color: #316FA6;
+	color:#E6E6E6;
+	border-color: #316FA6;
+}
+
+.lightgrayblock .metarBlock{
+border: 2px solid #303030;
+}
 
 
 
@@ -895,7 +1013,32 @@ border-width: 2px;
     background: #316FA6; 
 }
 
+.blackblock input{
+	border: 2px solid #E6E6E6;
+	background: #E6E6E6;
+}
 
+.blackblock input:focus{
+	border: 2px solid #E6E6E6;
+	outline: 2px solid #316FA6;
+}
+
+
+.blackblock button{
+	border: 2px solid #E6E6E6;
+	background: #303030;
+	color: #E6E6E6;
+}
+
+.blackblock button:hover{
+	background-color: #316FA6;
+	color:#E6E6E6;
+	border-color: #316FA6;
+}
+
+.blackblock .metarBlock{
+border: 2px solid #E6E6E6;
+}
 
 
 
@@ -973,7 +1116,32 @@ border-width: 2px;
     background: #303030; 
 }
 
+.blueblock input{
+	/*border: 2px solid #303030;*/
+	border: 2px solid #E6E6E6;
+}
 
+.blueblock input:focus{
+	border: 2px solid #E6E6E6;
+	outline: 2px solid #303030;
+	/*border: 2px solid #E6E6E6;*/
+}
+
+.blueblock button{
+	border: 2px solid #E6E6E6;
+	background: #316FA6;
+	color: #E6E6E6;
+}
+
+.blueblock button:hover{
+	text-decoration: none;
+	background: #E6E6E6;
+	color: #316FA6;
+}
+
+.blueblock .metarBlock{
+border: 2px solid #E6E6E6;
+}
 
 
 
@@ -1036,6 +1204,33 @@ border-width: 2px;
     background: #303030; 
 }
 
+.greenblock input{
+	/*border: 2px solid #303030;*/
+	border: 2px solid #E6E6E6;
+}
+
+.greenblock input:focus{
+	border: 2px solid #E6E6E6;
+	outline: 2px solid #303030;
+	/*border: 2px solid #E6E6E6;*/
+}
+
+.greenblock button{
+	border: 2px solid #303030;
+	background: #3BA769;
+	color: #303030;
+}
+
+.greenblock button:hover{
+	text-decoration: none;
+	background: #316FA6;
+	color: #E6E6E6;
+	border: 2px solid #316FA6;
+}
+
+.greenblock .metarBlock{
+border: 2px solid #303030;
+}
 
 
 
@@ -1102,3 +1297,30 @@ border-width: 2px;
     background: #303030; 
 }
 
+.redblock input{
+	/*border: 2px solid #303030;*/
+	border: 2px solid #E6E6E6;
+}
+
+.redblock input:focus{
+	border: 2px solid #E6E6E6;
+	outline: 2px solid #303030;
+	/*border: 2px solid #E6E6E6;*/
+}
+
+.redblock button{
+	border: 2px solid #E6E6E6;
+	background: #C14747;
+	color: #E6E6E6;
+}
+
+.redblock button:hover{
+	text-decoration: none;
+	background: #E6E6E6;
+	color: #C14747;
+	border: 2px solid #E6E6E6;
+}
+
+.redblock .metarBlock{
+border: 2px solid #E6E6E6;
+}
