@@ -1,0 +1,143 @@
+
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900');
+
+body{
+	text-align:center;
+	font-family:Montserrat;
+	text-transform:uppercase;
+	background-image: linear-gradient( 115.7deg,  rgba(132,222,255,1) 7.6%, rgba(8,30,64,1) 99.8% );
+	padding: 16px;
+}
+
+h1{
+	font-size: 4em;
+	font-family:Montserrat;
+	text-transform:uppercase;
+}
+
+h2{
+	font-size: 3.5em;
+	font-family:Montserrat;
+	text-transform:uppercase;
+}
+
+h3{
+	font-size: 3em;
+	font-family:Montserrat;
+	text-transform:uppercase;
+}
+
+h4{
+	font-size: 2.5em;
+	font-family:Montserrat;
+	text-transform:uppercase;
+}
+
+h5{
+	font-size: 2em;
+	font-family:Montserrat;
+	text-transform:uppercase;
+}
+
+h6{
+	font-size: 1.5em;
+	font-family:Montserrat;
+	text-transform:uppercase;
+}
+
+p{
+	font-size: 1em;
+	font-family:Montserrat;
+	text-transform:uppercase;
+}
+
+.image{
+    background-size: 100% 100%;
+}
+
+.blockgrid{
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-gap: 50px 50px;
+}
+
+.block{
+	box-shadow: 0 10px 50px -5px black;
+	/*border: 8px solid white;*/
+	border-radius: 16px;
+	vertical-align: middle;
+	padding: 16px;
+}
+
+.text{
+	display:flex;
+	height: 100%;
+}
+
+.text p{
+	margin: auto;
+}
+
+.block1{
+	background-image: radial-gradient( circle farthest-corner at 10% 20%, rgba(120,235,176,1) 0%, rgba(153,238,123,1) 90% );
+}
+
+.block2{
+	background-image: radial-gradient( circle 592px at 48.2% 50%,  rgba(255,255,249,0.6) 0%, rgba(160,199,254,1) 74.6% );
+}
+
+.block3{
+	background: linear-gradient(to right, rgb(242, 112, 156), rgb(255, 148, 114));
+}
+
+.block4{
+	background-image: radial-gradient( circle farthest-corner at 10% 20%, rgba(255,200,124,1) 0%, rgba(252,251,121,1) 90% );
+}
+
+.block5{
+	background-image: linear-gradient( 110.5deg,  rgba(248,196,249,0.66) 22.8%, rgba(253,122,4,0.15) 64.6% );
+}
+
+.block6{
+	background-image: radial-gradient( circle farthest-corner at -0.1% 100.8%,  rgba(0,234,255,1) 0.2%, rgba(0,124,255,1) 59.1%, rgba(198,0,255,1) 100.2% );
+}
+
+.block7{
+	background-image: linear-gradient( 110.5deg,  rgba(248,196,249,0.66) 22.8%, rgba(253,122,4,0.15) 64.6% );
+}
+
+.block8{
+		background-image: url('https://www.top13.net/wp-content/uploads/2015/10/perfectly-timed-cat-photos-funny-cover.jpg');
+}
+
+.block9{
+	background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(90,92,106,1) 0%, rgba(32,45,58,1) 81.3% );
+}
+
+.block10{
+	background-image: linear-gradient( 90deg,  rgba(2,250,70,1) -1.7%, rgba(2,238,250,1) 21.1%, rgba(174,8,237,1) 46%, rgba(237,8,117,1) 64.2%, rgba(237,8,117,1) 81%, rgba(248,136,0,1) 97.2% );
+}
+
+.block11{
+	background-image: linear-gradient( 69.5deg,  rgba(251,0,0,1) -0.5%, rgba(3,10,252,1) 97.4% );
+}
+
+.block12{
+	 background: rgb(40,27,13);
+background: radial-gradient(circle, rgba(40,27,13,1) 0%, rgba(49,80,56,1) 44%, rgba(255,208,0,1) 100%); 
+}
+
+.block13{
+background-image: linear-gradient( 180deg,  rgba(24,151,0,1) -0.7%, rgba(50,208,0,1) 89.9% );
+}
+
+.block14{
+background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(233,14,14,1) 0%, rgba(63,47,47,1) 90% );
+}
+
+.block15{
+ background: rgb(158,0,186);
+background: radial-gradient(circle, rgba(158,0,186,1) 0%, rgba(29,182,0,1) 100%); 
+}
