@@ -34,24 +34,24 @@ function calculateDistance(v, h, deltaT, theta){
 	let Vx = roundSix(v * Math.cos(theta))
 	let Vy = roundSix(v * Math.sin(theta))
 	theta = toDegrees(theta)
-	console.log(`Vx = ${Vx}m/s, Vy = ${Vy}m/s`)
+	log(`Vx = ${Vx}m/s, Vy = ${Vy}m/s`)
 	
 	let t = 0
 	let x = h
 	let a = -9.807
 	
-	console.log("Simulating Motion...")
+	log("Simulating Motion...")
 	while (x > 0) {
 		t = roundSix(t + deltaT)
 		x = roundSix(h + (Vy * t) + (.5 * a * t * t))
-		console.log(`Time = ${t}s, Height = ${x}m`)
+		log(`Time = ${t}s, Height = ${x}m`)
 	}
 	
-	//console.log(`Done! Time to hit ground = ${t}s`)
+	//log(`Done! Time to hit ground = ${t}s`)
 	
 	let xDist = roundSix(t * Vx)
-	//console.log(`Distance travelled in X direction = ${xDist}m`)
-	console.log(`Time = ${t}s, Distance in X direction = ${xDist}m`)
+	//log(`Distance travelled in X direction = ${xDist}m`)
+	log(`Time = ${t}s, Distance in X direction = ${xDist}m`)
 	return xDist
 	
 
@@ -66,27 +66,27 @@ function calculateVelocity(x, h, delta, theta){
 	let a = -9.807
 	let t = Math.sqrt( -h / (0.5 * a))
 	let oldT = Math.sqrt( -h / (0.5 * a))
-	console.log(t)
+	log(t)
 	let xNew = 0
 	
 	while (t > 0) {
 		xNew = roundSix(xNew + delta)
 		t = roundSix(Math.sqrt((xNew - h - (xNew * tanTheta)) / (0.5 * a)))
-		console.log(`Time = ${t}s, Height = ${xNew}m`)
+		log(`Time = ${t}s, Height = ${xNew}m`)
 	}
 	
 	xNew = roundSix(xNew - delta)
 	t = roundSix(Math.sqrt((xNew - h - (xNew * tanTheta)) / (0.5 * a)))
-	console.log(`Time = ${t}s, Height = ${xNew}m`)
+	log(`Time = ${t}s, Height = ${xNew}m`)
 	
 	
-	console.log(t)
+	log(t)
 	
 	let Vx = xNew
-	console.log(Vx)
+	log(Vx)
 	
 	let v = Vx / Math.cos(theta)
-	console.log(v)
+	log(v)
 	
 	return v
 	
@@ -100,11 +100,11 @@ function calculateAngle(v, h, targ, deltaT, deltaTheta){
 	
 	while (distance < targ) {
 		theta = roundSix(theta + deltaTheta);
-		console.log("Too low! Raising the angle!")
-		console.log(`Theta = ${theta}`);
+		log("Too low! Raising the angle!")
+		log(`Theta = ${theta}`);
 		
 		if (theta > 90){
-			console.log('Oops! Something went wrong! Try lowering your target distance, increasing your velocity, or changing your starting height!')
+			log('Oops! Something went wrong! Try lowering your target distance, increasing your velocity, or changing your starting height!')
 			return "Too far! Increase velocity or decrease target distance"	
 		}
 		
@@ -112,7 +112,7 @@ function calculateAngle(v, h, targ, deltaT, deltaTheta){
 	}
 	
 	if (theta < 90){
-		console.log(`Done! Angle = ${theta}`)
+		log(`Done! Angle = ${theta}`)
 	}
 	
 	return theta
@@ -138,7 +138,7 @@ function calculateDPSliderOut(){
 	} else if (slideVal === "3"){
 		decimalPlaces = 0.001;
 	} else {
-		console.log("oops!");
+		log("oops!");
 	}
 	
 	outSpan.innerHTML = decimalPlaces;
