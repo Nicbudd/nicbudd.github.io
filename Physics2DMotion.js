@@ -2,6 +2,11 @@ function roundSix (number){
 	return Math.round(number * 1000000) / 1000000
 }
 
+function roundDecimal (number, decimal){
+	let factor = Math.pow(10, decimal)
+	return Math.round(number * factor) / factor
+}
+
 function toDegrees (angle) {
   return angle * (180 / Math.PI);
 }
@@ -20,13 +25,13 @@ function calculateDistance(v, h, deltaT, theta){
 	
 	let t = 0
 	let x = h
-	let a = -9.8
+	let a = -9.807
 	
-	//console.log("Simulating Motion...")
+	console.log("Simulating Motion...")
 	while (x > 0) {
 		t = roundSix(t + deltaT)
 		x = roundSix(h + (Vy * t) + (.5 * a * t * t))
-		//console.log(`Time = ${t}s, Height = ${x}m`)
+		console.log(`Time = ${t}s, Height = ${x}m`)
 	}
 	
 	//console.log(`Done! Time to hit ground = ${t}s`)
@@ -35,6 +40,42 @@ function calculateDistance(v, h, deltaT, theta){
 	//console.log(`Distance travelled in X direction = ${xDist}m`)
 	console.log(`Time = ${t}s, Distance in X direction = ${xDist}m`)
 	return xDist
+	
+
+	
+}
+
+function calculateVelocity(x, h, delta, theta){
+	
+	theta = toRadians(theta)
+	let tanTheta = Math.tan(theta)
+	
+	let a = -9.807
+	let t = Math.sqrt( -h / (0.5 * a))
+	let oldT = Math.sqrt( -h / (0.5 * a))
+	console.log(t)
+	let xNew = 0
+	
+	while (t > 0) {
+		xNew = roundSix(xNew + delta)
+		t = roundSix(Math.sqrt((xNew - h - (xNew * tanTheta)) / (0.5 * a)))
+		console.log(`Time = ${t}s, Height = ${xNew}m`)
+	}
+	
+	xNew = roundSix(xNew - delta)
+	t = roundSix(Math.sqrt((xNew - h - (xNew * tanTheta)) / (0.5 * a)))
+	console.log(`Time = ${t}s, Height = ${xNew}m`)
+	
+	
+	console.log(t)
+	
+	let Vx = xNew
+	console.log(Vx)
+	
+	let v = Vx / Math.cos(theta)
+	console.log(v)
+	
+	return v
 	
 
 	
@@ -121,9 +162,29 @@ function phy2dAngleButton(){
 	let angleOut = document.getElementById('phyAngle');
 	let velocity = Number(document.getElementById('phyVelocity').value);
 	let startingHeight = Number(document.getElementById('phyStartingH').value);
-	let targetDistance = Number(document.getElementById('phyTargetDist').value);
+	let distance = Number(document.getElementById('phyDistance').value);
 	let deltaTheta = decimalPlaces;
 	let deltaT = Math.pow(10, (numDecimalPlaces + accuracy) * -1)
 
-	angleOut.value = calculateAngle(velocity, startingHeight, targetDistance, deltaT, deltaTheta);
+	angleOut.value = calculateAngle(velocity, startingHeight, distance, deltaT, deltaTheta);
+}
+
+function phy2dDistanceButton(){
+	let angle = Number(document.getElementById('phyAngle').value);
+	let velocity = Number(document.getElementById('phyVelocity').value);
+	let height = Number(document.getElementById('phyStartingH').value);
+	let distance = document.getElementById('phyDistance');
+	let deltaT = decimalPlaces;
+
+	distance.value = roundDecimal(calculateDistance(velocity, height, deltaT, angle), numDecimalPlaces);
+}
+
+function phy2dVelocityButton(){
+	let angle = Number(document.getElementById('phyAngle').value);
+	let velocity = document.getElementById('phyVelocity');
+	let height = Number(document.getElementById('phyStartingH').value);
+	let distance = Number(document.getElementById('phyDistance').value);
+	let deltaT = decimalPlaces;
+
+	velocity.value = roundDecimal(calculateVelocity(distance, height, deltaT, angle), numDecimalPlaces);
 }

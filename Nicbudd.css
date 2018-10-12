@@ -762,7 +762,11 @@ justify-content: center;
 	margin: 8px;
 }
 
-
+.buttonbox{
+	border-width: 0px !important;
+	display:flex;
+	flex-flow: row wrap;
+}
 
 
 
