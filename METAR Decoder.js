@@ -383,7 +383,7 @@ function decodeMETAR(input) {
 	return input
 }
 
-function clickTheButton() {
+function metarDecodeButton() {
 	let inputWritten = document.getElementById('metarInput').value;
 	console.log(inputWritten);
 	let outputText = decodeMETAR(inputWritten);

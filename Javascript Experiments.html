@@ -7,13 +7,19 @@
 <script src = "https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <link rel="stylesheet" href="Nicbudd.css">
 <script src = "import.js" type = "text/javascript"></script>
-<script src = "METAR Decoder.js" type = "text/javascript"></script>
 <meta charset = "UTF-8">
 
 <title>Javascript Experiments</title>
+
+
+
+<script src = "METAR Decoder.js" type = "text/javascript"></script>
+<script src = "Overwatch ELO.js" type = "text/javascript"></script>
+<script src = "Physics2DMotion.js" type = "text/javascript"></script>
+
 </head>
 
-<body>
+<body onload="loadELO()">
 <noscript><div id="noscript"><h2>Uh-oh!</h2><p>It appears that javascript is not working here, for whatever reason.</p><p>Sadly, this site doesn't work without javascript. You might be able to see it looks a bit... broken.</p><p>Please enable javascript or switch to a browser that is compatible with javascript if you want to continue browsing this website.</p><p>If you don't want to, that's ok too. I'll just be sad that you cant see my website.</p><h2>;(</h2></div></noscript>
 
 
@@ -25,13 +31,45 @@
 <form>
 <input type="text" id="metarInput" placeholder="North American METARs only" style="width: 250px;"></input>
 </form>
-<button onclick="clickTheButton();">Decode!</button>
+<button onclick="metarDecodeButton();">Decode!</button>
 
 <div id="metarBlocks">
 
 </div>
 
-<h4 id='outputText'></h4>
+</div><div class="lightgrayblock"><h2>Physics: 2D Motion Calculators</h2>
+
+<div id="physicsInputs">
+<div><h6>Velocity (m/s)</h6><input type="text" id="phyVelocity"></input></div>
+<div><h6>Starting Height (m)</h6><input type="text" id="phyStartingH"></input></div>
+<div><h6>Angle (degrees)</h6><input type="text" id="phyAngle"></input></div>
+<div><h6>Target Distance (m)</h6><input type="text" id="phyTargetDist"></input></div>
+<div><h6>Angle Precision:<br><span id="decimalPlacesSliderNum"></span> degree(s)</h6><input type="range" min="0" max="3" value="2" id="decimalPlacesSlider" onchange="calculateDPSliderOut()"></div>
+<div><h6>Accuracy: <span id="accuracySliderNum"></span></h6><input type="range" min="1" max="3" value="2" id="accuracySlider" onchange="calculateAccuracySliderOut()"></div>
+<div><h6>Marble Launcher Notch: <span id="notchSliderNum"></span></h6><input type="range" min="1" max="5" value="4" id="notchSlider" onchange="calculateNotchSliderOut()"></div>
+</div>
+<button onclick="phy2dAngleButton();">Calculate Angle</button>
+
+</div><div class="blackblock"><h2>Overwatch ELO</h2>
+
+
+
+<div id="eloScorebox">
+<div class="eloTeam" id="bosName">Boston Uprising</div><div class="teamScore" id="bosScore">1400</div>
+<div class="eloTeam" id="dalName">Dallas Fuel</div><div class="teamScore" id="dalScore">1400</div>
+<div class="eloTeam" id="flaName">Florida Mayhem</div><div class="teamScore" id="flaScore">1400</div>
+<div class="eloTeam" id="houName">Houston Outlaws</div><div class="teamScore" id="houScore">1400</div>
+<div class="eloTeam" id="ldnName">London Spitfire</div><div class="teamScore" id="ldnScore">1400</div>
+<div class="eloTeam" id="glaName">Los Angeles Gladiators</div><div class="teamScore" id="glaScore">1400</div>
+<div class="eloTeam" id="valName">Los Angeles Valiant</div><div class="teamScore" id="valScore">1400</div>
+<div class="eloTeam" id="nyeName">New York Excelsior</div><div class="teamScore" id="nyeScore">1400</div>
+<div class="eloTeam" id="phiName">Philadelphia Fusion</div><div class="teamScore" id="phiScore">1400</div>
+<div class="eloTeam" id="sfsName">San Fransisco Shock</div><div class="teamScore" id="sfsScore">1400</div>
+<div class="eloTeam" id="seoName">Seoul Dynasty</div><div class="teamScore" id="seoScore">1400</div>
+<div class="eloTeam" id="shdName">Shanghai Dragons</div><div class="teamScore" id="shdScore">1400</div>
+
+</div>
+
 
 
 
