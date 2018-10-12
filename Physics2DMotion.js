@@ -1,3 +1,16 @@
+let logToConsole = false
+let logToBox = false
+
+function log(value){
+	if (logToConsole === true){
+		console.log(value)
+	}
+	
+	if (logToBox === true){
+		document.getElementById("consoleBox").value += value
+	}
+}
+
 function roundSix (number){
 	return Math.round(number * 1000000) / 1000000
 }
@@ -158,7 +171,15 @@ function calculateNotchSliderOut(){
 	outSpan.innerHTML = slider.value;
 }
 
+function determineOutputs(){
+	let consoleChecked = document.getElementById('logConsole').checked;
+	let textChecked = document.getElementById('logTextBox').checked;
+	logToConsle = consoleChecked;
+	logToBox = textChecked;
+}
+
 function phy2dAngleButton(){
+	determineOutputs()
 	let angleOut = document.getElementById('phyAngle');
 	let velocity = Number(document.getElementById('phyVelocity').value);
 	let startingHeight = Number(document.getElementById('phyStartingH').value);
@@ -170,6 +191,7 @@ function phy2dAngleButton(){
 }
 
 function phy2dDistanceButton(){
+	determineOutputs()
 	let angle = Number(document.getElementById('phyAngle').value);
 	let velocity = Number(document.getElementById('phyVelocity').value);
 	let height = Number(document.getElementById('phyStartingH').value);
@@ -180,6 +202,7 @@ function phy2dDistanceButton(){
 }
 
 function phy2dVelocityButton(){
+	determineOutputs()
 	let angle = Number(document.getElementById('phyAngle').value);
 	let velocity = document.getElementById('phyVelocity');
 	let height = Number(document.getElementById('phyStartingH').value);
