@@ -48,12 +48,12 @@
 <div><h6>Precision: <span id="decimalPlacesSliderNum"></span></h6><input type="range" min="0" max="3" value="2" id="decimalPlacesSlider" onchange="calculateDPSliderOut()"></div>
 <div><div style="font-size: 0.85em;background-color:#c14747;color:#E6E6E6;padding:4px;border-width:0px;border-radius:12px;margin:0px;">Higher accuracy may<br>slow down your device!</div><h6 style="padding-top:0.5em;">Accuracy: <span id="accuracySliderNum"></span></h6><input type="range" min="1" max="3" value="2" id="accuracySlider" onchange="calculateAccuracySliderOut()"></div>
 <div><h6>Marble Launcher<br>Notch: <span id="notchSliderNum"></span></h6><input type="range" min="1" max="5" value="4" id="notchSlider" onchange="calculateNotchSliderOut()"></div>
-<div><input type="checkbox" id="logConsole">Log calculations to Console<br><input type="checkbox" id="logTextBox" onclick="addTextBox()">Log calculation to Text Box<br></div>
+<div><input type="checkbox" id="logConsole">Log calculations to Console<br><input type="checkbox" id="logTextBox">Log calculation to Text Box<br></div>
 <div class="buttonbox"><button onclick="phy2dAngleButton();">Calculate Angle</button><button onclick="phy2dDistanceButton();">Calculate Distance</button><!--<button onclick="phy2dVelocityButton();">Calculate Velocity</button>--></div>
 
 </div>
 
-
+<textarea id="consoleBox"></textarea>
 <!--</div><div class="blackblock"><h2>Overwatch ELO</h2>
 
 
