@@ -104,6 +104,7 @@ h1{
 	font-size:4em;
 	text-transform:uppercase;
 	font-weight:800;
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 h2{
@@ -114,6 +115,7 @@ h2{
 	font-size:2.5em;
 	text-transform:uppercase;
 	font-weight:700;
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 h3{
@@ -124,6 +126,7 @@ h3{
 	font-size:2em;
 	text-transform:uppercase;
 	font-weight:600;
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 h4{
@@ -134,6 +137,7 @@ h4{
 	font-size:1.5em;
 	text-transform:uppercase;
 	font-weight:600;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
 h5{
@@ -144,6 +148,7 @@ h5{
 	font-size:1.25em;
 	text-transform:uppercase;
 	font-weight:600;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
 h6{
@@ -154,6 +159,7 @@ h6{
 	font-size:1.125em;
 	text-transform:uppercase;
 	font-weight:600;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
 p{
@@ -194,7 +200,7 @@ img{
     height: auto;
 	margin:10px;
 	border-radius: 16px;
-	box-shadow: 0px 10px 30px -10px black;
+	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
 }
 
 iframe{
@@ -215,6 +221,46 @@ ul, ol{
 
 li{
 	overflow: ellipses;
+}
+
+input[type="text"]{
+	border: 2px solid #303030;
+	background: #E6E6E6;
+	padding: 4px 8px;
+	font-family: Noto Sans, sans-serif;
+	margin: 4px;
+	color: #303030;
+}
+
+input[type="text"]:focus{
+	border: 2px solid #316FA6;
+}
+
+button {
+	border: 2px solid #303030;
+	background: #E6E6E6;
+	padding: 4px 8px;
+	font-family: Lato, Noto Sans, sans-serif;
+	margin: 4px;
+	text-transform:uppercase;
+	font-size: 1.125em;
+	font-weight:600;
+	color: #303030;
+	border-radius: 8px;
+}
+
+button:hover{
+	/*background-color: #C3C3C3;*/
+	background-color: #316FA6;
+	color:#E6E6E6;
+	border-color: #316FA6;
+	cursor:pointer;
+}
+
+@media screen and (min-width:768px){
+	button{
+		transition: color 0.5s, background-color 0.5s, border 0.5s;
+	}
 }
 
 ::-webkit-scrollbar {
@@ -423,19 +469,21 @@ li.dropdown {
 	right: 5px;
 	background-color:#303030;
 	border-radius: 16px;
-	-webkit-transition: width 0.5s, height 0.5s, background-color 0.5s, font-size 0.5s, padding 0.5s;
-	transition: width 0.5s, height 0.5s, background-color 0.5s, font-size 0.5s, padding 0.5s;
+	-webkit-transition: width 0.5s, height 0.5s, background-color 0.5s, font-size 0.5s, padding 0.5s, border-width 0.5s;
+	transition: width 0.5s, height 0.5s, background-color 0.5s, font-size 0.5s, padding 0.5s, border-width 0.5s;
 	color:#E6E6E6;
 	display:block;
 	font-size:1em;
-	box-shadow: 0px 10px 30px -10px black;
+	border: 4px solid #C3C3C3;
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 @media screen and (min-width:768px){
 #backtotopbutton:hover a{
 	padding:24px;
-		font-size: 1.5em;
-		background-color:#316fa6;
+	font-size: 1.5em;
+	background-color:#316fa6;
+	border-width: 6px;
 }
 }
 
@@ -575,11 +623,11 @@ justify-content: center;
 display:block;
 text-decoration: none;
 text-align: center;
-border-radius:16px;
+border-radius:24px;
 font-size:24px;
-padding: 10px 20px;
+padding:10px 20px;
 margin:10px;
-box-shadow: 0px 5px 30px -10px black;
+box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -603,6 +651,132 @@ padding:4px;
 border-width: 2px;
 }
 }
+
+#metarBlocks {
+	display:flex;
+	flex-flow: row wrap;
+justify-content: center;
+}
+
+.metarBlock{
+	border: 2px solid #303030;
+	margin: 8px;
+	padding: 6px;
+	max-width: 300px;
+	border-radius: 8px;
+}
+
+.metarBlock h5{
+	padding-top: 0.5em;
+	padding-bottom: 0.25em;
+}
+
+.metarBlock p{
+	font-size: 0.85em;
+}
+
+#eloScorebox{
+	display:inline-grid;
+	grid-template-columns: auto auto;
+	grid-gap: 8px 8px;
+}
+
+
+.eloTeam{
+	font-family: Roboto Mono;
+	border-radius: 12px;
+	display:inline-block;
+	margin: 0px;
+	padding: 8px;
+}
+
+.teamScore{
+	font-family: Roboto Mono;
+	border-radius: 12px;
+	display:inline-block;
+	margin: 0px;
+	padding: 8px;
+	background: white;
+	color: black;
+}
+
+#bosName{
+	background-color:#174b97;
+	color:white;
+}
+
+#dalName{
+	background-color:white;
+	color:#0072ce;
+}
+
+#flaName{
+	background-color:#fedb00;
+	color:black;
+}
+
+#houName{
+	background-color:black;
+	color:#97d700;
+}
+
+#ldnName{
+	background-color:#ff8200;
+	color:black;
+}
+
+#glaName{
+	background-color:#3c1053;
+	color:white;
+}
+
+#valName{
+	background-color:#4a7729;
+	color:#e5d456;
+}
+#nyeName{
+	background-color:#171c38;
+	color:#0f57ea;
+}
+#phiName{
+	background-color:#ff9e1b;
+	color:black;
+}
+#sfsName{
+	background-color:#fc4c02;
+	color:white;
+}
+#seoName{
+	background-color:#aa8a00;
+	color:black;
+}
+#shdName{
+	background-color:#d22630;
+	color:black;
+}
+
+
+#physicsInputs{
+	display:flex;
+	justify-content: center;
+	align-items: center;
+	flex-flow: row wrap;
+}
+
+#physicsInputs div{
+	border: 2px solid #303030;
+	border-radius:16px;
+	padding: 8px;
+	margin: 8px;
+}
+
+.buttonbox{
+	border-width: 0px !important;
+	display:flex;
+	flex-flow: row wrap;
+}
+
+
 
 
 
@@ -724,6 +898,31 @@ border-width: 2px;
 	padding:8px;
 }
 
+.lightergrayblack h1{
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.lightergrayblack h2{
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.lightergrayblack h3{
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.lightergrayblack h4{
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.lightergrayblack h5{
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.lightergrayblack h6{
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+
 .lightergrayblock mark{
 	background: #316FA6;
 	color:#E6E6E6;
@@ -734,11 +933,22 @@ border-width: 2px;
 	color: #316FA6;
 }
 
+.lightergrayblock .buttonlist > div a{
+	border: 4px solid #303030;
+	color: #303030;
+}
+
 @media screen and (min-width:768px){
 
 .lightergrayblock a:hover{
 	text-decoration: none;
 	background: #316FA6;
+	color: #E6E6E6;
+}
+
+.lightergrayblock .buttonlist > div a:hover{
+	text-decoration: none;
+	background: #303030;
 	color: #E6E6E6;
 }
 }
@@ -764,6 +974,31 @@ border-width: 2px;
     background: #316FA6; 
 }
 
+.lightergrayblock input[type="text"]{
+	border: 2px solid #303030;
+	background: #E6E6E6;
+}
+
+.lightergrayblock input[type="text"]:focus{
+	border: 2px solid #316FA6;
+}
+
+.lightergrayblock button{
+	border: 2px solid #303030;
+	background: #E6E6E6;
+	color: #303030;
+}
+
+.lightergrayblock button:hover{
+	background-color: #316FA6;
+	color:#E6E6E6;
+	border-color: #316FA6;
+}
+
+.lightergrayblock .metarBlock{
+border: 2px solid #303030;
+}
+
 
 
 
@@ -787,6 +1022,30 @@ border-width: 2px;
 	padding:8px;
 }
 
+.lightgrayblock h1{
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.lightgrayblock h2{
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.lightgrayblock h3{
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.lightgrayblock h4{
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.lightgrayblock h5{
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.lightgrayblock h6{
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
 .lightgrayblock mark{
 	background: #316FA6;
 	color:#E6E6E6;
@@ -797,12 +1056,21 @@ border-width: 2px;
 	color: #303030;
 }
 
+.lightgrayblock .buttonlist > div a{
+	border: 4px solid #303030;
+}
+
 @media screen and (min-width:768px){
 
 .lightgrayblock a:hover{
 	text-decoration: none;
 	background: #316FA6;
 	color: #E6E6E6;
+}
+
+.lightgrayblock .buttonlist > div a:hover{
+	border: 4px solid #303030;
+	background: #303030;
 }
 }
 
@@ -825,6 +1093,31 @@ border-width: 2px;
 
 .lightgrayblock ::-webkit-scrollbar-thumb:hover {
     background: #303030; 
+}
+
+.lightgrayblock input[type="text"]{
+	border: 2px solid #303030;
+	background: #E6E6E6;
+}
+
+.lightgrayblock input[type="text"]:focus{
+	border: 2px solid #316FA6;
+}
+
+.lightgrayblock button{
+	border: 2px solid #303030;
+	background: #C3C3C3;
+	color: #303030;
+}
+
+.lightgrayblock button:hover{
+	background-color: #316FA6;
+	color:#E6E6E6;
+	border-color: #316FA6;
+}
+
+.lightgrayblock .metarBlock{
+border: 2px solid #303030;
 }
 
 
@@ -869,6 +1162,10 @@ border-width: 2px;
 	color: #E6E6E6;
 }
 
+.blackblock .buttonlist > div a{
+	border: 4px solid #E6E6E6;
+}
+
 @media screen and (min-width:768px){
 
 .blackblock a:hover{
@@ -876,6 +1173,12 @@ border-width: 2px;
 	background: #316FA6;
 	color: #E6E6E6;
 }
+
+.blackblock .buttonlist > div a:hover{
+	background: #E6E6E6;
+	color: #303030;
+}
+
 }
 
 @media screen and (max-width:768px){
@@ -897,6 +1200,33 @@ border-width: 2px;
 
 .blackblock ::-webkit-scrollbar-thumb:hover {
     background: #316FA6; 
+}
+
+.blackblock input[type="text"]{
+	border: 2px solid #E6E6E6;
+	background: #E6E6E6;
+}
+
+.blackblock input[type="text"]:focus{
+	border: 2px solid #E6E6E6;
+	outline: 2px solid #316FA6;
+}
+
+
+.blackblock button{
+	border: 2px solid #E6E6E6;
+	background: #303030;
+	color: #E6E6E6;
+}
+
+.blackblock button:hover{
+	background-color: #316FA6;
+	color:#E6E6E6;
+	border-color: #316FA6;
+}
+
+.blackblock .metarBlock{
+border: 2px solid #E6E6E6;
 }
 
 
@@ -931,6 +1261,10 @@ border-width: 2px;
 .blueblock a{
 	text-decoration: underline;
 	color: #E6E6E6;
+}
+
+.blueblock .buttonlist > div a{
+	border: 4px solid #E6E6E6;
 }
 
 @media screen and (min-width:768px){
@@ -977,6 +1311,33 @@ border-width: 2px;
     background: #303030; 
 }
 
+.blueblock input[type="text"]{
+	/*border: 2px solid #303030;*/
+	border: 2px solid #E6E6E6;
+}
+
+.blueblock input[type="text"]:focus{
+	border: 2px solid #E6E6E6;
+	outline: 2px solid #303030;
+	/*border: 2px solid #E6E6E6;*/
+}
+
+.blueblock button{
+	border: 2px solid #E6E6E6;
+	background: #316FA6;
+	color: #E6E6E6;
+}
+
+.blueblock button:hover{
+	text-decoration: none;
+	background: #E6E6E6;
+	color: #316FA6;
+}
+
+.blueblock .metarBlock{
+border: 2px solid #E6E6E6;
+}
+
 
 
 
@@ -999,6 +1360,29 @@ border-width: 2px;
 	padding:8px;
 }
 
+.greenblock h1{
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.greenblock h2{
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.greenblock h3{
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.greenblock h4{
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.greenblock h5{
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.greenblock h6{
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
 
 .greenblock mark{
 	background: #316FA6;
@@ -1008,6 +1392,10 @@ border-width: 2px;
 .greenblock a{
 	text-decoration: underline;
 	color: #303030;
+}
+
+.greenblock .buttonlist > div a{
+	border: 4px solid #303030;
 }
 
 @media screen and (min-width:768px){
@@ -1038,6 +1426,34 @@ border-width: 2px;
 
 .greenblock ::-webkit-scrollbar-thumb:hover {
     background: #303030; 
+}
+
+.greenblock input[type="text"]{
+	/*border: 2px solid #303030;*/
+	border: 2px solid #E6E6E6;
+}
+
+.greenblock input[type="text"]:focus{
+	border: 2px solid #E6E6E6;
+	outline: 2px solid #303030;
+	/*border: 2px solid #E6E6E6;*/
+}
+
+.greenblock button{
+	border: 2px solid #303030;
+	background: #3BA769;
+	color: #303030;
+}
+
+.greenblock button:hover{
+	text-decoration: none;
+	background: #316FA6;
+	color: #E6E6E6;
+	border: 2px solid #316FA6;
+}
+
+.greenblock .metarBlock{
+border: 2px solid #303030;
 }
 
 
@@ -1072,6 +1488,10 @@ border-width: 2px;
 	color: #E6E6E6;
 }
 
+.redblock .buttonlist > div a{
+	border: 4px solid #E6E6E6;
+}
+
 @media screen and (min-width:768px){
 
 .redblock a:hover{
@@ -1104,5 +1524,33 @@ border-width: 2px;
 
 .redblock ::-webkit-scrollbar-thumb:hover {
     background: #303030; 
+}
+
+.redblock input[type="text"]{
+	/*border: 2px solid #303030;*/
+	border: 2px solid #E6E6E6;
+}
+
+.redblock input[type="text"]:focus{
+	border: 2px solid #E6E6E6;
+	outline: 2px solid #303030;
+	/*border: 2px solid #E6E6E6;*/
+}
+
+.redblock button{
+	border: 2px solid #E6E6E6;
+	background: #C14747;
+	color: #E6E6E6;
+}
+
+.redblock button:hover{
+	text-decoration: none;
+	background: #E6E6E6;
+	color: #C14747;
+	border: 2px solid #E6E6E6;
+}
+
+.redblock .metarBlock{
+border: 2px solid #E6E6E6;
 }
 

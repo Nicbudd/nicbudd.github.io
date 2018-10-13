@@ -53,9 +53,7 @@ MobileS: 300px-400px
 
 
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans:100,200,300,400,500,600,700,800,900');
-@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:100,200,300,400,500,600,700,800,900');
 @import url('https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900');
-@charset "UTF-8";
 
 :root {
 	
@@ -106,6 +104,7 @@ h1{
 	font-size:4em;
 	text-transform:uppercase;
 	font-weight:800;
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
 h2{
@@ -116,6 +115,7 @@ h2{
 	font-size:2.5em;
 	text-transform:uppercase;
 	font-weight:700;
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 h3{
@@ -126,6 +126,7 @@ h3{
 	font-size:2em;
 	text-transform:uppercase;
 	font-weight:600;
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 h4{
@@ -136,6 +137,7 @@ h4{
 	font-size:1.5em;
 	text-transform:uppercase;
 	font-weight:600;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
 h5{
@@ -146,6 +148,7 @@ h5{
 	font-size:1.25em;
 	text-transform:uppercase;
 	font-weight:600;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
 h6{
@@ -156,6 +159,7 @@ h6{
 	font-size:1.125em;
 	text-transform:uppercase;
 	font-weight:600;
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
 p{
@@ -194,6 +198,9 @@ hr{
 img{
 	max-width: 100%;
     height: auto;
+	margin:10px;
+	border-radius: 16px;
+	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
 }
 
 iframe{
@@ -240,6 +247,7 @@ button {
 	font-weight:600;
 	color: #303030;
 	border-radius: 8px;
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 button:hover{
@@ -301,10 +309,8 @@ button:hover{
 }
 
 
-
 .navbar li {
     float: left;
-
 }
 
 .navbar-icons li{
@@ -463,22 +469,22 @@ li.dropdown {
 	bottom: 5px;
 	right: 5px;
 	background-color:#303030;
-	border: 4px solid #C3C3C3;
 	border-radius: 16px;
-	-webkit-transition: width 0.5s, height 0.5s, background-color 0.5s, font-size 0.5s, padding 0.5s, border-radius 0.5s, border-width 0.5s;
-	transition: width 0.5s, height 0.5s, background-color 0.5s, font-size 0.5s, padding 0.5s, border-radius 0.5s, border-width 0.5s;
+	-webkit-transition: width 0.5s, height 0.5s, background-color 0.5s, font-size 0.5s, padding 0.5s, border-width 0.5s;
+	transition: width 0.5s, height 0.5s, background-color 0.5s, font-size 0.5s, padding 0.5s, border-width 0.5s;
 	color:#E6E6E6;
 	display:block;
 	font-size:1em;
+	border: 4px solid #C3C3C3;
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 @media screen and (min-width:768px){
 #backtotopbutton:hover a{
 	padding:24px;
-		font-size: 1.5em;
-		background-color:#316fa6;
-		border-radius: 24px;
-		border-width: 6px;
+	font-size: 1.5em;
+	background-color:#316fa6;
+	border-width: 6px;
 }
 }
 
@@ -490,9 +496,10 @@ li.dropdown {
 }
 
 .listbar > div a{
-display:block;
-text-decoration: none;
+	display:block;
+	text-decoration: none;
     text-align: center;
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -555,7 +562,8 @@ justify-content: center;
 
 .bordered{
 	overflow-x:auto;
-	padding: 8px;
+	margin: 16px;
+	padding: 16px;
 }
 
 .bordered table{
@@ -578,7 +586,8 @@ justify-content: center;
 
 .borderless{
 	overflow-x:auto;
-	padding: 8px;
+	margin: 16px;
+	padding: 16px;
 }
 
 .borderless table{
@@ -616,10 +625,11 @@ justify-content: center;
 display:block;
 text-decoration: none;
 text-align: center;
-border-radius:28px;
+border-radius:24px;
+font-size:24px;
+padding:10px 20px;
 margin:10px;
-font-size:20px;
-padding: 8px;
+box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -656,6 +666,7 @@ justify-content: center;
 	padding: 6px;
 	max-width: 300px;
 	border-radius: 8px;
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 .metarBlock h5{
@@ -760,24 +771,15 @@ justify-content: center;
 	border-radius:16px;
 	padding: 8px;
 	margin: 8px;
+	box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 .buttonbox{
 	border-width: 0px !important;
+	box-shadow: 0px 0px 0px rgba(0, 0, 0, 0) !important;
 	display:flex;
 	flex-flow: row wrap;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -901,6 +903,31 @@ justify-content: center;
 	padding:8px;
 }
 
+.lightergrayblack h1{
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.lightergrayblack h2{
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.lightergrayblack h3{
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.lightergrayblack h4{
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.lightergrayblack h5{
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.lightergrayblack h6{
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+
 .lightergrayblock mark{
 	background: #316FA6;
 	color:#E6E6E6;
@@ -911,11 +938,22 @@ justify-content: center;
 	color: #316FA6;
 }
 
+.lightergrayblock .buttonlist > div a{
+	border: 4px solid #303030;
+	color: #303030;
+}
+
 @media screen and (min-width:768px){
 
 .lightergrayblock a:hover{
 	text-decoration: none;
 	background: #316FA6;
+	color: #E6E6E6;
+}
+
+.lightergrayblock .buttonlist > div a:hover{
+	text-decoration: none;
+	background: #303030;
 	color: #E6E6E6;
 }
 }
@@ -972,6 +1010,8 @@ border: 2px solid #303030;
 
 
 
+
+
 /*Light Gray Block*/
 
 .lightgrayblock{
@@ -987,6 +1027,30 @@ border: 2px solid #303030;
 	padding:8px;
 }
 
+.lightgrayblock h1{
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.lightgrayblock h2{
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.lightgrayblock h3{
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.lightgrayblock h4{
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.lightgrayblock h5{
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.lightgrayblock h6{
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
 .lightgrayblock mark{
 	background: #316FA6;
 	color:#E6E6E6;
@@ -997,12 +1061,21 @@ border: 2px solid #303030;
 	color: #303030;
 }
 
+.lightgrayblock .buttonlist > div a{
+	border: 4px solid #303030;
+}
+
 @media screen and (min-width:768px){
 
 .lightgrayblock a:hover{
 	text-decoration: none;
 	background: #316FA6;
 	color: #E6E6E6;
+}
+
+.lightgrayblock .buttonlist > div a:hover{
+	border: 4px solid #303030;
+	background: #303030;
 }
 }
 
@@ -1060,6 +1133,8 @@ border: 2px solid #303030;
 
 
 
+
+
 /*Black Block*/
 
 .blackblock{
@@ -1092,6 +1167,10 @@ border: 2px solid #303030;
 	color: #E6E6E6;
 }
 
+.blackblock .buttonlist > div a{
+	border: 4px solid #E6E6E6;
+}
+
 @media screen and (min-width:768px){
 
 .blackblock a:hover{
@@ -1099,6 +1178,12 @@ border: 2px solid #303030;
 	background: #316FA6;
 	color: #E6E6E6;
 }
+
+.blackblock .buttonlist > div a:hover{
+	background: #E6E6E6;
+	color: #303030;
+}
+
 }
 
 @media screen and (max-width:768px){
@@ -1155,6 +1240,8 @@ border: 2px solid #E6E6E6;
 
 
 
+
+
 /*Blue Block*/
 
 .blueblock{
@@ -1179,6 +1266,10 @@ border: 2px solid #E6E6E6;
 .blueblock a{
 	text-decoration: underline;
 	color: #E6E6E6;
+}
+
+.blueblock .buttonlist > div a{
+	border: 4px solid #E6E6E6;
 }
 
 @media screen and (min-width:768px){
@@ -1257,6 +1348,8 @@ border: 2px solid #E6E6E6;
 
 
 
+
+
 /*Green Block*/
 
 .greenblock{
@@ -1272,6 +1365,29 @@ border: 2px solid #E6E6E6;
 	padding:8px;
 }
 
+.greenblock h1{
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.greenblock h2{
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.greenblock h3{
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+}
+
+.greenblock h4{
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.greenblock h5{
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.greenblock h6{
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+}
 
 .greenblock mark{
 	background: #316FA6;
@@ -1281,6 +1397,10 @@ border: 2px solid #E6E6E6;
 .greenblock a{
 	text-decoration: underline;
 	color: #303030;
+}
+
+.greenblock .buttonlist > div a{
+	border: 4px solid #303030;
 }
 
 @media screen and (min-width:768px){
@@ -1346,6 +1466,7 @@ border: 2px solid #303030;
 
 
 
+
 /*Red Block*/
 
 .redblock{
@@ -1370,6 +1491,10 @@ border: 2px solid #303030;
 .redblock a{
 	text-decoration: underline;
 	color: #E6E6E6;
+}
+
+.redblock .buttonlist > div a{
+	border: 4px solid #E6E6E6;
 }
 
 @media screen and (min-width:768px){
