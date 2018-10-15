@@ -174,8 +174,8 @@ function calculateNotchSliderOut(){
 function determineOutputs(){
 	let consoleChecked = document.getElementById('logConsole').checked;
 	let textChecked = document.getElementById('logTextBox').checked;
-	logToConsle = consoleChecked;
-	logToBox = textChecked;
+	logToConsle = true;
+	logToBox = false;
 }
 
 function phy2dAngleButton(){
