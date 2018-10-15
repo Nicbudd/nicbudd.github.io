@@ -179,7 +179,7 @@ function determineOutputs(){
 }
 
 function phy2dAngleButton(){
-	determineOutputs()
+	//determineOutputs()
 	let angleOut = document.getElementById('phyAngle');
 	let velocity = Number(document.getElementById('phyVelocity').value);
 	let startingHeight = Number(document.getElementById('phyStartingH').value);
@@ -191,7 +191,7 @@ function phy2dAngleButton(){
 }
 
 function phy2dDistanceButton(){
-	determineOutputs()
+	//determineOutputs()
 	let angle = Number(document.getElementById('phyAngle').value);
 	let velocity = Number(document.getElementById('phyVelocity').value);
 	let height = Number(document.getElementById('phyStartingH').value);
@@ -202,7 +202,7 @@ function phy2dDistanceButton(){
 }
 
 function phy2dVelocityButton(){
-	determineOutputs()
+	//determineOutputs()
 	let angle = Number(document.getElementById('phyAngle').value);
 	let velocity = document.getElementById('phyVelocity');
 	let height = Number(document.getElementById('phyStartingH').value);
