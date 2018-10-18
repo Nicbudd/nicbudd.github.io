@@ -1,8 +1,29 @@
 let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")
 var elment = document.getElementById("metarBlocks");
 
+function roundDecimal (number, decimal){
+	let factor = Math.pow(10, decimal)
+	return Math.round(number * factor) / factor
+}
+
+function knotsToMPH(knots){
+	return Math.round(knots * 1.15078);
+}
+
+function concatArray(array, start, end){
+	
+	let outStr = "";
+	
+	for (let i = start; i <= end; i++){
+		if (array[i] !== undefined) {
+			outStr = outStr + array[i].toString();
+		}
+	}
+	return outStr
+}
+
 function cToF (cel){
-	let fahr = cel * (9/5) + 32;
+	let fahr = Math.round(cel * (9/5) + 32);
 	return fahr;
 }
 
@@ -62,12 +83,13 @@ function decodeMETAR(input) {
 		
 		let currentCode = input[i].split("");
 		let currentCodeStr = input[i]
+		let codeLength = currentCode.length;
 		console.log(currentCode);
 		
 		//make an array with 1 if theres a letter but 0 if not
 		var currentCodeDiscr = [];
 		
-		for (let j = 0; j < currentCode.length; j++){
+		for (let j = 0; j < codeLength; j++){
 			currentCodeDiscr.push(0)
 			for (let k = 0; k < letters.length; k++){
 				if (currentCode[j] === letters[k]){
@@ -80,7 +102,7 @@ function decodeMETAR(input) {
 		let isTempCode = false
 		
 		//test for slashes or letters other than M
-		for (let p = 0; p < currentCode.length; p++){
+		for (let p = 0; p < codeLength; p++){
 			if (currentCode[p] === '/'){
 				isTempCode = true
 			} else {
@@ -97,18 +119,22 @@ function decodeMETAR(input) {
 		}
 		
 		
-		
+		let stepNum = 0
 		
 		
 		
 		//for METAR at beginning
-		if (currentCode[0] === "M" && currentCode[1] === "E" && currentCode[2] === "T" && currentCode[3] === "A" && currentCode[4] === "R" ){
+		if (concatArray(currentCode, 0, 4) === 'METAR'){
 			logProgress('METAR');
 			createMetarDivBlock(i, currentCodeStr, "This keyword indicated that this is a METAR");
 			
+		//for SPECI if it's a special 
+		} else if (concatArray(currentCode, 0, 4) === 'SPECI'){
+			logProgress('SPECI');
+			createMetarDivBlock(i, currentCodeStr, "This keyword indicated that this is an unscheduled special METAR showing a signifigant weather change.");
 			
 		//for Airport ICAO Identifiers
-		} else if (currentCodeDiscr[0] === 1 && currentCodeDiscr[1] === 1 && currentCodeDiscr[2] === 1 && currentCodeDiscr[3] === 1 && currentCodeDiscr.length === 4 && airportEstablished === false){
+		} else if (concatArray(currentCodeDiscr, 0, 3) === '1111' && codeLength === 4 && airportEstablished === false){
 			logProgress('ICAO Identifier');
 		
 			//Do we know the airport?
@@ -152,7 +178,7 @@ function decodeMETAR(input) {
 			
 			
 		//for time in Zulu
-		} else if (currentCodeDiscr[0] === 0 && currentCodeDiscr[1] === 0 && currentCodeDiscr[2] === 0 && currentCodeDiscr[3] === 0 && currentCodeDiscr[4] === 0 && currentCodeDiscr[5] === 0 && currentCodeDiscr[6] === 1 && currentCodeDiscr.length === 7){	
+		} else if (concatArray(currentCodeDiscr, 0, 5) === '000000' && currentCode[6] === 'Z' && codeLength === 7){	
 			logProgress('Time');
 		
 			let metarDayStr = currentCode[0] + currentCode[1];
@@ -190,8 +216,11 @@ function decodeMETAR(input) {
 			
 			createMetarDivBlock(i, input[i], `This weather report is from the ${metarDayOrdinal} of this month at ${metarHour}:${metarMinute} ${amPmMetar} UTC (It is currently ${utcHour}:${utcMinute} ${amPmUTC} UTC).`);
 			
+			
+			
+			
 			//for wind
-		} else if (currentCodeDiscr[0] === 0 && currentCodeDiscr[1] === 0 && currentCodeDiscr[2] === 0 && currentCodeDiscr[3] === 0 && currentCodeDiscr[4] === 0 && currentCodeDiscr[5] === 1 && currentCodeDiscr[6] === 1 && currentCodeDiscr.length === 7){
+		} else if (concatArray(currentCodeDiscr, 0, 4) === '00000' && concatArray(currentCode, codeLength - 2, codeLength - 1) === 'KT'){
 			logProgress('Wind');
 			
 			let degreesStr = currentCode[0] + currentCode[1] + currentCode[2];
@@ -220,24 +249,93 @@ function decodeMETAR(input) {
 				console.log('ERROR finding direction of wind!');
 			}
 			
-			let mph = Math.round(knots * 1.15078);
+			let mph = knotsToMPH(knots);
+			
+			if (currentCode[5] === "G"){
+				
+				let gusts = Number(concatArray(currentCode, 6, 7));
+				let gustsMPH = knotsToMPH(gusts);
+				
+				createMetarDivBlock(i, input[i], `The wind was ${knots} knots (${mph} mph) and gusting to ${gusts} knots (${gustsMPH} mph) at ${degrees} degrees (${direction})`);
+				
+			} else if (concatArray(currentCode, 5, 9) === "PKWND"){
+				
+				let peak = Number(concatArray(currentCode, 10, 11));
+				let peakMPH = knotsToMPH(peak);
+				
+				createMetarDivBlock(i, input[i], `The wind was ${knots} knots (${mph} mph) with a peak of ${peak} knots (${peakMPH} mph) at ${degrees} degrees (${direction})`);
+				
+			} else {
+				createMetarDivBlock(i, input[i], `The wind was ${knots} knots (${mph} mph) at ${degrees} degrees (${direction})`);
+			}
 	
-			createMetarDivBlock(i, input[i], `The wind was ${knots} knots (${mph} mph) at ${degrees} degrees (${direction})`);
+			
+			
+			
+			//if wind is variable
+		} else if (concatArray(currentCode, 0, 2) === 'VRB' && concatArray(currentCodeDiscr, 3, 4) === '00' && concatArray(currentCode, codeLength - 2, codeLength - 1) === 'KT'){
+			logProgress('Wind');
+			
+			let degreesStr = currentCode[0] + currentCode[1] + currentCode[2];
+			let degrees = Number(degreesStr);
+			let knotsStr = currentCode[3] + currentCode[4];
+			let knots = Number(knotsStr);
+			
+			let mph = knotsToMPH(knots);
+			
+			if (currentCode[5] === "G"){
+				
+				let gusts = Number(concatArray(currentCode, 6, 7));
+				let gustsMPH = knotsToMPH(gusts);
+				
+				createMetarDivBlock(i, input[i], `The wind was ${knots} knots (${mph} mph) and gusting to ${gusts} knots (${gustsMPH} mph) from a variable direction.`);
+				
+			} else if (concatArray(currentCode, 5, 9) === "PKWND"){
+				
+				let peak = Number(concatArray(currentCode, 10, 11));
+				let peakMPH = knotsToMPH(peak);
+				
+				createMetarDivBlock(i, input[i], `The wind was ${knots} knots (${mph} mph) with a peak of ${peak} knots (${peakMPH} mph) from a variable direction.`);
+				
+			} else {
+				createMetarDivBlock(i, input[i], `The wind was ${knots} knots (${mph} mph) from a variable direction.`);
+			}
 			
 			
 			//for visibility
-			} else if (currentCode[currentCode.length - 2] === "S" && currentCode[currentCode.length - 1] === "M"){
+		} else if (concatArray(currentCode, codeLength - 2, codeLength - 1) === "SM"){
 			logProgress('Visibility');
 			
-			let visibility = ""
-			for (n = 0; n < currentCode.length - 2; n++){
-				visibility = visibility + currentCode[n];
+			let visibility
+			let testFraction = concatArray(currentCode, codeLength - 5, codeLength - 3);
+			
+			if (testFraction === "1/2"){
+				visibility = concatArray(currentCode, 0, codeLength - 6) + '½';
+				
+			} else if (testFraction === "3/4"){
+				visibility = concatArray(currentCode, 0, codeLength - 6) + '¾';
+				
+			} else if (testFraction === "1/4"){
+				visibility = concatArray(currentCode, 0, codeLength - 6) + '¼';
+				
+			} else {
+				visibility = concatArray(currentCode, 0, codeLength - 3);
 			}
 			
-			console.log(visibility);
+			stepNum = 6
+			
 			createMetarDivBlock(i, input[i], `The visibility was ${visibility} Statue Mile(s).`);
 			
-		} else if (currentCodeDiscr[0] === 1 && currentCodeDiscr[1] === 1 && currentCodeDiscr[2] === 1 && currentCodeDiscr[3] === 0 && currentCodeDiscr[4] === 0 && currentCodeDiscr[5] === 0 && currentCodeDiscr.length === 6){
+		} else if (currentCode[0] === "R" && concatArray(currentCode, codeLength - 2, codeLength - 1) === "FT"){
+			
+			let slashLoc = currentCode.indexOf('/'); 
+			let runway = concatArray(currentCode, 1, slashLoc - 1);
+			let visibility = concatArray(currentCode, slashLoc + 1, codeLength - 3);
+			createMetarDivBlock(i, input[i], `The visibility on runway ${runway} was ${visibility} ft.`);
+			
+			stepNum = 6
+			
+		} else if (concatArray(currentCodeDiscr, 0, 5) === "111000" && codeLength === 6){
 			logProgress('Clouds');
 			
 			let flightLevelStr = currentCode[3] + currentCode[4] + currentCode[5]
@@ -272,7 +370,7 @@ function decodeMETAR(input) {
 			
 			
 			
-			
+			stepNum = 8
 			
 			
 		} else if (isTempCode === true){
@@ -305,7 +403,7 @@ function decodeMETAR(input) {
 			}
 			
 			let dewStr = ""
-			for (let s = slashLoc + 1; s < currentCode.length; s++){
+			for (let s = slashLoc + 1; s < codeLength; s++){
 				dewStr = dewStr + currentCode[s];
 			}
 			
@@ -326,7 +424,7 @@ function decodeMETAR(input) {
 			createMetarDivBlock(i, input[i], `The temperature was ${cTemp}°C (${fTemp}°F), and the dewpoint was ${cDew}°C (${fDew}°F).`);
 			
 			
-		} else if (currentCode[0] === "A" && currentCodeDiscr[1] === 0 && currentCodeDiscr[2] === 0 && currentCodeDiscr[3] === 0 && currentCodeDiscr[4] === 0 && currentCodeDiscr.length === 5){
+		} else if (currentCode[0] === "A" && currentCodeDiscr[1] === 0 && currentCodeDiscr[2] === 0 && currentCodeDiscr[3] === 0 && currentCodeDiscr[4] === 0 && codeLength === 5){
 			logProgress('Altimeter Setting');
 			let presStr = currentCode[1] + currentCode[2] + currentCode[3] + currentCode[4];
 			let altHg = Number(presStr) / 100;
@@ -354,7 +452,7 @@ function decodeMETAR(input) {
 			logProgress('$');
 			createMetarDivBlock(i, input[i], 'This keyword indicates that the station needs maintenance.');
 			
-		} else if (currentCode[0] === "T" && currentCodeDiscr[1] === 0 && currentCodeDiscr[2] === 0 && currentCodeDiscr[3] === 0 && currentCodeDiscr[4] === 0 && currentCodeDiscr[5] === 0 && currentCodeDiscr[6] === 0 && currentCodeDiscr[7] === 0 && currentCodeDiscr[8] === 0 && currentCodeDiscr.length === 9){
+		} else if (currentCode[0] === "T" && currentCodeDiscr[1] === 0 && currentCodeDiscr[2] === 0 && currentCodeDiscr[3] === 0 && currentCodeDiscr[4] === 0 && currentCodeDiscr[5] === 0 && currentCodeDiscr[6] === 0 && currentCodeDiscr[7] === 0 && currentCodeDiscr[8] === 0 && codeLength === 9){
 			logProgress('4 Digit Temp');
 			
 			let fourTempStr = currentCode[2] + currentCode[3] + currentCode[4];
@@ -375,6 +473,39 @@ function decodeMETAR(input) {
 			
 			createMetarDivBlock(i, input[i], `A more precise temperature was ${fourTemp}°C (${fourFTemp}°F)and a more precise dewpoint was ${fourDew}°C (${fourFDew}°F).`);
 			
+			
+			
+			
+			
+			
+		//for weather
+		/*} else if (currentCodeStr.IndexOf('TS') !== -1 && stepNum === 6){
+			
+			if
+		
+		} else if (currentCodeStr.IndexOf('RA') !== -1 && stepNum === 6){
+			
+			if (currentCode[currentCodeStr.IndexOf('RA') - 1] === ){
+				
+			}
+//
+		} else if (currentCodeStr.IndexOf('SH') !== -1 && stepNum === 6){
+
+		} else if (currentCodeStr.IndexOf('DZ') !== -1 && stepNum === 6){
+//
+		} else if (currentCodeStr.IndexOf('GR') !== -1 && stepNum === 6){
+
+		} else if (currentCodeStr.IndexOf('PL') !== -1 && stepNum === 6){
+
+		} else if (currentCodeStr.IndexOf('SN') !== -1 && stepNum === 6){
+//
+		} else if (currentCodeStr.IndexOf('SP') !== -1 && stepNum === 6){
+
+		} else if (currentCodeStr.IndexOf('SG') !== -1 && stepNum === 6){
+			
+		} else if (currentCodeStr.IndexOf('IC') !== -1 && stepNum === 6){					
+			*/
+			
 		} else {
 			console.log('Nothing found rip');
 			createMetarDivBlock(i, input[i], 'This keyword was not found.');
@@ -388,4 +519,5 @@ function metarDecodeButton() {
 	console.log(inputWritten);
 	let outputText = decodeMETAR(inputWritten);
 	console.log(outputText);
+
 }
