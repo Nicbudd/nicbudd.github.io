@@ -421,7 +421,7 @@ li.dropdown {
 
 #backtotopbutton a{
 		position:fixed;
-	padding:16px;
+	padding:-5px;
 	bottom: 5px;
 	right: 5px;
 	background-color:#ccff00;
