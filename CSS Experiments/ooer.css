@@ -718,7 +718,9 @@ border-width: 2px;
 .lightergrayblock{
 	
 	width:var(--center-content-width);
-	background-color:#B0FF81;
+	background-image: url(https://i.ytimg.com/vi/6n3pFFPSlW4/hqdefault.jpg);
+	background-position: left top;
+    	background-repeat: repeat;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top: 0;
@@ -781,7 +783,9 @@ border-width: 2px;
 .lightgrayblock{
 	
 	width:var(--center-content-width);
-	background-color:#C3C3C3;
+	background-image: url(https://i.ytimg.com/vi/6n3pFFPSlW4/hqdefault.jpg);
+	background-position: left top;
+    	background-repeat: repeat;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top: 0;
@@ -846,7 +850,9 @@ border-width: 2px;
 .blackblock{
 	
 	width:var(--center-content-width);
-	background-color:#ccff00;
+	background-image: url(https://i.ytimg.com/vi/6n3pFFPSlW4/hqdefault.jpg);
+	background-position: left top;
+    	background-repeat: repeat;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top: 0;
@@ -916,7 +922,9 @@ border-width: 2px;
 .blueblock{
 	
 	width:var(--center-content-width);
-	background-color:#0087FF;
+	background-image: url(https://i.ytimg.com/vi/6n3pFFPSlW4/hqdefault.jpg);
+	background-position: left top;
+    	background-repeat: repeat;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top: 0;
@@ -993,7 +1001,9 @@ border-width: 2px;
 .greenblock{
 	
 	width:var(--center-content-width);
-	background-color:#2B6644;
+	background-image: url(https://i.ytimg.com/vi/6n3pFFPSlW4/hqdefault.jpg);
+	background-position: left top;
+    	background-repeat: repeat;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top: 0;
@@ -1055,7 +1065,9 @@ border-width: 2px;
 .redblock{
 	
 	width:var(--center-content-width);
-	background-color:#C14747;
+	background-image: url(https://i.ytimg.com/vi/6n3pFFPSlW4/hqdefault.jpg);
+	background-position: left top;
+    	background-repeat: repeat;
 	margin-left:auto;
 	margin-right:auto;
 	margin-top: 0;
