@@ -423,13 +423,13 @@ li.dropdown {
     animation-iteration-count: infinite;
 }
 
-@media screen and (min-width:768px){
+
 #backtotopbutton:hover a{
-	padding:24px;
-		font-size: 1.5em;
-		background-color:#0087FF;
+	padding:-5px;
+		font-size: 0.25em;
+		background-color:#8A9A5B;
 }
-}
+
 
 
 .listbar {
