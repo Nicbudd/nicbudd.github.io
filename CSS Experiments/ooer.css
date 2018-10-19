@@ -59,9 +59,9 @@ MobileS: 300px-400px
 	
 	--margin-border-color: #B0FF81;
 	--margin-border-width: 0px;
-	--center-content-width: 90%;
-	--center-content-width-inv: 10%;
-	--half-center-content-width-inv: 5%;
+	--center-content-width: 33%;
+	--center-content-width-inv: 66%;
+	--half-center-content-width-inv: 33%;
 	
 }
 
