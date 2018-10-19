@@ -718,7 +718,7 @@ border-width: 2px;
 .lightergrayblock{
 	
 	width:var(--center-content-width);
-	background-image: url(https://i.ytimg.com/vi/6n3pFFPSlW4/hqdefault.jpg);
+	background-image: url(../hqdefault.jpg);
 	background-position: left top;
     	background-repeat: repeat;
 	margin-left:auto;
@@ -783,7 +783,7 @@ border-width: 2px;
 .lightgrayblock{
 	
 	width:var(--center-content-width);
-	background-image: url(https://i.ytimg.com/vi/6n3pFFPSlW4/hqdefault.jpg);
+	background-image: url(../hqdefault.jpg);
 	background-position: left top;
     	background-repeat: repeat;
 	margin-left:auto;
@@ -850,7 +850,7 @@ border-width: 2px;
 .blackblock{
 	
 	width:var(--center-content-width);
-	background-image: url(https://i.ytimg.com/vi/6n3pFFPSlW4/hqdefault.jpg);
+	background-image: url(../hqdefault.jpg);
 	background-position: left top;
     	background-repeat: repeat;
 	margin-left:auto;
@@ -922,7 +922,7 @@ border-width: 2px;
 .blueblock{
 	
 	width:var(--center-content-width);
-	background-image: url(https://i.ytimg.com/vi/6n3pFFPSlW4/hqdefault.jpg);
+	background-image: url(../hqdefault.jpg);
 	background-position: left top;
     	background-repeat: repeat;
 	margin-left:auto;
@@ -1001,7 +1001,7 @@ border-width: 2px;
 .greenblock{
 	
 	width:var(--center-content-width);
-	background-image: url(https://i.ytimg.com/vi/6n3pFFPSlW4/hqdefault.jpg);
+	background-image: url(../hqdefault.jpg);
 	background-position: left top;
     	background-repeat: repeat;
 	margin-left:auto;
@@ -1065,7 +1065,7 @@ border-width: 2px;
 .redblock{
 	
 	width:var(--center-content-width);
-	background-image: url(https://i.ytimg.com/vi/6n3pFFPSlW4/hqdefault.jpg);
+	background-image: url(../hqdefault.jpg);
 	background-position: left top;
     	background-repeat: repeat;
 	margin-left:auto;
