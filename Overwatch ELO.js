@@ -17,8 +17,13 @@ return team1 + (k * (actualPoints - expectedPoints))
 }
 
 function lookupTeamELO(team) {
-	for (let i = 0; ){
+	for (let i = 0; i < teams.length; i++){
 		
+		if (teams[i, 0] === team){
+			
+			return teams[i, 1];
+			
+		}
 		
 	}
 }

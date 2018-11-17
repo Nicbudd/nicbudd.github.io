@@ -188,11 +188,32 @@ hr{
 }
 
 img{
-	max-width: 90%;
+	max-width: 40%;
     height: auto;
 	margin:10px;
 	border-radius: 16px;
 	box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+}
+
+@media screen and (max-width: 1280px){
+	img{
+		max-width: 60%;
+	}
+	
+}
+
+@media screen and (max-width: 768px){
+	img{
+		max-width: 80%;
+	}
+	
+}
+
+@media screen and (max-width: 600px){
+	img{
+		max-width: 90%;
+	}
+	
 }
 
 iframe{
@@ -206,13 +227,30 @@ table{
 }
 
 ul, ol{
-	list-style-type: none;
+	
 	margin:0px;
 	padding:16px;
 }
 
+ul {
+	list-style-type: none;
+}
+
+ul ul {
+	font-size: 0.8em;
+	opacity: 0.7;
+	padding:0px;
+	margin:0px;
+}
+
+ul ul li {
+	padding: 2px;
+}
+
 li{
 	overflow: ellipses;
+	padding: 4px;
+	padding-top: 16px;
 }
 
 input[type="text"]{
@@ -668,13 +706,14 @@ justify-content: center;
 #eloScorebox{
 	display:inline-grid;
 	grid-template-columns: auto auto;
-	grid-gap: 8px 8px;
+	grid-gap: 8px 0px;
+	padding: 8px;
 }
 
 
 .eloTeam{
 	font-family: Roboto Mono;
-	border-radius: 12px;
+	border-radius: 12px 0px 0px 12px;
 	display:inline-block;
 	margin: 0px;
 	padding: 8px;
@@ -682,7 +721,7 @@ justify-content: center;
 
 .teamScore{
 	font-family: Roboto Mono;
-	border-radius: 12px;
+	border-radius: 0px 12px 12px 0px;
 	display:inline-block;
 	margin: 0px;
 	padding: 8px;
@@ -747,7 +786,7 @@ justify-content: center;
 
 
 #physicsInputs{
-	display:flex;
+	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-flow: row wrap;
@@ -764,7 +803,26 @@ justify-content: center;
 	border-width: 0px !important;
 	display:flex;
 	flex-flow: row wrap;
+	justify-content: center;
+	align-items: center;
 }
+
+#metarTable{
+	border: 0px;
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

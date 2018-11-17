@@ -1,5 +1,26 @@
 let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")
 var elment = document.getElementById("metarBlocks");
+let verbose = true
+let verbosePrevious
+var outputList = {temp:"12C", airport:"Dillant-Hopkins"}
+
+function checkVerbose() {
+	/*verbose = document.getElementById('verbose').checked;*/
+	console.log('Verbose checked = ' + verbose);
+	console.log('Verbose previous = ' + verbosePrevious);
+	if (verbose === true){
+		var metarBlocks = document.createElement('div');
+		metarBlocks.setAttribute("id", "metarBlocks");
+		document.getElementById('metarSection').appendChild(metarBlocks);
+	}
+}
+
+function simplifiedOutput(num, ) {
+	if (verbose === false){
+		var listElement = document.getElementById('metarOut');
+		
+	}
+}
 
 function roundDecimal (number, decimal){
 	let factor = Math.pow(10, decimal)
@@ -23,7 +44,7 @@ function concatArray(array, start, end){
 }
 
 function cToF (cel){
-	let fahr = Math.round(cel * (9/5) + 32);
+	let fahr = cel * (9/5) + 32;
 	return fahr;
 }
 
@@ -46,8 +67,10 @@ function logProgress (testFor){
 	console.log(`Condition found: ${testFor}`)
 }
 
+
 function createMetarDivBlock(num, label, textInside){
-	var elment = document.getElementById("metarBlocks");
+	if (verbose === true){
+		var elment = document.getElementById("metarBlocks");
 		var para = document.createElement("div");
 		para.setAttribute("id", "metarBlock" + num);
 		para.setAttribute("class", "metarBlock");
@@ -59,17 +82,22 @@ function createMetarDivBlock(num, label, textInside){
 		skre.appendChild(buom);
 		para.appendChild(node);
 		para.appendChild(skre);
-		
 		elment.appendChild(para);
+	}
 }
 
 function decodeMETAR(input) {
 	
 	
 	//clear previous metarBlocks
-	var elment = document.getElementById("metarBlocks");
-		while (elment.firstChild) {
-		elment.removeChild(elment.firstChild);}
+		var daddy = document.getElementById('metarSection');
+	if (verbosePrevious === true) {
+		var elment = document.getElementById("metarBlocks");
+		daddy.removeChild(elment);
+	} else if (verbosePrevious === false){
+		var elment = document.getElementById("metarOut");
+		daddy.removeChild(elment);
+	}
 		
 	//split input into array with each keyword
 	input = input.split(" ");
@@ -365,6 +393,7 @@ function decodeMETAR(input) {
 					createMetarDivBlock(i, input[i], skyCondition + height + " ft.");
 					break;		
 				default:
+				
 					break;
 			}
 			
@@ -504,8 +533,8 @@ function decodeMETAR(input) {
 		} else if (currentCodeStr.IndexOf('SG') !== -1 && stepNum === 6){
 			
 		} else if (currentCodeStr.IndexOf('IC') !== -1 && stepNum === 6){					
-			*/
 			
+		*/	
 		} else {
 			console.log('Nothing found rip');
 			createMetarDivBlock(i, input[i], 'This keyword was not found.');
@@ -515,9 +544,12 @@ function decodeMETAR(input) {
 }
 
 function metarDecodeButton() {
+	checkVerbose();
 	let inputWritten = document.getElementById('metarInput').value;
 	console.log(inputWritten);
 	let outputText = decodeMETAR(inputWritten);
 	console.log(outputText);
-
+	outputList.temperature = "12C"
+	console.log(outputList);
+	verbosePrevious = verbose
 }
