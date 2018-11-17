@@ -227,7 +227,6 @@ table{
 }
 
 ul, ol{
-	
 	margin:0px;
 	padding:16px;
 }
@@ -337,6 +336,7 @@ button:hover{
 
 .navbar li {
     float: left;
+	padding: 0px;
 }
 
 .navbar-icons li{
