@@ -814,8 +814,137 @@ justify-content: center;
 
 
 
+.xmasItem{
+	display:inline-grid;
+	grid-template-columns: auto auto;
+	grid-gap: 8px 0px;
+}
+
+.xmasName{
+	border-radius: 12px 0px 0px 12px;
+	display:inline-block;
+	margin: 0px;
+	padding: 8px;
+	color: #E6E6E6;
+	background-color: #3BA769;
+	border: 3px solid #3BA769;
+	border-right: 0px;
+}
+
+.xmasPrice{
+	border-radius: 0px 12px 12px 0px;
+	display:inline-block;
+	margin: 0px;
+	padding: 8px;
+	border-left: 0px;
+	color: #3BA769;
+	background-color: #E6E6E6;
+	border: 3px solid #3BA769;
+	border-left: 0px;
+}
+
+.xmasNoHover{
+	display:inline-grid;
+	grid-template-columns: auto;
+	grid-gap: 8px;
+}
+
+.xmasNoHover a:hover{
+	background: none!important;
+}
 
 
+
+.xmasNoHover a:nth-child(2) .xmasName{
+	color: #E6E6E6;
+	background-color: #C14747;
+	border: 3px solid #C14747;
+	border-right: 0px;
+}
+.xmasNoHover a:nth-child(2) .xmasPrice{
+	color: #C14747;
+	background-color: #E6E6E6;
+	border: 3px solid #C14747;
+	border-left: 0px;
+}
+
+.xmasNoHover a:nth-child(4) .xmasName{
+	color: #E6E6E6;
+	background-color: #C14747;
+	border: 3px solid #C14747;
+	border-right: 0px;
+}
+.xmasNoHover a:nth-child(4) .xmasPrice{
+	color: #C14747;
+	background-color: #E6E6E6;
+	border: 3px solid #C14747;
+	border-left: 0px;
+}
+
+.xmasNoHover a:nth-child(6) .xmasName{
+	color: #E6E6E6;
+	background-color: #C14747;
+	border: 3px solid #C14747;
+	border-right: 0px;
+}
+.xmasNoHover a:nth-child(6) .xmasPrice{
+	color: #C14747;
+	background-color: #E6E6E6;
+	border: 3px solid #C14747;
+	border-left: 0px;
+}
+
+.xmasNoHover a:nth-child(8) .xmasName{
+	color: #E6E6E6;
+	background-color: #C14747;
+	border: 3px solid #C14747;
+	border-right: 0px;
+}
+.xmasNoHover a:nth-child(8) .xmasPrice{
+	color: #C14747;
+	background-color: #E6E6E6;
+	border: 3px solid #C14747;
+	border-left: 0px;
+}
+
+.xmasNoHover a:nth-child(10) .xmasName{
+	color: #E6E6E6;
+	background-color: #C14747;
+	border: 3px solid #C14747;
+	border-right: 0px;
+}
+.xmasNoHover a:nth-child(10) .xmasPrice{
+	color: #C14747;
+	background-color: #E6E6E6;
+	border: 3px solid #C14747;
+	border-left: 0px;
+}
+
+.xmasNoHover a:nth-child(12) .xmasName{
+	color: #E6E6E6;
+	background-color: #C14747;
+	border: 3px solid #C14747;
+	border-right: 0px;
+}
+.xmasNoHover a:nth-child(12) .xmasPrice{
+	color: #C14747;
+	background-color: #E6E6E6;
+	border: 3px solid #C14747;
+	border-left: 0px;
+}
+
+.xmasNoHover a:nth-child(14) .xmasName{
+	color: #E6E6E6;
+	background-color: #C14747;
+	border: 3px solid #C14747;
+	border-right: 0px;
+}
+.xmasNoHover a:nth-child(14) .xmasPrice{
+	color: #C14747;
+	background-color: #E6E6E6;
+	border: 3px solid #C14747;
+	border-left: 0px;
+}
 
 
 
