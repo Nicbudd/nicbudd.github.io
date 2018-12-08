@@ -72,7 +72,7 @@ MobileS: 300px-400px
 	
 	--center-content-width: 100%;
 	--center-content-width-inv: 0%;
-	
+	--half-center-content-width-inv: 0%;
 }
 }
 
@@ -947,6 +947,25 @@ justify-content: center;
 }
 
 
+.yt{
+	width: 560px;
+	height: 315px;
+}
+
+@media screen and (max-width: 600px){
+	.yt{
+	width: 368px;
+	height: 207px;
+}
+}
+
+@media screen and (max-width: 400px){
+	.yt{
+	width: 288px;
+	height: 162px;
+	margin: 4px;
+}
+}
 
 
 

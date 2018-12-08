@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:100');
+@import url('https://fonts.googleapis.com/css?family=Poppins:100');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100');
+
+* {
+	box-sizing: border-box;
+}
+
+body{
+	text-align: center;
+	margin: 0px;
+	padding: 16px;
+	overflow-y: hidden;
+}
+
+body.pang{
+	background: black;
+}
+
+body.zerbs{
+	background: white;
+}
+
+h1{
+	display: inline-block;
+	font-size: 3.5em;
+	font-family: Raleway;
+	border: 2px solid red;
+	margin: 0.5em;
+	padding: 0.5em;
+	font-weight: 200;
+}
+
+.pang h1{
+	color: white; 
+	background: black;
+	border-color: white;
+}
+
+.zerbs h1{
+	color: black;
+	background: white; 
+	border-color: black;
+}
+
+.photos{
+	display:block;
+	width: 500px;
+	height: 1000px;
+	overflow-y: auto;
+	overflow-x: hidden;
+	transform: rotate(-90deg) translateY(-500px);
+	transform-origin: right top;
+	padding-top: 500px;
+	top:0px;
+	left:0px;
+}
+
+.photos > img{
+	display:block;
+	float:left;
+	width: 500px;
+	height: 500px;
+	transform: rotate(90deg);
+	transform-origin: right top;
+}
+
+img{
+	height: 100px;
+	width: 100px;
+}
