@@ -1,31 +1,52 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300');
-@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:100');
-@import url('https://fonts.googleapis.com/css?family=Poppins:100');
-@import url('https://fonts.googleapis.com/css?family=Montserrat:100');
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:100,200,300,400,500');
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300');
 
 * {
 	box-sizing: border-box;
 }
 
 body{
+	font-family: Raleway;
 	text-align: center;
-	margin: 0px;
-	overflow-y: hidden;
+	margin: 8px;
+	padding: 8px;
+	font-weight: 400;
+	letter-spacing:0.4em;
+	font-size: 0.5em;
+	text-transform: uppercase;
+	padding-bottom: 128px;
+}
+
+@media screen and (max-width:600px){
+	body{
+		font-size:85%;
+	}
+	
+}
+
+@media screen and (max-width:400px){
+	body{
+		font-size:75%;
+	}
+	
 }
 
 body.pang{
 	background: black;
+	color: white;
 }
 
 body.zerbs{
 	background: white;
+	color: black;
 }
 
 h1{
 	display: inline-block;
-	font-size: 3.5em;
-	font-family: Raleway;
-	border: 2px solid red;
+	font-size: 2em;
+	border: 1px solid red;
 	margin: 0.5em;
 	padding: 0.5em;
 	font-weight: 200;
@@ -43,23 +64,96 @@ h1{
 	border-color: black;
 }
 
-#photos{
-	display:block;
-	width: 500px;
-	height: 1000px;
-	overflow-y: auto;
-	overflow-x: hidden;
-	transform: rotate(-90deg) translateY(-500px);
-	transform-origin: right top;
-	top:0px;
-	left:0px;
+a{
+	text-decoration: none;
 }
 
-#photos > img{
-	display:block;
-	float:left;
-	transform-origin: right top;
-	width: 500px;
-	height: 500px;
-	transform: rotate(90deg) translateY(-500px);
+.zerbs a{
+	color: black;
+}
+
+.pang a{
+	color: white;
+}
+
+
+
+
+
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 32px;
+}
+
+.column {
+  flex: 33.333333%;
+  max-width: 33.333333%;
+  padding: 0 100px;
+}
+
+.column img {
+  margin-top: 200px;
+  vertical-align: middle;
+}
+
+@media screen and (max-width: 1200px){
+	.row{
+		padding: 0 50px;
+	}
+	.column{
+		padding: 0 50px;
+	}
+	.column img{
+		margin-top: 100px;
+	}
+}
+
+
+@media screen and (max-width: 800px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+a.button{
+	
+	display: block;
+	padding: 1.5em;
+	border: 0px solid red;
+	transition: 0.3s background, 0.3s color;
+	font-size: 1.5em;
+	width:20%;
+	
+}
+
+.zerbs a.button{
+	border-color: black;
+}
+
+.zerbs a.button:hover{
+	background: black;
+	color: white;
+}
+
+.pang a.button{
+	border-color: white;
+}
+
+.pang a.button:hover{
+	background: white;
+	color: black;
+}
+
+.buttons{
+	display: flex;
+	flex-flow: row wrap;
+	padding: 0em;
+	justify-content: center;
+	position: fixed;
+	width: 100%;
+	bottom: 0px;
+	left: 0px;
 }
