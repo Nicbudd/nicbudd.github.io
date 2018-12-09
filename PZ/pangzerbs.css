@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500');
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700');
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:100,200,300,400,500');
 @import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500');
 @import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300');
@@ -110,23 +110,50 @@ a{
 	}
 }
 
+@media screen and (max-width: 1000px){
+	.row{
+		padding: 0 25px;
+	}
+	.column{
+		padding: 0 25px;
+	}
+	.column img{
+		margin-top: 50px;
+	}
+}
+
 
 @media screen and (max-width: 800px) {
-  .column {
-    flex: 100%;
-    max-width: 100%;
-  }
+	.row{
+		padding: 0px;
+	}
+	.column img{
+		margin-top: 20px;
+	}
+	
+	.column {
+		flex: 100%;
+		max-width: 100%;
+		padding: 0 8px;
+	}
 }
 
 a.button{
 	
 	display: block;
 	padding: 1.5em;
-	border: 0px solid red;
 	transition: 0.3s background, 0.3s color;
 	font-size: 1.5em;
 	width:20%;
 	
+}
+
+@media screen and (max-width: 600px){
+	a.button{
+		font-size: 0.75em;
+		font-weight: 700;
+		width:33.33333333%;
+	}
 }
 
 .zerbs a.button{
