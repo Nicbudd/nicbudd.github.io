@@ -11,6 +11,8 @@
 <meta charset="UTF-8">
 <title>Lena Zerbs Studio</title>
 
+
+
 </head>
 
 <body class="zerbs">
@@ -18,10 +20,50 @@
 
 <h1>Lena Zerb Studios</h1>
 
-<div class="photos">
-<img src="E99.jpg"></img>
-<img src="image1.jpg"></img>
+<div id="photos">
+<img src="E99.jpg" id="img0"></img>
+<img src="image1.jpg" id="img1"></img>
+<img src="Shaded2.jpg" id="img2"></img>
 </div>
+
+<script>
+
+var imgArray = [['E99.jpg', 1068, 1244], ['image1.jpg', 2366, 2391], ['Shaded2.jpg', 4400, 1076]]
+
+var sliderHeight = window.innerWidth;
+
+console.log(sliderHeight)
+
+document.getElementById('photos').style.height = sliderHeight + "px";
+
+var height = 500
+var cumulativeTranslate = -500
+
+
+
+for(i = 0; i < imgArray.length; i++){
+
+	
+	var sourceURL = imgArray[i][0];
+	var sourceWidth = imgArray[i][1];
+	var sourceHeight = imgArray[i][2];
+	
+	console.log(sourceURL + " " + sourceWidth + " " + sourceHeight);
+	
+	var width = sourceWidth / sourceHeight * height
+	console.log(width);
+
+	var elementId = "img" + i
+	var translateY = (height - width) * -1
+	cumulativeTranslate = cumulativeTranslate + height - width
+	var translateX = cumulativeTranslate * -1
+	
+	document.getElementById(elementId).style.width = width + 'px';
+	document.getElementById(elementId).style.height = height + 'px';
+	document.getElementById(elementId).style.transform = 'rotate(90deg) translateY(' + translateY + 'px) translateX(' + translateX + 'px)';
+}
+
+</script>
 
 
 </body>

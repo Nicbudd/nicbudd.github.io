@@ -10,7 +10,6 @@
 body{
 	text-align: center;
 	margin: 0px;
-	padding: 16px;
 	overflow-y: hidden;
 }
 
@@ -44,7 +43,7 @@ h1{
 	border-color: black;
 }
 
-.photos{
+#photos{
 	display:block;
 	width: 500px;
 	height: 1000px;
@@ -52,21 +51,15 @@ h1{
 	overflow-x: hidden;
 	transform: rotate(-90deg) translateY(-500px);
 	transform-origin: right top;
-	padding-top: 500px;
 	top:0px;
 	left:0px;
 }
 
-.photos > img{
-	display:block;
-	float:left;
+#photos > img{
 	width: 500px;
 	height: 500px;
+	display:block;
+	float:left;
 	transform: rotate(90deg);
 	transform-origin: right top;
-}
-
-img{
-	height: 100px;
-	width: 100px;
 }
