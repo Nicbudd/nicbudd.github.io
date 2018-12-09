@@ -34,18 +34,14 @@
 
 var imgArray = [['E99.jpg', 1068, 1244], ['image1.jpg', 2366, 2391], ['E99.jpg', 1068, 1244], ['image1.jpg', 2366, 2391], ['E99.jpg', 1068, 1244], ['image1.jpg', 2366, 2391]]
 
-function resize() {
-
-	var sliderHeight = window.innerWidth;
-	console.log("Slider Height: " + sliderHeight)
-	document.getElementById('photos').style.height = sliderHeight + "px";
-
-}
-
-
 var height = 500
 var cumulativeTranslateX = height * -1
 var cumulativeTranslateY = 0
+
+/*var photoContainter = document.createElement('div');
+
+photoContainter.setAttribute('id', 'photos');*/
+
 
 
 for (i = 0; i < imgArray.length; i++){
@@ -70,19 +66,26 @@ for (i = 0; i < imgArray.length; i++){
 	
 	var elementId = "img" + i
 	
+	/*var newElement = document.createElement('img')
+	
+	newElement.setAttribute("id", elementId)*/
+	
 	document.getElementById(elementId).style.setProperty("width", width + 'px', "important");
 	document.getElementById(elementId).style.setProperty("height", height + 'px', "important");
 	document.getElementById(elementId).style.setProperty("transform", 'rotate(90deg) translateY(' + translateY * -1 + 'px) translateX(' + translateX + 'px)', "important")
 	
+	/*document.getElementById(elementId).style.cssText = 'display:block;float:left;transform-origin: right top;'*/
+	
 }
 
-function pleaseLoadRight(){
-
-var sliderPrevLength = imgArray.length * height
-var sliderForceLength = sliderPrevLength - cumulativeTranslateY
-
-document.getElementById('photos').style.setProperty("height", sliderForceLength + 'px', "important");
 console.log(document.getElementById('photos').style.height)
+
+function resize() {
+
+	var sliderHeight = window.innerWidth;
+	console.log("Slider Height: " + sliderHeight)
+	document.getElementById('photos').style.height = sliderHeight + "px";
+
 }
 
 </script>

@@ -56,10 +56,10 @@ h1{
 }
 
 #photos > img{
-	width: 500px;
-	height: 500px;
 	display:block;
 	float:left;
-	transform: rotate(90deg);
 	transform-origin: right top;
+	width: 500px;
+	height: 500px;
+	transform: rotate(90deg) translateY(-500px);
 }
