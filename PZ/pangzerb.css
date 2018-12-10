@@ -202,20 +202,23 @@ a.pang:hover{
 
 body.pangzerb{
 	background: rgba(255, 255, 255, 1);
-}
-
-.pzAnimation{
-	
+	margin-top: 6em;
 }
 
 .pangAnimContainer{
 	width:50%;
-	float:left;
+	position:fixed;
+	top: 0;
+	left: 0;
+	z-index: 2;
 }
 
 .zerbAnimContainer{
 	width:50%;
-	float:left;
+	position:fixed;
+	top: 0;
+	left: 50%;
+	z-index: 2;
 }
 
 @keyframes slideInPang{
@@ -236,6 +239,7 @@ body.pangzerb{
 	margin-right:1px;
 	animation: slideInPang 1s;
 	animation-timing-function: ease-out;
+
 }
 
 .zerbAnimContainer h1{
@@ -244,4 +248,5 @@ body.pangzerb{
 	margin-left:1px;
 	animation: slideInZerb 2s;
 	animation-timing-function: ease-out;
+
 }
