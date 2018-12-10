@@ -1,135 +1,35 @@
 <!DOCTYPE html>
-<!--PANG PAGE-->
 
 <html>
 
 <head>
 
 <script src = "https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src = "../import.js" type = "text/javascript"></script>
+<link rel="stylesheet" href="pangzerb.css">
+<script src = "import.js" type = "text/javascript"></script>
 <meta charset="UTF-8">
-<title>Kim Pang Studio</title>
+<title>Pangzerb</title>
 
 
 
 </head>
 
-<body class="pang" onresize="resize()" onload="resize()">
-<link rel="stylesheet" href="../pangzerbs.css">
+<body class="pangzerb">
 <noscript><div id="noscript"><h2>Uh-oh!</h2><p>It appears that javascript is not working here, for whatever reason.</p><p>Sadly, this site doesn't work without javascript. You might be able to see it looks a bit... broken.</p><p>Please enable javascript or switch to a browser that is compatible with javascript if you want to continue browsing this website.</p><p>If you don't want to, that's ok too. I'll just be sad that you cant see my website.</p><h2>;(</h2></div></noscript>
 
-<h1>Kim Pang</h1>
+<div class="pangAnimContainer pang"><h1>Pang</h1></div>
+<div class="zerbAnimContainer zerb"><h1>Zerb</h1></div>
 
-<div class="row"> 
-  <div class="column">
-    <img src="E99.jpg" style="width:100%">
-    <img src="image1.jpg" style="width:100%">
-	<img src="E99.jpg" style="width:100%">
-    <img src="image1.jpg" style="width:100%">
-	<img src="E99.jpg" style="width:100%">
-    <img src="image1.jpg" style="width:100%">
-  </div>
-  
-  <div class="column">
-    <img src="image1.jpg" style="width:100%">
-	<img src="E99.jpg" style="width:100%">
-    <img src="image1.jpg" style="width:100%">
-	<img src="E99.jpg" style="width:100%">
-    <img src="image1.jpg" style="width:100%">
-	<img src="E99.jpg" style="width:100%">
-  </div> 
-   
-  <div class="column">
-    <img src="E99.jpg" style="width:100%">
-    <img src="image1.jpg" style="width:100%">
-	<img src="E99.jpg" style="width:100%">
-    <img src="image1.jpg" style="width:100%">
-	<img src="E99.jpg" style="width:100%">
-    <img src="image1.jpg" style="width:100%">
-  </div>
-  
-  <div class="column">
-    <img src="image1.jpg" style="width:100%">
-	<img src="E99.jpg" style="width:100%">
-    <img src="image1.jpg" style="width:100%">
-	<img src="E99.jpg" style="width:100%">
-    <img src="image1.jpg" style="width:100%">
-	<img src="E99.jpg" style="width:100%">
-  </div>
-</div>
+<div class='row'><div class='column'><img src='E99.jpg'><img src='image1.jpg'><img src='E99.jpg'><img src='image1.jpg'><img src='E99.jpg'><img src='image1.jpg'></div><div class='column'><img src='image1.jpg'><img src='E99.jpg'><img src='image1.jpg'><img src='E99.jpg'><img src='image1.jpg'><img src='E99.jpg'></div><div class='column'><img src='E99.jpg'><img src='image1.jpg'><img src='E99.jpg'><img src='image1.jpg'><img src='E99.jpg'><img src='image1.jpg'></div></div>
 
 <div class="buttons">
 
-<a href="#" class="button">About</a>
-<a href="#" class="button">Stills</a>
-<a href="../index.html" class="button">Zerbs</a>
-<a href="#" class="button">Projects</a>
-<a href="#" class="button">Contact</a>
+<a href="zerb.html" class="zerb button">Lena Zerb</a>
+<a href="pang.html" class="pang button">Kim Pang</a>
+
+
 
 </div>
-
-
-<!--<script>
-
-
-
-var imgArray = [['E99.jpg', 1068, 1244], ['image1.jpg', 2366, 2391], ['E99.jpg', 1068, 1244], ['image1.jpg', 2366, 2391], ['E99.jpg', 1068, 1244], ['image1.jpg', 2366, 2391]]
-
-var height = 300
-var cumulativeTranslateX = height * -1
-var cumulativeTranslateY = 0
-
-/*var photoContainter = document.createElement('div');
-
-photoContainter.setAttribute('id', 'photos');*/
-
-
-
-for (i = 0; i < imgArray.length; i++){
-
-	
-	var sourceURL = imgArray[i][0];
-	var sourceWidth = imgArray[i][1];
-	var sourceHeight = imgArray[i][2];
-	
-	console.log(sourceURL + " " + sourceWidth + " " + sourceHeight);
-	
-	var width = sourceWidth / sourceHeight * height
-	console.log("Width: " + width);
-	
-	var translateY = (height - width)
-	cumulativeTranslateY = cumulativeTranslateY + translateY 
-	console.log("Cumulative Translate Y: " + cumulativeTranslateY)
-	
-	cumulativeTranslateX = cumulativeTranslateX + height - width
-	var translateX = cumulativeTranslateX * -1
-	console.log("Translate X: " + translateX)
-	
-	var elementId = "img" + i
-	
-	/*var newElement = document.createElement('img')
-	
-	newElement.setAttribute("id", elementId)*/
-	
-	document.getElementById(elementId).style.setProperty("width", width + 'px', "important");
-	document.getElementById(elementId).style.setProperty("height", height + 'px', "important");
-	document.getElementById(elementId).style.setProperty("transform", 'rotate(90deg) translateY(' + translateY * -1 + 'px) translateX(' + translateX + 'px)', "important")
-	
-	/*document.getElementById(elementId).style.cssText = 'display:block;float:left;transform-origin: right top;'*/
-	
-}
-
-console.log(document.getElementById('photos').style.height)
-
-function resize() {
-
-	var sliderHeight = window.innerWidth;
-	console.log("Slider Height: " + sliderHeight)
-	document.getElementById('photos').style.height = sliderHeight + "px";
-
-}
-
-</script>-->
 
 </body>
 

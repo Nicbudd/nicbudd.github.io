@@ -10,13 +10,12 @@
 body{
 	font-family: Raleway;
 	text-align: center;
-	margin: 8px;
-	padding: 8px;
+	margin: 0px;
+	padding: 0px;
 	font-weight: 400;
 	letter-spacing:0.4em;
 	font-size: 0.5em;
 	text-transform: uppercase;
-	padding-bottom: 128px;
 }
 
 @media screen and (max-width:600px){
@@ -33,12 +32,12 @@ body{
 	
 }
 
-body.pang{
+.pang{
 	background: black;
 	color: white;
 }
 
-body.zerbs{
+.zerb{
 	background: white;
 	color: black;
 }
@@ -58,7 +57,7 @@ h1{
 	border-color: white;
 }
 
-.zerbs h1{
+.zerb h1{
 	color: black;
 	background: white; 
 	border-color: black;
@@ -68,7 +67,7 @@ a{
 	text-decoration: none;
 }
 
-.zerbs a{
+.zerb a{
 	color: black;
 }
 
@@ -76,50 +75,45 @@ a{
 	color: white;
 }
 
-
-
-
+img{
+	width:100%;
+	position:relative;
+}
 
 
 .row {
   display: flex;
   flex-wrap: wrap;
-  padding: 0 32px;
+  padding: 0 5%;
 }
 
 .column {
   flex: 33.333333%;
   max-width: 33.333333%;
-  padding: 0 100px;
+  padding: 0 5%;
 }
 
 .column img {
-  margin-top: 200px;
+  margin-top: 15%;
+  margin-bottom: 15%;
   vertical-align: middle;
 }
 
-@media screen and (max-width: 1200px){
-	.row{
-		padding: 0 50px;
-	}
-	.column{
-		padding: 0 50px;
-	}
-	.column img{
-		margin-top: 100px;
-	}
+@media screen and (max-width: 950px){
+	
+.row {
+  padding: 0 3%;
 }
 
-@media screen and (max-width: 1000px){
-	.row{
-		padding: 0 25px;
-	}
-	.column{
-		padding: 0 25px;
-	}
-	.column img{
-		margin-top: 50px;
-	}
+.column {
+  padding: 0 3%;
+}
+
+.column img {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+	
 }
 
 
@@ -136,13 +130,17 @@ a{
 		max-width: 100%;
 		padding: 0 8px;
 	}
+	
+	body{
+		padding-bottom: 64px;
+	}
 }
 
 a.button{
 	
 	display: block;
 	padding: 1.5em;
-	transition: 0.3s background, 0.3s color;
+	transition: 0.3s background, 0.3s color, 0.3s font-size, 0.3s padding;
 	font-size: 1.5em;
 	width:20%;
 	
@@ -156,22 +154,35 @@ a.button{
 	}
 }
 
-.zerbs a.button{
-	border-color: black;
+a.zerb{
+	background: rgba(255, 255, 255, 0.85);
+	color: rgba(0, 0, 0, 0.85);
 }
 
-.zerbs a.button:hover{
-	background: black;
-	color: white;
+a.pang{
+	background: rgba(0, 0, 0, 0.85);
+	color: rgba(255, 255, 255, 0.85);
 }
 
-.pang a.button{
-	border-color: white;
+a.zerb:hover{
+	font-size: 2em;
+	padding: 0.875em;
 }
 
-.pang a.button:hover{
-	background: white;
-	color: black;
+a.pang:hover{
+	font-size: 2em;
+	padding: 0.875em;
+}
+
+.pang .button:hover{
+	background: rgba(255, 255, 255, 0.85);
+	color: rgba(0, 0, 0, 0.85);
+	
+}
+
+.zerb .button:hover{
+	background: rgba(0, 0, 0, 0.85);
+	color: rgba(255, 255, 255, 0.85);
 }
 
 .buttons{
@@ -183,4 +194,54 @@ a.button{
 	width: 100%;
 	bottom: 0px;
 	left: 0px;
+}
+
+.pangzerb .buttons a.button{
+	width:50%;
+}
+
+body.pangzerb{
+	background: rgba(255, 255, 255, 1);
+}
+
+.pzAnimation{
+	
+}
+
+.pangAnimContainer{
+	width:50%;
+	float:left;
+}
+
+.zerbAnimContainer{
+	width:50%;
+	float:left;
+}
+
+@keyframes slideInPang{
+	0% {transform:translateX(-200%);opacity:0;}
+	33% {transform:translateX(-200%);opacity:0;}
+	100% {transform:translateX(0%);opacity:1;}
+}
+
+@keyframes slideInZerb{
+	0% {transform:translateX(200%);opacity:0;}
+	66% {transform:translateX(200%);opacity:0;}
+	100% {transform:translateX(0%);opacity:1;}
+}
+
+.pangAnimContainer h1{
+	border-width: 0px;
+	float:right;
+	margin-right:1px;
+	animation: slideInPang 1s;
+	animation-timing-function: ease-out;
+}
+
+.zerbAnimContainer h1{
+	border-width: 0px;
+	float:left;
+	margin-left:1px;
+	animation: slideInZerb 2s;
+	animation-timing-function: ease-out;
 }
