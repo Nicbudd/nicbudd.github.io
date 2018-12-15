@@ -490,7 +490,7 @@ li.dropdown {
 
 
 #backtotopbutton a{
-		position:fixed;
+	position:fixed;
 	padding:16px;
 	bottom: 5px;
 	right: 5px;
@@ -529,7 +529,7 @@ text-decoration: none;
 
 
 /*
-Add these lines to your html style page:
+Add these lines to your= html style page:
 
 #(nameoflistbar).listbar{
 	

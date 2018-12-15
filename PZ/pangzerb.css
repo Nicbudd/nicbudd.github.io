@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700');
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900');
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:100,200,300,400,500');
 @import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500');
 @import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300');
@@ -16,20 +16,6 @@ body{
 	letter-spacing:0.4em;
 	font-size: 0.5em;
 	text-transform: uppercase;
-}
-
-@media screen and (max-width:600px){
-	body{
-		font-size:85%;
-	}
-	
-}
-
-@media screen and (max-width:400px){
-	body{
-		font-size:75%;
-	}
-	
 }
 
 .pang{
@@ -139,7 +125,7 @@ img{
 a.button{
 	
 	display: block;
-	padding: 1.5em;
+	padding: 1em;
 	transition: 0.3s background, 0.3s color, 0.3s font-size, 0.3s padding;
 	font-size: 1.5em;
 	width:20%;
@@ -148,7 +134,7 @@ a.button{
 
 @media screen and (max-width: 600px){
 	a.button{
-		font-size: 0.75em;
+		font-size: 1.5em;
 		font-weight: 700;
 		width:33.33333333%;
 	}
@@ -166,7 +152,7 @@ a.pang{
 
 a.zerb:hover{
 	font-size: 2em;
-	padding: 0.875em;
+	padding: 0.75em;
 }
 
 a.pang:hover{
