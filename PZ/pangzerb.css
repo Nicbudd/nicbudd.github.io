@@ -11,6 +11,7 @@ body{
 	font-family: Raleway;
 	text-align: center;
 	margin: 0px;
+	margin-top: 10em;
 	padding: 0px;
 	font-weight: 400;
 	letter-spacing:0.4em;
@@ -32,7 +33,7 @@ h1{
 	display: inline-block;
 	font-size: 2em;
 	border: 1px solid red;
-	margin: 0.5em;
+	margin: 1em;
 	padding: 0.5em;
 	font-weight: 200;
 }
@@ -79,9 +80,8 @@ img{
   padding: 0 5%;
 }
 
-.column img {
-  margin-top: 15%;
-  margin-bottom: 15%;
+.column .imgContainer {
+  margin-bottom: 30%;
   vertical-align: middle;
 }
 
@@ -95,9 +95,8 @@ img{
   padding: 0 3%;
 }
 
-.column img {
-  margin-top: 10%;
-  margin-bottom: 10%;
+.column .imgContainer {
+  margin-bottom: 20%;
 }
 	
 }
@@ -107,7 +106,7 @@ img{
 	.row{
 		padding: 0px;
 	}
-	.column img{
+	.column .imgContainer{
 		margin-top: 20px;
 	}
 	
@@ -123,13 +122,24 @@ img{
 }
 
 a.button{
-	
-	display: block;
-	padding: 1em;
-	transition: 0.3s background, 0.3s color, 0.3s font-size, 0.3s padding;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 4em;
 	font-size: 1.5em;
 	width:20%;
-	
+	transition: 0.3s background, 0.3s color;
+}
+
+@media screen and (min-width:600px){
+	.pangzerb .buttons:hover a.button{
+		width:33.33%;
+	}
+
+	.pangzerb .buttons a.button:hover{
+		width:66.67%;
+		font-weight:700;
+	}
 }
 
 @media screen and (max-width: 600px){
@@ -138,8 +148,10 @@ a.button{
 		font-weight: 700;
 		width:33.33333333%;
 	}
+	.notMobile{
+		display:none;
+	}
 }
-
 a.zerb{
 	background: rgba(255, 255, 255, 0.85);
 	color: rgba(0, 0, 0, 0.85);
@@ -148,16 +160,6 @@ a.zerb{
 a.pang{
 	background: rgba(0, 0, 0, 0.85);
 	color: rgba(255, 255, 255, 0.85);
-}
-
-a.zerb:hover{
-	font-size: 2em;
-	padding: 0.75em;
-}
-
-a.pang:hover{
-	font-size: 2em;
-	padding: 0.875em;
 }
 
 .pang .button:hover{
@@ -174,7 +176,6 @@ a.pang:hover{
 .buttons{
 	display: flex;
 	flex-flow: row wrap;
-	padding: 0em;
 	justify-content: center;
 	position: fixed;
 	width: 100%;
@@ -182,13 +183,17 @@ a.pang:hover{
 	left: 0px;
 }
 
+.pangzerb .buttons{
+	transition: 0.3s width;
+}
+
 .pangzerb .buttons a.button{
 	width:50%;
+	transition: 0.3s width, 0.3s font-weight;
 }
 
 body.pangzerb{
 	background: rgba(255, 255, 255, 1);
-	margin-top: 6em;
 }
 
 .pangAnimContainer{
@@ -236,3 +241,64 @@ body.pangzerb{
 	animation-timing-function: ease-out;
 
 }
+
+.titleContainer{
+	width:100%;
+	position:fixed;
+	top: 0;
+	left: 0;
+	z-index: 2;
+}
+
+@media screen and (max-width:600px){
+	.notMobile{
+		display:none!important;
+	}
+}
+
+@media screen and (min-width:600px){
+	.mobile{
+		display:none!important;
+	}
+}
+
+.imgContainer{
+	position: relative;
+	display: inline-block;
+}
+
+.imgHover{
+	position: absolute;
+	top: 5%;
+	left: 5%;
+	width: 90%;
+	height: 90%;
+	opacity: 0;
+	transition: 0.3s background, 0.3s opacity;
+	padding: 1em;
+}
+
+@media screen and (max-width: 800px){
+	.imgHover{
+		font-size: 150%;
+	}
+}
+
+.zerb.imgHover:hover{
+	background: rgba(255, 255, 255, 0.85);
+	color: rgba(0, 0, 0, 0.85);
+	opacity: 1;
+}
+
+.pang.imgHover:hover{
+	background: rgba(0, 0, 0, 0.85);
+	color: rgba(255, 255, 255, 0.85);
+	opacity: 1;
+}
+
+.imgHoverAuthor{
+	position: absolute;
+	bottom:1em;
+	right:1em;
+}
+
