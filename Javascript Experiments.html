@@ -14,10 +14,11 @@
 
 <script src = "Overwatch ELO.js" type = "text/javascript"></script>
 <script src = "Physics2DMotion.js" type = "text/javascript"></script>
+<script src = "morseCode.js" type = "text/javascript"></script>
 
 </head>
 
-<body>
+<body onload="morseLoad()">
 <!--<body onload="loadELO()">-->
 <noscript><div id="noscript"><h2>Uh-oh!</h2><p>It appears that javascript is not working here, for whatever reason.</p><p>Sadly, this site doesn't work without javascript. You might be able to see it looks a bit... broken.</p><p>Please enable javascript or switch to a browser that is compatible with javascript if you want to continue browsing this website.</p><p>If you don't want to, that's ok too. I'll just be sad that you cant see my website.</p><h2>;(</h2></div></noscript>
 
@@ -25,7 +26,33 @@
 
 <div class="lightergrayblock"><h1>Javascript Experiments</h1>
 
-</div><div class="lightgrayblock"><h2>Physics Calculators</h2>
+
+
+</div><div class="lightgrayblock"><h2>Morse Code Practice</h2>
+
+(does not work on mobile yet)
+
+<div id="morseCodeBox" onkeypress="keyPress(event)" tabindex="0">
+
+<div id="bigMorseCode">·--·</div>
+
+<div class="morseWrongAndRight">
+<div id="guessBox">Your Guess<div id="guessLetter">N</div></div>
+<div id="correctBox">Correct Answer<div id="correctLetter">W</div></div>
+</div>
+
+<div id="morseHelperText">Hit the letter that corresponds with the morse code above</div>
+
+<div id="morseNumbers"><span id="correct">0</span>/<span id="attempts">0</span></div>
+
+<div class="morseReset" onclick="resetCounter()">⟲</div>
+
+</div>
+
+
+
+
+</div><div class="redblock"><h2>Physics Calculators</h2>
 
 <div id="physicsInputs">
 <div><h6>Velocity (m/s)</h6><input type="text" id="phyVelocity"></input></div>
@@ -39,6 +66,8 @@
 <div class="buttonbox"><button onclick="phy2dAngleButton();">Calculate Angle</button><button onclick="phy2dDistanceButton();">Calculate Distance</button><!--<button onclick="phy2dVelocityButton();">Calculate Velocity</button>--></div>
 
 </div>
+
+
 
 <!--<textarea id="consoleBox" style="width:100%;"></textarea>-->
 </div><div class="blackblock"><h2>Overwatch ELO</h2>
