@@ -23,27 +23,6 @@ function generateNewMorse(){
 	document.getElementById('correctLetter').innerHTML = morseLetter
 }
 
-function changeColor(){
-	
-	generateNewMorse();
-	
-	switch (num) {
-		case 0:
-			backColor = "#C3C3C3";
-			num++
-			break;
-		case 1:
-			backColor = "#C14747";
-			num++
-			break;
-		case 2:
-			backColor = "#3BA769";
-			num = 0
-			break;
-	}
-	document.getElementById('morseCodeBox').style.background = backColor;
-}
-
 function resetCounter(){
 	correct = 0
 	attempts = 0
