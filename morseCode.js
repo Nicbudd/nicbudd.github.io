@@ -3,6 +3,7 @@ var backColor = "#C3C3C3";
 var morseLetter
 var correct = 0
 var attempts = 0
+var prevNum = 0
 
 function generateNewMorse(){
 	
@@ -15,7 +16,17 @@ function generateNewMorse(){
   /*var morseData = [['·-', 'A'], ['-···', 'B'], ['-·-·', 'C'], ['-··', 'D'], ['·', 'E'], ['··-·', 'F'], ['--·', 'G'], ['····', 'H'], ['··', 'I'], ['·---', 'J'], ['-·-', 'K'], ['·-··', 'L'], ['--', 'M'], ['-·', 'N'], ['---', 'O'], ['·--·', 'P'], ['--·-', 'Q'], ['·-·', 'R'], ['···', 'S'], ['-', 'T'], ['··-', 'U'], ['···-', 'V'], ['·--', 'W'], ['-··-', 'X'], ['-·--', 'Y'], ['--··', 'Z']]*/
 	
 	var morseData = [['·-', 'A'], ['·', 'E'], ['··', 'I'], ['--', 'M'], ['-·', 'N'], ['-', 'T']]
+	
+
 	var randNum = Math.floor(Math.random() * morseData.length);
+	
+	while (prevNum === randNum){
+		randNum = Math.floor(Math.random() * morseData.length);
+		console.log("Generated previous answer, regenerating.")
+	}
+	
+	prevNum = randNum
+	
 	var morseChar = morseData[randNum][0]
 	morseLetter = morseData[randNum][1]
 	console.log(randNum);
