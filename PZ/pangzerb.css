@@ -15,8 +15,27 @@ body{
 	padding: 0px;
 	font-weight: 400;
 	letter-spacing:0.4em;
-	font-size: 0.5em;
+	font-size: 1em;
 	text-transform: uppercase;
+}
+
+hr {
+  display: block;
+  margin-top: 2em;
+  margin-bottom: 2em;
+  margin-left: auto;
+  margin-right: auto;
+  border-color: red;
+  border-style: solid;
+  border-width: 1px;
+}
+
+.pang hr{
+	border-color: white;
+}
+
+.zerb hr{
+	border-color: black;
 }
 
 .pang{
@@ -31,7 +50,7 @@ body{
 
 h1{
 	display: inline-block;
-	font-size: 2em;
+	font-size: 1em;
 	border: 1px solid red;
 	margin: 1em;
 	padding: 0.5em;
@@ -50,6 +69,14 @@ h1{
 	border-color: black;
 }
 
+h2{
+	display: inline-block;
+	font-size: 1em;
+	margin: 1em;
+	padding: 0.5em;
+	font-weight: 400;
+}
+
 a{
 	text-decoration: none;
 }
@@ -65,8 +92,10 @@ a{
 img{
 	width:100%;
 	position:relative;
+	margin-bottom: 30%;
+	vertical-align: middle;
+	cursor: pointer;
 }
-
 
 .row {
   display: flex;
@@ -80,11 +109,6 @@ img{
   padding: 0 5%;
 }
 
-.column .imgContainer {
-  margin-bottom: 30%;
-  vertical-align: middle;
-}
-
 @media screen and (max-width: 950px){
 	
 .row {
@@ -95,7 +119,7 @@ img{
   padding: 0 3%;
 }
 
-.column .imgContainer {
+img{
   margin-bottom: 20%;
 }
 	
@@ -106,7 +130,7 @@ img{
 	.row{
 		padding: 0px;
 	}
-	.column .imgContainer{
+	img{
 		margin-top: 20px;
 	}
 	
@@ -121,125 +145,75 @@ img{
 	}
 }
 
-a.button{
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 4em;
-	font-size: 1.5em;
-	width:20%;
-	transition: 0.3s background, 0.3s color;
-}
-
-@media screen and (min-width:600px){
-	.pangzerb .buttons:hover a.button{
-		width:33.33%;
-	}
-
-	.pangzerb .buttons a.button:hover{
-		width:66.67%;
-		font-weight:700;
-	}
-}
-
-@media screen and (max-width: 600px){
-	a.button{
-		font-size: 1.5em;
-		font-weight: 700;
-		width:33.33333333%;
-	}
-	.notMobile{
-		display:none;
-	}
-}
-a.zerb{
-	background: rgba(255, 255, 255, 0.85);
-	color: rgba(0, 0, 0, 0.85);
-}
-
-a.pang{
-	background: rgba(0, 0, 0, 0.85);
-	color: rgba(255, 255, 255, 0.85);
-}
-
-.pang .button:hover{
-	background: rgba(255, 255, 255, 0.85);
-	color: rgba(0, 0, 0, 0.85);
-	
-}
-
-.zerb .button:hover{
-	background: rgba(0, 0, 0, 0.85);
-	color: rgba(255, 255, 255, 0.85);
-}
-
-.buttons{
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: center;
-	position: fixed;
-	width: 100%;
-	bottom: 0px;
-	left: 0px;
-}
-
-.pangzerb .buttons{
-	transition: 0.3s width;
-}
-
-.pangzerb .buttons a.button{
-	width:50%;
-	transition: 0.3s width, 0.3s font-weight;
-}
-
 body.pangzerb{
 	background: rgba(255, 255, 255, 1);
 }
 
-.pangAnimContainer{
-	width:50%;
-	position:fixed;
-	top: 0;
-	left: 0;
-	z-index: 2;
-}
-
-.zerbAnimContainer{
-	width:50%;
-	position:fixed;
-	top: 0;
+.animContainer.zerb{
 	left: 50%;
+}
+
+.animContainer.pang{
+	left: 0;
+}
+
+.animContainer{
+	display: block;
+	width: 50%;
+	position:fixed;
+	top: 0;
 	z-index: 2;
+	transition: 0.5s width, 0.5s font-weight, 0.5s left;
 }
 
-@keyframes slideInPang{
-	0% {transform:translateX(-200%);opacity:0;}
-	33% {transform:translateX(-200%);opacity:0;}
-	100% {transform:translateX(0%);opacity:1;}
-}
-
-@keyframes slideInZerb{
-	0% {transform:translateX(200%);opacity:0;}
-	66% {transform:translateX(200%);opacity:0;}
-	100% {transform:translateX(0%);opacity:1;}
-}
-
-.pangAnimContainer h1{
+.animContainer.pang h1{
 	border-width: 0px;
 	float:right;
 	margin-right:1px;
 	animation: slideInPang 1s;
 	animation-timing-function: ease-out;
-
 }
 
-.zerbAnimContainer h1{
+.animContainer.zerb h1{
 	border-width: 0px;
 	float:left;
 	margin-left:1px;
 	animation: slideInZerb 2s;
 	animation-timing-function: ease-out;
 
+}
+
+@media screen and (min-width:600px){
+	
+	.animContainer.zerb:hover{
+		left: 33.33%;
+		width: 66.67%;
+	}
+	
+	.pangzerbTitleContainer:hover .animContainer.pang{
+		width: 33.33%;
+	}
+	
+	.animContainer.pang:hover{
+		width: 66.67%!important;
+	}
+	
+	.animContainer.pang:hover + .animContainer.zerb{
+		left: 66.67%;
+		width: 33.33%;
+	}
+	
+}
+
+@keyframes slideInPang{
+	0% {transform:translateX(-200%);opacity:0;}
+	100% {transform:translateX(0%);opacity:1;}
+}
+
+@keyframes slideInZerb{
+	0% {transform:translateX(200%);opacity:0;}
+	50% {transform:translateX(200%);opacity:0;}
+	100% {transform:translateX(0%);opacity:1;}
 }
 
 .titleContainer{
@@ -250,55 +224,94 @@ body.pangzerb{
 	z-index: 2;
 }
 
-@media screen and (max-width:600px){
-	.notMobile{
-		display:none!important;
-	}
+.fullscreenImg{
+	position:fixed;
+	left:0;
+	top:0;
+	width:100%;
+	height:100%;
+	z-index: 3;
+	visibility: hidden;
 }
 
-@media screen and (min-width:600px){
-	.mobile{
-		display:none!important;
-	}
+.fullscreenImg.pang{
+	background: rgba(0, 0, 0, 0.95);
 }
 
-.imgContainer{
-	position: relative;
-	display: inline-block;
+.fullscreenImg.zerb{
+	background: rgba(255, 255, 255, 0.95);
 }
 
-.imgHover{
-	position: absolute;
-	top: 5%;
-	left: 5%;
-	width: 90%;
-	height: 90%;
-	opacity: 0;
-	transition: 0.3s background, 0.3s opacity;
+.fullscreenImg img{
+	position: fixed;
+	top: 50%;
+	transform: translate(0%, -50%);
+	left: 16px;
+	width: 45%;
+	border: 3px solid red;
+}
+
+.fullscreenImg.pang img{
+	border-color: white;
+}
+
+.fullscreenImg.zerb img{
+	border-color: black;
+}
+
+.fullscreenText{
+	position: fixed;
+	top: 50%;
+	transform: translate(0%, -50%);
+	right: 16px;
+	width: 45%;
 	padding: 1em;
 }
 
-@media screen and (max-width: 800px){
-	.imgHover{
-		font-size: 150%;
-	}
+.button{
+	border: 2px solid red;
+	padding: 0.5em 1em;
+	transition: 0.5s color, 0.5s background;
 }
 
-.zerb.imgHover:hover{
-	background: rgba(255, 255, 255, 0.85);
-	color: rgba(0, 0, 0, 0.85);
-	opacity: 1;
+.pang .button{
+	border-color: white;
+	color: white;
+	background: rgba(0, 0, 0, 0);
 }
 
-.pang.imgHover:hover{
-	background: rgba(0, 0, 0, 0.85);
-	color: rgba(255, 255, 255, 0.85);
-	opacity: 1;
+.zerb .button{
+	border-color: black;
+	color: black;
+	background: rgba(0, 0, 0, 0);
 }
 
-.imgHoverAuthor{
-	position: absolute;
-	bottom:1em;
-	right:1em;
+.pang .button:hover{
+	color: black;
+	background: white;
 }
 
+.zerb .button:hover{
+	color: white;
+	background: black;
+}
+
+.hamburger{
+	position: fixed;
+	top:0;
+	left: 0;
+	padding: 1.2em 1em 1.2em 1.4em;
+	cursor: pointer;
+}
+
+.hamburger:hover{
+	background: white;
+	color: black;
+}
+
+.menu{
+	width: 100%;
+	position: fixed;
+	z-index: 1;
+	top: 3em;
+}
