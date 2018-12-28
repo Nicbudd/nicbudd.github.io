@@ -11,7 +11,7 @@ body{
 	font-family: Raleway;
 	text-align: center;
 	margin: 0px;
-	margin-top: 10em;
+	margin-top: 6em;
 	padding: 0px;
 	font-weight: 400;
 	letter-spacing:0.4em;
@@ -71,7 +71,7 @@ h1{
 
 h2{
 	display: inline-block;
-	font-size: 1em;
+	font-size: 0.75em;
 	margin: 1em;
 	padding: 0.5em;
 	font-weight: 400;
@@ -79,6 +79,10 @@ h2{
 
 a{
 	text-decoration: none;
+}
+
+i{
+	font-weight: 200;
 }
 
 .zerb a{
@@ -95,6 +99,7 @@ img{
 	margin-bottom: 30%;
 	vertical-align: middle;
 	cursor: pointer;
+	height: auto;
 }
 
 .row {
@@ -232,6 +237,7 @@ body.pangzerb{
 	height:100%;
 	z-index: 3;
 	visibility: hidden;
+	cursor: auto;
 }
 
 .fullscreenImg.pang{
@@ -246,9 +252,55 @@ body.pangzerb{
 	position: fixed;
 	top: 50%;
 	transform: translate(0%, -50%);
-	left: 16px;
-	width: 45%;
+	left: 8px;
+	max-width: 45%;
 	border: 3px solid red;
+	max-height: 100%;
+	width: auto;
+}
+
+.fullscreenText{
+	position: fixed;
+	display: block;
+	top: 50%;
+	transform: translate(0%, -50%);
+	right: 8px;
+	padding: 1em;
+	width: auto;
+	height: auto;
+}
+
+@media screen and (min-width: 800px){
+	.fullscreenText{
+		width: 45%;
+	}
+}
+
+@media screen and (max-width: 800px){
+	.fullscreenImg img{
+		top: 8px;
+		left: 50%;
+		transform: translate(-50%, 0%);
+		max-height: 45%;
+		max-width: 100%;
+		height: auto;
+	}
+	.fullscreenText{
+		position: fixed;
+		left: 50%;
+		transform: translate(-50%, 0%);
+		bottom: 8px;
+		height: 45%;
+		width: 85%;
+		padding: 1em;
+	}
+}
+
+@media screen and (max-width: 600px){
+	.fullscreenText{
+		width: 100%;
+		font-size: 0.75em;
+	}
 }
 
 .fullscreenImg.pang img{
@@ -257,15 +309,6 @@ body.pangzerb{
 
 .fullscreenImg.zerb img{
 	border-color: black;
-}
-
-.fullscreenText{
-	position: fixed;
-	top: 50%;
-	transform: translate(0%, -50%);
-	right: 16px;
-	width: 45%;
-	padding: 1em;
 }
 
 .button{
@@ -302,6 +345,7 @@ body.pangzerb{
 	left: 0;
 	padding: 1.2em 1em 1.2em 1.4em;
 	cursor: pointer;
+	transition: 0.5s color, 0.5s background;
 }
 
 .hamburger:hover{
@@ -309,9 +353,53 @@ body.pangzerb{
 	color: black;
 }
 
-.menu{
+#menu{
+	display: block;
 	width: 100%;
 	position: fixed;
 	z-index: 1;
-	top: 3em;
+	top: 4.25em;
+	opacity: 0;
+	transition: 0.5s opacity;
+	visibility: hidden;
+}
+
+.menuItem{
+	display: block;
+	width: 20%;
+	float: left;
+	padding: 1em;
+	margin: 0;
+	transition: 0.5s color, 0.5s background;
+}
+
+@media screen and (max-width: 600px){
+	.menuItem{
+		width: 100%;
+	}
+}
+
+.menuItem h2{
+	margin: 0;
+	padding: 0;
+}
+
+.pang .menuItem{
+	background: black;
+	color: white;
+}
+
+.zerb .menuItem{
+	background: white;
+	color: black;
+}
+
+.pang .menuItem:hover{
+	background: white;
+	color: black;
+}
+
+.zerb .menuItem:hover{
+	background: black;
+	color: white;
 }
