@@ -77,12 +77,12 @@ h2{
 	font-weight: 400;
 }
 
-a{
-	text-decoration: none;
+p{
+	font-size: 0.75em;
 }
 
-i{
-	font-weight: 200;
+a{
+	text-decoration: none;
 }
 
 .zerb a{
@@ -93,19 +93,26 @@ i{
 	color: white;
 }
 
+i{
+	font-weight: 200;
+}
+
 img{
-	width:100%;
-	position:relative;
-	margin-bottom: 30%;
-	vertical-align: middle;
-	cursor: pointer;
-	height: auto;
+	width: 50%;
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
   padding: 0 5%;
+}
+
+.row img{
+	width: 100%;
+	margin-bottom: 30%;
+	vertical-align: middle;
+	cursor: pointer;
+	height: auto;
 }
 
 .column {
@@ -230,6 +237,7 @@ body.pangzerb{
 }
 
 .fullscreenImg{
+	transition: 0.5s opacity;
 	position:fixed;
 	left:0;
 	top:0;
@@ -238,6 +246,7 @@ body.pangzerb{
 	z-index: 3;
 	visibility: hidden;
 	cursor: auto;
+	opacity: 0;
 }
 
 .fullscreenImg.pang{
@@ -255,7 +264,7 @@ body.pangzerb{
 	left: 8px;
 	max-width: 45%;
 	border: 3px solid red;
-	max-height: 100%;
+	max-height: 95%;
 	width: auto;
 }
 
@@ -278,28 +287,19 @@ body.pangzerb{
 
 @media screen and (max-width: 800px){
 	.fullscreenImg img{
-		top: 8px;
-		left: 50%;
-		transform: translate(-50%, 0%);
-		max-height: 45%;
-		max-width: 100%;
-		height: auto;
+		display: none;
 	}
 	.fullscreenText{
-		position: fixed;
-		left: 50%;
-		transform: translate(-50%, 0%);
-		bottom: 8px;
-		height: 45%;
-		width: 85%;
-		padding: 1em;
+		width: 90%;
+		top: 50%;
+		left: 5%;
+		transform: translate(0%, -50%);
 	}
 }
 
 @media screen and (max-width: 600px){
 	.fullscreenText{
-		width: 100%;
-		font-size: 0.75em;
+
 	}
 }
 
@@ -343,14 +343,29 @@ body.pangzerb{
 	position: fixed;
 	top:0;
 	left: 0;
-	padding: 1.2em 1em 1.2em 1.4em;
+	padding: 1.1em 0.9em 1.1em 1.4em;
 	cursor: pointer;
 	transition: 0.5s color, 0.5s background;
 }
 
-.hamburger:hover{
+.pang .hamburger {
+	background: black;
+	color: white;
+}
+
+.zerb .hamburger {
 	background: white;
 	color: black;
+}
+
+.pang .hamburger:hover{
+	background: white;
+	color: black;
+}
+
+.zerb .hamburger:hover{
+	background: black;
+	color: white;
 }
 
 #menu{
