@@ -98,8 +98,22 @@ i{
 }
 
 img{
-	width: 50%;
+	width: 40%;
+	margin: 1em;
 }
+
+@media screen and (max-width: 800px){
+	img{
+		width: 60%;
+	}
+}
+
+@media screen and (max-width: 600px){
+	img{
+		width: 80%;
+	}
+}
+
 
 .row {
   display: flex;
@@ -131,7 +145,7 @@ img{
   padding: 0 3%;
 }
 
-img{
+.row img{
   margin-bottom: 20%;
 }
 	
