@@ -635,18 +635,21 @@ justify-content: center;
 
 .bordered table{
 	border:2px solid;
+	border-color: inherit;
 	border-collapse: collapse;
 	padding: 4px;
 }
 
 .bordered td{
 	border:2px solid;
+	border-color: inherit;
 	border-collapse: collapse;
 	padding: 4px;
 }
 
 .bordered th{
 	border:2px solid;
+	border-color: inherit;
 	border-collapse: collapse;
 	padding: 4px;
 }
