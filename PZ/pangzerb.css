@@ -77,6 +77,20 @@ h2{
 	font-weight: 400;
 }
 
+h3{
+	display: inline-block;
+	font-size: 1.5em;
+	margin: 0.5em;
+	font-weight: 400;
+}
+
+h4{
+	display: inline-block;
+	font-size: 1em;
+	margin: 0.5em;
+	font-weight: 400;
+}
+
 p{
 	font-size: 0.75em;
 }
