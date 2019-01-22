@@ -718,9 +718,9 @@ line-height:30px;
 
 .buttonlist > div a{
 
-margin:8px;
-font-size:16px;
-padding:4px;
+margin: 8px;
+font-size: 16px;
+padding: 4px;
 border-width: 2px;
 }
 }
@@ -747,9 +747,9 @@ border-width: 2px;
 
 
 #metarBlocks {
-	display:flex;
+	display: flex;
 	flex-flow: row wrap;
-justify-content: center;
+	justify-content: center;
 }
 
 .metarBlock{
@@ -1035,7 +1035,7 @@ justify-content: center;
 
 #morseCodeBox{
 	color: #303030;
-	padding: 0.5em;
+	padding: 0.25em;
 	padding-left: 4em;
 	padding-right: 4em;
 	background: #C3C3C3;
@@ -1048,6 +1048,8 @@ justify-content: center;
 	position: relative;
 }
 
+
+
 #bigMorseCode{
 	font-family:  Lato;
 	font-weight: 700;
@@ -1057,7 +1059,33 @@ justify-content: center;
 }
 
 #morseHelperText{
-	margin: 16px;
+	margin: 0.75em;
+	margin-left: 7em;
+	margin-right: 7em;
+	transition: 0.5s margin-left;
+}
+
+@media screen and (max-width: 800px){
+	#morseCodeBox{
+		padding: 0.1em;
+	}
+	#morseHelperText{
+		margin-bottom: 6em;
+		margin-left: 1em;
+		margin-right: 1em;
+	}
+}
+
+@media screen and (max-width: 600px){
+	#morseCodeBox{
+		font-size: 80%;
+	}
+}
+
+@media screen and (max-width: 400px){
+	#morseCodeBox{
+		font-size: 70%;
+	}
 }
 
 .morseWrongAndRight{
@@ -1085,21 +1113,79 @@ justify-content: center;
 #morseNumbers{
 	font-weight: 700;
 	font-size: 2em;
+	display: inline-block;
+	margin: 0.2em;
+}
+
+.morseButtonsContainer{
 	position: absolute;
-	bottom: 16px;
-	right: 16px;
+	bottom: 1em;
+	left: 1em;
+}
+
+.morseNumbersContainer{
+	position: absolute;
+	bottom: 1em;
+	right: 1em;
+}
+
+.morseDifficultyContainer{
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	bottom: 5em;
+	left: 1em;
+}
+
+.morseButtonsContainer div{
+	border: 2px solid #303030;
+	font-size: 1.5em;
+	display: inline-block;
+	padding: 0.3em 0.5em;
+	margin: 0.2em 0.3em;
+	border-radius: 8px;
+	font-weight: 700;
+	transition: 0.5s opacity, 0.5s color, 0.5s background;
+}
+
+.morseDifficultyContainer div{
+	border: 2px solid #303030;
+	font-size: 1.5em;
+	display: inline-block;
+	padding: 0.1em 0.8em;
+	margin: 0.1em 0.3em;
+	border-radius: 8px;
+	font-weight: 700;
+	opacity: 0;
+	visibility: hidden;
+	color: #C3C3C3;
+	background: #303030;
+	transition: 0.5s opacity, 0.5s color, 0.5s background, 0.5s padding-top, 0.5s padding-bottom;
 }
 
 .morseReset{
-	font-size: 1.5em;
 	border: 2px solid #303030;
+	font-size: 1.5em;
 	display: inline-block;
-	position: absolute;
-	bottom: 16px;
-	left: 16px;
-	padding: 0.1em 0.45em 0.3em 0.45em;
+	padding: 0.3em 0.5em;
+	margin: 0.2em 0.3em;
 	border-radius: 8px;
 	font-weight: 700;
+	transition: 0.5s color, 0.5s background;
+}
+
+.morseButtonsContainer div:hover{
+	background: #303030;
+	color: #C3C3C3;
+	cursor: pointer;
+}
+
+.morseDifficultyContainer div:hover{
+	background: #303030;
+	color: #C3C3C3;
+	cursor: pointer;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
 }
 
 .morseReset:hover{

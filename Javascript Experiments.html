@@ -30,7 +30,7 @@
 
 </div><div class="lightgrayblock"><h2>Morse Code Practice</h2>
 
-(does not work on mobile yet)
+<p>(does not work on mobile yet)</p>
 
 <div id="morseCodeBox" onkeypress="keyPress(event)" tabindex="0">
 
@@ -41,11 +41,24 @@
 <div id="correctBox">Correct Answer<div id="correctLetter">W</div></div>
 </div>
 
-<div id="morseHelperText">Hit the letter that corresponds with the morse code above</div>
+<div id="morseHelperText">Hit the letter that corresponds with the morse code above.</div>
 
+<div class="morseNumbersContainer">
+<div class="morseReset" onclick="resetCounter()"><i class="fas fa-undo-alt"></i></div>
 <div id="morseNumbers"><span id="correct">0</span>/<span id="attempts">0</span></div>
+</div>
 
-<div class="morseReset" onclick="resetCounter()">⟲</div>
+<div class="morseButtonsContainer">
+<div class="morseDifficulty" onclick="showHideDifficulty()"><i class="fas fa-tachometer-alt"></i></div>
+<div class="morseKeyboard" onclick="showHideKeyboard()"><i class="far fa-keyboard"></i></div>
+</div>
+
+<div class="morseDifficultyContainer">
+<div class="morseDifficultySetting" id="morseDiff1" onclick="difficulty1()">1</div>
+<div class="morseDifficultySetting" id="morseDiff2" onclick="difficulty2()">2</div>
+<div class="morseDifficultySetting" id="morseDiff3" onclick="difficulty3()">3</div>
+<div class="morseDifficultySetting" id="morseDiff4" onclick="difficulty4()">4</div>
+</div>
 
 </div>
 
