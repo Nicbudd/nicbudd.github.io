@@ -55,7 +55,7 @@ function difficulty1(){
 	if (morseBool1 === true){
 		morseBool1 = false
 		document.getElementById('morseDiff1').style.color = '#303030';
-		document.getElementById('morseDiff1').style.background = '#C3C3C3';
+		document.getElementById('morseDiff1').style.background = 'rgba(0, 0, 0, 0)';
 	} else {
 		morseBool1 = true
 		document.getElementById('morseDiff1').style.color = '#C3C3C3';
@@ -67,7 +67,7 @@ function difficulty2(){
 	if (morseBool2 === true){
 		morseBool2 = false
 		document.getElementById('morseDiff2').style.color = '#303030';
-		document.getElementById('morseDiff2').style.background = '#C3C3C3';
+		document.getElementById('morseDiff2').style.background = 'rgba(0, 0, 0, 0)';
 	} else {
 		morseBool2 = true
 		document.getElementById('morseDiff2').style.color = '#C3C3C3';
@@ -79,7 +79,7 @@ function difficulty3(){
 	if (morseBool3 === true){
 		morseBool3 = false
 		document.getElementById('morseDiff3').style.color = '#303030';
-		document.getElementById('morseDiff3').style.background = '#C3C3C3';
+		document.getElementById('morseDiff3').style.background = 'rgba(0, 0, 0, 0)';
 	} else {
 		morseBool3 = true
 		document.getElementById('morseDiff3').style.color = '#C3C3C3';
@@ -125,6 +125,10 @@ function generateNewMorse(){
 	
 	
 	var morseData = []
+	
+	if (morseBool1 === false && morseBool2 === false && morseBool3 === false && morseBool4 === false){
+		difficulty1();
+	}
 	
 	if (morseBool1 === true){
 		morseData = morseData.concat(morseData1)
