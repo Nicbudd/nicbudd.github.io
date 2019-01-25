@@ -1079,6 +1079,8 @@ border-width: 2px;
 @media screen and (max-width: 600px){
 	#morseCodeBox{
 		font-size: 80%;
+		margin: 0.5em;
+		width: auto;
 	}
 }
 
@@ -1137,6 +1139,8 @@ border-width: 2px;
 	left: 1em;
 }
 
+
+
 .morseButtonsContainer div{
 	border: 2px solid #303030;
 	font-size: 1.5em;
@@ -1194,7 +1198,48 @@ border-width: 2px;
 	cursor: pointer;
 }
 
+#morseKeyboardContainer{
+	margin-bottom: 1em;
+}
 
+.morseKeyRow{
+	display: flex;
+	justify-content: center;
+}
+
+.morseKeyRow div{
+	border: 2px solid #303030;
+	font-size: 1.25em;
+	display: block;
+	width: 2em;
+	height: 1.75em;
+	margin: 0.2em;
+	border-radius: 8px;
+	font-weight: 700;
+	color: #303030;
+	background: rgba(0, 0, 0, 0);
+	cursor: pointer;
+}
+
+@media screen and (max-width:600px){
+	.morseKeyRow div{
+		font-size: 125%;
+		margin: 0.1em;
+	}
+}
+
+@media screen and (max-width:600px){
+	.morseKeyRow div{
+		font-size: 200%;
+		margin: 0.05em;
+		
+	}
+}
+
+.morseKeyRow div:hover{
+	background: #303030;
+	color: #C3C3C3;
+}
 
 
 

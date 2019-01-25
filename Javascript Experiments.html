@@ -16,6 +16,40 @@
 <script src = "Physics2DMotion.js" type = "text/javascript"></script>
 <script src = "morseCode.js" type = "text/javascript"></script>
 
+<script>
+
+/*shield your eyes from what you are about to see below*/
+
+var qVar = "q"
+var wVar = "w"
+var eVar = "e"
+var rVar = "r"
+var tVar = "t"
+var yVar = "y"
+var uVar = "u"
+var iVar = "i"
+var oVar = "o"
+var pVar = "p"
+var aVar = "a"
+var sVar = "s"
+var dVar = "d"
+var fVar = "f"
+var gVar = "g"
+var hVar = "h"
+var jVar = "j"
+var kVar = "k"
+var lVar = "l"
+var zVar = "z"
+var xVar = "x"
+var cVar = "c"
+var vVar = "v"
+var bVar = "b"
+var nVar = "n"
+var mVar = "m"
+
+
+</script>
+
 </head>
 
 <body onload="morseLoad()">
@@ -41,8 +75,6 @@
 <div id="correctBox">Correct Answer<div id="correctLetter">W</div></div>
 </div>
 
-<div id="morseHelperText">Hit the letter that corresponds with the morse code above.</div>
-
 <div class="morseNumbersContainer">
 <div class="morseReset" onclick="resetCounter()"><i class="fas fa-undo-alt"></i></div>
 <div id="morseNumbers"><span id="correct">0</span>/<span id="attempts">0</span></div>
@@ -60,9 +92,47 @@
 <div class="morseDifficultySetting" id="morseDiff4" onclick="difficulty4()">4</div>
 </div>
 
+
+<div id="morseKeyboardContainer" style="display:none;">
+
+<div class="morseKeyRow">
+<div onclick="virtualKeyPress(qVar)">Q</div>
+<div onclick="virtualKeyPress(wVar)">W</div>
+<div onclick="virtualKeyPress(eVar)">E</div>
+<div onclick="virtualKeyPress(rVar)">R</div>
+<div onclick="virtualKeyPress(tVar)">T</div>
+<div onclick="virtualKeyPress(yVar)">Y</div>
+<div onclick="virtualKeyPress(uVar)">U</div>
+<div onclick="virtualKeyPress(iVar)">I</div>
+<div onclick="virtualKeyPress(oVar)">O</div>
+<div onclick="virtualKeyPress(pVar)">P</div>
 </div>
 
+<div class="morseKeyRow">
+<div onclick="virtualKeyPress(aVar)">A</div>
+<div onclick="virtualKeyPress(sVar)">S</div>
+<div onclick="virtualKeyPress(dVar)">D</div>
+<div onclick="virtualKeyPress(fVar)">F</div>
+<div onclick="virtualKeyPress(gVar)">G</div>
+<div onclick="virtualKeyPress(hVar)">H</div>
+<div onclick="virtualKeyPress(jVar)">J</div>
+<div onclick="virtualKeyPress(kVar)">K</div>
+<div onclick="virtualKeyPress(lVar)">L</div>
+</div>
 
+<div class="morseKeyRow">
+<div onclick="virtualKeyPress(zVar)">Z</div>
+<div onclick="virtualKeyPress(xVar)">X</div>
+<div onclick="virtualKeyPress(cVar)">C</div>
+<div onclick="virtualKeyPress(vVar)">V</div>
+<div onclick="virtualKeyPress(bVar)">B</div>
+<div onclick="virtualKeyPress(nVar)">N</div>
+<div onclick="virtualKeyPress(mVar)">M</div>
+</div>
+
+</div>
+
+<div id="morseHelperText">Hit the letter that corresponds with the morse code above.</div>
 
 
 </div><div class="redblock"><h2>Physics Calculators</h2>

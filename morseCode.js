@@ -11,6 +11,8 @@ var morseBool3 = true
 var morseBool4 = true
 var difficultyShown = false;
 var marginLeftOriginalWidth;
+var keyboardShown = false;
+var keyPressed;
 
 function showHideDifficulty(){
 	
@@ -91,7 +93,7 @@ function difficulty4(){
 	if (morseBool4 === true){
 		morseBool4 = false
 		document.getElementById('morseDiff4').style.color = '#303030';
-		document.getElementById('morseDiff4').style.background = '#C3C3C3';
+		document.getElementById('morseDiff4').style.background = 'rgba(0, 0, 0, 0)';
 	} else {
 		morseBool4 = true
 		document.getElementById('morseDiff4').style.color = '#C3C3C3';
@@ -100,14 +102,20 @@ function difficulty4(){
 }
 
 
-
-
-
 function showHideKeyboard(){
-	
-	
+	if (keyboardShown === false){
+		document.getElementById('morseKeyboardContainer').style.display = 'block'
+		keyboardShown = true
+	} else {
+		document.getElementById('morseKeyboardContainer').style.display = 'none'
+		keyboardShown = false
+	}
 }
 
+function virtualKeyPress(key){
+	letterPressed(key.toUpperCase());
+}
+	
 function generateNewMorse(){
 	
 	backColor = "#C3C3C3";
@@ -178,14 +186,19 @@ function morseLoad(){
 
 function keyPress(event){
 	
+	letterPressed(event.key.toUpperCase());
+	
+}
+
+function letterPressed(guessedLetter){
+	
 	if (inputDisabled === false){
 		
 		inputDisabled = true
 
-		var pressedLetter = event.key.toUpperCase();
-		document.getElementById('guessLetter').innerHTML = pressedLetter
+		document.getElementById('guessLetter').innerHTML = guessedLetter
 	
-		if (pressedLetter === morseLetter){
+		if (guessedLetter === morseLetter){
 			backColor = "#3BA769"	
 			correct++
 			setTimeout(generateNewMorse, 750);
