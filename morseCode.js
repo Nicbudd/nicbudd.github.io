@@ -40,17 +40,11 @@ function showHideDifficulty(){
 }
 
 function disableDifficultyButtons(){
-	document.getElementById('morseDiff1').style.visibility = 'hidden';
-	document.getElementById('morseDiff2').style.visibility = 'hidden';
-	document.getElementById('morseDiff3').style.visibility = 'hidden';
-	document.getElementById('morseDiff4').style.visibility = 'hidden';
+	document.getElementById('morseDifficultyContainer').style.visibility = 'hidden';
 }
 
 function enableDifficultyButtons(){
-	document.getElementById('morseDiff1').style.visibility = 'visible';
-	document.getElementById('morseDiff2').style.visibility = 'visible';
-	document.getElementById('morseDiff3').style.visibility = 'visible';
-	document.getElementById('morseDiff4').style.visibility = 'visible';
+	document.getElementById('morseDifficultyContainer').style.visibility = 'visible';
 }
 
 function difficulty1(){

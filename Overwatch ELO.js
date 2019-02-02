@@ -34,8 +34,8 @@ function calcGame(gameNum, team1, team2){
 	
 	let boostedGames = [72, 73, 134, 135, 196, 197, 198, 259, 260, 261]
 	
-	let team1ELO = 
-	let team2ELO = 
+	let team1ELO 
+	let team2ELO
 	let k = kDefault
 	
 	if (gameNum < 12){
