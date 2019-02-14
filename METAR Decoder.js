@@ -15,16 +15,16 @@ function checkVerbose() {
 	}
 }
 
-function simplifiedOutput(num, ) {
+function simplifiedOutput(num) {
 	if (verbose === false){
 		var listElement = document.getElementById('metarOut');
 		
 	}
 }
 
-function roundDecimal (number, decimal){
+function roundDecimal (num, decimal){
 	let factor = Math.pow(10, decimal)
-	return Math.round(number * factor) / factor
+	return Math.round(num * factor) / factor
 }
 
 function knotsToMPH(knots){
@@ -112,6 +112,7 @@ function decodeMETAR(input) {
 		let currentCode = input[i].split("");
 		let currentCodeStr = input[i]
 		let codeLength = currentCode.length;
+		console.log(input[i]);
 		console.log(currentCode);
 		
 		//make an array with 1 if theres a letter but 0 if not
@@ -131,7 +132,7 @@ function decodeMETAR(input) {
 		
 		//test for slashes or letters other than M
 		for (let p = 0; p < codeLength; p++){
-			if (currentCode[p] === '/'){
+			if (currentCode[p] === '/' && p > 1){
 				isTempCode = true
 			} else {
 				for (let q = 0; q < letters.length; q++){
@@ -406,50 +407,75 @@ function decodeMETAR(input) {
 			logProgress('Temp/Dewpoint');
 			
 			
-			let slashLoc = currentCode.indexOf('/');
-
+			//start us out
+			
 			let tempNeg = false
 			let dewNeg = false
 			
+			
+			
+			//temperature
+			
+			//determine if it's negative
 			if (currentCode[0] === "M"){
 				currentCode.shift()
 				tempNeg = true
 			}
 			
-			slashLoc = currentCode.indexOf('/');
-			
-			if (currentCode[slashLoc + 1] === "M"){
-				currentCode[slashLoc + 1] = ""
-				dewNeg = true
-			}
-			
-			
-			slashLoc = currentCode.indexOf('/');
-			
+			//make a string out of the temperature and get rid of temperature part and slash
+			let slashLoc = currentCode.indexOf('/');
 			let tempStr = ""
 			for (let r = 0; r < slashLoc; r++){
-				tempStr = tempStr + currentCode[r];
+				tempStr = tempStr + currentCode[0];
+				currentCode.shift();
 			}
-			
-			let dewStr = ""
-			for (let s = slashLoc + 1; s < codeLength; s++){
-				dewStr = dewStr + currentCode[s];
-			}
+			currentCode.shift();
 			
 			
+			//string -> number
 			let cTemp = Number(tempStr);
-			let cDew = Number(dewStr);
 			
+			//deal with negetive
 			if (tempNeg === true){
 				cTemp = cTemp * -1
 			}
+			
+			//convert to f
+			let fTemp = Math.round(cToF(cTemp));
+			
+			
+			
+			//dewpoint
+			
+			slashLoc = currentCode.indexOf('/');
+			
+			//determine if it's negative
+			if (currentCode[0] === "M"){
+				currentCode.shift()
+				dewNeg = true
+			}
+			
+			//make a string out of the dewpoint
+			let dewStr = ""
+			for (let r = 0; r <= currentCode.length; r++){
+				dewStr = dewStr + currentCode[0];
+				currentCode.shift()
+			}
+			
+			//string -> number
+			let cDew = Number(dewStr);
+			
+			//deal with negetive
 			if (dewNeg === true){
 				cDew = cDew * -1
 			}
 			
-			let fTemp = Math.round(cToF(cTemp));
+			//convert to f
 			let fDew = Math.round(cToF(cDew));
 			
+			
+			
+			//create the block
 			createMetarDivBlock(i, input[i], `The temperature was ${cTemp}°C (${fTemp}°F), and the dewpoint was ${cDew}°C (${fDew}°F).`);
 			
 			
@@ -501,10 +527,118 @@ function decodeMETAR(input) {
 			let fourFDew = cToF(fourDew).toFixed(1);
 			
 			createMetarDivBlock(i, input[i], `A more precise temperature was ${fourTemp}°C (${fourFTemp}°F)and a more precise dewpoint was ${fourDew}°C (${fourFDew}°F).`);
+		
+		} else if (currentCode[0] === "1" && currentCodeDiscr[1] === 0 && currentCodeDiscr[2] === 0 && currentCodeDiscr[3] === 0 && currentCodeDiscr[4] === 0 && codeLength === 5){
+			logProgress('Numeric Code 1 - 6hr Max Temp');
+			
+			let maxTemp = Number(currentCode[2] + currentCode[3] + currentCode[4])
+			
+			maxTemp = maxTemp * 0.1
+			
+			if (currentCode[1] === "1"){
+				maxTemp *= -1
+			}
+			
+			let maxTempF = cToF(maxTemp)
+			
+			maxTemp = roundDecimal(maxTemp, 1)
+			maxTempF = roundDecimal(maxTempF, 1)
 			
 			
+			createMetarDivBlock(i, input[i], `The 6 hour maximum temperature was ${maxTemp}°C (${maxTempF}°F).`);
+			
+		} else if (currentCode[0] === "2" && currentCodeDiscr[1] === 0 && currentCodeDiscr[2] === 0 && currentCodeDiscr[3] === 0 && currentCodeDiscr[4] === 0 && codeLength === 5){
+			logProgress('Numeric Code 2 - 6hr Min Temp');
+			
+			let minTemp = Number(currentCode[2] + currentCode[3] + currentCode[4])
+			
+			minTemp = minTemp * 0.1
+			
+			if (currentCode[1] === "1"){
+				minTemp *= -1
+			}
+			
+			let minTempF = cToF(minTemp)
+			
+			minTemp = roundDecimal(minTemp, 1)
+			minTempF = roundDecimal(minTempF, 1)
+			
+			createMetarDivBlock(i, input[i], `The 6 hour minimum temperature was ${minTemp}°C (${minTempF}°F).`);
 			
 			
+		} else if (currentCode[0] === "4" && currentCode[1] === "/" && currentCodeDiscr[2] === 0 && currentCodeDiscr[3] === 0 && currentCodeDiscr[4] === 0 && codeLength === 5){
+			logProgress('Numeric Code 4/ - Snow Depth');
+			
+			let snowDepth = Number(currentCode[2] + currentCode[3] + currentCode[4])
+			
+			createMetarDivBlock(i, input[i], `There were ${snowDepth} inches of snow on the ground.`);
+			
+			
+		} else if (currentCode[0] === "4" && currentCodeDiscr[1] === 0 && currentCodeDiscr[2] === 0 && currentCodeDiscr[3] === 0 && currentCodeDiscr[4] === 0 && currentCodeDiscr[5] === 0 && currentCodeDiscr[6] === 0 && currentCodeDiscr[7] === 0 && currentCodeDiscr[8] === 0 && codeLength === 9){
+			logProgress('Numeric Code 4 - 24hr Max/Min Temperatures')
+			
+			
+			//maximum
+			let maxTemp = Number(currentCode[2] + currentCode[3] + currentCode[4])
+			
+			maxTemp = maxTemp * 0.1
+			
+			if (currentCode[1] === "1"){
+				maxTemp *= -1
+			}
+			
+			let maxTempF = cToF(maxTemp)
+			
+			maxTemp = roundDecimal(maxTemp, 1)
+			maxTempF = roundDecimal(maxTempF, 1)
+
+			
+			//minimum
+			let minTemp = Number(currentCode[6] + currentCode[7] + currentCode[8])
+			
+			minTemp = minTemp * 0.1
+			
+			if (currentCode[5] === "1"){
+				minTemp *= -1
+			}
+			
+			let minTempF = cToF(minTemp)
+			
+			minTemp = roundDecimal(minTemp, 1)
+			minTempF = roundDecimal(minTempF, 1)
+			
+			
+			//putting it together
+			
+			createMetarDivBlock(i, input[i], `The 24 hour maximum temperature was ${maxTemp}°C (${maxTempF}°F) and the 24 hour minimum temperature was ${minTemp}°C (${minTempF}°F).`);
+			
+		} else if (currentCode[0] === "5" && currentCodeDiscr[1] === 0 && currentCodeDiscr[2] === 0 && currentCodeDiscr[3] === 0 && currentCodeDiscr[4] === 0 && codeLength === 5){
+			logProgress('Numeric Code 5 - 3hr Pressure Tendency');
+			
+			let presT = Number(currentCode[2] + currentCode[3] + currentCode[4])
+			
+			presT = presT * 0.1
+
+			presTinHg = presT / 33.864
+			
+			presT = roundDecimal(presT, 1)
+			presTinHg = roundDecimal(presTinHg, 3)
+			
+			let tendencyNum = Number(currentCode[1])
+			let tendency
+			
+			if (tendencyNum < 4){
+				createMetarDivBlock(i, input[i], `The pressure rose by ${presT}mbar (${presTinHg}inHg) in the 3 hours prior to the measurement.`);
+				
+			} else if (tendencyNum === 4){
+				createMetarDivBlock(i, input[i], `The pressure has remained steady for the past 3 hours`);
+
+			} else if (tendencyNum > 4){
+				createMetarDivBlock(i, input[i], `The pressure fell by ${presT}mbar (${presTinHg}inHg) in the 3 hours prior to the measurement.`);
+			
+			} else {
+				console.log("hecc")
+			}
 			
 			
 		//for weather
@@ -549,7 +683,5 @@ function metarDecodeButton() {
 	console.log(inputWritten);
 	let outputText = decodeMETAR(inputWritten);
 	console.log(outputText);
-	outputList.temperature = "12C"
-	console.log(outputList);
 	verbosePrevious = verbose
 }
