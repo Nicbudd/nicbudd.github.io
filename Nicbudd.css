@@ -776,6 +776,10 @@ border-width: 2px;
 	padding: 8px;
 }
 
+.eloScoreboxContainer{
+	margin: auto;
+}
+
 
 .eloTeam{
 	font-family: Roboto Mono;

@@ -47,18 +47,21 @@ var bVar = "b"
 var nVar = "n"
 var mVar = "m"
 
+function loadAll(){
+	morseLoad();
+}
 
 </script>
 
 </head>
 
-<body onload="morseLoad()">
-<!--<body onload="loadELO()">-->
+<body onload="loadAll()" id="body">
 <noscript><div id="noscript"><h2>Uh-oh!</h2><p>It appears that javascript is not working here, for whatever reason.</p><p>Sadly, this site doesn't work without javascript. You might be able to see it looks a bit... broken.</p><p>Please enable javascript or switch to a browser that is compatible with javascript if you want to continue browsing this website.</p><p>If you don't want to, that's ok too. I'll just be sad that you cant see my website.</p><h2>;(</h2></div></noscript>
 
 
 
 <div class="lightergrayblock"><h1>Javascript Experiments</h1>
+<p>Warning: some actions on page may slow down device.</p>
 
 
 
@@ -134,6 +137,7 @@ var mVar = "m"
 
 <div id="morseHelperText">Hit the letter that corresponds with the morse code above.</div>
 
+</div>
 
 </div><div class="redblock"><h2>Physics Calculators</h2>
 
@@ -155,24 +159,13 @@ var mVar = "m"
 <!--<textarea id="consoleBox" style="width:100%;"></textarea>-->
 </div><div class="blackblock"><h2>Overwatch ELO</h2>
 
-
-
+<div class="eloScoreboxContainer">
 <div id="eloScorebox">
-<div class="eloTeam" id="bosName">Boston Uprising</div><div class="teamScore" id="bosScore">1400</div>
-<div class="eloTeam" id="dalName">Dallas Fuel</div><div class="teamScore" id="dalScore">1400</div>
-<div class="eloTeam" id="flaName">Florida Mayhem</div><div class="teamScore" id="flaScore">1400</div>
-<div class="eloTeam" id="houName">Houston Outlaws</div><div class="teamScore" id="houScore">1400</div>
-<div class="eloTeam" id="ldnName">London Spitfire</div><div class="teamScore" id="ldnScore">1400</div>
-<div class="eloTeam" id="glaName">Los Angeles Gladiators</div><div class="teamScore" id="glaScore">1400</div>
-<div class="eloTeam" id="valName">Los Angeles Valiant</div><div class="teamScore" id="valScore">1400</div>
-<div class="eloTeam" id="nyeName">New York Excelsior</div><div class="teamScore" id="nyeScore">1400</div>
-<div class="eloTeam" id="phiName">Philadelphia Fusion</div><div class="teamScore" id="phiScore">1400</div>
-<div class="eloTeam" id="sfsName">San Fransisco Shock</div><div class="teamScore" id="sfsScore">1400</div>
-<div class="eloTeam" id="seoName">Seoul Dynasty</div><div class="teamScore" id="seoScore">1400</div>
-<div class="eloTeam" id="shdName">Shanghai Dragons</div><div class="teamScore" id="shdScore">1400</div>
 
 </div>
+</div>
 
+<button onclick="loadELO()" style="position:static;">Load Overwatch ELO</button>
 
 
 
