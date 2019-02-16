@@ -337,6 +337,9 @@ let currentGame = 1
 let expectedPoints
 let kDefault = 40
 
+let eloLoaded = false
+let gamesShown = false
+
 function calculateExpected(team1, team2){
 	let Qa = Math.pow(10, team1 / 400)
 	let Qb = Math.pow(10, team2 / 400)
@@ -474,46 +477,50 @@ function calcGame(gameNum){
 
 function loadELO(){
 	
-	for (currentGame; currentGame <= games.length; currentGame++){
-		calcGame(currentGame);
-		console.log('currentGame = ' + currentGame);
-	}
+	if (eloLoaded === false){
+		eloLoaded = true
+	
+		for (currentGame; currentGame <= games.length; currentGame++){
+			calcGame(currentGame);
+			console.log('currentGame = ' + currentGame);
+		}
 	
 	
-	teams.sort(
-	function(a, b){
-		return b[1] - a[1];
-	});
+		teams.sort(
+		function(a, b){
+			return b[1] - a[1];
+		});
 	
-	console.log(teams);
+		console.log(teams);
 
-	//getting the container for it all
-	let box = document.getElementById('eloScorebox');
+		//getting the container for it all
+		let box = document.getElementById('eloScorebox');
 	
-	for (let i = 0; i < teams.length; i++){
+		for (let i = 0; i < teams.length; i++){
 		
-		let name = teams[i][0]
-		let score = Math.round(teams[i][1])
-		let fullname = teams[i][2]
+			let name = teams[i][0]
+			let score = Math.round(teams[i][1])
+			let fullname = teams[i][2]
 		
-		//name div
-		let nameDiv = document.createElement('div');
-		nameDiv.setAttribute('class', 'eloTeam ' + name);
-		nameDiv.setAttribute('id', name + 'Name');
-		box.appendChild(nameDiv);
-		document.getElementById(name + 'Name').innerHTML = fullname;
+			//name div
+			let nameDiv = document.createElement('div');
+			nameDiv.setAttribute('class', 'eloTeam ' + name);
+			nameDiv.setAttribute('id', name + 'Name');
+			box.appendChild(nameDiv);
+			document.getElementById(name + 'Name').innerHTML = fullname;
 		
-		//score div
-		let scoreDiv = document.createElement('div');
-		scoreDiv.setAttribute('class', 'teamScore');
-		scoreDiv.setAttribute('id', name + 'Score');
-		box.appendChild(scoreDiv);
-		document.getElementById(name + 'Score').innerHTML = score;
+			//score div
+			let scoreDiv = document.createElement('div');
+			scoreDiv.setAttribute('class', 'teamScore');
+			scoreDiv.setAttribute('id', name + 'Score');
+			box.appendChild(scoreDiv);
+			document.getElementById(name + 'Score').innerHTML = score;
 		
-	}
 	
-	document.getElementById('OWLshowGames').style = "visibility:visible;"
-	
+		}
+		
+		document.getElementById('OWLshowGames').style = "display:inline-block;"
+	}	
 }
 
 function doNextGame(){
@@ -523,8 +530,12 @@ function doNextGame(){
 
 function showGames(){
 	
+	if (gamesShown === false){
+		
+	gamesShown = true
+	
 	let table = document.getElementById('OWLTable');
-	table.style = "visibility:visible;"
+	table.style = "display:table;"
 	
 	for (let i = 0; i < games.length; i++){
 		
@@ -598,5 +609,6 @@ function showGames(){
 		kValue.setAttribute('id', 'kValue' + i);
 		row.appendChild(kValue);
 		document.getElementById('kValue' + i).innerHTML = games[i][10];
+		}
 	}
 }

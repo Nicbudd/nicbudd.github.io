@@ -886,11 +886,11 @@ border-width: 2px;
 }
 
 #OWLshowGames{
-	visibility: hidden;
+	display:none;
 }
 
 #OWLTable{
-	visibility: hidden;
+	display:none;
 	font-family: Roboto Mono;
 }
 
