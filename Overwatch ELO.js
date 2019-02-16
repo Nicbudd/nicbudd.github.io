@@ -284,7 +284,7 @@ let games = [
 ['atl', 'fla', 4, 0],
 ['dal', 'sfs', 0, 4],
 ['cdh', 'gzc', 3, 2],
-['ldn', 'par', undefined, undefined],
+['ldn', 'par', 1, 3],
 ['was', 'nye', undefined, undefined],
 ['val', 'hzs', undefined, undefined],
 ['van', 'shd', undefined, undefined],
