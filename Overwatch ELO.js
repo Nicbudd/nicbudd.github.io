@@ -508,7 +508,7 @@ function doNextGame(){
 function showGames(){
 	
 	let table = document.getElementById('OWLTable');
-	table.style = "display:block;"
+	table.style = "visibility:visible;"
 	
 	for (let i = 0; i < games.length; i++){
 		
