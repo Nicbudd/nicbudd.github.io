@@ -1290,6 +1290,42 @@ border-width: 2px;
 
 
 
+#monoBoard{
+	display: grid;
+	/*grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto;*/
+	grid-gap: 3px;
+	background-color: #303030;
+	padding: 4px;
+}
+
+#monoBoard div{
+	background-color: #E6E6E6;
+	color: #303030;
+	font-size:1em;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
