@@ -96,6 +96,8 @@ luxuryTax,
 boardwalk
 ];
 
+let pieces
+let stepNum = 0
 
 
 function rollDice(){
@@ -113,10 +115,12 @@ function createMonoBoardItem(idSuffix, i, colStart, rowStart, colSpan, rowSpan) 
 	
 }
 
-function drawMonoBoard(){
+let multiPrev
+let initialLoad = true
+
+function resizeMonoBoard(){
 	let board = document.getElementById('monoBoard');
 	board.style.height = board.offsetWidth + "px"
-	console.log(board.style.height)
 	
 	let width = (board.offsetWidth - (12 * 3) - (2 * 4)) / 13
 	let widthStatement = ""
@@ -125,11 +129,68 @@ function drawMonoBoard(){
 		widthStatement = widthStatement + width.toString() + "px ";
 	}
 	
-	console.log(widthStatement)
-	
 	board.style = "grid-template-columns:" + widthStatement + ";grid-template-rows:" + widthStatement + ";";
 	
+	if (initialLoad === false){
+		for (let i = 0; i < spaces.length; i++){
+			drawMonoBoardSymbols(i, width);
+		}
+	}
 	
+	
+	
+	return width
+}
+
+function drawMonoBoardSymbols(i, width){
+	let monoBoardItem = document.getElementById('monoBoardItem' + i)
+	let monoBoardColor = document.getElementById('monoBoardColor' + i)
+	
+	if (i === 0 || i === 10 || i === 20 || i === 30){
+		monoBoardItem.innerHTML = spaces[i].fullName
+		monoBoardItem.style.fontSize = 2.5 * Math.sqrt(width) + "px"
+	} else if (i === 7 || i === 22 || i === 36){
+		monoBoardColor.innerHTML = "?"
+		monoBoardColor.style.fontSize = 0.8 * width + "px"
+		monoBoardColor.style.fontWeight = "700"
+			
+		switch (i){
+			case 7:
+				monoBoardColor.style.color = "#7C56B5"
+				break;
+			case 22:
+				monoBoardColor.style.color = "#316FA6"
+				
+				break;
+			case 36:
+				monoBoardColor.style.color = "#C14747"
+					
+				break;
+			}
+	} else if (i === 2 || i === 17 || i === 33){
+		monoBoardColor.innerHTML = '<i class="fas fa-box"></i>'
+		monoBoardColor.style.color = "#316FA6"
+		monoBoardColor.style.fontSize = 0.6 * width + "px"
+	} else if (i === 4 || i === 38){
+		monoBoardColor.innerHTML = '<i class="fas fa-dollar-sign"></i>'
+		monoBoardColor.style.fontSize = 0.6 * width + "px"
+	} else if (i === 5 || i === 15 || i === 25 || i === 35){
+		monoBoardColor.innerHTML = '<i class="fas fa-train"></i>'
+		monoBoardColor.style.fontSize = 0.6 * width + "px"
+	} else if (i === 12 || i === 28){
+		monoBoardColor.innerHTML = '<i class="fas fa-wrench"></i>'
+		monoBoardColor.style.fontSize = 0.6 * width + "px"
+	}
+	
+	if (i === 10) {
+		document.getElementById('monoBoardItem41').style.fontSize = 2.5 * Math.sqrt(width) + "px"
+	}
+}
+
+function drawMonoBoard(){
+	
+	let width = resizeMonoBoard();
+	initialLoad = false
 	
 	for (let i = 0; i < spaces.length; i++){
 		
@@ -244,46 +305,28 @@ function drawMonoBoard(){
 			document.getElementById('monoBoardColor' + i).style.background = "#38A09D"
 		} 
 		
-		let monoBoardItem = document.getElementById('monoBoardItem' + i)
-		let monoBoardColor = document.getElementById('monoBoardColor' + i)
-		
-		if (i === 0 || i === 10 || i === 20 || i === 30){
-			monoBoardItem.innerHTML = spaces[i].fullName
-		} else if (i === 7 || i === 22 || i === 36){
-			monoBoardColor.innerHTML = "?"
-			monoBoardColor.style.fontSize = "2.5em"
-			monoBoardColor.style.fontWeight = "700"
-			
-			switch (i){
-				case 7:
-					monoBoardColor.style.color = "#7C56B5"
-					break;
-				case 22:
-					monoBoardColor.style.color = "#316FA6"
-				
-					break;
-				case 36:
-					monoBoardColor.style.color = "#C14747"
-					
-					break;
-			}
-		} else if (i === 2 || i === 17 || i === 33){
-			monoBoardColor.innerHTML = '<i class="fas fa-box"></i>'
-			monoBoardColor.style.color = "#316FA6"
-			monoBoardColor.style.fontSize = "2em"
-		} else if (i === 4 || i === 38){
-			monoBoardColor.innerHTML = '<i class="fas fa-dollar-sign"></i>'
-			monoBoardColor.style.fontSize = "2em"
-		} else if (i === 5 || i === 15 || i === 25 || i === 35){
-			monoBoardColor.innerHTML = '<i class="fas fa-train"></i>'
-			monoBoardColor.style.fontSize = "2em"
-		} else if (i === 12 || i === 28){
-			console.log('hey im here')
-			monoBoardColor.innerHTML = '<i class="fas fa-wrench"></i>'
-			monoBoardColor.style.fontSize = "2em" 
-		}
+		drawMonoBoardSymbols(i, width);
 	}
 }
+
+function monoLoad(){
+	drawMonoBoard();
+	
+	pieceNum = 100
+	pos = 0
+	jailMode = 0
+	
+	for (let i = 0; i < pieceNum; i++){
+		pieces.push([pos, jailMode]);
+	}
+	
+	console.log(pieces);
+	
+}
+
+// 0.8 * width + "px"
+
+window.onresize = resizeMonoBoard;
 
 function monoStepForward(){
 	

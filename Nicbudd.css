@@ -1371,6 +1371,7 @@ input:checked + .slider.eitherOr:before{
 	grid-gap: 3px;
 	background-color: #303030;
 	padding: 4px;
+	max-width: 1000px;
 }
 
 #monoBoard div{
@@ -1381,6 +1382,8 @@ input:checked + .slider.eitherOr:before{
 	justify-content:center;
 	align-items:center;
 }
+
+
 
 
 
