@@ -288,26 +288,26 @@ let games = [
 ['was', 'nye', 1, 3],
 ['val', 'hzs', 2, 3],
 ['van', 'shd', 4, 0],
-['hou', 'bos', undefined, undefined],
-['phi', 'atl', undefined, undefined],
-['sfs', 'gla', undefined, undefined],
-['seo', 'dal', undefined, undefined],
-['was', 'ldn', undefined, undefined],
-['phi', 'fla', undefined, undefined],
-['gzc', 'dal', undefined, undefined],
-['seo', 'cdh', undefined, undefined],
-['atl', 'tor', undefined, undefined],
-['nye', 'val', undefined, undefined],
-['shd', 'bos', undefined, undefined],
-['hou', 'hzs', undefined, undefined],
-['gla', 'par', undefined, undefined],
-['phi', 'dal', undefined, undefined],
-['van', 'gzc', undefined, undefined],
-['cdh', 'fla', undefined, undefined],
-['hzs', 'ldn', undefined, undefined],
-['nye', 'hou', undefined, undefined],
-['tor', 'val', undefined, undefined],
-['van', 'sfs', undefined, undefined],
+['hou', 'bos', "-", "-"],
+['phi', 'atl', "-", "-"],
+['sfs', 'gla', "-", "-"],
+['seo', 'dal', "-", "-"],
+['was', 'ldn', "-", "-"],
+['phi', 'fla', "-", "-"],
+['gzc', 'dal', "-", "-"],
+['seo', 'cdh', "-", "-"],
+['atl', 'tor', "-", "-"],
+['nye', 'val', "-", "-"],
+['shd', 'bos', "-", "-"],
+['hou', 'hzs', "-", "-"],
+['gla', 'par', "-", "-"],
+['phi', 'dal', "-", "-"],
+['van', 'gzc', "-", "-"],
+['cdh', 'fla', "-", "-"],
+['hzs', 'ldn', "-", "-"],
+['nye', 'hou', "-", "-"],
+['tor', 'val', "-", "-"],
+['van', 'sfs', "-", "-"],
 ]
 
 let teams = [
@@ -443,17 +443,17 @@ function calcGame(gameNum){
 	let team1WinLoss = team1Points / (team1Points + team2Points);
 	
 	if (winBased === false){
-		if (team1Points === undefined || team2Points === undefined){
+		if (team1Points === "-"|| team2Points === "-"){
 			games[gameNumArray][2] = "-"
 			games[gameNumArray][3] = "-"
 		}
 	} else {
-		if (team1Points === undefined || team2Points === undefined){
+		if (team1Points === "-" || team2Points === "-"){
 			games[gameNumArray][2] = "-"
 			games[gameNumArray][3] = "-"
 		} else if (team1Points > team2Points){
 			team1WinLoss = 1
-		} else {
+		} else if (team1Points < team2Points){
 			team1WinLoss = 0
 		}
 	}
