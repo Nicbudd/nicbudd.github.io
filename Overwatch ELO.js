@@ -336,7 +336,7 @@ let teams = [
 let currentGame = 1
 let expectedPoints
 let kDefault = 40
-
+let winBased
 let eloLoaded = false
 let gamesShown = false
 
@@ -433,6 +433,7 @@ function calcGame(gameNum){
 
 
 	
+	
 	if (team1Points + team2Points < 4){
 		let tiedPoints = 4 - (team1Points + team2Points);
 		team1Points = team1Points + (tiedPoints / 2);
@@ -440,6 +441,22 @@ function calcGame(gameNum){
 	}
 	
 	let team1WinLoss = team1Points / (team1Points + team2Points);
+	
+	if (winBased === false){
+		if (team1Points === undefined || team2Points === undefined){
+			games[gameNumArray][2] = "-"
+			games[gameNumArray][3] = "-"
+		}
+	} else {
+		if (team1Points === undefined || team2Points === undefined){
+			games[gameNumArray][2] = "-"
+			games[gameNumArray][3] = "-"
+		} else if (team1Points > team2Points){
+			team1WinLoss = 1
+		} else {
+			team1WinLoss = 0
+		}
+	}
 	
 	console.log('team1WinLoss = ' + team1WinLoss);
 	
@@ -466,10 +483,7 @@ function calcGame(gameNum){
 	games[gameNumArray][6] = team1ELONew;
 	games[gameNumArray][7] = team2ELONew;
 	
-	if (team1Points === undefined || team2Points === undefined){
-		games[gameNumArray][2] = "-"
-		games[gameNumArray][3] = "-"
-	}
+	
 	
 }
 
@@ -477,50 +491,67 @@ function calcGame(gameNum){
 
 function loadELO(){
 	
+	//check if the user wants win based ranking
+	winBased = document.getElementById('winBased').checked
+	
 	if (eloLoaded === false){
 		eloLoaded = true
-	
-		for (currentGame; currentGame <= games.length; currentGame++){
-			calcGame(currentGame);
-			console.log('currentGame = ' + currentGame);
-		}
-	
-	
-		teams.sort(
-		function(a, b){
-			return b[1] - a[1];
-		});
-	
-		console.log(teams);
-
-		//getting the container for it all
-		let box = document.getElementById('eloScorebox');
-	
+	} else {
+		let scoreBox = document.getElementById('eloScorebox')
 		for (let i = 0; i < teams.length; i++){
+			let name = document.getElementById(teams[i][0] + "Name");
+			let score = document.getElementById(teams[i][0] + "Score");
+			scoreBox.removeChild(name);
+			scoreBox.removeChild(score);
+			
+			teams[i][1] = 1400
+		}
+	}
+	
+	currentGame = 1
+	
+	
+	for (currentGame; currentGame <= games.length; currentGame++){
+		calcGame(currentGame);
+		console.log('currentGame = ' + currentGame);
+	}
+	
+	
+	teams.sort(
+	function(a, b){
+		return b[1] - a[1];
+	});
+	
+	console.log(teams);
+
+	//getting the container for it all
+	let box = document.getElementById('eloScorebox');
+	
+	for (let i = 0; i < teams.length; i++){
+	
+		let name = teams[i][0]
+		let score = Math.round(teams[i][1])
+		let fullname = teams[i][2]
 		
-			let name = teams[i][0]
-			let score = Math.round(teams[i][1])
-			let fullname = teams[i][2]
+		//name div
+		let nameDiv = document.createElement('div');
+		nameDiv.setAttribute('class', 'eloTeam ' + name);
+		nameDiv.setAttribute('id', name + 'Name');
+		box.appendChild(nameDiv);
+		document.getElementById(name + 'Name').innerHTML = fullname;
 		
-			//name div
-			let nameDiv = document.createElement('div');
-			nameDiv.setAttribute('class', 'eloTeam ' + name);
-			nameDiv.setAttribute('id', name + 'Name');
-			box.appendChild(nameDiv);
-			document.getElementById(name + 'Name').innerHTML = fullname;
-		
-			//score div
-			let scoreDiv = document.createElement('div');
-			scoreDiv.setAttribute('class', 'teamScore');
-			scoreDiv.setAttribute('id', name + 'Score');
-			box.appendChild(scoreDiv);
-			document.getElementById(name + 'Score').innerHTML = score;
+		//score div
+		let scoreDiv = document.createElement('div');
+		scoreDiv.setAttribute('class', 'teamScore');
+		scoreDiv.setAttribute('id', name + 'Score');
+		box.appendChild(scoreDiv);
+		document.getElementById(name + 'Score').innerHTML = score;
 		
 	
-		}
+	}
 		
-		document.getElementById('OWLshowGames').style = "display:inline-block;"
-	}	
+	document.getElementById('OWLshowGames').style = "display:inline-block;"
+	
 }
 
 function doNextGame(){
@@ -530,12 +561,21 @@ function doNextGame(){
 
 function showGames(){
 	
-	if (gamesShown === false){
-		
-	gamesShown = true
+	loadELO();
 	
 	let table = document.getElementById('OWLTable');
 	table.style = "display:table;"
+	
+	if (gamesShown === false){	
+		gamesShown = true
+	} else {
+		for (let i = 0; i < games.length; i++){
+			let row = document.getElementById('rowGame' + i);
+			table.removeChild(row);
+		}
+	}
+	
+	
 	
 	for (let i = 0; i < games.length; i++){
 		
@@ -609,6 +649,5 @@ function showGames(){
 		kValue.setAttribute('id', 'kValue' + i);
 		row.appendChild(kValue);
 		document.getElementById('kValue' + i).innerHTML = games[i][10];
-		}
 	}
 }
