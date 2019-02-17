@@ -339,6 +339,8 @@ let kDefault = 40
 let winBased
 let eloLoaded = false
 let gamesShown = false
+let successRate = 0
+let gamesCompleted = 0
 
 function calculateExpected(team1, team2){
 	let Qa = Math.pow(10, team1 / 400)
@@ -383,6 +385,8 @@ function lookupTeamName(team){
 
 function calcGame(gameNum){
 	
+	gamesCompleted++
+	
 	//[team1Name, team2Name, team1Points, team2Points, team1ELO, team2ELO, team1ELONew, team2ELONew, expectedPercent1, expectedPercent2]
 	gameNumArray = gameNum - 1
 	
@@ -396,6 +400,7 @@ function calcGame(gameNum){
 	
 	games[gameNumArray][4] = team1ELO;
 	games[gameNumArray][5] = team2ELO;
+	
 	
 	
 	
@@ -446,11 +451,13 @@ function calcGame(gameNum){
 		if (team1Points === "-"|| team2Points === "-"){
 			games[gameNumArray][2] = "-"
 			games[gameNumArray][3] = "-"
+			gamesCompleted--
 		}
 	} else {
 		if (team1Points === "-" || team2Points === "-"){
 			games[gameNumArray][2] = "-"
 			games[gameNumArray][3] = "-"
+			gamesCompleted--
 		} else if (team1Points > team2Points){
 			team1WinLoss = 1
 		} else if (team1Points < team2Points){
@@ -483,6 +490,15 @@ function calcGame(gameNum){
 	games[gameNumArray][6] = team1ELONew;
 	games[gameNumArray][7] = team2ELONew;
 	
+	if (team1Points > team2Points){
+		
+		successRate = successRate + games[gameNumArray][8]
+		
+	} else if (team1Points < team2Points){
+		
+		successRate = successRate + games[gameNumArray][9]
+		
+	}
 	
 	
 }
@@ -509,12 +525,17 @@ function loadELO(){
 	}
 	
 	currentGame = 1
-	
+	successRate = 0
+	gamesCompleted = 0
 	
 	for (currentGame; currentGame <= games.length; currentGame++){
 		calcGame(currentGame);
 		console.log('currentGame = ' + currentGame);
 	}
+	
+	successRate = successRate / gamesCompleted
+	
+	console.log('successRate = ' + successRate);
 	
 	
 	teams.sort(
