@@ -320,7 +320,7 @@ function drawMonoBoard(){
 function monoLoad(){
 	drawMonoBoard();
 	
-	pieceNum = 100000
+	pieceNum = 1
 	pos = 0
 	jailMode = 0
 	
@@ -331,7 +331,11 @@ function monoLoad(){
 	console.log(pieces);
 	
 	inJail.pieceCount = 0
+	for (let i = 0; i < spaces.length; i++){
+		spaces[i].pieceCount = 0
+	}
 	
+	spaces[0].pieceCount = pieceNum;
 }
 
 // 0.8 * width + "px"
@@ -375,48 +379,144 @@ function monoFindErrorColor(error){
 	}
 }
 
-function monoStepForward(){
+let doubleCount = 0
+
+function monoBehavior(i){
 	
+	if (pieces[i][1] === 1){
+		
+		//JAIL STEP 1
+		
+		console.log('ooof in jail (step 1)')
+		spaces[pieces[i][0]].pieceCount--
+		pieces[i][0] = 41
+		inJail.pieceCount++
+		pieces[i][1]++
+		
+	} else if (pieces[i][1] === 2){
+		
+		//JAIL STEP 2
+		
+		console.log('ooof in jail (step 2)')
+		pieces[i][1] = 0
+		
+	} else if (doubleCount > 2){
+		
+		//doubles go to jail
+		pieces[i][1] = 1
+		console.log('going to jail')
+		monoBehavior(i);
+		
+	} else if (pieces[i][1] === 0){
+		
+		console.log("hi")
+		//roll dice
+		let spacesForward = 0	
+		spaces[pieces[i][0]].pieceCount--
+		spacesForward = spacesForward + rollDice();
+		pieces[i][0] = (pieces[i][0] + spacesForward) % 40;
+		
+		//chance
+		if (pieces[i][0] === 7 || pieces[i][0] === 22 || pieces[i][0] === 36){
+			let card = Math.ceil(Math.random() * 16)
+			
+			switch (card){
+				case 1:
+				//intentionally left blank
+					break;
+				case 2:
+				//intentionally left blank
+					break;
+				case 3:
+				//intentionally left blank
+					break;
+				case 4:
+				//intentionally left blank
+					break;
+				case 5:
+				//intentionally left blank
+					break;
+				case 6:
+				//get out of jail free card
+					break;
+				case 7:
+				//go to jail
+					pieces[i][1] = 1
+					console.log('going to jail')
+					monoBehavior(i);
+					break;
+				case 8:
+					pieces[i][0] = 24
+					break;
+				case 9:
+					pieces[i][0] = 0
+					break;
+				case 10:
+					if (pieces[i][0] === 7 || pieces[i][0] === 36){
+						pieces[i][0] = 12
+					} else {
+						pieces[i][0] = 28
+					}
+					break;
+				case 11:
+					pieces[i][0] = 11
+					break;
+				case 12:
+					pieces[i][0] = 39
+					break;
+				case 13:
+					if (pieces[i][0] === 7){
+						pieces[i][0] = 15
+					} else if (pieces[i][0] === 22){
+						pieces[i][0] = 25
+					} else if (pieces[i][0] === 36){
+						pieces[i][0] = 35
+					}
+					break;
+				case 14:
+					break;
+				case 15:
+					break;
+				case 16:
+					break;
+			}
+		}
+		
+		//cc
+		
+		//finalize pieces
+		spaces[pieces[i][0]].pieceCount++
+		
+		if (doubles === true){
+			doubleCount++
+			monoBehavior(i);	
+		}
 	
-	
-	for (let i = 0; i < spaces.length; i++){
-		spaces[i].pieceCount = 0
 	}
 	
+	
+}
+
+function monoStepForward(){
 	
 	for (let i = 0; i < pieces.length; i++){
 		
-			let spacesForward = 0
-			
-			spacesForward = spacesForward + rollDice();
-		
-			if (doubles === true){
-				spacesForward = spacesForward + rollDice();
-				if (doubles === true){
-					spacesForward = spacesForward + rollDice();
-					if (doubles === true){
-						spacesForward = 0
-						pieces[i][0] = 41
-						pieces[i][1] = 1
-						inJail.pieceCount++
-					}
-				}
-			}
-
-			
-			if (pieces[i][0] !== 41){
-				pieces[i][0] = (pieces[i][0] + spacesForward) % 40;
-				spaces[pieces[i][0]].pieceCount++
-			}
-			
+		doubleCount = 0
+		monoBehavior(i);
 		
 	}
+	
+	//display tokens
+	
+	let tilePieceCount = 0
+	
 	for (let i = 0; i < spaces.length; i++){
 		console.log(spaces[i].fullName + " = " + spaces[i].pieceCount)
 		document.getElementById('monoBoardItem' + i).innerHTML = spaces[i].pieceCount
 		let error = (spaces[i].pieceCount - (pieces.length / 41)) / (pieces.length / 50)
 		console.log (error);
 		document.getElementById('monoBoardItem' + i).style.background = monoFindErrorColor(error);
+		tilePieceCount = tilePieceCount + spaces[i].pieceCount
 	}
 	
 	console.log(inJail.fullName + " = " + inJail.pieceCount)
@@ -424,11 +524,10 @@ function monoStepForward(){
 	let error = (inJail.pieceCount - (pieces.length / 40)) / (pieces.length / 50)
 	console.log (error);
 	document.getElementById('monoBoardItem41').style.background = monoFindErrorColor(error);
+	tilePieceCount = tilePieceCount + inJail.pieceCount
 	
-	
-		
-	
-	
+	console.log(pieces.length)
+	console.log(tilePieceCount)
 	
 	
 }
