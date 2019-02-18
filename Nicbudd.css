@@ -951,7 +951,7 @@ input:checked + .slider.eitherOr:before{
 	background-color:#303d56;
 	color:white;
 }
-.was{
+.dcj{
 	background-color:#990034;
 	color:white;
 }
@@ -1371,7 +1371,8 @@ input:checked + .slider.eitherOr:before{
 	grid-gap: 3px;
 	background-color: #303030;
 	padding: 4px;
-	max-width: 1000px;
+	max-width: 900px;
+	margin: auto;
 }
 
 #monoBoard div{

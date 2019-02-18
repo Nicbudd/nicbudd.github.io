@@ -285,14 +285,14 @@ let games = [
 ['dal', 'sfs', 0, 4],
 ['cdh', 'gzc', 3, 2],
 ['ldn', 'par', 1, 3],
-['was', 'nye', 1, 3],
+['dcj', 'nye', 1, 3],
 ['val', 'hzs', 2, 3],
 ['van', 'shd', 4, 0],
 ['hou', 'bos', 2, 3],
-['phi', 'atl', "-", "-"],
+['phi', 'atl', 3, 2],
 ['sfs', 'gla', "-", "-"],
 ['seo', 'dal', "-", "-"],
-['was', 'ldn', "-", "-"],
+['dcj', 'ldn', "-", "-"],
 ['phi', 'fla', "-", "-"],
 ['gzc', 'dal', "-", "-"],
 ['seo', 'cdh', "-", "-"],
@@ -329,7 +329,7 @@ let teams = [
 ['cdh', 1400, 'Chengdu Hunters'], 
 ['gzc', 1400, 'Guangzhou Charge'], 
 ['par', 1400, 'Paris Eternal'], 
-['was', 1400, 'Washington Justice'], 
+['dcj', 1400, 'Washington Justice'], 
 ['van', 1400, 'Vancouver Titans']
 ]
 

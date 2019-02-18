@@ -96,13 +96,21 @@ luxuryTax,
 boardwalk
 ];
 
-let pieces
+let pieces = []
 let stepNum = 0
+let doubles
 
 
 function rollDice(){
 	let die1 = Math.ceil(Math.random() * 6);
 	let die2 = Math.ceil(Math.random() * 6);
+	
+	if (die1 === die2){
+		doubles = true
+	} else {
+		doubles = false
+	}
+	
 	return die1 + die2;
 }
 
@@ -312,7 +320,7 @@ function drawMonoBoard(){
 function monoLoad(){
 	drawMonoBoard();
 	
-	pieceNum = 100
+	pieceNum = 100000
 	pos = 0
 	jailMode = 0
 	
@@ -322,16 +330,103 @@ function monoLoad(){
 	
 	console.log(pieces);
 	
+	inJail.pieceCount = 0
+	
 }
 
 // 0.8 * width + "px"
 
 window.onresize = resizeMonoBoard;
 
+function monoFindErrorColor(error){
+	
+	//green = rgb(59, 167, 105)
+	//red = rgb(193, 71, 71)
+	//white = rgb(230, 230, 230)
+	
+	let red
+	let green
+	let blue
+	
+	if (error > 1){
+		error = 1
+	} else if (error < -1){
+		error = -1
+	}
+	
+	if (error > 0){
+		//green
+		
+		red = ((59 - 230) * error) + 230
+		green = ((167 - 230) * error) + 230
+		blue = ((105 - 230) * error) + 230
+		return `rgb(${red}, ${green}, ${blue})`
+	} else if (error < 0){
+		//red
+		
+		red = ((230 - 193) * error) + 230
+		green = ((230 - 71) * error) + 230
+		blue = ((230 - 71) * error) + 230
+		return `rgb(${red}, ${green}, ${blue})`
+	} else {
+		//white
+		
+		return "rgb(230, 230, 230)"
+	}
+}
+
 function monoStepForward(){
 	
 	
 	
+	for (let i = 0; i < spaces.length; i++){
+		spaces[i].pieceCount = 0
+	}
+	
+	
+	for (let i = 0; i < pieces.length; i++){
+		
+			let spacesForward = 0
+			
+			spacesForward = spacesForward + rollDice();
+		
+			if (doubles === true){
+				spacesForward = spacesForward + rollDice();
+				if (doubles === true){
+					spacesForward = spacesForward + rollDice();
+					if (doubles === true){
+						spacesForward = 0
+						pieces[i][0] = 41
+						pieces[i][1] = 1
+						inJail.pieceCount++
+					}
+				}
+			}
+
+			
+			if (pieces[i][0] !== 41){
+				pieces[i][0] = (pieces[i][0] + spacesForward) % 40;
+				spaces[pieces[i][0]].pieceCount++
+			}
+			
+		
+	}
+	for (let i = 0; i < spaces.length; i++){
+		console.log(spaces[i].fullName + " = " + spaces[i].pieceCount)
+		document.getElementById('monoBoardItem' + i).innerHTML = spaces[i].pieceCount
+		let error = (spaces[i].pieceCount - (pieces.length / 41)) / (pieces.length / 50)
+		console.log (error);
+		document.getElementById('monoBoardItem' + i).style.background = monoFindErrorColor(error);
+	}
+	
+	console.log(inJail.fullName + " = " + inJail.pieceCount)
+	document.getElementById('monoBoardItem41').innerHTML = inJail.pieceCount
+	let error = (inJail.pieceCount - (pieces.length / 40)) / (pieces.length / 50)
+	console.log (error);
+	document.getElementById('monoBoardItem41').style.background = monoFindErrorColor(error);
+	
+	
+		
 	
 	
 	
