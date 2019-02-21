@@ -320,7 +320,7 @@ function drawMonoBoard(){
 function monoLoad(){
 	drawMonoBoard();
 	
-	pieceNum = 1
+	pieceNum = 100000
 	pos = 0
 	jailMode = 0
 	
@@ -328,7 +328,7 @@ function monoLoad(){
 		pieces.push([pos, jailMode]);
 	}
 	
-	console.log(pieces);
+	console.log('pieceNum = ' + pieces.length);
 	
 	inJail.pieceCount = 0
 	for (let i = 0; i < spaces.length; i++){
@@ -383,33 +383,20 @@ let doubleCount = 0
 
 function monoBehavior(i){
 	
-	if (pieces[i][1] === 1){
-		
-		//JAIL STEP 1
-		
-		console.log('ooof in jail (step 1)')
-		spaces[pieces[i][0]].pieceCount--
-		pieces[i][0] = 41
-		inJail.pieceCount++
-		pieces[i][1]++
-		
-	} else if (pieces[i][1] === 2){
+	if (pieces[i][1] === 2){
 		
 		//JAIL STEP 2
+		pieces[i][1]++
 		
-		console.log('ooof in jail (step 2)')
-		pieces[i][1] = 0
+	} else if (pieces[i][1] === 0 ||pieces[i][1] === 3){
 		
-	} else if (doubleCount > 2){
+		if (pieces[i][1] === 3){
+			inJail.pieceCount--
+			justVisiting.pieceCount++
+			pieces[i][0] = 10
+			pieces[i][1] = 0
+		}
 		
-		//doubles go to jail
-		pieces[i][1] = 1
-		console.log('going to jail')
-		monoBehavior(i);
-		
-	} else if (pieces[i][1] === 0){
-		
-		console.log("hi")
 		//roll dice
 		let spacesForward = 0	
 		spaces[pieces[i][0]].pieceCount--
@@ -442,8 +429,6 @@ function monoBehavior(i){
 				case 7:
 				//go to jail
 					pieces[i][1] = 1
-					console.log('going to jail')
-					monoBehavior(i);
 					break;
 				case 8:
 					pieces[i][0] = 24
@@ -474,24 +459,48 @@ function monoBehavior(i){
 					}
 					break;
 				case 14:
+					pieces[i][0] = 5
 					break;
 				case 15:
+					if (pieces[i][0] === 7){
+						pieces[i][0] = 15
+					} else if (pieces[i][0] === 22){
+						pieces[i][0] = 25
+					} else if (pieces[i][0] === 36){
+						pieces[i][0] = 35
+					}
 					break;
 				case 16:
+					pieces[i][0] = pieces[i][0] - 3
 					break;
 			}
 		}
 		
 		//cc
 		
-		//finalize pieces
+		//go to jail
 		
-		//WHEN A PIECE GOES TO JAIL IT JUMPS DOWN TO HERE WHY THE HECC THIS PROGRAM HAS BECOME POSSESSED FUSF;LASDNBFKLASDHGLFKASHDFLKAHSDKLF;ASDHLKFAHYSCGLKASDHFLKASDHBGLKASDGHLKSDHFLASDKHFALSDKJFHALKSDFHALSDKFHALSDFHAL,SDJMGHBASL,FMDNVNASLD,JGBSALJ,D
-		spaces[pieces[i][0]].pieceCount++
+		if (pieces[i][0] === 30){
+			pieces[i][1] = 1
+		}
 		
+		//doubles
 		if (doubles === true){
-			doubleCount++
-			monoBehavior(i);	
+			doubleCount++	
+		} 
+		
+		if (doubleCount > 2){
+			pieces[i][1] = 1
+		}
+		
+		//jail step 1
+		if (pieces[i][1] === 0){
+			spaces[pieces[i][0]].pieceCount++
+			
+		} else if (pieces[i][1] === 1){
+			pieces[i][0] = 10
+			inJail.pieceCount++
+			pieces[i][1]++
 		}
 	
 	}
@@ -506,6 +515,9 @@ function monoStepForward(){
 		doubleCount = 0
 		monoBehavior(i);
 		
+		if (doubles === true){
+			monoBehavior(i);
+		}
 	}
 	
 	//display tokens
@@ -515,21 +527,18 @@ function monoStepForward(){
 	for (let i = 0; i < spaces.length; i++){
 		console.log(spaces[i].fullName + " = " + spaces[i].pieceCount)
 		document.getElementById('monoBoardItem' + i).innerHTML = spaces[i].pieceCount
-		let error = (spaces[i].pieceCount - (pieces.length / 41)) / (pieces.length / 50)
-		console.log (error);
+		let error = (spaces[i].pieceCount - (pieces.length / 41)) / (pieces.length / 200)
+		//console.log (error);
 		document.getElementById('monoBoardItem' + i).style.background = monoFindErrorColor(error);
 		tilePieceCount = tilePieceCount + spaces[i].pieceCount
 	}
 	
 	console.log(inJail.fullName + " = " + inJail.pieceCount)
 	document.getElementById('monoBoardItem41').innerHTML = inJail.pieceCount
-	let error = (inJail.pieceCount - (pieces.length / 40)) / (pieces.length / 50)
-	console.log (error);
+	let error = (inJail.pieceCount - (pieces.length / 40)) / (pieces.length / 200)
+	//console.log (error);
 	document.getElementById('monoBoardItem41').style.background = monoFindErrorColor(error);
-	tilePieceCount = tilePieceCount + inJail.pieceCount
-	
-	console.log(pieces.length)
-	console.log(tilePieceCount)
+	tilePieceCount = tilePieceCount + inJail.pieceCount;
 	
 	
 }
