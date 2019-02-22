@@ -327,6 +327,7 @@ function monoLoad(){
 	pieceNum = 1000000
 	pos = 0
 	jailMode = 0
+	payRate = 0.2
 	
 	for (let i = 0; i < pieceNum; i++){
 		pieces.push([pos, jailMode]);
@@ -385,7 +386,7 @@ function monoFindErrorColor(error){
 
 let doubleCount = 0
 
-function monoBehavior(i){
+function monoBehavior(i, diceRoll){
 		
 	if (pieces[i][1] === 3){
 			
@@ -396,7 +397,7 @@ function monoBehavior(i){
 		
 	//roll dice
 	let spacesForward = 0	
-	spacesForward = spacesForward + rollDice();
+	spacesForward = spacesForward + diceRoll;
 	pieces[i][0] = (pieces[i][0] + spacesForward) % 40;
 	
 	//doubles
@@ -481,7 +482,62 @@ function monoBehavior(i){
 			}
 		}
 		
-	//cc
+	//cc	
+		
+	if (pieces[i][0] === 2 || pieces[i][0] === 17 || pieces[i][0] === 33){
+		let card = Math.ceil(Math.random() * 16)
+			
+		switch (card){
+			case 1:
+				//intentionally left blank
+				break;
+			case 2:
+				//intentionally left blank
+				break;
+			case 3:
+				//intentionally left blank
+				break;
+			case 4:
+				//intentionally left blank
+				break;
+			case 5:
+				//intentionally left blank
+				break;
+			case 6:
+				//intentionally left blank
+				break;
+			case 7:
+				//intentionally left blank
+				break;
+			case 8:
+				//intentionally left blank
+				break;
+			case 9:
+				//intentionally left blank
+				break;
+			case 10:
+				//intentionally left blank
+				break;
+			case 11:
+				//intentionally left blank
+				break;
+			case 12:
+				//intentionally left blank
+				break;
+			case 13:
+				//intentionally left blank
+				break;
+			case 14:
+				//go to jail
+				break;
+			case 15:
+				pieces[i][0] = 0
+				break;
+			case 16:
+				pieces[i][1] = 1
+				break;
+		}
+	}
 		
 	//go to jail
 		
@@ -496,7 +552,7 @@ function monoBehavior(i){
 	} else if (pieces[i][1] === 1){
 		
 		//JAIL STEP 1
-		pieces[i][0] = 10
+		pieces[i][0] = 41
 	}
 	
 }
@@ -509,29 +565,55 @@ function monoStepForward(){
 	
 	for (let i = 0; i < spaces.length; i++){
 		spaces[i].pieceCount = 0
+		inJail.pieceCount = 0
 	}
 	
 	for (let i = 0; i < pieces.length; i++){
+	
+		let diceRoll;
+		diceRoll = rollDice();
 		
 		doubleCount = 0;
 		
-		if (doubles === true){
-			monoBehavior(i);
-		}
+		
 		
 		if (pieces[i][1] === 1){
 			//JAIL STEP 1
-			pieces[i][1]++
-		
+			
+			if (doubles === true){
+				pieces[i][1] = 0
+				monoBehavior(i, diceRoll);
+			} else if (Math.random() < payRate){
+				pieces[i][1] = 0
+				monoBehavior(i, diceRoll);
+			} else {
+				pieces[i][1]++
+			}
+			
 		} else if (pieces[i][1] === 2){
 			//JAIL STEP 2
-			pieces[i][1]++
-		
+			if (doubles === true){
+				pieces[i][1] = 0
+				monoBehavior(i, diceRoll);
+			} else {
+				pieces[i][1]++
+			}
+			
 		} else {
-			monoBehavior(i);
+			monoBehavior(i, diceRoll);
+			for (;doubles === true;){
+				diceRoll = rollDice();
+				monoBehavior(i, diceRoll);
+			}
 		}
 		
-		spaces[pieces[i][0]].pieceCount++
+		
+		
+		if (pieces[i][0] <= 40){
+			spaces[pieces[i][0]].pieceCount++
+		} else if (pieces[i][0] === 41){
+			inJail.pieceCount++;
+		}
 	}
 	
 	//display tokens
