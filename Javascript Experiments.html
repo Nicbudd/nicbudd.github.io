@@ -141,26 +141,12 @@ function loadAll(){
 
 </div>
 
-</div><div class="redblock"><h2>Physics Calculators</h2>
-
-<div id="physicsInputs">
-<div><h6>Velocity (m/s)</h6><input type="text" id="phyVelocity"></input></div>
-<div><h6>Starting Height (m)</h6><input type="text" id="phyStartingH"></input></div>
-<div><h6>Angle (degrees)</h6><input type="text" id="phyAngle"></input></div>
-<div><h6>Distance (m)</h6><input type="text" id="phyDistance"></input></div>
-<div><h6>Precision: <span id="decimalPlacesSliderNum"></span></h6><input type="range" min="0" max="3" value="2" id="decimalPlacesSlider" onchange="calculateDPSliderOut()"></div>
-<div><div style="font-size: 0.85em;background-color:#c14747;color:#E6E6E6;padding:4px;border-width:0px;border-radius:12px;margin:0px;">Higher accuracy may<br>slow down your device!</div><h6 style="padding-top:0.5em;">Accuracy: <span id="accuracySliderNum"></span></h6><input type="range" min="1" max="3" value="2" id="accuracySlider" onchange="calculateAccuracySliderOut()"></div>
-<div><h6>Marble Launcher<br>Notch: <span id="notchSliderNum"></span></h6><input type="range" min="1" max="5" value="4" id="notchSlider" onchange="calculateNotchSliderOut()"></div>
-<!--<div><input type="checkbox" id="logConsole">Log calculations to Console<br><input type="checkbox" id="logTextBox">Log calculations to Text Box<br></div>-->
-<div class="buttonbox"><button onclick="phy2dAngleButton();">Calculate Angle</button><button onclick="phy2dDistanceButton();">Calculate Distance</button><!--<button onclick="phy2dVelocityButton();">Calculate Velocity</button>--></div>
-
-</div>
 
 
 
+</div><div class="blackblock"><h2>Overwatch League ELO</h2>
 
-<!--<textarea id="consoleBox" style="width:100%;"></textarea>-->
-</div><div class="blackblock"><h2>Overwatch ELO</h2>
+<p>This program uses a mathematical method to calculate the skill level of the teams of the Overwatch League. It gives a rough estimate of the skill level of each team. The slider down below lets you change how a success is calculated. "Point Based" will calculate the scored points parameter as the average number of match points won per match (a tie is considered half of a point for each team). "Win Based" will set the scored points parameter as 1 for the winning team and 0 for the losing team, regardless of points.<p>
 
 <button onclick="loadELO()" style="position:static;">Load Overwatch ELO</button>
 
@@ -209,11 +195,38 @@ Win Based
 </div>
 </div>
 
+
+
+
+
 </div><div class="blueblock"><h2>Monopoly Heatmap</h2>
 
 <button onclick="monoStepForward()">Step Forward</button>
 
 <div id="monoBoard"></div>
+
+
+
+
+
+
+</div><div class="redblock"><h2>Physics Calculators</h2>
+
+<div id="physicsInputs">
+<div><h6>Velocity (m/s)</h6><input type="text" id="phyVelocity"></input></div>
+<div><h6>Starting Height (m)</h6><input type="text" id="phyStartingH"></input></div>
+<div><h6>Angle (degrees)</h6><input type="text" id="phyAngle"></input></div>
+<div><h6>Distance (m)</h6><input type="text" id="phyDistance"></input></div>
+<div><h6>Precision: <span id="decimalPlacesSliderNum"></span></h6><input type="range" min="0" max="3" value="2" id="decimalPlacesSlider" onchange="calculateDPSliderOut()"></div>
+<div><div style="font-size: 0.85em;background-color:#c14747;color:#E6E6E6;padding:4px;border-width:0px;border-radius:12px;margin:0px;">Higher accuracy may<br>slow down your device!</div><h6 style="padding-top:0.5em;">Accuracy: <span id="accuracySliderNum"></span></h6><input type="range" min="1" max="3" value="2" id="accuracySlider" onchange="calculateAccuracySliderOut()"></div>
+<div><h6>Marble Launcher<br>Notch: <span id="notchSliderNum"></span></h6><input type="range" min="1" max="5" value="4" id="notchSlider" onchange="calculateNotchSliderOut()"></div>
+<!--<div><input type="checkbox" id="logConsole">Log calculations to Console<br><input type="checkbox" id="logTextBox">Log calculations to Text Box<br></div>-->
+<div class="buttonbox"><button onclick="phy2dAngleButton();">Calculate Angle</button><button onclick="phy2dDistanceButton();">Calculate Distance</button><!--<button onclick="phy2dVelocityButton();">Calculate Velocity</button>--></div>
+
+</div>
+
+
+
 
 
 <!--

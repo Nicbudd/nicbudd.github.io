@@ -315,12 +315,16 @@ function drawMonoBoard(){
 		
 		drawMonoBoardSymbols(i, width);
 	}
+	
+	createMonoBoardItem('monoBoardCenter', "", 3, 3, 9, 9);
 }
+
+
 
 function monoLoad(){
 	drawMonoBoard();
 	
-	pieceNum = 100000
+	pieceNum = 1000000
 	pos = 0
 	jailMode = 0
 	
@@ -382,163 +386,181 @@ function monoFindErrorColor(error){
 let doubleCount = 0
 
 function monoBehavior(i){
-	
-	if (pieces[i][1] === 2){
 		
-		//JAIL STEP 2
-		pieces[i][1]++
-		
-	} else if (pieces[i][1] === 0 ||pieces[i][1] === 3){
-		
-		if (pieces[i][1] === 3){
-			inJail.pieceCount--
-			justVisiting.pieceCount++
-			pieces[i][0] = 10
-			pieces[i][1] = 0
-		}
-		
-		//roll dice
-		let spacesForward = 0	
-		spaces[pieces[i][0]].pieceCount--
-		spacesForward = spacesForward + rollDice();
-		pieces[i][0] = (pieces[i][0] + spacesForward) % 40;
-		
-		//chance
-		if (pieces[i][0] === 7 || pieces[i][0] === 22 || pieces[i][0] === 36){
-			let card = Math.ceil(Math.random() * 16)
+	if (pieces[i][1] === 3){
 			
-			switch (card){
-				case 1:
+		//JAIL STEP 3
+		pieces[i][0] = 10
+		pieces[i][1] = 0
+	}
+		
+	//roll dice
+	let spacesForward = 0	
+	spacesForward = spacesForward + rollDice();
+	pieces[i][0] = (pieces[i][0] + spacesForward) % 40;
+	
+	//doubles
+	if (doubles === true){
+		doubleCount++
+	}
+	
+	if (doubleCount > 2){
+		pieces[i][1] = 1
+	}
+		
+	//chance
+	if (pieces[i][0] === 7 || pieces[i][0] === 22 || pieces[i][0] === 36){
+		let card = Math.ceil(Math.random() * 16)
+			
+		switch (card){
+			case 1:
 				//intentionally left blank
-					break;
-				case 2:
+				break;
+			case 2:
 				//intentionally left blank
-					break;
-				case 3:
+				break;
+			case 3:
 				//intentionally left blank
-					break;
-				case 4:
+				break;
+			case 4:
 				//intentionally left blank
-					break;
-				case 5:
+				break;
+			case 5:
 				//intentionally left blank
-					break;
-				case 6:
+				break;
+			case 6:
 				//get out of jail free card
-					break;
-				case 7:
+				break;
+			case 7:
 				//go to jail
-					pieces[i][1] = 1
-					break;
-				case 8:
-					pieces[i][0] = 24
-					break;
-				case 9:
-					pieces[i][0] = 0
-					break;
-				case 10:
-					if (pieces[i][0] === 7 || pieces[i][0] === 36){
-						pieces[i][0] = 12
-					} else {
-						pieces[i][0] = 28
-					}
-					break;
-				case 11:
-					pieces[i][0] = 11
-					break;
-				case 12:
-					pieces[i][0] = 39
-					break;
-				case 13:
-					if (pieces[i][0] === 7){
-						pieces[i][0] = 15
-					} else if (pieces[i][0] === 22){
-						pieces[i][0] = 25
-					} else if (pieces[i][0] === 36){
-						pieces[i][0] = 35
-					}
-					break;
-				case 14:
-					pieces[i][0] = 5
-					break;
-				case 15:
-					if (pieces[i][0] === 7){
-						pieces[i][0] = 15
-					} else if (pieces[i][0] === 22){
-						pieces[i][0] = 25
-					} else if (pieces[i][0] === 36){
-						pieces[i][0] = 35
-					}
-					break;
-				case 16:
-					pieces[i][0] = pieces[i][0] - 3
-					break;
+				pieces[i][1] = 1
+				break;
+			case 8:
+				pieces[i][0] = 24
+				break;
+			case 9:
+				pieces[i][0] = 0
+				break;
+			case 10:
+				if (pieces[i][0] === 7 || pieces[i][0] === 36){
+					pieces[i][0] = 12
+				} else {
+					pieces[i][0] = 28
+				}
+				break;
+			case 11:
+				pieces[i][0] = 11
+				break;
+			case 12:
+				pieces[i][0] = 39
+				break;
+			case 13:
+				if (pieces[i][0] === 7){
+					pieces[i][0] = 15
+				} else if (pieces[i][0] === 22){
+					pieces[i][0] = 25
+				} else if (pieces[i][0] === 36){
+					pieces[i][0] = 35
+				}
+				break;
+			case 14:
+				pieces[i][0] = 5
+				break;
+			case 15:
+				if (pieces[i][0] === 7){
+					pieces[i][0] = 15
+				} else if (pieces[i][0] === 22){
+					pieces[i][0] = 25
+				} else if (pieces[i][0] === 36){
+					pieces[i][0] = 35
+				}
+				break;
+			case 16:
+				pieces[i][0] = pieces[i][0] - 3
+				break;
 			}
 		}
 		
-		//cc
+	//cc
 		
-		//go to jail
+	//go to jail
 		
-		if (pieces[i][0] === 30){
-			pieces[i][1] = 1
-		}
-		
-		//doubles
-		if (doubles === true){
-			doubleCount++	
-		} 
-		
-		if (doubleCount > 2){
-			pieces[i][1] = 1
-		}
-		
-		//jail step 1
-		if (pieces[i][1] === 0){
-			spaces[pieces[i][0]].pieceCount++
-			
-		} else if (pieces[i][1] === 1){
-			pieces[i][0] = 10
-			inJail.pieceCount++
-			pieces[i][1]++
-		}
-	
+	if (pieces[i][0] === 30){
+		pieces[i][1] = 1
 	}
 	
 	
+	
+	if (pieces[i][1] === 0){
+		//finalize work
+	} else if (pieces[i][1] === 1){
+		
+		//JAIL STEP 1
+		pieces[i][0] = 10
+	}
+	
 }
+	
+	
+
+let turnNum = 0
 
 function monoStepForward(){
 	
+	for (let i = 0; i < spaces.length; i++){
+		spaces[i].pieceCount = 0
+	}
+	
 	for (let i = 0; i < pieces.length; i++){
 		
-		doubleCount = 0
-		monoBehavior(i);
+		doubleCount = 0;
 		
 		if (doubles === true){
 			monoBehavior(i);
 		}
+		
+		if (pieces[i][1] === 1){
+			//JAIL STEP 1
+			pieces[i][1]++
+		
+		} else if (pieces[i][1] === 2){
+			//JAIL STEP 2
+			pieces[i][1]++
+		
+		} else {
+			monoBehavior(i);
+		}
+		
+		spaces[pieces[i][0]].pieceCount++
 	}
 	
 	//display tokens
 	
 	let tilePieceCount = 0
+	let totalError = 0 
 	
 	for (let i = 0; i < spaces.length; i++){
 		console.log(spaces[i].fullName + " = " + spaces[i].pieceCount)
-		document.getElementById('monoBoardItem' + i).innerHTML = spaces[i].pieceCount
-		let error = (spaces[i].pieceCount - (pieces.length / 41)) / (pieces.length / 200)
+		document.getElementById('monoBoardItem' + i).innerHTML = Math.round((spaces[i].pieceCount * 100 / pieces.length) * 100) / 100 + "%"
+		let error = (spaces[i].pieceCount - (pieces.length / 41)) / (pieces.length / 150)
+		totalError = totalError + Math.abs(error)
 		//console.log (error);
 		document.getElementById('monoBoardItem' + i).style.background = monoFindErrorColor(error);
 		tilePieceCount = tilePieceCount + spaces[i].pieceCount
 	}
 	
 	console.log(inJail.fullName + " = " + inJail.pieceCount)
-	document.getElementById('monoBoardItem41').innerHTML = inJail.pieceCount
-	let error = (inJail.pieceCount - (pieces.length / 40)) / (pieces.length / 200)
+	document.getElementById('monoBoardItem41').innerHTML = Math.round((inJail.pieceCount * 100 / pieces.length) * 100) / 100 + "%"
+	let error = (inJail.pieceCount - (pieces.length / 41)) / (pieces.length / 150)
 	//console.log (error);
 	document.getElementById('monoBoardItem41').style.background = monoFindErrorColor(error);
 	tilePieceCount = tilePieceCount + inJail.pieceCount;
+	totalError = totalError + Math.abs(error)
 	
+	turnNum++
+	document.getElementById('monoBoardCenter').innerHTML = `<h3>Turn<br><span style='font-size:2em;'>${turnNum}</span></h3>` 
 	
+	console.log(pieces.length)
+	console.log(tilePieceCount)
+	console.log(totalError)
 }
