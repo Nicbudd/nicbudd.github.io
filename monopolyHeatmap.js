@@ -319,28 +319,36 @@ function drawMonoBoard(){
 	createMonoBoardItem('monoBoardCenter', "", 3, 3, 9, 9);
 }
 
+let turnNum
 
-
-function monoLoad(){
-	drawMonoBoard();
-	
+function monoReset(){
+	pieces = []
 	pieceNum = 1000000
-	pos = 0
-	jailMode = 0
 	payRate = 0.2
+	turnNum = 0
 	
 	for (let i = 0; i < pieceNum; i++){
-		pieces.push([pos, jailMode]);
+		pieces.push([0, 0]);
 	}
 	
 	console.log('pieceNum = ' + pieces.length);
 	
 	inJail.pieceCount = 0
 	for (let i = 0; i < spaces.length; i++){
-		spaces[i].pieceCount = 0
+		spaces[i].pieceCount = 0;
+		document.getElementById('monoBoardItem' + i).innerHTML = "";
+		document.getElementById('monoBoardItem' + i).style.background = "#E6E6E6";
 	}
 	
 	spaces[0].pieceCount = pieceNum;
+	document.getElementById('monoBoardItem41').innerHTML = "";
+	document.getElementById('monoBoardItem41').style.background = "#E6E6E6";
+	document.getElementById('monoBoardCenter').innerHTML = "";
+}
+
+function monoLoad(){
+	drawMonoBoard();
+	monoReset();
 }
 
 // 0.8 * width + "px"
@@ -556,10 +564,7 @@ function monoBehavior(i, diceRoll){
 	}
 	
 }
-	
-	
 
-let turnNum = 0
 
 function monoStepForward(){
 	
