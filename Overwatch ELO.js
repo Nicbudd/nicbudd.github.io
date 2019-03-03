@@ -406,6 +406,14 @@ function calcGame(gameNum){
 	//[team1Name, team2Name, team1Points, team2Points, team1ELO, team2ELO, team1ELONew, team2ELONew, expectedPercent1, expectedPercent2]
 	gameNumArray = gameNum - 1
 	
+	if (gameNum == 276){
+		console.log("End of season! Normalizing values...")
+		for (let i = 0; i < teams.length; i++){
+			teams[i][1] = ((teams[i][1] - 1400) * 0.5) + 1400
+		}
+		
+	}
+	
 	let team1Name = games[gameNumArray][0];
 	let team2Name = games[gameNumArray][1];
 	let team1Points = games[gameNumArray][2];
@@ -413,6 +421,8 @@ function calcGame(gameNum){
 	let team1ELO = lookupTeamELO(team1Name);
 	let team2ELO = lookupTeamELO(team2Name);
 	let k = kDefault;
+	
+	
 	
 	games[gameNumArray][4] = team1ELO;
 	games[gameNumArray][5] = team2ELO;
