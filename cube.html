@@ -163,6 +163,7 @@ function fillProgressBar(barName, percentage){
 	var insideBarWidth = width * percentage;
 	insideBar.style.width = insideBarWidth + "px";
 	numbers.innerHTML = barName[0] + "/" + barName[1]
+	console.log(`${barName[2]} is ${percentage} done`)
 	
 	if (percentage === 1){
 		insideBar.style.background = "#3BA769";
@@ -274,7 +275,7 @@ These are some of the  algorithms (sequences of moves that are designed to move 
 <div class="standardflexwrap">
 
 <div class="rpcontain"><h4>OLL 1</h4><div class="roofpig rp" data-config="alg=R U2 R2' F R F' U2 R' F R F'|base=O2"></div></div>
-<div class="rpcontain"><h4>OLL 2</h4><div class="roofpig rp" data-config="alg=F R U R' U' F' f R U R' U' f'|base=O2"></div></div>
+<div class="rpcontain"><h4>OLL 2</h4><div class="roofpig rp" data-config="alg=F R U R' U' F' U2 F U R U' R' F'|base=O2"></div></div>
 <div class="rpcontain"><h4>OLL 3</h4><div class="roofpig rp" data-config="alg=f R U R' U' f' U' F R U R' U' F'|base=O2"></div></div>
 <div class="rpcontain"><h4>OLL 5</h4><div class="roofpig rp" data-config="alg=r' U2 R U R' U r|base=O2"></div></div>
 <div class="rpcontain"><h4>OLL 6</h4><div class="roofpig rp" data-config="alg=r U2 R' U' R U' r'|base=O2"></div></div>
