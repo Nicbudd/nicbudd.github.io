@@ -1,7 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900');
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:100,200,300,400,500');
 @import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500');
-@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500');
+@import url('https://fonts.googleapis.com/css?family=Shadows+Into+Light:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Thasadith:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Bilbo:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Kristi:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Bilbo:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Calligraffitti:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Allan:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Over+the+Rainbow:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Give+You+Glory:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Loved+by+the+King:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Zeyada:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Upright:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:100,200,300,400,500,600,700,800,900');
 
 * {
 	box-sizing: border-box;
@@ -12,8 +26,8 @@ body{
 	text-align: center;
 	margin: 0px;
 	margin-top: 6em;
-	padding: 0px;
-	font-weight: 400;
+	padding: 0px 1em;
+	font-weight: 200;
 	letter-spacing:0.4em;
 	font-size: 1em;
 	text-transform: uppercase;
@@ -74,12 +88,19 @@ h2{
 	font-size: 0.75em;
 	margin: 1em;
 	padding: 0.5em;
-	font-weight: 400;
+	font-weight: 200;
+}
+
+h3{
+	
 }
 
 p{
-	font-size: 0.75em;
-	letter-spacing: 0.25em;
+	font-size: 0.85em;
+	letter-spacing: 0em;
+	font-family: Poppins;
+	text-transform: none;
+	font-weight: 200;
 }
 
 a{
@@ -443,11 +464,16 @@ body.pangzerb{
 }
 
 .contactContainer i{
-	font-size: 1.5em;
+	font-size: 1.2em;
 	color: rgba(100, 100, 100, 1);
 	transition: 0.5s;
 }
 
 .contactContainer i:hover{
 	color: black;
+}
+
+.whatEvenIsLife{
+	display: grid;
+	grid-template-columns: auto;
 }
