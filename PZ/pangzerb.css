@@ -392,7 +392,7 @@ body.pangzerb{
 	width: 100%;
 	position: fixed;
 	z-index: 1;
-	top: 4.25em;
+	top: 4.20em;
 	opacity: 0;
 	transition: 0.5s opacity;
 	visibility: hidden;
