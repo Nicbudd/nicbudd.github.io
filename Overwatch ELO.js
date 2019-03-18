@@ -338,13 +338,13 @@ let games = [
 ['ldn', 'shd', 2, 3],
 ['fla', 'bos', 0, 4],
 ['van', 'cdh', 3, 2],
-['dcj', 'par', "-", "-"],
-['ldn', 'seo', "-", "-"],
-['bos', 'dal', "-", "-"],
-['atl', 'cdh', "-", "-"],
-['phi', 'par', "-", "-"],
-['dcj', 'fla', "-", "-"],
-['hou', 'atl', "-", "-"],
+['dcj', 'par', 1, 2],
+['ldn', 'seo', 0, 3],
+['bos', 'dal', 3, 2],
+['atl', 'cdh', 2, 3],
+['phi', 'par', 3, 1],
+['dcj', 'fla', 3, 2],
+['hou', 'atl', 1, 3],
 ['gzc', 'van', "-", "-"],
 
 //['tm1', 'tm2', "-", "-"],
@@ -558,10 +558,12 @@ function calcGame(gameNum){
 function loadELO(){
 	
 	//check if the user wants win based ranking
-	winBased = document.getElementById('winBased').checked
+	winBased = document.getElementById('winBased').checked;
 	
 	if (eloLoaded === false){
-		eloLoaded = true
+		eloLoaded = true;
+		document.getElementById('eloScoreboxContainer').style.display = "block";
+		
 	} else {
 		let scoreBox = document.getElementById('eloScorebox')
 		for (let i = 0; i < teams.length; i++){
@@ -570,7 +572,7 @@ function loadELO(){
 			scoreBox.removeChild(name);
 			scoreBox.removeChild(score);
 			
-			teams[i][1] = 1400
+			teams[i][1] = 1400;
 		}
 	}
 	
@@ -583,7 +585,7 @@ function loadELO(){
 		console.log('currentGame = ' + currentGame);
 	}
 	
-	successRate = successRate / gamesCompleted
+	successRate = successRate / gamesCompleted;
 	
 	console.log('successRate = ' + successRate);
 	
@@ -639,6 +641,7 @@ function showGames(){
 	
 	if (gamesShown === false){	
 		gamesShown = true
+		document.getElementById('eloFullGamesList').style.display = "flex";
 	} else {
 		for (let i = 0; i < games.length; i++){
 			let row = document.getElementById('rowGame' + i);
@@ -653,6 +656,26 @@ function showGames(){
 		let row = document.createElement('tr');
 		row.setAttribute('id', 'rowGame' + i);
 		table.appendChild(row);
+
+		let season = document.createElement('th');
+		season.setAttribute('id', 'season' + i);
+		row.appendChild(season);
+		document.getElementById('season' + i).innerHTML = "Season"
+		
+		let stage = document.createElement('th');
+		stage.setAttribute('id', 'stage' + i);
+		row.appendChild(stage);
+		document.getElementById('stage' + i).innerHTML = "Stage"
+		
+		let week = document.createElement('th');
+		week.setAttribute('id', 'week' + i);
+		row.appendChild(week);
+		document.getElementById('week' + i).innerHTML = "Week"
+		
+		let day = document.createElement('th');
+		day.setAttribute('id', 'day' + i);
+		row.appendChild(day);
+		document.getElementById('day' + i).innerHTML = "Day"
 		
 		let game = document.createElement('th');
 		game.setAttribute('id', 'game' + i);

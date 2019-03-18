@@ -849,9 +849,13 @@ input:checked + .slider.eitherOr:before{
 	padding: 8px;
 }
 
-.eloScoreboxContainer{
+#eloScoreboxContainer{
 	margin: auto;
-	
+	display: none;
+}
+
+#eloFullGamesList{
+	display: none;
 }
 
 
