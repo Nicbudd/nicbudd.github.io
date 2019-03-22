@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html>
 
@@ -151,6 +151,8 @@ function loadAll(){
 
 <button onclick="loadELO()" style="position:static;">Load Overwatch ELO</button>
 
+<input type="number" value="40" step="4" min="4" id="kInput"></input>
+
 Point Based
 
 <label class="toggle">
@@ -159,6 +161,8 @@ Point Based
 </label>
 
 Win Based
+
+<h5 id="successRate"></h5>
 
 <div id="eloScoreboxContainer">
 <div id="eloScorebox">

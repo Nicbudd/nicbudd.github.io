@@ -1816,12 +1816,12 @@ border: 2px solid #303030;
     background: #316FA6; 
 }
 
-.blackblock input[type="text"]{
+.blackblock input{
 	border: 2px solid #E6E6E6;
 	background: #E6E6E6;
 }
 
-.blackblock input[type="text"]:focus{
+.blackblock input:focus{
 	border: 2px solid #E6E6E6;
 	outline: 2px solid #316FA6;
 }

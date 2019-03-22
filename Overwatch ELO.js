@@ -346,6 +346,11 @@ let games = [
 ['dcj', 'fla', 3, 2],
 ['hou', 'atl', 1, 3],
 ['gzc', 'van', 0, 4],
+['seo', 'nye', "-", "-"],
+['bos', 'van', "-", "-"],
+['atl', 'phi', "-", "-"],
+['sfs', 'tor', "-", "-"],
+
 
 //['tm1', 'tm2', "-", "-"],
 ]
@@ -375,12 +380,12 @@ let teams = [
 
 let currentGame = 1
 let expectedPoints
-let kDefault = 40
 let winBased
 let eloLoaded = false
 let gamesShown = false
 let successRate = 0
 let gamesCompleted = 0
+let kInput
 
 function calculateExpected(team1, team2){
 	let Qa = Math.pow(10, team1 / 400)
@@ -420,57 +425,277 @@ function lookupTeamName(team){
 		if (teams[i][0] === team){
 			return teams[i][2]
 		}
-	}
+    }
 }
 
-function calcGame(gameNum){
-	
-	gamesCompleted++
-	
-	//[team1Name, team2Name, team1Points, team2Points, team1ELO, team2ELO, team1ELONew, team2ELONew, expectedPercent1, expectedPercent2]
-	gameNumArray = gameNum - 1
-	
-	if (gameNum == 276){
-		console.log("End of season! Normalizing values...")
-		for (let i = 0; i < teams.length; i++){
-			teams[i][1] = ((teams[i][1] - 1400) * 0.5) + 1400
-		}
-		
-	}
-	
-	let team1Name = games[gameNumArray][0];
-	let team2Name = games[gameNumArray][1];
-	let team1Points = games[gameNumArray][2];
-	let team2Points = games[gameNumArray][3];
-	let team1ELO = lookupTeamELO(team1Name);
-	let team2ELO = lookupTeamELO(team2Name);
-	let k = kDefault;
-	
-	
-	
-	games[gameNumArray][4] = team1ELO;
-	games[gameNumArray][5] = team2ELO;
-	
-	
-	
-	
-	let boostedGames = [73, 74, 135, 136, 197, 198, 199, 260, 261, 262];
-	if (gameNum <= 12){
-		k = 30;
-		//preseason
-	} else if (gameNum >= 263 && gameNum <= 272){
-		k = 60;
-		//playoffs
-	} else if (gameNum >= 273 && gameNum <= 274){
-		k = 80;
-		//grand finals
-	} else {
-		for (let i = 0; i < boostedGames.length; i++){
-			if (gameNum === boostedGames[i]){
-				k = 50;
-			}
-		}
-	}
+function cycleGames(stageCycle, weekCycle, dayCycle, gameCycle, season, stage, week, day, gameInDay, gameNumArray) {
+    if (gameInDay > gameCycle) {
+        gameInDay = 1
+        day++
+    }
+
+    if (day > dayCycle) {
+        day = 1
+        week++
+    }
+
+    if (week > weekCycle) {
+        week = 1
+        stage++
+    }
+
+    if (stage > stageCycle) {
+        stage = 1
+        season++
+    }
+
+    games[gameNumArray][11] = season
+    games[gameNumArray][12] = stage
+    games[gameNumArray][13] = week
+    games[gameNumArray][14] = day
+    games[gameNumArray][15] = gameInDay
+
+}
+
+function calcGame(gameNum) {
+
+    gamesCompleted++
+
+    //[team1Name, team2Name, team1Points, team2Points, team1ELO, team2ELO, team1ELONew, team2ELONew, expectedPercent1, expectedPercent2, kValue, season, stage, week, day]
+    gameNumArray = gameNum - 1
+
+    if (gameNum == 276) {
+        console.log("End of season! Normalizing values...")
+        for (let i = 0; i < teams.length; i++) {
+            teams[i][1] = ((teams[i][1] - 1400) * 0.5) + 1400
+        }
+
+    }
+
+    let team1Name = games[gameNumArray][0];
+    let team2Name = games[gameNumArray][1];
+    let team1Points = games[gameNumArray][2];
+    let team2Points = games[gameNumArray][3];
+    let team1ELO = lookupTeamELO(team1Name);
+    let team2ELO = lookupTeamELO(team2Name);
+    let kDefault = kInput;
+
+
+
+    games[gameNumArray][4] = team1ELO;
+    games[gameNumArray][5] = team2ELO;
+
+
+
+
+
+    //Game behaviour
+
+
+    //set the identifier variables
+    let season
+    let stage
+    let week
+    let day
+    let gameInDay
+
+    if (gameNum === 1) {
+        season = 2018
+        stage = 0
+        week = 1
+        day = 1
+        gameInDay = 0
+    } else {
+        season = games[gameNumArray - 1][11]
+        stage = games[gameNumArray - 1][12]
+        week = games[gameNumArray - 1][13]
+        day = games[gameNumArray - 1][14]
+        gameInDay = games[gameNumArray - 1][15]
+
+
+    }
+
+    //set the kValues for different types of games
+
+    let kPreseason = kDefault * 0.75
+    let kStagePlayoffs = kDefault * 1.25
+    let kSeasonPlayoffs = kDefault * 1.5
+    let kGrandFinals = kDefault * 2
+
+    //advance to the next game
+    gameInDay++
+
+
+    
+    //2018 (inaugural) season
+
+    if (season === 2018) {
+
+
+
+
+        //cycle the values depending on where we are
+
+        if (stage === 5) {
+
+            //season playoffs & grand finals
+
+
+            //season playoffs
+            if (week === 1) {
+                cycleGames(5, 3, 3, 2, season, stage, week, day, gameInDay, gameNumArray);
+            } else if (week === 2) {
+                if (day === 1) {
+                    cycleGames(5, 3, 3, 2, season, stage, week, day, gameInDay, gameNumArray);
+                } else {
+                    cycleGames(5, 3, 3, 1, season, stage, week, day, gameInDay, gameNumArray);
+                }
+            }
+            //grand finals
+            else if (week === 3) {
+                cycleGames(5, 3, 2, 1, season, stage, week, day, gameInDay, gameNumArray);
+            }
+
+        } else if (stage === 0) {
+
+            //preseason
+            cycleGames(5, 1, 4, 3, season, stage, week, day, gameInDay, gameNumArray);
+
+        } else if (week === 6) {
+
+            //stage playoffs
+            if (stage === 1 || stage === 2) {
+                cycleGames(5, 6, 1, 2, season, stage, week, day, gameInDay, gameNumArray);
+            }
+
+            if (stage === 3 || stage === 4) {
+                cycleGames(5, 6, 1, 3, season, stage, week, day, gameInDay, gameNumArray);
+            }
+
+        } else {
+
+            //normal play
+            cycleGames(5, 6, 4, 3, season, stage, week, day, gameInDay, gameNumArray);
+        }
+
+
+
+
+        //update the current values after cycleGames
+        season = games[gameNumArray][11]
+        stage = games[gameNumArray][12]
+        week = games[gameNumArray][13]
+        day = games[gameNumArray][14]
+        gameInDay = games[gameNumArray][15]
+
+
+
+        //set k
+        if (stage === 5) {
+
+            //season playoffs & grand finals
+
+            if (week === 3) {
+                //grand finals
+                k = kGrandFinals
+            }
+    
+            else {
+                //season playoffs
+                k = kSeasonPlayoffs
+            }
+
+        } else if (stage === 0) {
+
+            //preseason
+            k = kPreseason
+
+        } else if (week === 6) {
+
+            //stage playoffs
+            k = kStagePlayoffs
+
+        } else {
+
+            //normal play
+            k = kDefault
+        }
+    }
+
+
+
+    //2019 season
+
+    let season2019Schedule = [
+    [[3, 4, 5, 4], [3, 4, 5, 4], [3, 5, 4, 4], [3, 2, 5, 4], [4, 4], [2, 2, 2, 1]],
+    [[3, 4, 5, 4], [3, 4, 5, 4], [3, 4, 5, 4], [4, 4], [2, 3, 5, 4], [2, 2, 2, 1]]
+    ]
+
+    if (season === 2019) {
+
+        k = kDefault
+        cycleGames(4, season2019Schedule[stage - 1].length, season2019Schedule[stage - 1][week - 1].length, season2019Schedule[stage - 1][week - 1][day - 1], season, stage, week, day, gameInDay, gameNumArray);
+
+
+        //update the current values after cycleGames
+        season = games[gameNumArray][11]
+        stage = games[gameNumArray][12]
+        week = games[gameNumArray][13]
+        day = games[gameNumArray][14]
+        gameInDay = games[gameNumArray][15]
+
+
+        //set k
+        if (week === 6) {
+            //stage playoffs
+            k = kStagePlayoffs
+        }
+
+    }
+
+
+    //Change values to readable strings
+
+    //update values
+    season = games[gameNumArray][11];
+    stage = games[gameNumArray][12];
+    week = games[gameNumArray][13];
+    day = games[gameNumArray][14];
+    gameInDay = games[gameNumArray][15];
+
+    //if (season === 2018) {
+    //    season = "Inaugural (2018)"
+    // }
+
+    if (stage === 0) {
+        stage = "Preseason";
+        week = "";
+    } else if (stage === 5) {
+        stage = "Playoffs & Grand Finals";
+    } else {
+       //stage = "Stage " + stage;
+    }
+
+    if (week === 6) {
+        week = "Playoffs";
+    } else {
+        //week = "Week " + week;
+    }
+
+    //day = "Day " + day;
+    //gameInDay = "Game " + gameInDay;
+
+    //set values back
+    games[gameNumArray][16] = season
+    games[gameNumArray][17] = stage
+    games[gameNumArray][18] = week
+    games[gameNumArray][19] = day
+    games[gameNumArray][20] = gameInDay
+
+
+
+
+
 	
 	games[gameNumArray][10] = k;
 
@@ -559,6 +784,8 @@ function loadELO(){
 	
 	//check if the user wants win based ranking
 	winBased = document.getElementById('winBased').checked;
+	kInput = document.getElementById('kInput').value;
+	successRateObj = document.getElementById('successRate');
 	
 	if (eloLoaded === false){
 		eloLoaded = true;
@@ -589,6 +816,9 @@ function loadELO(){
 	
 	console.log('successRate = ' + successRate);
 	
+	successRate = Math.round(successRate * 10000) / 100
+	
+	successRateObj.innerHTML = `Sum of Winning Precentages: ${successRate}%`
 	
 	teams.sort(
 	function(a, b){
@@ -657,30 +887,30 @@ function showGames(){
 		row.setAttribute('id', 'rowGame' + i);
 		table.appendChild(row);
 
-		let season = document.createElement('th');
+		let season = document.createElement('td');
 		season.setAttribute('id', 'season' + i);
 		row.appendChild(season);
-		document.getElementById('season' + i).innerHTML = "Season"
+        document.getElementById('season' + i).innerHTML = games[i][16];
 		
-		let stage = document.createElement('th');
+		let stage = document.createElement('td');
 		stage.setAttribute('id', 'stage' + i);
 		row.appendChild(stage);
-		document.getElementById('stage' + i).innerHTML = "Stage"
+        document.getElementById('stage' + i).innerHTML = games[i][17];
 		
-		let week = document.createElement('th');
+		let week = document.createElement('td');
 		week.setAttribute('id', 'week' + i);
 		row.appendChild(week);
-		document.getElementById('week' + i).innerHTML = "Week"
+        document.getElementById('week' + i).innerHTML = games[i][18];
 		
-		let day = document.createElement('th');
+		let day = document.createElement('td');
 		day.setAttribute('id', 'day' + i);
 		row.appendChild(day);
-		document.getElementById('day' + i).innerHTML = "Day"
+        document.getElementById('day' + i).innerHTML = games[i][19];
 		
-		let game = document.createElement('th');
+		let game = document.createElement('td');
 		game.setAttribute('id', 'game' + i);
 		row.appendChild(game);
-		document.getElementById('game' + i).innerHTML = "Game " + (i + 1);
+        document.getElementById('game' + i).innerHTML = games[i][20];
 		
 		let ELOOld1 = document.createElement('td');
 		ELOOld1.setAttribute('id', 'ELOOld1G' + i);
