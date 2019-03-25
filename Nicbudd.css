@@ -238,8 +238,8 @@ ul {
 ul ul {
 	font-size: 0.8em;
 	opacity: 0.7;
-	padding:0px;
-	margin:0px;
+	padding: 0px;
+	margin: 0px;
 }
 
 ul ul li {
@@ -253,17 +253,157 @@ li{
 }
 
 input[type="text"]{
-	border: 2px solid #303030;
 	background: #E6E6E6;
 	padding: 4px 8px;
 	font-family: Noto Sans, sans-serif;
 	margin: 4px;
 	color: #303030;
+	border-radius: 16px;
 }
 
 input[type="text"]:focus{
-	border: 2px solid #316FA6;
+	outline: 0px;
 }
+
+input[type="button"]{
+	padding: 4px 8px;
+	font-family: Lato, Noto Sans, sans-serif;
+	margin: 0.5em;
+	text-transform:uppercase;
+	font-size: 0.85em;
+	font-weight: 600;
+	border-radius: 8px;
+	color: #303030;
+	background: #E6E6E6;
+	border: 2px solid;
+}
+
+input[type="button"]:hover{
+	background-color: #316FA6;
+	color:#E6E6E6;
+	border-color: #316FA6;
+	cursor: pointer;
+}
+
+input[type="checkbox"]{
+	background: #E6E6E6;
+	border: 2px solid #C14747;
+	outline: 0px;
+	padding: 4px;
+}
+
+
+
+
+
+/*
+big thanks to this website: http://danielstern.ca/range.css/#/
+I'm gonna keep most of the code because it's more progressive web design and i don't
+*/
+
+
+input[type=range] {
+  -webkit-appearance: none;
+  margin: 6px 0;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+
+  height: 6px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+  background: #e6e6e6;
+  border-radius: 10px;
+  border: 0px;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+  border: 0px solid #303030;
+  height: 18px;
+  width: 9px;
+  border-radius: 0px;
+  background: #316fa6;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -6px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #ebebeb;
+}
+input[type=range]::-moz-range-track {
+
+  height: 6px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+  background: #e6e6e6;
+  border-radius: 10px;
+  border: 0px solid #562425;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+  border: 0px solid #303030;
+  height: 18px;
+  width: 9px;
+  border-radius: 0px;
+  background: #316fa6;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+
+  height: 6px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #e1e1e1;
+  border: 0px solid #562425;
+  border-radius: 20px;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+}
+input[type=range]::-ms-fill-upper {
+  background: #e6e6e6;
+  border: 0px solid #562425;
+  border-radius: 20px;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+  border: 0px solid #303030;
+  height: 18px;
+  width: 9px;
+  border-radius: 0px;
+  background: #316fa6;
+  cursor: pointer;
+  height: 6px;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #e6e6e6;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #ebebeb;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 button{
 	padding: 4px 8px;
@@ -284,8 +424,8 @@ button:hover{
 }
 
 @media screen and (min-width:768px){
-	button{
-		transition: color 0.5s, background-color 0.5s, border 0.5s;
+	button, input[type="button"]{
+		transition: 0.5s;
 	}
 }
 
@@ -629,48 +769,50 @@ justify-content: center;
 
 
 .bordered{
-	overflow-x:auto;
+	overflow-x: auto;
 	margin: 16px;
 	padding: 16px;
 }
 
 .bordered table{
-	border:2px solid;
+	border: 2px solid;
+	border-color: inherit;
 	border-collapse: collapse;
 	padding: 4px;
 }
 
 .bordered td{
-	border:2px solid;
+	border: 2px solid;
+	border-color: inherit;
 	border-collapse: collapse;
 	padding: 4px;
 }
 
 .bordered th{
-	border:2px solid;
+	border: 2px solid;
 	border-color: inherit;
 	border-collapse: collapse;
 	padding: 4px;
 }
 
 .borderless{
-	overflow-x:auto;
+	overflow-x: auto;
 	margin: 16px;
 	padding: 16px;
 }
 
 .borderless table{
-	border:0px solid;
+	border: 0px solid;
 	padding: 4px;
 }
 
 .borderless td{
-	border:0px solid;
+	border: 0px solid;
 	padding: 4px;
 }
 
 .borderless th{
-	border:0px solid;
+	border: 0px solid;
 	padding: 4px;
 }
 
@@ -971,6 +1113,7 @@ input:checked + .slider.eitherOr:before{
 #OWLTable{
 	display:none;
 	font-family: Roboto Mono;
+	border-color: #E6E6E6!important;
 }
 
 
@@ -1514,6 +1657,17 @@ input:checked + .slider.eitherOr:before{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 /*blocks*/
 
 
@@ -1534,27 +1688,27 @@ input:checked + .slider.eitherOr:before{
 	padding:8px;
 }
 
-.lightergrayblack h1{
+.lightergrayblock h1{
 	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
-.lightergrayblack h2{
+.lightergrayblock h2{
 	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
-.lightergrayblack h3{
+.lightergrayblock h3{
 	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
 }
 
-.lightergrayblack h4{
+.lightergrayblock h4{
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
-.lightergrayblack h5{
+.lightergrayblock h5{
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
-.lightergrayblack h6{
+.lightergrayblock h6{
 	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -1647,6 +1801,7 @@ border: 2px solid #303030;
 	border-left:var(--margin-border-width) solid var(--margin-border-color);
 	border-right:var(--margin-border-width) solid var(--margin-border-color);
 	padding:8px;
+	border-color: #303030;
 }
 
 .lightgrayblock h1{
@@ -1682,6 +1837,10 @@ border: 2px solid #303030;
 	text-decoration: underline;
 	color: #303030;
 }
+
+
+	
+
 
 .lightgrayblock .buttonlist > div a{
 	border: 2px solid #303030;
@@ -1763,11 +1922,6 @@ border: 2px solid #303030;
 	border-left:var(--margin-border-width) solid var(--margin-border-color);
 	border-right:var(--margin-border-width) solid var(--margin-border-color);
 	padding:8px;
-}
-
-.blackbox table, th, td{
-	border-color: #E6E6E6!important;
-	
 }
 
 .blackblock hr{
@@ -1866,10 +2020,6 @@ border: 2px solid #E6E6E6;
 	border-right:var(--margin-border-width) solid var(--margin-border-color);
 	padding:8px;
 
-}
-
-.blueblock table{
-	border:#E6E6E6;
 }
 
 .blueblock a{
@@ -2111,17 +2261,27 @@ border: 2px solid #303030;
 
 .redblock ::-webkit-scrollbar-thumb:hover {
     background: #303030; 
-}
+} 
 
 .redblock input[type="text"]{
-	/*border: 2px solid #303030;*/
-	border: 2px solid #E6E6E6;
+	border: 2px solid #C14747;
 }
 
 .redblock input[type="text"]:focus{
+	border-color: #303030;
+}
+
+.redblock input[type="button"]{
 	border: 2px solid #E6E6E6;
-	outline: 2px solid #303030;
-	/*border: 2px solid #E6E6E6;*/
+	background: #C14747;
+	color: #E6E6E6;
+}
+	
+.redblock input[type="button"]:hover{
+	text-decoration: none;
+	background: #E6E6E6;
+	color: #C14747;
+	border: 2px solid #E6E6E6;
 }
 
 .redblock button{
