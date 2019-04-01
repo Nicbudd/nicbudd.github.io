@@ -16,6 +16,56 @@ function yComponent(vector, angle){
 	return Math.cos(Math.radians(angle)) * vector;
 }
 
+function keyPress(){
+	
+	var aileron = Number(document.getElementById('aileronSlider').value)
+	var rudder = Number(document.getElementById('rudderSlider').value)
+	
+	switch (event.key){
+		case "a":
+			aileron -= 0.02	
+			break;
+		case "A":
+			aileron -= 0.02	
+			break;
+		case "d":
+			aileron += 0.02		
+			break;
+		case "D":
+			aileron += 0.02
+			break;
+		case "j":
+			rudder -= 1	
+			break;
+		case "J":
+			rudder -= 1	
+			break;
+		case "l":
+			rudder += 1	
+			break;
+		case "L":
+			rudder += 1	
+			break;
+	}
+	
+	if (rudder > 20){
+		rudder = 19
+	} else if (rudder < -20){
+		rudder = -19
+	} else if (aileron > 1){
+		aileron = 0.99
+	} else if (aileron < -1){
+		aileron = -0.99
+	}
+	
+	document.getElementById('aileronSlider').value = aileron
+	document.getElementById('rudderSlider').value = rudder
+	console.log("rudder: " + rudder)
+	console.log("aileron: " + aileron)
+}
+
+window.addEventListener("keypress", keyPress, false)
+
 
  function crosswindLoad(){
 	var canvas = document.getElementById('crosswind');
@@ -70,6 +120,9 @@ function yComponent(vector, angle){
 			var windSpeed = ((noise.simplex2(100000, movement / 200)) / 4) + 1;
 			var airSpeed = 1.5;
 			planeAngle += Number(document.getElementById('aileronSlider').value);
+			var rudderControl = Number(document.getElementById('rudderSlider').value);
+			
+			
 			
 			var windSpeedX = xComponent(windSpeed, windAngle);
 			var windSpeedY = yComponent(windSpeed, windAngle);
@@ -170,7 +223,7 @@ function yComponent(vector, angle){
 			
 			//render plane
 			//center of plane starts at (250, 700)
-			drawRotatedRect(planeX - 7, planeY - 15, 14, 30, planeAngle);
+			drawRotatedRect(planeX - 7, planeY - 15, 14, 30, planeAngle + rudderControl);
 			
 			if (planeX < 0 || planeX > 500 || planeY < 0 || planeY > 800){
 				//reset the game
