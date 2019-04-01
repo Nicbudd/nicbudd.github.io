@@ -261,6 +261,11 @@ Ailerons:
 Rudder:
 <input id="rudderSlider" type="range" min="-20" max="20" step="1"></input>
 <p id="crosswindRender"></p>
+
+<canvas id="perlin" width="100" height="100" onkeypress="keyPress()">
+Oops! Your browser doesn't support canvas!
+</canvas><br>
+<p id="perlinRender"></p>
 <p>(thanks to Stefan Gustavson for the Perlin/Simplex Noise library. It can be found at <a href="https://josephg.github.io/noisejs/perlin.js">https://josephg.github.io/noisejs/perlin.js</a>)</p>
 
 <!--
