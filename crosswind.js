@@ -1,3 +1,5 @@
+
+/*
 // Convert from degrees to radians.
 Math.radians = function(degrees) {
 	return degrees * Math.PI / 180;
@@ -260,7 +262,7 @@ window.addEventListener("keypress", keyPress, false)
 			} else {
 				
 			}*/
-			
+			/*
 			//render time
 			var renderElement = document.getElementById("crosswindRender");
 			var renderEnd = Date.now();
@@ -273,12 +275,13 @@ window.addEventListener("keypress", keyPress, false)
 		setInterval(stepForward, 20);
 	}
 }
+*/
 
-/*
+
 Really cool visualization (slow as hecc tho)
 
-function crosswindLoad(){
-	var canvas = document.getElementById('crosswind');
+function perlinLoad(){
+	var canvas = document.getElementById('perlin');
 	if (canvas.getContext) {
 		var ctx = canvas.getContext('2d');
 		
@@ -301,7 +304,7 @@ function crosswindLoad(){
 					//console.log(value);
 				}
 			}
-			var renderElement = document.getElementById("crosswindRender");
+			var renderElement = document.getElementById("perlinRender");
 			var end = Date.now();
 			renderTime = end - start;
 			renderElement.innerHTML = `Rendered in ${renderTime}ms`
