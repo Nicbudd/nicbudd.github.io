@@ -1,5 +1,4 @@
 
-/*
 // Convert from degrees to radians.
 Math.radians = function(degrees) {
 	return degrees * Math.PI / 180;
@@ -237,7 +236,8 @@ window.addEventListener("keypress", keyPress, false)
 				runwayLanding = 0
 			}
 			
-			/*if (planeY < 230){
+			/*
+			if (planeY < 230){
 				if (runwayLanding === 0){
 					if (planeX < 200 || planeX > 300){
 						runwayLanding = -1
@@ -261,8 +261,9 @@ window.addEventListener("keypress", keyPress, false)
 				
 			} else {
 				
-			}*/
-			/*
+			}
+			*/
+			
 			//render time
 			var renderElement = document.getElementById("crosswindRender");
 			var renderEnd = Date.now();
@@ -275,44 +276,8 @@ window.addEventListener("keypress", keyPress, false)
 		setInterval(stepForward, 20);
 	}
 }
-*/
 
 
-Really cool visualization (slow as hecc tho)
+//Really cool visualization (slow as hecc tho)
 
-function perlinLoad(){
-	var canvas = document.getElementById('perlin');
-	if (canvas.getContext) {
-		var ctx = canvas.getContext('2d');
-		
-		//initialize the noise
-		noise.seed(Math.random());
-		
-		var threeDMovement = 0
-		
-		function generateNoise(){
-			var start = Date.now();
-			ctx.clearRect(0, 0, canvas.width, canvas.height);
-			threeDMovement++
-			for (var x = 0; x < 200; x++) {
-				for (var y = 0; y < 200; y++) {
-					
-					var value = noise.simplex3(x / 50, y / 50, threeDMovement / 5);
-					value = (value * 0.5) + 0.5;
-					ctx.fillStyle = "rgba(0, 0, 0, " + value + ")";
-					ctx.fillRect(x, y, 1, 1);
-					//console.log(value);
-				}
-			}
-			var renderElement = document.getElementById("perlinRender");
-			var end = Date.now();
-			renderTime = end - start;
-			renderElement.innerHTML = `Rendered in ${renderTime}ms`
-			 
-		}
-		
-		setInterval(generateNoise, 300);
-	}
-}
-*/
 

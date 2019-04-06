@@ -17,6 +17,7 @@
 <script src = "morseCode.js" type = "text/javascript"></script>
 <script src = "thingNamer.js" type = "text/javascript"></script>
 <script src = "monopolyHeatmap.js" type = "text/javascript"></script>
+<script src = "perlinVisualization.js" type = "text/javascript"></script>
 
 <script>
 
@@ -52,6 +53,7 @@ var mVar = "m"
 function loadAll(){
 	morseLoad();
 	monoLoad();
+	perlinLoad();
 	crosswindLoad();
 }
 
@@ -262,6 +264,12 @@ Rudder:
 <input id="rudderSlider" type="range" min="-20" max="20" step="1"></input>
 <p id="crosswindRender"></p>
 
+</div><div class="greenblock"><h2>Perlin Noise Visualization</h2>
+
+<p>This is very laggy. It will slow down the webpage quite a bit.</p>
+
+<button onclick="startStopPerlin()" id="startStopPerlin">Start Perlin</button>
+<br>
 <canvas id="perlin" width="100" height="100" onkeypress="keyPress()">
 Oops! Your browser doesn't support canvas!
 </canvas><br>
