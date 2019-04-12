@@ -358,10 +358,10 @@ let games = [
 ['shd', 'gla', 1, 3],
 ['gzc', 'par', 0, 4],
 ['ldn', 'fla', 2, 1],
-['dcj', 'tor', "-", "-"],
-['val', 'sfs', "-", "-"],
-['gla', 'seo', "-", "-"],
-['fla', 'phi', "-", "-"],
+['dcj', 'tor', 1, 3],
+['val', 'sfs', 0, 4],
+['gla', 'seo', 3, 2],
+['fla', 'phi', 1, 3],
 ['tor', 'bos', "-", "-"],
 ['nye', 'shd', "-", "-"],
 ['cdh', 'par', "-", "-"],
@@ -689,7 +689,11 @@ function calcGame(gameNum) {
         stage = "Preseason";
         week = "";
     } else if (stage === 5) {
-        stage = "Playoffs & Grand Finals";
+		if (week === 3){
+			stage = "Grand Finals"
+		} else {
+			stage = "Playoffs"
+		}
     } else {
        //stage = "Stage " + stage;
     }
@@ -914,11 +918,14 @@ function showGames(){
 		stage.setAttribute('id', 'stage' + i);
 		row.appendChild(stage);
         document.getElementById('stage' + i).innerHTML = games[i][17];
-		
-		let week = document.createElement('td');
-		week.setAttribute('id', 'week' + i);
-		row.appendChild(week);
-        document.getElementById('week' + i).innerHTML = games[i][18];
+		if (games[i][17] === "Grand Finals"){
+			document.getElementById('stage' + i).colSpan = "2"
+		} else {
+			let week = document.createElement('td');
+			week.setAttribute('id', 'week' + i);
+			row.appendChild(week);
+			document.getElementById('week' + i).innerHTML = games[i][18];
+		}
 		
 		let day = document.createElement('td');
 		day.setAttribute('id', 'day' + i);

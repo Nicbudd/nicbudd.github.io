@@ -2119,6 +2119,7 @@ border: 2px solid #E6E6E6;
 	border-left:var(--margin-border-width) solid var(--margin-border-color);
 	border-right:var(--margin-border-width) solid var(--margin-border-color);
 	padding:8px;
+	border
 }
 
 .greenblock h1{
