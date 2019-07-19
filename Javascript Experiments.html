@@ -18,7 +18,8 @@
 <script src = "thingNamer.js" type = "text/javascript"></script>
 <script src = "monopolyHeatmap.js" type = "text/javascript"></script>
 <script src = "perlinVisualization.js" type = "text/javascript"></script>
-<script src = "hours.js" type = "text/javascript"></script>
+<script src = "others.js" type = "text/javascript"></script>
+<script src = "scalesearch.js" type = "text/javascript"></script>
 
 <script>
 
@@ -56,7 +57,8 @@ function loadAll(){
 	monoLoad();
 	perlinLoad();
 	crosswindLoad();
-	hoursLoad();
+	scaleFinderLoad();
+	generateWord();
 }
 
 </script>
@@ -72,11 +74,39 @@ function loadAll(){
 <p>Warning: some actions on page may slow down device.</p>
 
 
+</div><div class="lightgrayblock"><h2>Scale Finder</h2>
+
+<style>
+
+#scaleResultBox {
+	background: #E6E6E6;
+	border-radius: 8px;
+	display: inline-grid;
+	grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto;
+	padding: 4px;
+}
+
+.scaleBox {
+
+	width: 50px;
+	height: 50px;
+	border: 4px solid #316FA6;
+	margin: 4px;
+	border-radius: 4px;
+	color: #316FA6;
+	font-size: 30px;
+	font-weight: 700;
+
+}
+
+</style>
+
+<div id="scaleResultBox">
+
+</div>
 
 
-
-
-</div><div class="lightgrayblock"><h2>Morse Code Practice</h2>
+</div><div class="redblock"><h2>Morse Code Practice</h2>
 
 <p>Now works on mobile!!</p>
 

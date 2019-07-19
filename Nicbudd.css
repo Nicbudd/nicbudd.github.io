@@ -1122,6 +1122,11 @@ input:checked + .slider.eitherOr:before{
 	border-color: #E6E6E6!important;
 }
 
+#OWLTable th, td{
+	border-color: #E6E6E6!important;
+	
+}
+
 
 
 
