@@ -52,3 +52,93 @@ function sumOfIntCombos(int1, int2, startVal, endVal){
 	}
 	
 }
+
+
+//Loot generator
+
+function randBetween(min, max){
+	min = Math.ceil(min);
+	max = Math.floor(max);
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+};
+
+function chance(likelyhood){
+	if (Math.random() < likelyhood){
+		return true
+	} else {
+		return false
+	};
+	
+};
+
+function generateWeighted(inputArray){ 
+	
+	var totalWeight = 0
+	for (var i = 0; i < inputArray.length; i++){
+		inputArray[i][2] = totalWeight + 1;
+		totalWeight += inputArray[i][1];
+		inputArray[i][3] = totalWeight;
+	};
+	
+	//console.log(inputArray);
+	
+	var random = randBetween(1, totalWeight)
+	
+	for (var i = 0; i < inputArray.length; i++){
+		if (random >= inputArray[i][2] && random <= inputArray[i][3]){
+			return inputArray[i][0]
+		}
+	}
+	
+}
+
+function generateLoot(){
+	
+	//for example, "Curse of Abysanna", "Fulkims Blessing"
+	var groupModifiers = []
+	
+	
+	
+	
+	//generate the value of the loot
+	var itemValue = 100;
+	while (chance(0.6) === true){
+		itemValue += 50;
+	};
+	
+	//generate the "intrigue", or how interesting the loot is
+	var intrigue = 10;
+	while (chance(0.7) === true){
+		intrigue += 10;
+	};
+	
+	
+
+	
+	var items = [
+	
+	[var knife = {}, 5],
+	[var dagger = {}, 10],
+	[var sword = {}, 10],
+	[var rapier = {}, 3],
+	[var sabre = {}, 2],
+	[var broadsword = {}, 10],
+	[var shortsword = {}, 10],
+	
+	["Axe", 25],
+	["Mace", 10],
+	["Hammer", 10],
+	["Staff", 5],
+	["Bow", 15],
+	["Crossbow", 7]
+	];
+	
+	var itemName = generateWeighted(items);
+	
+	
+	
+	console.log(itemName);
+	console.log("Value: " + itemValue);
+	console.log("Intrigue: " + intrigue);
+	
+}
