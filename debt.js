@@ -7,8 +7,6 @@ function showMe(){
 	loadPage();
 	setInterval(updatePage, 1);
 	document.getElementById("showMe").style.display = "none"
-	document.getElementById("debtBigValue").style.display = "block"
-	document.getElementById("debtSmallValue").style.display = "block"
 }
 
 function convertToBig(x) {
