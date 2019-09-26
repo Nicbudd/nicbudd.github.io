@@ -23,7 +23,6 @@ function addZeroes(string){
 	return string
 }
 
-
 function conditionSmallNumber(string){
 	var string = string + "";
 	var splitString = string.split("e+");
