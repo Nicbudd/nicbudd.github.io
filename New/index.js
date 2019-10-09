@@ -10,8 +10,6 @@ function randomColor(prevColor, prevPrevColor){
 
 function bodyLoad(){
 	
-	console.log("hey");
-	
 	var prevColor
 	var prevPrevColor
 	var h1Elem = document.getElementsByTagName("h1");
@@ -23,7 +21,6 @@ function bodyLoad(){
 	
 	for (let i = 0; i < h1Elem.length; i++){
 		var color = randomColor(prevColor, prevPrevColor);
-		console.log(color)
 		h1Elem[i].style.background = color;
 		prevPrevColor = prevColor;
 		prevColor = color;
@@ -73,27 +70,69 @@ function bodyLoad(){
 	
 }
 
-var menuExpanded = false
+//[original tab to be expanded, tab text, whether it is expanded yet or not, [children of tab]]
+var tabInfo = [
+["main", "Menu", false, ["cube"]], 
+["cube", "Cube", false, ["cubeHome", "algs", "comps"]],
+["cubeHome", "", false, []], 
+["algs", "", false, []], 
+["comps", "", false, []], 
+]
 
-function menuExpand(){
+function menuCollapse(tabToCollapse){
 	
-	var menuItems = document.getElementsByClassName("menuItem")
+	var tabNumber;
 	
-	if (menuExpanded == false){
-		for (let i = 0; i < menuItems.length; i++){
-			menuItems[i].style.display = "block"
+	for (let i = 0; i < tabInfo.length; i++){
+		if (tabInfo[i][0] == tabToCollapse){
+			tabNumber = i;
 		}
-		document.getElementsByClassName("menuHeader")[0].style.display = "block"
-		document.getElementsByClassName("menuHeader")[0].innerHTML = "Menu ▲"
-		menuExpanded = true
-	} else {
-		for (
-		let i = 0; i < menuItems.length; i++){
-			menuItems[i].style.display = "none"
+	}
+	
+	var parentItem = document.getElementById(tabInfo[tabNumber][0] + "MenuButton");
+	
+	for (let i = 0; i < tabInfo[tabNumber][3].length; i++){
+		menuCollapse(tabInfo[tabNumber][3][i]);
+		var currentItem = document.getElementById(tabInfo[tabNumber][3][i] + "MenuButton");
+		currentItem.style.display = "none";
+		tabInfo[tabNumber][2] = false
+		parentItem.innerHTML = tabInfo[tabNumber][1] + " ▼";
+	}
+	
+}
+
+function menuToggle(tabToExpand){
+	
+	var tabNumber;
+	
+	for (let i = 0; i < tabInfo.length; i++){
+		if (tabInfo[i][0] == tabToExpand){
+			tabNumber = i;
 		}
-		document.getElementsByClassName("menuHeader")[0].style.display = "block"
-		document.getElementsByClassName("menuHeader")[0].innerHTML = "Menu ▼"
-		menuExpanded = false
+	}
+	
+	if (tabInfo[tabNumber][2] == false){
 		
+		var parentItem = document.getElementById(tabInfo[tabNumber][0] + "MenuButton");
+		
+		for (let i = 0; i < tabInfo[tabNumber][3].length; i++){
+			var currentItem = document.getElementById(tabInfo[tabNumber][3][i] + "MenuButton");
+			currentItem.style.display = "block";
+			parentItem.innerHTML = tabInfo[tabNumber][1] + " ▲";
+		}
+		
+		
+		parentItem.style.display = "block";
+		
+		tabInfo[tabNumber][2] = true;
+		
+	} else {
+		
+		menuCollapse(tabInfo[tabNumber][0]);
+		
+		var parentItem = document.getElementById(tabInfo[tabNumber][0] + "MenuButton");
+		parentItem.style.display = "block";
+
+		tabInfo[tabNumber][2] = false;
 	}
 }

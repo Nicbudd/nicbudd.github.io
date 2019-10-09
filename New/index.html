@@ -23,10 +23,11 @@ Nicbudd
 </div>
 
 <div id="menu">
-<button id="mainMenuButton" class="menuItem menuHeader blue" onclick="menuExpand();">Menu ▼</button>
-<button class="menuItem green">Cube ▼</button>
-<button class="menuItem green">Algs</button>
-<button class="menuItem green">Comps</button>
+<button id="mainMenuButton" class="menuItem menuHeader blue" onclick="menuToggle('main');">Menu ▼</button>
+<button id="cubeMenuButton" class="menuItem green" onclick="menuToggle('cube');">Cube ▼</button>
+<button id="cubeHomeMenuButton" class="menuItem green" onclick="menuToggle('cubeHome');">Home</button>
+<button id="algsMenuButton" class="menuItem green" onclick="menuToggle('algs');">Algs</button>
+<button id="compsMenuButton" class="menuItem green" onclick="menuToggle('comps');">Comps</button>
 </div>
 
 <div id="mainBody">
