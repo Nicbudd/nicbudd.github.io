@@ -86,6 +86,23 @@ button{
 	text-transform: uppercase;
 	padding: 0.5em 0;
 	display: none;
+	cursor: pointer;
+}
+
+.menuItem.blue:hover{
+	background: var(--red);
+}
+
+.menuItem.green:hover{
+	background: var(--red);
+}
+
+.menuItem.red:hover{
+	background: var(--blue);
+}
+
+.menuItem.black:hover{
+	background: var(--blue);
 }
 
 .menuHeader{
