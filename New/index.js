@@ -1,5 +1,5 @@
 function randomColor(prevColor, prevPrevColor){
-	var colors = ["var(--red)", "var(--green)", "var(--blue)", "--var(--black)"]
+	var colors = ["var(--red)", "var(--green)", "var(--blue)", "var(--black)"]
 	var generatedColor
 	do{
 		generatedColor = colors[Math.floor(Math.random()* colors.length)]
@@ -71,4 +71,29 @@ function bodyLoad(){
 	}
 	*/
 	
+}
+
+var menuExpanded = false
+
+function menuExpand(){
+	
+	var menuItems = document.getElementsByClassName("menuItem")
+	
+	if (menuExpanded == false){
+		for (let i = 0; i < menuItems.length; i++){
+			menuItems[i].style.display = "block"
+		}
+		document.getElementsByClassName("menuHeader")[0].style.display = "block"
+		document.getElementsByClassName("menuHeader")[0].innerHTML = "Menu ▲"
+		menuExpanded = true
+	} else {
+		for (
+		let i = 0; i < menuItems.length; i++){
+			menuItems[i].style.display = "none"
+		}
+		document.getElementsByClassName("menuHeader")[0].style.display = "block"
+		document.getElementsByClassName("menuHeader")[0].innerHTML = "Menu ▼"
+		menuExpanded = false
+		
+	}
 }

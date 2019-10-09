@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800,900');
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono:100,200,300,400,500,600,700,800,900');
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:100,200,300,400,500,600,700,800,900');
-@import url('https://fonts.googleapis.com/css?family=Late:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900');
 
 :root{
 	--white: #E6E6E6;
@@ -26,6 +27,31 @@ body{
 	margin: 0;
 }
 
+button{
+	border: none;
+	outline: none;
+}
+
+.red{
+	background: var(--red);
+	color: var(--white);
+}
+
+.green{
+	background: var(--green);
+	color: var(--white);
+}
+
+.blue{
+	background: var(--blue);
+	color: var(--white);
+}
+
+.black{
+	background: var(--black);
+	color: var(--white);
+}
+
 #title{
 	width: 100%;
 	display: block;
@@ -34,17 +60,17 @@ body{
 
 #titleText{
 	font-size: 5em;
-	font-family: "Lato";
+	font-family: "Roboto Mono";
 	text-transform: uppercase;
 	color: var(--white);
 	text-align: center;
 	font-weight: 900;
 	padding: 0.125em 0em 0.125em 0em;
-	letter-spacing: 0.1em;
+	letter-spacing: 0.15em;
 }
 
 #menu {
-	width: 12%;
+	width: 15%;
 	float: left;
 	padding: 0 0em 0 0;
 	margin:
@@ -52,44 +78,56 @@ body{
 
 .menuItem{
 	width: 100%;
-	background: var(--red);
 	text-align: center;
 	padding: 0.5em 0em;
 	font-size: 1.5em;
-	color: var(--white);
-	font-family: "Lato";
-	font-weight: 900;
+	font-family: "Raleway";
+	font-weight: 700;
 	text-transform: uppercase;
+	padding: 0.5em 0;
+	display: none;
+}
+
+.menuHeader{
+	display: block;
 }
 
 #mainBody{
-	width: 58%;
+	width: 60%;
 	float: left;
 	padding: 0 2em;
 	background-color: var(--white);
 }
 
 #sideBar{
-	width: 30%;
+	width: 25%;
 	float: left;
 	padding: 0.5em;
 }
 
 @media screen and (max-width: 1200px){
 	#menu{
-		width: 100%
+		width: 30%;
+		float: right;
 	}
 	#mainBody{
-		
+		width: 70%;
 	}
 	#sideBar{
-		
+		width: 30%;
 	}
 }
 
 @media screen and (max-width: 768px){
+	#menu{
+		width: 100%;
+	}
 	#mainBody{
+		width: 100%;
 		margin: 0px;
+	}
+	#sideBar{
+		width: 100%;
 	}
 }
 
