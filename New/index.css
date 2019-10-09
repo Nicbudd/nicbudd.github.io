@@ -156,11 +156,12 @@ h1, h2, h3, h4, h5, h6{
 }
 
 h1, h2, h3, h4{
-	box-shadow: 0.175em 0.175em var(--lightGray);
+	box-shadow: 0.25em 0.15em var(--lightGray);
 	display: inline-block;
 	padding: 0.125em 2em 0.125em 0.5em;
 	color: var(--white);
 	background: var(--black);
+	text-shadow: 0.075em 0.05em #484848;
 }
 
 h1{
