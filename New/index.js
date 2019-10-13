@@ -72,11 +72,11 @@ function bodyLoad(){
 
 //[original tab to be expanded, tab text, whether it is expanded yet or not, [children of tab]]
 var tabInfo = [
-["main", "Menu", false, ["cube"]], 
-["cube", "Cube", false, ["cubeHome", "algs", "comps"]],
-["cubeHome", "", false, []], 
-["algs", "", false, []], 
-["comps", "", false, []], 
+["main", "Menu", false, ["cube"], ""], 
+["cube", "Cube", false, ["cubeHome", "algs", "comps"], ""],
+["cubeHome", "", false, [], ""], 
+["algs", "", false, [], ""], 
+["comps", "", false, [], ""], 
 ]
 
 function menuCollapse(tabToCollapse){
@@ -136,3 +136,12 @@ function menuToggle(tabToExpand){
 		tabInfo[tabNumber][2] = false;
 	}
 }
+
+const blobAmount = 30;
+const blobSize = 175;
+
+var blobPos = []
+var blobRadius = []
+var blobColor = []
+
+var body = document.getElementsByTagName("body")[0]
