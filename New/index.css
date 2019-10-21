@@ -32,6 +32,10 @@ button{
 	outline: none;
 }
 
+a{
+	text-decoration: none;
+}
+
 .red{
 	background: var(--red);
 	color: var(--white);
@@ -52,6 +56,9 @@ button{
 	color: var(--white);
 }
 
+
+
+
 #title{
 	width: 100%;
 	display: block;
@@ -69,11 +76,13 @@ button{
 	letter-spacing: 0.15em;
 }
 
+
+
+
 #menu {
 	width: 15%;
 	float: left;
 	padding: 0 0em 0 0;
-	margin:
 }
 
 .menuItem{
@@ -109,17 +118,37 @@ button{
 	display: block;
 }
 
-#mainBody{
-	width: 60%;
-	float: left;
-	padding: 0 2em;
-	background-color: var(--white);
-}
+
+
+
+
 
 #sideBar{
 	width: 25%;
 	float: left;
 	padding: 0.5em;
+}
+
+.sideBarContent{
+	border-radius: 1em;
+	margin: 0.5em;
+	padding: 0.5em;
+	height: auto;
+}
+
+.sideBarContent h1, .sideBarContent h2, .sideBarContent h3, .sideBarContent h4, .sideBarContent h5, .sideBarContent h6{
+	
+} 
+
+
+
+
+
+#mainBody{
+	width: 60%;
+	float: left;
+	padding: 0 2em;
+	background-color: var(--white);
 }
 
 @media screen and (max-width: 1200px){
@@ -155,7 +184,8 @@ h1, h2, h3, h4, h5, h6{
 	
 }
 
-h1, h2, h3, h4{
+
+#mainBody h1, #mainBody h2, #mainBody h3, #mainBody h4{
 	box-shadow: 0.25em 0.15em var(--lightGray);
 	display: inline-block;
 	padding: 0.125em 2em 0.125em 0.5em;

@@ -13,7 +13,7 @@
 
 </head>
 
-<body onload="bodyLoad();">
+<body onload="bodyLoad();" onresize="resize();">
 <noscript><div id="noscript">Javascript is not working. Please enable javascript for proper site functionality</div></noscript>
 
 <div id="title">
@@ -25,9 +25,9 @@ Nicbudd
 <div id="menu">
 <button id="mainMenuButton" class="menuItem menuHeader blue" onclick="menuToggle('main');">Menu ▼</button>
 <button id="cubeMenuButton" class="menuItem green" onclick="menuToggle('cube');">Cube ▼</button>
-<button id="cubeHomeMenuButton" class="menuItem green" onclick="menuToggle('cubeHome');">Home</button>
-<button id="algsMenuButton" class="menuItem green" onclick="menuToggle('algs');">Algs</button>
-<button id="compsMenuButton" class="menuItem green" onclick="menuToggle('comps');">Comps</button>
+<a id="cubeHomeMenuButton" class="menuItem green" href="cube.html">Home</a>
+<a id="algsMenuButton" class="menuItem green" href="algs.html">Algs</a>
+<a id="compsMenuButton" class="menuItem green" href="comps.html">Comps</a>
 </div>
 
 <div id="mainBody">
@@ -50,7 +50,13 @@ Nicbudd
 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
 </div>
 
-<div id="sideBar"></div>
+<div id="sideBar">
+
+<div class="sideBarContent red">
+<h1>Contact</h1>
+</div>
+
+</div>
 
 </body>
 
