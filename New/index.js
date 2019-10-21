@@ -1,11 +1,20 @@
-function randomColor(prevColor, prevPrevColor){
+function randomColor(){
 	var colors = ["var(--red)", "var(--green)", "var(--blue)", "var(--black)"]
-	var generatedColor
+	return colors[Math.floor(Math.random()* colors.length)]
+}
+
+function conditionedColor(prevColors, elementAmts){
+	
 	do{
-		generatedColor = colors[Math.floor(Math.random()* colors.length)]
+		var randomColor = randomColor();
+		var generateNew = false;
+		if (randomColor == prevColors[0] || randomColor == prevColors[1]){
+			generateNew = true
+		};
 	}
-	while (generatedColor == prevColor || generatedColor == prevPrevColor);
-	return generatedColor
+	while (generateNew == true);
+	return randomColor
+	
 }
 
 function bodyLoad(){
