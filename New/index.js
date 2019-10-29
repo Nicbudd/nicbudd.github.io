@@ -3,79 +3,64 @@ function randomColor(){
 	return colors[Math.floor(Math.random()* colors.length)]
 }
 
-function conditionedColor(prevColors, elementAmts){
+function conditionedColor(prevColors){
 	
+	var randColor;
 	do{
-		var randomColor = randomColor();
+		randColor = randomColor();
 		var generateNew = false;
-		if (randomColor == prevColors[0] || randomColor == prevColors[1]){
-			generateNew = true
+		
+		//regenerate if same as previous 2 colors
+		if (randColor == prevColors[prevColors.length - 1] || randColor == prevColors[prevColors.length - 2]){
+			generateNew = true;
 		};
+		
+		//regenerate if it is the last in the sequence of 4 headings
+		if (prevColors.length % 4 == 3 && randColor == prevColors[prevColors.length - 3]){
+			generateNew = true;
+		};
+		
 	}
 	while (generateNew == true);
-	return randomColor
+	return randColor
 	
 }
 
+
+
+
 function bodyLoad(){
 	
-	var prevColor
-	var prevPrevColor
-	var h1Elem = document.getElementsByTagName("h1");
-	var h2Elem = document.getElementsByTagName("h2");
-	var h3Elem = document.getElementsByTagName("h3");
-	var h4Elem = document.getElementsByTagName("h4");
-	//var h5Elem = document.getElementsByTagName("h5");
-	//var h6Elem = document.getElementsByTagName("h6");
+	var mainBody = document.getElementById("mainBody");
+	var prevColors = [];
+	var h1Elem = mainBody.getElementsByTagName("h1");
+	var h2Elem = mainBody.getElementsByTagName("h2");
+	var h3Elem = mainBody.getElementsByTagName("h3");
+	var h4Elem = mainBody.getElementsByTagName("h4");
 	
 	for (let i = 0; i < h1Elem.length; i++){
-		var color = randomColor(prevColor, prevPrevColor);
+		var color = conditionedColor(prevColors);
 		h1Elem[i].style.background = color;
-		prevPrevColor = prevColor;
-		prevColor = color;
+		prevColors.push(color);
 	}
 	
 	for (let i = 0; i < h2Elem.length; i++){
-		var color = randomColor(prevColor, prevPrevColor);
-		console.log(color)
+		var color = conditionedColor(prevColors);
 		h2Elem[i].style.background = color;
-		prevPrevColor = prevColor;
-		prevColor = color;
+		prevColors.push(color);
 	}
 	
 	for (let i = 0; i < h3Elem.length; i++){
-		var color = randomColor(prevColor, prevPrevColor);
-		console.log(color)
+		var color = conditionedColor(prevColors);
 		h3Elem[i].style.background = color;
-		prevPrevColor = prevColor;
-		prevColor = color;
+		prevColors.push(color);
 	}
 	
 	for (let i = 0; i < h4Elem.length; i++){
-		var color = randomColor(prevColor, prevPrevColor);
-		console.log(color)
+		var color = conditionedColor(prevColors);
 		h4Elem[i].style.background = color;
-		prevPrevColor = prevColor;
-		prevColor = color;
+		prevColors.push(color);
 	}
-	
-	/*
-	for (let i = 0; i < h5Elem.length; i++){
-		var color = randomColor(prevColor, prevPrevColor);
-		console.log(color)
-		h5Elem[i].style.background = color;
-		prevPrevColor = prevColor;
-		prevColor = color;
-	}
-	
-	for (let i = 0; i < h6Elem.length; i++){
-		var color = randomColor(prevColor, prevPrevColor);
-		console.log(color)
-		h6Elem[i].style.background = color;
-		prevPrevColor = prevColor;
-		prevColor = color;
-	}
-	*/
 	
 }
 
@@ -145,12 +130,3 @@ function menuToggle(tabToExpand){
 		tabInfo[tabNumber][2] = false;
 	}
 }
-
-const blobAmount = 30;
-const blobSize = 175;
-
-var blobPos = []
-var blobRadius = []
-var blobColor = []
-
-var body = document.getElementsByTagName("body")[0]
