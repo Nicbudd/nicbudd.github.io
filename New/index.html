@@ -13,7 +13,7 @@
 
 </head>
 
-<body onload="bodyLoad();" onresize="resize();">
+<body onload="bodyLoad('index');" onresize="resize();">
 <noscript><div id="noscript">Javascript is not working. Please enable javascript for proper site functionality</div></noscript>
 
 <div id="title">
@@ -24,10 +24,14 @@ Nicbudd
 
 <div id="menu">
 <button id="mainMenuButton" class="menuItem menuHeader blue" onclick="menuToggle('main');">Menu ▼</button>
+<a id="aboutMenuButton" class="menuItem green" href="aboutMe.html">About Me</a>
 <button id="cubeMenuButton" class="menuItem green" onclick="menuToggle('cube');">Cube ▼</button>
-<a id="cubeHomeMenuButton" class="menuItem green" href="cube.html">Home</a>
-<a id="algsMenuButton" class="menuItem green" href="algs.html">Algs</a>
-<a id="compsMenuButton" class="menuItem green" href="comps.html">Comps</a>
+<a id="cubeHomeMenuButton" class="menuItem black" href="cube.html">Home</a>
+<a id="algsMenuButton" class="menuItem black" href="algs.html">Algs</a>
+<a id="compsMenuButton" class="menuItem black" href="comps.html">Comps</a>
+<button id="eventsMenuButton" class="menuItem black" onclick="menuToggle('events');">Events ▼</button>
+<a id="threeEventMenuButton" class="menuItem red" href="threeEvent.html">3x3</a>
+<a id="otherEventMenuButton" class="menuItem red" href="otherEvents.html">Other</a>
 </div>
 
 <div id="mainBody">
@@ -43,19 +47,6 @@ Nicbudd
 <h4>What is Lorem Ipsum?</h4>
 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
 
-<h4>What is Lorem Ipsum?</h4><p></p>
-<h4>What is Lorem Ipsum?</h4><p></p>
-<h4>What is Lorem Ipsum?</h4><p></p>
-<h4>What is Lorem Ipsum?</h4><p></p>
-<h4>What is Lorem Ipsum?</h4><p></p>
-<h4>What is Lorem Ipsum?</h4><p></p>
-<h4>What is Lorem Ipsum?</h4><p></p>
-<h4>What is Lorem Ipsum?</h4><p></p>
-<h4>What is Lorem Ipsum?</h4><p></p>
-<h4>What is Lorem Ipsum?</h4><p></p>
-<h4>What is Lorem Ipsum?</h4><p></p>
-<h4>What is Lorem Ipsum?</h4><p></p>
-
 <h5>What is Lorem Ipsum?</h5>
 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
 
@@ -63,13 +54,19 @@ Nicbudd
 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
 </div>
 
+
+
 <div id="sideBar">
+<!-- autofilled by index.js -->
 
-<div class="sideBarContent red">
-<h1>Contact</h1>
+<!-- Testing elements 
+
+<div class="sideBarContent red"></div>
+
+-->
 </div>
 
-</div>
+
 
 </body>
 
