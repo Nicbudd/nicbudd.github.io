@@ -19,7 +19,7 @@
 }
 
 body{
-	font-family: "Roboto";
+	font-family: "Roboto", sans-serif;
 	font-size: 1.125em;
 	color: var(--black);
 	background-color: var(--lightGray);
@@ -33,7 +33,9 @@ button{
 }
 
 a{
-	text-decoration: none;
+	text-decoration: underline;
+	font-weight: 700;
+	color: var(--white);
 }
 
 .red{
@@ -67,7 +69,7 @@ a{
 
 #titleText{
 	font-size: 5em;
-	font-family: "Roboto Mono";
+	font-family: "Roboto Mono", monospace;
 	text-transform: uppercase;
 	color: var(--white);
 	text-align: center;
@@ -90,12 +92,13 @@ a{
 	text-align: center;
 	padding: 0.5em 0.5em;
 	font-size: 1.25em;
-	font-family: "Raleway";
+	font-family: "Raleway", sans-serif;
 	font-weight: 600;
 	text-transform: uppercase;
 	padding: 0.5em 0;
 	display: none;
 	cursor: pointer;
+	text-decoration: none;
 }
 
 .menuItem.blue:hover{
@@ -134,34 +137,42 @@ a{
 	margin: 0.5em;
 	padding: 0.5em;
 	height: auto;
+	color: var(--white);
 }
 
 .sideBarContent h1, .sideBarContent h2, .sideBarContent h3, .sideBarContent h4, .sideBarContent h5, .sideBarContent h6{
-	text-align: center;
+
+	text-align:center;
 } 
 
 .sideBarContent h1{
-	
+	font-size: 1.75em;
+	margin: 0.5em 0;
 }
 
 .sideBarContent h2{
-	
+	font-size: 1.4em;
+	margin: 0.5em 0;
 }
 
 .sideBarContent h3{
-	
+	font-size: 1.25em;
+	margin: 0.5em 0;
 }
 
 .sideBarContent h4{
-	
+	font-size: 1.125em;
+	margin: 0.5em 0;
 }
 
 .sideBarContent h5{
-	
+	font-size: 1em;
+	margin: 0.5em 0;
 }
 
 .sideBarContent h6{
-	
+	font-size: 1em;
+	margin: 0.5em 0;
 }
 
 
@@ -202,7 +213,7 @@ a{
 
 
 h1, h2, h3, h4, h5, h6{
-	font-family: "Fira Sans";
+	font-family: "Fira Sans", sans-serif;
 	text-transform: uppercase;
 	
 }
@@ -212,37 +223,35 @@ h1, h2, h3, h4, h5, h6{
 	box-shadow: 0.25em 0.15em var(--lightGray);
 	display: inline-block;
 	padding: 0.125em 2em 0.125em 0.5em;
-	color: var(--white);
-	background: var(--black);
 	text-shadow: 0.075em 0.05em #484848;
 }
 
-h1{
+#mainBody h1{
 	font-size: 2.5em;
 	margin: 0.75em 0;
 }
 
-h2{
+#mainBody h2{
 	font-size: 1.75em;
 	margin: 0.75em 0;
 }
 
-h3{
+#mainBody h3{
 	font-size: 1.4em;
 	margin: 0.75em 0;
 }
 
-h4{
+#mainBody h4{
 	font-size: 1.25em;
 	margin: 0.75em 0;
 }
 
-h5{
+#mainBody h5{
 	font-size: 1.5em;
 	margin: 0.75em 0;
 }
 
-h6{
+#mainBody h6{
 	font-size: 1.125em;
 	margin: 0.75em 0;
 }

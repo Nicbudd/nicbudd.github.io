@@ -2,30 +2,56 @@ var body = document.getElementsByTagName("body")[0];
 var mainBody = document.getElementById("mainBody");
 
 function randomColor(){
-	var colors = ["var(--red)", "var(--green)", "var(--blue)", "var(--black)"]
+	var colors = ["red", "green", "blue", "black"]
 	return colors[Math.floor(Math.random()* colors.length)]
 }
 
-function conditionedColor(prevColors, elementAmts){
-	var randomColor
-	var generateNew = false;
+function conditionedColor(prevColors){
+	
+	var randColor;
+	
 	
 	do{
-		randomColor = randomColor();
-		if (randomColor == prevColors){
-			generateNew = true
+		
+		//generate random color
+		randColor = randomColor();
+		var generateNew = false;
+		
+		//first color can't be black
+		if(prevColors.length == 0 && randColor == "black"){
+			generateNew = true;
 		};
+		
+		//regenerate if same as previous 2 colors
+		if (randColor == prevColors[prevColors.length - 1] || randColor == prevColors[prevColors.length - 2]){
+			generateNew = true;
+		};
+		
+		//regenerate if it is the last in the sequence of 4 headings
+		if (prevColors.length % 4 == 3 && randColor == prevColors[prevColors.length - 3]){
+			generateNew = true;
+		};
+		
 	}
 	while (generateNew == true);
+
+	//regenerates random color if any condition is met
 	
-	return randomColor
+	
+	return randColor
+
 }
 
-function bodyLoad(){
 
-	var mainBody = document.getElementById("mainBody")
-	var prevColor
-	var prevPrevColor
+
+
+function bodyLoad(page){
+	
+	
+	//color all of the body headings
+	var mainBody = document.getElementById("mainBody");
+	
+	var headingPrevColors = [];
 	var h1Elem = mainBody.getElementsByTagName("h1");
 	var h2Elem = mainBody.getElementsByTagName("h2");
 	var h3Elem = mainBody.getElementsByTagName("h3");
@@ -34,64 +60,74 @@ function bodyLoad(){
 	//var h6Elem = document.getElementsByTagName("h6");
 	
 	for (let i = 0; i < h1Elem.length; i++){
-		var color = conditionedColor(prevColor, "0");
-		console.log(color)
-		h1Elem[i].style.background = color;
-		prevPrevColor = prevColor;
-		prevColor = color;
+		var color = conditionedColor(headingPrevColors);
+		h1Elem[i].setAttribute("class", color);
+		headingPrevColors.push(color);
 	}
 	
 	for (let i = 0; i < h2Elem.length; i++){
-		var color = conditionedColor(prevColor, "0");
-		console.log(color)
-		h2Elem[i].style.background = color;
-		prevPrevColor = prevColor;
-		prevColor = color;
+		var color = conditionedColor(headingPrevColors);
+		h2Elem[i].setAttribute("class", color);
+		headingPrevColors.push(color);
 	}
 	
 	for (let i = 0; i < h3Elem.length; i++){
-		var color = conditionedColor(prevColor, "0");
-		console.log(color)
-		h3Elem[i].style.background = color;
-		prevPrevColor = prevColor;
-		prevColor = color;
+		var color = conditionedColor(headingPrevColors);
+		h3Elem[i].setAttribute("class", color);
+		headingPrevColors.push(color);
 	}
 	
 	for (let i = 0; i < h4Elem.length; i++){
-		var color = conditionedColor(prevColor, "0");
-		console.log(color)
-		h4Elem[i].style.background = color;
-		prevPrevColor = prevColor;
-		prevColor = color;
+		var color = conditionedColor(headingPrevColors);
+		h4Elem[i].setAttribute("class", color);
+		headingPrevColors.push(color);
 	}
 	
-	/*
-	for (let i = 0; i < h5Elem.length; i++){
-		var color = randomColor(prevColor, prevPrevColor);
-		console.log(color)
-		h5Elem[i].style.background = color;
-		prevPrevColor = prevColor;
-		prevColor = color;
-	}
+	//load sideBar content
 	
-	for (let i = 0; i < h6Elem.length; i++){
-		var color = randomColor(prevColor, prevPrevColor);
-		console.log(color)
-		h6Elem[i].style.background = color;
-		prevPrevColor = prevColor;
-		prevColor = color;
-	}
-	*/
+	var sideBarContent = [
+	"<h1>Contact Me</h1><p>Got any questions? Need help? Wanna report an issue? Here's how to get in touch:</p><ul><li>Professional Emails, Website Related: <a href='mailto:nhh8629@wmich.edu'>nhh8629@wmich.edu</a></li><li>Personal Messages: <a href='mailto:niczippy77@gmail.com'>niczippy77@gmail.com</a></li></ul>",
+	];
+	
+	var sideBarPrevColors = [];
+	var sideBar = document.getElementById("sideBar");
+	
+	for (let i = 0; i < sideBarContent.length; i++){
+		
+		var sideBarObj = document.createElement("div")
+		
+		sideBarObj.innerHTML = sideBarContent[i]
+		
+		var color = conditionedColor(sideBarPrevColors);
+		sideBarObj.setAttribute("class", "sideBarContent " + color);
+		sideBarPrevColors.push(color);
+		
+		sideBar.appendChild(sideBarObj)
+		
+	};
+	
+	//load all of the other important content
+	
+	var head = document.getElementsByTagName("head")[0];
+	var body = document.getElementsByTagName("body")[0];
+	
+	var addToHead = document.createElement()
+	
+	
 	
 }
 
 //[original tab to be expanded, tab text, whether it is expanded yet or not, [children of tab]]
 var tabInfo = [
-["main", "Menu", false, ["cube"], ""], 
-["cube", "Cube", false, ["cubeHome", "algs", "comps"], ""],
+["main", "Menu", false, ["cube", "about"], ""], 
+["about", "", false, [], ""],
+["cube", "Cube", false, ["cubeHome", "algs", "comps", "events"], ""],
 ["cubeHome", "", false, [], ""], 
 ["algs", "", false, [], ""], 
 ["comps", "", false, [], ""], 
+["events", "Events", false, ["threeEvent", "otherEvent"], ""],
+["threeEvent", "", false, [], ""], 
+["otherEvent", "", false, [], ""], 
 ]
 
 function menuCollapse(tabToCollapse){
@@ -150,11 +186,3 @@ function menuToggle(tabToExpand){
 
 		tabInfo[tabNumber][2] = false;
 	}
-}
-
-const blobAmount = 30;
-const blobSize = 175;
-
-var blobPos = []
-var blobRadius = []
-var blobColor = []
