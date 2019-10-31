@@ -1,42 +1,48 @@
+var body = document.getElementsByTagName("body")[0];
+var mainBody = document.getElementById("mainBody");
+
 function randomColor(){
 	var colors = ["var(--red)", "var(--green)", "var(--blue)", "var(--black)"]
 	return colors[Math.floor(Math.random()* colors.length)]
 }
 
 function conditionedColor(prevColors, elementAmts){
+	var randomColor
+	var generateNew = false;
 	
 	do{
-		var randomColor = randomColor();
-		var generateNew = false;
-		if (randomColor == prevColors[0] || randomColor == prevColors[1]){
+		randomColor = randomColor();
+		if (randomColor == prevColors){
 			generateNew = true
 		};
 	}
 	while (generateNew == true);
-	return randomColor
 	
+	return randomColor
 }
 
 function bodyLoad(){
-	
+
+	var mainBody = document.getElementById("mainBody")
 	var prevColor
 	var prevPrevColor
-	var h1Elem = document.getElementsByTagName("h1");
-	var h2Elem = document.getElementsByTagName("h2");
-	var h3Elem = document.getElementsByTagName("h3");
-	var h4Elem = document.getElementsByTagName("h4");
+	var h1Elem = mainBody.getElementsByTagName("h1");
+	var h2Elem = mainBody.getElementsByTagName("h2");
+	var h3Elem = mainBody.getElementsByTagName("h3");
+	var h4Elem = mainBody.getElementsByTagName("h4");
 	//var h5Elem = document.getElementsByTagName("h5");
 	//var h6Elem = document.getElementsByTagName("h6");
 	
 	for (let i = 0; i < h1Elem.length; i++){
-		var color = randomColor(prevColor, prevPrevColor);
+		var color = conditionedColor(prevColor, "0");
+		console.log(color)
 		h1Elem[i].style.background = color;
 		prevPrevColor = prevColor;
 		prevColor = color;
 	}
 	
 	for (let i = 0; i < h2Elem.length; i++){
-		var color = randomColor(prevColor, prevPrevColor);
+		var color = conditionedColor(prevColor, "0");
 		console.log(color)
 		h2Elem[i].style.background = color;
 		prevPrevColor = prevColor;
@@ -44,7 +50,7 @@ function bodyLoad(){
 	}
 	
 	for (let i = 0; i < h3Elem.length; i++){
-		var color = randomColor(prevColor, prevPrevColor);
+		var color = conditionedColor(prevColor, "0");
 		console.log(color)
 		h3Elem[i].style.background = color;
 		prevPrevColor = prevColor;
@@ -52,7 +58,7 @@ function bodyLoad(){
 	}
 	
 	for (let i = 0; i < h4Elem.length; i++){
-		var color = randomColor(prevColor, prevPrevColor);
+		var color = conditionedColor(prevColor, "0");
 		console.log(color)
 		h4Elem[i].style.background = color;
 		prevPrevColor = prevColor;
@@ -152,5 +158,3 @@ const blobSize = 175;
 var blobPos = []
 var blobRadius = []
 var blobColor = []
-
-var body = document.getElementsByTagName("body")[0]

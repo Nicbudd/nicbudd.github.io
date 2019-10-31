@@ -137,9 +137,32 @@ a{
 }
 
 .sideBarContent h1, .sideBarContent h2, .sideBarContent h3, .sideBarContent h4, .sideBarContent h5, .sideBarContent h6{
-	
+	text-align: center;
 } 
 
+.sideBarContent h1{
+	
+}
+
+.sideBarContent h2{
+	
+}
+
+.sideBarContent h3{
+	
+}
+
+.sideBarContent h4{
+	
+}
+
+.sideBarContent h5{
+	
+}
+
+.sideBarContent h6{
+	
+}
 
 
 
