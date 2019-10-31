@@ -1,5 +1,17 @@
 var body = document.getElementsByTagName("body")[0];
 var mainBody = document.getElementById("mainBody");
+var head = document.getElementsByTagName("head")[0];
+	
+
+function addToHead(content){
+	for (let i = 0; i < content.length; i++){
+		var item = document.createElement(content[i][0])
+		for (let j = 1; j < content[i].length; j++){
+			item.setAttribute(content[i][j][0], content[i][j][1])
+		}
+		head.appendChild(item);
+	}
+}
 
 function randomColor(){
 	var colors = ["red", "green", "blue", "black"]
@@ -42,7 +54,9 @@ function conditionedColor(prevColors){
 
 }
 
-
+function addMetaTags(tag){
+	
+}
 
 
 function bodyLoad(page){
@@ -106,13 +120,21 @@ function bodyLoad(page){
 		
 	};
 	
+	
+	
 	//load all of the other important content
 	
 	var head = document.getElementsByTagName("head")[0];
 	var body = document.getElementsByTagName("body")[0];
 	
-	var addToHead = document.createElement()
+	var headContent = [
+	["link", ["rel", "icon"], ["href", "polygon7.png"], ["size", "32x32"], ["type", "image/png"]],
+	["meta", ["charset", "UTF-8"]],
+	["meta", ["name", "viewport"], ["content", "width=device-width, initial-scale=1.0"]],
+	["link", ["rel", "stylesheet"], ["href", "cubing-icons.css"]]
+	];
 	
+	addToHead(headContent);
 	
 	
 }
@@ -186,3 +208,4 @@ function menuToggle(tabToExpand){
 
 		tabInfo[tabNumber][2] = false;
 	}
+}
