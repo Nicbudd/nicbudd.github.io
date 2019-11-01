@@ -2,6 +2,23 @@ var body = document.getElementsByTagName("body")[0];
 var mainBody = document.getElementById("mainBody");
 var head = document.getElementsByTagName("head")[0];
 	
+var hiddenContent = []
+
+function showHide(contentID, showText, hideText){
+	var content = document.getElementById(contentID);
+	content.style.display = "none"
+	var hidden = true
+	for (let i = 0; i < hiddenContent.length; i++){
+		if (hiddenContent[i] == contentID){
+			content.style.display = "block"
+			hiddenContent.splice(i, 1);
+			hidden = false
+		}
+	}
+	if (hidden == true){
+		hiddenContent.push(contentID);
+	}
+}
 
 function addToHead(content){
 	for (let i = 0; i < content.length; i++){
@@ -84,6 +101,11 @@ function conditionedColor(prevColors){
 
 function bodyLoad(page){
 	
+	var cubingPages = ["cubeHome", "algs", "comps", "cubeBeginners"];
+	var eventsPages = ["threeCube", "otherEvents"];
+	
+	cubingPages = cubingPages.concat(eventsPages);
+	console.log(cubingPages)
 	
 	//color all of the body headings
 	var mainBody = document.getElementById("mainBody");
@@ -123,7 +145,10 @@ function bodyLoad(page){
 	//load sideBar content
 	
 	var sideBarContent = [
-	"<h1>Contact Me</h1><p>Got any questions? Need help? Wanna report an issue? Here's how to get in touch:</p><ul><li>Professional Emails, Website Related: <a href='mailto:nhh8629@wmich.edu'>nhh8629@wmich.edu</a></li><li>Personal Messages: <a href='mailto:niczippy77@gmail.com'>niczippy77@gmail.com</a></li></ul>",
+	"<h1>Contact Me</h1><p>Have a question? Need help? Want to report an issue? Here's how to get in touch:</p><ul><li>Professional Emails: <a href='mailto:nhh8629@wmich.edu'>nhh8629@wmich.edu</a></li><li>Personal Messages, Website Related: <a href='mailto:niczippy77@gmail.com'>niczippy77@gmail.com</a></li></ul>",
+	"<h2>Want to learn how to solve a rubiks cube?</h2><div class='centerFlex'><a class='button' href='cubeBeginners.html'>Click here to learn</a></div>",
+	"<h1>Jump to Event</h1><div class='centerFlex'><a class='button' href='threeCube.html'>3x3</a><a class='button' href='otherEvents.html'>Other Events</a></div>",
+	//"",
 	];
 	
 	var sideBarPrevColors = [];
@@ -131,16 +156,26 @@ function bodyLoad(page){
 	
 	for (let i = 0; i < sideBarContent.length; i++){
 		
-		var sideBarObj = document.createElement("div")
+		var displayObj = true
 		
-		sideBarObj.innerHTML = sideBarContent[i]
+		if (cubingPages.indexOf(page) == -1 && i == 1){
+			displayObj = false
+		}
 		
-		var color = conditionedColor(sideBarPrevColors);
-		sideBarObj.setAttribute("class", "sideBarContent " + color);
-		sideBarPrevColors.push(color);
+		if (eventsPages.indexOf(page) == -1 && i == 2){
+			displayObj = false
+		}
 		
-		sideBar.appendChild(sideBarObj)
+		if (displayObj == true){
+			var sideBarObj = document.createElement("div")
+			sideBarObj.innerHTML = sideBarContent[i]
 		
+			var color = conditionedColor(sideBarPrevColors);
+			sideBarObj.setAttribute("class", "sideBarContent " + color);
+			sideBarPrevColors.push(color);
+		
+			sideBar.appendChild(sideBarObj)
+		}
 	};
 	
 	
@@ -162,12 +197,13 @@ function bodyLoad(page){
 	
 	
 	var menuContent = [
-	["header", "Menu ▼", "main", "blue"],
+	["header", "Menu ▼", "index", "blue"],
 	["a", "About Me", "aboutMe", "green"],
 	["button", "Cube ▼", "cube", "green"],
 	["a", "Home", "cubeHome", "black"],
 	["a", "Algorithms", "algs", "black"],
 	["a", "Competitions", "comps", "black"],
+	["a", "Beginners", "cubeBeginners", "black"],
 	["button", "Events ▼", "events", "black"],
 	["a", "3x3", "threeCube", "red"],
 	["a", "Other", "otherEvents", "red"],
@@ -195,12 +231,13 @@ function bodyLoad(page){
 
 //[original tab to be expanded, tab text, whether it is expanded yet or not, [children of tab]]
 var tabInfo = [
-["main", "Menu", false, ["cube", "aboutMe", "hobbies", "javascript", "other"], ""], 
+["index", "Menu", false, ["cube", "aboutMe", "hobbies", "javascript", "other"], ""], 
 ["aboutMe", "", false, [], ""],
-["cube", "Cube", false, ["cubeHome", "algs", "comps", "events"], ""],
+["cube", "Cube", false, ["cubeHome", "algs", "comps", "cubeBeginners", "events"], ""],
 ["cubeHome", "", false, [], ""], 
 ["algs", "", false, [], ""], 
 ["comps", "", false, [], ""], 
+["cubeBeginners", "", false, [], ""], 
 ["events", "Events", false, ["threeCube", "otherEvents"], ""],
 ["threeCube", "", false, [], ""], 
 ["otherEvents", "", false, [], ""], 

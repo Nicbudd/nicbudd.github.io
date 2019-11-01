@@ -32,6 +32,89 @@ button{
 	outline: none;
 }
 
+.centerFlex{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+
+.button{
+	display: inline-block;
+	font-size: 1em;
+	border: 4px solid;
+	padding: 0.5em;
+	text-transform: uppercase;
+	text-decoration: none;
+	font-weight: 700;
+	font-family: 'Fira Sans', sans-serif;
+	text-align: center;
+	margin: 0.5em 0em;
+	cursor: pointer;
+	transition: 0.2s;
+	border-color: var(--black);
+	color: var(--black);
+	background: var(--white);
+}
+
+.button:hover{
+	border-color: var(--black);
+	color: var(--white);
+	background: var(--black);
+}
+
+
+.red .button{
+	border-color: var(--white);
+	color: var(--white);
+	background: var(--red);
+}
+
+.red .button:hover{
+	border-color: var(--white);
+	color: var(--red);
+	background: var(--white);
+}
+
+
+.green .button{
+	border-color: var(--white);
+	color: var(--white);
+	background: var(--green);
+}
+
+.green .button:hover{
+	border-color: var(--white);
+	color: var(--green);
+	background: var(--white);
+}
+
+
+.blue .button{
+	border-color: var(--white);
+	color: var(--white);
+	background: var(--blue);
+}
+
+.blue .button:hover{
+	border-color: var(--white);
+	color: var(--blue);
+	background: var(--white);
+}
+
+
+.black .button{
+	border-color: var(--white);
+	color: var(--white);
+	background: var(--black);
+}
+
+.black .button:hover{
+	border-color: var(--white);
+	color: var(--black);
+	background: var(--white);
+}
+
+
 a{
 	text-decoration: underline;
 	font-weight: 400;
@@ -155,13 +238,12 @@ a.menuItem:hover{
 #sideBar{
 	width: 25%;
 	float: left;
-	padding: 0.5em;
 }
 
 .sideBarContent{
 	border-radius: 1em;
 	margin: 0.5em;
-	padding: 0.5em;
+	padding: 1em 0.5em;
 	height: auto;
 	color: var(--white);
 }
