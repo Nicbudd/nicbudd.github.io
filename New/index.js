@@ -13,6 +13,34 @@ function addToHead(content){
 	}
 }
 
+function buildMenu(content){
+	var menu = document.getElementById("menu");
+	for (let i = 0; i < content.length; i++){
+		
+		var item
+		
+		if (content[i][0] == "button" || content[i][0] == "header"){
+			item = document.createElement("button");
+			item.setAttribute("onclick", "menuToggle('" + content[i][2] + "')")
+		
+		} else {
+			item = document.createElement("a")
+			item.setAttribute("href", content[i][2] + ".html")
+		
+		}
+		
+		if (content[i][0] == "header"){
+			item.setAttribute("class", "menuItem menuHeader " + content[i][3]);
+		} else {
+			item.setAttribute("class", "menuItem " + content[i][3]);
+		}
+		
+		item.setAttribute("id", content[i][2] + "MenuButton");
+		item.innerHTML = content[i][1]
+		menu.appendChild(item);
+	}
+}
+
 function randomColor(){
 	var colors = ["red", "green", "blue", "black"]
 	return colors[Math.floor(Math.random()* colors.length)]
@@ -133,23 +161,51 @@ function bodyLoad(page){
 	["meta", ["name", "viewport"], ["content", "width=device-width, initial-scale=1.0"]],
 	["link", ["rel", "stylesheet"], ["href", "cubing-icons.css"]]
 	];
-	
+
 	addToHead(headContent);
 	
 	
+	
+	var menuContent = [
+	["header", "Menu ▼", "main", "blue"],
+	["a", "About Me", "aboutMe", "green"],
+	["button", "Cube ▼", "cube", "green"],
+	["a", "Home", "cubeHome", "black"],
+	["a", "Algorithms", "algs", "black"],
+	["a", "Competitions", "comps", "black"],
+	["button", "Events ▼", "events", "black"],
+	["a", "3x3", "threeCube", "red"],
+	["a", "Other", "otherEvents", "red"],
+	];
+	
+	buildMenu(menuContent);
+	
+	/*
+	
+	<button id="mainMenuButton" class="menuItem menuHeader blue" onclick="menuToggle('main');">Menu ▼</button>
+<a id="aboutMenuButton" class="menuItem green" href="aboutMe.html">About Me</a>
+<button id="cubeMenuButton" class="menuItem green" onclick="menuToggle('cube');">Cube ▼</button>
+<a id="cubeHomeMenuButton" class="menuItem black" href="cube.html">Home</a>
+<a id="algsMenuButton" class="menuItem black" href="algs.html">Algs</a>
+<a id="compsMenuButton" class="menuItem black" href="comps.html">Comps</a>
+<button id="eventsMenuButton" class="menuItem black" onclick="menuToggle('events');">Events ▼</button>
+<a id="threeEventMenuButton" class="menuItem red" href="threeEvent.html">3x3</a>
+<a id="otherEventMenuButton" class="menuItem red" href="otherEvents.html">Other</a>
+	
+	*/
 }
 
 //[original tab to be expanded, tab text, whether it is expanded yet or not, [children of tab]]
 var tabInfo = [
-["main", "Menu", false, ["cube", "about"], ""], 
-["about", "", false, [], ""],
+["main", "Menu", false, ["cube", "aboutMe"], ""], 
+["aboutMe", "", false, [], ""],
 ["cube", "Cube", false, ["cubeHome", "algs", "comps", "events"], ""],
 ["cubeHome", "", false, [], ""], 
 ["algs", "", false, [], ""], 
 ["comps", "", false, [], ""], 
-["events", "Events", false, ["threeEvent", "otherEvent"], ""],
-["threeEvent", "", false, [], ""], 
-["otherEvent", "", false, [], ""], 
+["events", "Events", false, ["threeCube", "otherEvents"], ""],
+["threeCube", "", false, [], ""], 
+["otherEvents", "", false, [], ""], 
 ]
 
 function menuCollapse(tabToCollapse){

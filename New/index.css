@@ -99,8 +99,17 @@ a{
 	display: none;
 	cursor: pointer;
 	text-decoration: none;
+	transition: transform 0.3s;
+	
+	/*BOING*/
+	transition-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
 }
 
+.menuItem:hover{
+	transform: translate(24px, 0px);
+}
+
+/*
 .menuItem.blue:hover{
 	background: var(--red);
 }
@@ -116,12 +125,24 @@ a{
 .menuItem.black:hover{
 	background: var(--blue);
 }
+*/
 
 .menuHeader{
 	display: block;
 }
 
+@media screen and (max-width: 1200px){
+	.menuItem:hover{
+		transform: translate(-24px, 0px);
+	}
+}
 
+@media screen and (max-width: 768px){
+	.menuItem:hover{
+		transform: translate(0px, 0px);
+		padding: 0.75em 0.75em;
+	}
+}
 
 
 
