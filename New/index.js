@@ -82,11 +82,6 @@ function conditionedColor(prevColors){
 
 }
 
-function addMetaTags(tag){
-	
-}
-
-
 function bodyLoad(page){
 	
 	
@@ -176,6 +171,9 @@ function bodyLoad(page){
 	["button", "Events ▼", "events", "black"],
 	["a", "3x3", "threeCube", "red"],
 	["a", "Other", "otherEvents", "red"],
+	["a", "Hobbies", "hobbies", "green"],
+	["a", "JS Things", "javascript", "green"],
+	["a", "Other", "other", "green"],
 	];
 	
 	buildMenu(menuContent);
@@ -197,7 +195,7 @@ function bodyLoad(page){
 
 //[original tab to be expanded, tab text, whether it is expanded yet or not, [children of tab]]
 var tabInfo = [
-["main", "Menu", false, ["cube", "aboutMe"], ""], 
+["main", "Menu", false, ["cube", "aboutMe", "hobbies", "javascript", "other"], ""], 
 ["aboutMe", "", false, [], ""],
 ["cube", "Cube", false, ["cubeHome", "algs", "comps", "events"], ""],
 ["cubeHome", "", false, [], ""], 
@@ -206,6 +204,9 @@ var tabInfo = [
 ["events", "Events", false, ["threeCube", "otherEvents"], ""],
 ["threeCube", "", false, [], ""], 
 ["otherEvents", "", false, [], ""], 
+["hobbies", "", false, [], ""], 
+["javascript", "", false, [], ""], 
+["other", "", false, [], ""], 
 ]
 
 function menuCollapse(tabToCollapse){
