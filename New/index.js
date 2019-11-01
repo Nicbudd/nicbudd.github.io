@@ -105,7 +105,6 @@ function bodyLoad(page){
 	var eventsPages = ["threeCube", "otherEvents"];
 	
 	cubingPages = cubingPages.concat(eventsPages);
-	console.log(cubingPages)
 	
 	//color all of the body headings
 	var mainBody = document.getElementById("mainBody");

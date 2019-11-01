@@ -193,7 +193,7 @@ a:hover{
 	transition-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
 }
 
-a.menuItem:hover{
+.menuItem:hover{
 	transform: translate(24px, 0px);
 }
 
@@ -220,13 +220,13 @@ a.menuItem:hover{
 }
 
 @media screen and (max-width: 1200px){
-	a.menuItem:hover{
+	.menuItem:hover{
 		transform: translate(-24px, 0px);
 	}
 }
 
 @media screen and (max-width: 768px){
-	a.menuItem:hover{
+	.menuItem:hover{
 		transform: translate(0px, 0px);
 		padding: 0.75em 0.75em;
 	}
