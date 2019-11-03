@@ -3,6 +3,7 @@
 @import url('https://fonts.googleapis.com/css?family=Fira+Sans:100,200,300,400,500,600,700,800,900');
 @import url('https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900');
 @import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:100,200,300,400,500,600,700,800,900');
 
 :root{
 	--white: #E6E6E6;
@@ -19,13 +20,27 @@
 }
 
 body{
-	font-family: "Roboto", sans-serif;
-	font-size: 1.125em;
+	font-family: "Noto Sans", sans-serif;
+	font-size: 1em;
 	color: var(--black);
 	background-color: var(--lightGray);
 	padding: 0;
 	margin: 0;
 }
+
+@media screen and (max-width: 500px){
+	body{
+		font-size: 0.85em;
+	}
+	
+	#title{
+		font-size: 0.75em;
+	}
+}
+
+
+
+
 
 button{
 	border: none;
@@ -48,12 +63,17 @@ button{
 	font-weight: 700;
 	font-family: 'Fira Sans', sans-serif;
 	text-align: center;
-	margin: 0.5em 0.25em;
+	margin: 0.5em 0em;
 	cursor: pointer;
-	transition: 0.2s;
+	transition: color 0.2s, background 0.2s;
 	border-color: var(--black);
 	color: var(--black);
 	background: var(--white);
+	border-radius: 0.5em;
+}
+
+.centerFlex .button{
+	margin: 0.5em 0.25em;
 }
 
 .button:hover{
@@ -113,6 +133,11 @@ button{
 	color: var(--black);
 	background: var(--white);
 }
+
+
+
+
+
 
 
 a{
@@ -284,12 +309,18 @@ a:hover{
 }
 
 
+img{
+	max-width: 40%;
+    height: auto;
+	margin:10px;
+}
+
 
 
 #mainBody{
 	width: 60%;
 	float: left;
-	padding: 0 2em;
+	padding: 2em 2em;
 	background-color: var(--white);
 }
 
@@ -323,16 +354,6 @@ a:hover{
 h1, h2, h3, h4, h5, h6{
 	font-family: "Fira Sans", sans-serif;
 	text-transform: uppercase;
-}
-
-
-#mainBody h1, #mainBody h2, #mainBody h3, #mainBody h4{
-	box-shadow: 0.25em 0.15em var(--lightGray);
-	display: inline-block;
-	padding: 0.125em 2em 0.125em 0.5em;
-	text-shadow: 0.075em 0.05em #484848;
-	color: var(--white);
-	background: var(--black);
 }
 
 /*
@@ -385,4 +406,46 @@ h1, h2, h3, h4, h5, h6{
 #mainBody h6{
 	font-size: 1.125em;
 	margin: 0.75em 0;
+}
+
+@media screen and (max-width: 400px){
+	#mainBody h1{
+		font-size: 1.75em;
+		margin: 0.75em 0;
+	}
+
+	#mainBody h2{
+		font-size: 1.4em;
+		margin: 0.75em 0;
+	}
+
+	#mainBody h3{
+		font-size: 1.25em;
+		margin: 0.75em 0;
+	}
+
+	#mainBody h4{
+		font-size: 1em;
+		margin: 0.75em 0;
+	}
+
+	#mainBody h5{
+		font-size: 1.25em;
+		margin: 0.75em 0;
+	}
+
+	#mainBody h6{
+		font-size: 1em;
+		margin: 0.75em 0;
+	}
+}
+
+#mainBody h1, #mainBody h2, #mainBody h3, #mainBody h4{
+	margin:auto;
+	box-shadow: 0.25em 0.15em var(--lightGray);
+	display: inline-block;
+	padding: 0.125em 2em 0.125em 0.5em;
+	text-shadow: 0.075em 0.05em #484848;
+	color: var(--white);
+	background: var(--black);
 }

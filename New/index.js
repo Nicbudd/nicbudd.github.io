@@ -32,7 +32,7 @@ function addToHead(content){
 
 function buildMenu(content){
 	var menu = document.getElementById("menu");
-	for (let i = 0; i < content.length; i++){
+	for (let i = 1; i < content.length; i++){
 		
 		var item
 		
@@ -198,14 +198,14 @@ function bodyLoad(page){
 	var menuContent = [
 	["header", "Menu ▼", "index", "blue"],
 	["a", "About Me", "aboutMe", "green"],
-	["button", "Cube ▼", "cube", "green"],
-	["a", "Home", "cubeHome", "black"],
-	["a", "Algorithms", "algs", "black"],
-	["a", "Competitions", "comps", "black"],
-	["a", "Beginners", "cubeBeginners", "black"],
-	["button", "Events ▼", "events", "black"],
-	["a", "3x3", "threeCube", "red"],
-	["a", "Other", "otherEvents", "red"],
+	["button", "Cubing ▼", "cube", "green"],
+	["a", "Home", "cubeHome", "red"],
+	["a", "Algorithms", "algs", "red"],
+	["a", "Competitions", "comps", "red"],
+	["a", "Beginners", "cubeBeginners", "red"],
+	["button", "Events ▼", "events", "red"],
+	["a", "3x3", "threeCube", "black"],
+	["a", "Other", "otherEvents", "black"],
 	["a", "Hobbies", "hobbies", "green"],
 	["a", "JS Things", "javascript", "green"],
 	["a", "Other", "other", "green"],
@@ -232,7 +232,7 @@ function bodyLoad(page){
 var tabInfo = [
 ["index", "Menu", false, ["cube", "aboutMe", "hobbies", "javascript", "other"], ""], 
 ["aboutMe", "", false, [], ""],
-["cube", "Cube", false, ["cubeHome", "algs", "comps", "cubeBeginners", "events"], ""],
+["cube", "Cubing", false, ["cubeHome", "algs", "comps", "cubeBeginners", "events"], ""],
 ["cubeHome", "", false, [], ""], 
 ["algs", "", false, [], ""], 
 ["comps", "", false, [], ""], 
