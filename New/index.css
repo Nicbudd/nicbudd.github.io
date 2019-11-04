@@ -5,6 +5,10 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900');
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans:100,200,300,400,500,600,700,800,900');
 
+
+
+/* Universals */
+
 :root{
 	--white: #E6E6E6;
 	--lightGray: #C3C3C3;
@@ -32,7 +36,83 @@ body{
 	body{
 		font-size: 0.85em;
 	}
-	
+}
+
+button{
+	border: none;
+	outline: none;
+}
+
+a{
+	text-decoration: underline;
+	font-weight: 400;
+	color: var(--white);
+}
+
+a:hover{
+	/*text-decoration: none;*/
+	font-weight: 700;
+}
+
+
+img{
+	max-width: 40%;
+    height: auto;
+	margin:10px;
+}
+
+h1, h2, h3, h4, h5, h6{
+	font-family: "Fira Sans", sans-serif;
+	text-transform: uppercase;
+}
+
+.red{
+	background: var(--red)!important;
+	color: var(--white)!important;
+}
+
+.green{
+	background: var(--green)!important;
+	color: var(--white)!important;
+}
+
+.blue{
+	background: var(--blue)!important;
+	color: var(--white)!important;
+}
+
+.black{
+	background: var(--black)!important;
+	color: var(--white)!important;
+}
+
+
+
+
+
+
+
+/* Website Sections*/
+
+
+#title{
+	width: 100%;
+	display: block;
+	background: var(--black);
+}
+
+#titleText{
+	font-size: 5em;
+	font-family: "Roboto Mono", monospace;
+	text-transform: uppercase;
+	color: var(--white);
+	text-align: center;
+	font-weight: 900;
+	padding: 0.125em 0em 0.125em 0em;
+	letter-spacing: 0.15em;
+}
+
+@media screen and (max-width: 500px){
 	#title{
 		font-size: 0.75em;
 	}
@@ -40,18 +120,236 @@ body{
 
 
 
-
-
-button{
-	border: none;
-	outline: none;
+@media screen and (max-width: 1200px){
+	#menu{
+		width: 30%;
+		float: right;
+	}
+	#mainBody{
+		width: 70%;
+	}
+	#sideBar{
+		width: 30%;
+	}
 }
+
+@media screen and (max-width: 768px){
+	#menu{
+		width: 100%;
+	}
+	#mainBody{
+		width: 100%;
+		margin: 0px;
+	}
+	#sideBar{
+		width: 100%;
+	}
+}
+
+
+
+
+
+#menu {
+	width: 15%;
+	float: left;
+	padding: 0 0em 0 0;
+}
+
+.menuItem{
+	width: 100%;
+	text-align: center;
+	padding: 0.5em 0.5em;
+	font-size: 1.25em;
+	font-family: "Raleway", sans-serif;
+	font-weight: 600;
+	text-transform: uppercase;
+	padding: 0.5em 0;
+	display: none;
+	cursor: pointer;
+	text-decoration: none;
+	transition: transform 0.3s;
+	
+	/*BOING*/
+	transition-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
+}
+
+.menuItem:hover{
+	transform: translate(24px, 0px);
+}
+
+.menuHeader{
+	display: block;
+}
+
+@media screen and (max-width: 1200px){
+	.menuItem:hover{
+		transform: translate(-24px, 0px);
+	}
+}
+
+@media screen and (max-width: 768px){
+	.menuItem:hover{
+		transform: translate(0px, 0px);
+		padding: 0.75em 0.75em;
+	}
+}
+
+
+
+
+#sideBar{
+	width: 25%;
+	float: left;
+}
+
+.sideBarContent{
+	border-radius: 1em;
+	margin: 0.5em;
+	padding: 1em 0.5em;
+	height: auto;
+	color: var(--white);
+}
+
+.sideBarContent h1, .sideBarContent h2, .sideBarContent h3, .sideBarContent h4, .sideBarContent h5, .sideBarContent h6{
+	text-align:center;
+	background: rgba(0, 0, 0, 0);
+} 
+
+.sideBarContent h1{
+	font-size: 1.75em;
+	margin: 0.5em 0;
+}
+
+.sideBarContent h2{
+	font-size: 1.4em;
+	margin: 0.5em 0;
+}
+
+.sideBarContent h3{
+	font-size: 1.25em;
+	margin: 0.5em 0;
+}
+
+.sideBarContent h4{
+	font-size: 1.125em;
+	margin: 0.5em 0;
+}
+
+.sideBarContent h5{
+	font-size: 1em;
+	margin: 0.5em 0;
+}
+
+.sideBarContent h6{
+	font-size: 1em;
+	margin: 0.5em 0;
+}
+
+
+
+
+
+#mainBody{
+	width: 60%;
+	float: left;
+	padding: 2em 2em;
+	background-color: var(--white);
+}
+
+#mainBody h1, #mainBody h2, #mainBody h3, #mainBody h4{
+	margin:auto;
+	box-shadow: 0.25em 0.15em var(--lightGray);
+	display: inline-block;
+	padding: 0.125em 2em 0.125em 0.5em;
+	text-shadow: 0.075em 0.05em #484848;
+	color: var(--white);
+	background: var(--black);
+}
+
+
+#mainBody h1{
+	font-size: 2.5em;
+	margin: 0.75em 0;
+}
+
+#mainBody h2{
+	font-size: 1.75em;
+	margin: 0.75em 0;
+}
+
+#mainBody h3{
+	font-size: 1.4em;
+	margin: 0.75em 0;
+}
+
+#mainBody h4{
+	font-size: 1.25em;
+	margin: 0.75em 0;
+}
+
+#mainBody h5{
+	font-size: 1.5em;
+	margin: 0.75em 0;
+}
+
+#mainBody h6{
+	font-size: 1.125em;
+	margin: 0.75em 0;
+}
+
+@media screen and (max-width: 400px){
+	#mainBody h1{
+		font-size: 1.75em;
+		margin: 0.75em 0;
+	}
+
+	#mainBody h2{
+		font-size: 1.4em;
+		margin: 0.75em 0;
+	}
+
+	#mainBody h3{
+		font-size: 1.25em;
+		margin: 0.75em 0;
+	}
+
+	#mainBody h4{
+		font-size: 1em;
+		margin: 0.75em 0;
+	}
+
+	#mainBody h5{
+		font-size: 1.25em;
+		margin: 0.75em 0;
+	}
+
+	#mainBody h6{
+		font-size: 1em;
+		margin: 0.75em 0;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Special Classes*/
 
 .centerFlex{
 	display:flex;
 	justify-content:center;
 	align-items:center;
 }
+
+
+
 
 .button{
 	display: block;
@@ -134,318 +432,3 @@ button{
 	background: var(--white);
 }
 
-
-
-
-
-
-
-a{
-	text-decoration: underline;
-	font-weight: 400;
-	color: var(--white);
-}
-
-a:hover{
-	/*text-decoration: none;*/
-	font-weight: 700;
-}
-
-.red{
-	background: var(--red)!important;
-	color: var(--white)!important;
-}
-
-.green{
-	background: var(--green)!important;
-	color: var(--white)!important;
-}
-
-.blue{
-	background: var(--blue)!important;
-	color: var(--white)!important;
-}
-
-.black{
-	background: var(--black)!important;
-	color: var(--white)!important;
-}
-
-
-
-
-#title{
-	width: 100%;
-	display: block;
-	background: var(--black);
-}
-
-#titleText{
-	font-size: 5em;
-	font-family: "Roboto Mono", monospace;
-	text-transform: uppercase;
-	color: var(--white);
-	text-align: center;
-	font-weight: 900;
-	padding: 0.125em 0em 0.125em 0em;
-	letter-spacing: 0.15em;
-}
-
-
-
-
-#menu {
-	width: 15%;
-	float: left;
-	padding: 0 0em 0 0;
-}
-
-.menuItem{
-	width: 100%;
-	text-align: center;
-	padding: 0.5em 0.5em;
-	font-size: 1.25em;
-	font-family: "Raleway", sans-serif;
-	font-weight: 600;
-	text-transform: uppercase;
-	padding: 0.5em 0;
-	display: none;
-	cursor: pointer;
-	text-decoration: none;
-	transition: transform 0.3s;
-	
-	/*BOING*/
-	transition-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
-}
-
-.menuItem:hover{
-	transform: translate(24px, 0px);
-}
-
-/*
-.menuItem.blue:hover{
-	background: var(--red);
-}
-
-.menuItem.green:hover{
-	background: var(--red);
-}
-
-.menuItem.red:hover{
-	background: var(--blue);
-}
-
-.menuItem.black:hover{
-	background: var(--blue);
-}
-*/
-
-.menuHeader{
-	display: block;
-}
-
-@media screen and (max-width: 1200px){
-	.menuItem:hover{
-		transform: translate(-24px, 0px);
-	}
-}
-
-@media screen and (max-width: 768px){
-	.menuItem:hover{
-		transform: translate(0px, 0px);
-		padding: 0.75em 0.75em;
-	}
-}
-
-
-
-
-#sideBar{
-	width: 25%;
-	float: left;
-}
-
-.sideBarContent{
-	border-radius: 1em;
-	margin: 0.5em;
-	padding: 1em 0.5em;
-	height: auto;
-	color: var(--white);
-}
-
-.sideBarContent h1, .sideBarContent h2, .sideBarContent h3, .sideBarContent h4, .sideBarContent h5, .sideBarContent h6{
-	text-align:center;
-	background: rgba(0, 0, 0, 0);
-} 
-
-.sideBarContent h1{
-	font-size: 1.75em;
-	margin: 0.5em 0;
-}
-
-.sideBarContent h2{
-	font-size: 1.4em;
-	margin: 0.5em 0;
-}
-
-.sideBarContent h3{
-	font-size: 1.25em;
-	margin: 0.5em 0;
-}
-
-.sideBarContent h4{
-	font-size: 1.125em;
-	margin: 0.5em 0;
-}
-
-.sideBarContent h5{
-	font-size: 1em;
-	margin: 0.5em 0;
-}
-
-.sideBarContent h6{
-	font-size: 1em;
-	margin: 0.5em 0;
-}
-
-
-img{
-	max-width: 40%;
-    height: auto;
-	margin:10px;
-}
-
-
-
-#mainBody{
-	width: 60%;
-	float: left;
-	padding: 2em 2em;
-	background-color: var(--white);
-}
-
-@media screen and (max-width: 1200px){
-	#menu{
-		width: 30%;
-		float: right;
-	}
-	#mainBody{
-		width: 70%;
-	}
-	#sideBar{
-		width: 30%;
-	}
-}
-
-@media screen and (max-width: 768px){
-	#menu{
-		width: 100%;
-	}
-	#mainBody{
-		width: 100%;
-		margin: 0px;
-	}
-	#sideBar{
-		width: 100%;
-	}
-}
-
-
-h1, h2, h3, h4, h5, h6{
-	font-family: "Fira Sans", sans-serif;
-	text-transform: uppercase;
-}
-
-/*
-#mainBody .red{
-	background: var(--red);
-	color: var(--white);
-}
-
-#mainBody .green{
-	background: var(--green);
-	color: var(--white);
-}
-
-#mainBody .blue{
-	background: var(--blue);
-	color: var(--white);
-}
-
-#mainBody .black{
-	background: var(--black);
-	color: var(--white);
-}
-*/
-
-#mainBody h1{
-	font-size: 2.5em;
-	margin: 0.75em 0;
-}
-
-#mainBody h2{
-	font-size: 1.75em;
-	margin: 0.75em 0;
-}
-
-#mainBody h3{
-	font-size: 1.4em;
-	margin: 0.75em 0;
-}
-
-#mainBody h4{
-	font-size: 1.25em;
-	margin: 0.75em 0;
-}
-
-#mainBody h5{
-	font-size: 1.5em;
-	margin: 0.75em 0;
-}
-
-#mainBody h6{
-	font-size: 1.125em;
-	margin: 0.75em 0;
-}
-
-@media screen and (max-width: 400px){
-	#mainBody h1{
-		font-size: 1.75em;
-		margin: 0.75em 0;
-	}
-
-	#mainBody h2{
-		font-size: 1.4em;
-		margin: 0.75em 0;
-	}
-
-	#mainBody h3{
-		font-size: 1.25em;
-		margin: 0.75em 0;
-	}
-
-	#mainBody h4{
-		font-size: 1em;
-		margin: 0.75em 0;
-	}
-
-	#mainBody h5{
-		font-size: 1.25em;
-		margin: 0.75em 0;
-	}
-
-	#mainBody h6{
-		font-size: 1em;
-		margin: 0.75em 0;
-	}
-}
-
-#mainBody h1, #mainBody h2, #mainBody h3, #mainBody h4{
-	margin:auto;
-	box-shadow: 0.25em 0.15em var(--lightGray);
-	display: inline-block;
-	padding: 0.125em 2em 0.125em 0.5em;
-	text-shadow: 0.075em 0.05em #484848;
-	color: var(--white);
-	background: var(--black);
-}

@@ -194,6 +194,7 @@ function bodyLoad(page){
 	addToHead(headContent);
 	
 	
+	/*["object type, text in menu, object name, object color, [children]"]*/
 	
 	var menuContent = [
 	["header", "Menu ▼", "index", "blue"],
