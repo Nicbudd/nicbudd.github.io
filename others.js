@@ -92,6 +92,7 @@ function generateWeighted(inputArray){
 	
 }
 
+/*
 function generateLoot(){
 	
 	//for example, "Curse of Abysanna", "Fulkims Blessing"
@@ -142,3 +143,4 @@ function generateLoot(){
 	console.log("Intrigue: " + intrigue);
 	
 }
+*/

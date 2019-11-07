@@ -1,6 +1,23 @@
 var body = document.getElementsByTagName("body")[0];
 var mainBody = document.getElementById("mainBody");
 var head = document.getElementsByTagName("head")[0];
+
+var menuContent = [
+	["header", "Menu", "menu", "blue", ["index", "aboutMe", "cube", "hobbies", "javascript", "other"]],
+	["a", "Home", "index", "green", []],
+	["a", "About Me", "aboutMe", "green", []],
+	["button", "Cubing", "cube", "green", ["cubeHome", "events", "comps", "cubeBeginners", "algs"]],
+	["a", "Home", "cubeHome", "red", []],
+	["button", "Events", "events", "red", ["threeCube", "otherEvents"]],
+	["a", "3x3", "threeCube", "black", []],
+	["a", "Other", "otherEvents", "black", []],
+	["a", "Competitions", "comps", "red", []],
+	["a", "Beginners", "cubeBeginners", "red", []],
+	["a", "Algorithms", "algs", "red", []],
+	["a", "Hobbies", "hobbies", "green", []],
+	["a", "JS Things", "javascript", "green", []],
+	["a", "Other", "other", "green", []],
+	];
 	
 var hiddenContent = []
 
@@ -39,10 +56,12 @@ function buildMenu(content){
 		if (content[i][0] == "button" || content[i][0] == "header"){
 			item = document.createElement("button");
 			item.setAttribute("onclick", "menuToggle('" + content[i][2] + "')")
+			item.innerHTML = content[i][1] + " ▼"
 		
 		} else {
 			item = document.createElement("a")
 			item.setAttribute("href", content[i][2] + ".html")
+			item.innerHTML = content[i][1]
 		
 		}
 		
@@ -53,7 +72,7 @@ function buildMenu(content){
 		}
 		
 		item.setAttribute("id", content[i][2] + "MenuButton");
-		item.innerHTML = content[i][1]
+		
 		menu.appendChild(item);
 	}
 }
@@ -193,77 +212,34 @@ function bodyLoad(page){
 
 	addToHead(headContent);
 	
-	
-	/*["object type, text in menu, object name, object color, [children]"]*/
-	
-	var menuContent = [
-	["header", "Menu ▼", "index", "blue"],
-	["a", "About Me", "aboutMe", "green"],
-	["button", "Cubing ▼", "cube", "green"],
-	["a", "Home", "cubeHome", "red"],
-	["button", "Events ▼", "events", "red"],
-	["a", "3x3", "threeCube", "black"],
-	["a", "Other", "otherEvents", "black"],
-	["a", "Competitions", "comps", "red"],
-	["a", "Beginners", "cubeBeginners", "red"],
-	["a", "Algorithms", "algs", "red"],
-	["a", "Hobbies", "hobbies", "green"],
-	["a", "JS Things", "javascript", "green"],
-	["a", "Other", "other", "green"],
-	];
-	
 	buildMenu(menuContent);
 	
-	/*
+	for (let i = 0; i < menuContent.length; i++){
+		menuContent[i][5] = false
+	}
 	
-	<button id="mainMenuButton" class="menuItem menuHeader blue" onclick="menuToggle('main');">Menu ▼</button>
-<a id="aboutMenuButton" class="menuItem green" href="aboutMe.html">About Me</a>
-<button id="cubeMenuButton" class="menuItem green" onclick="menuToggle('cube');">Cube ▼</button>
-<a id="cubeHomeMenuButton" class="menuItem black" href="cube.html">Home</a>
-<a id="algsMenuButton" class="menuItem black" href="algs.html">Algs</a>
-<a id="compsMenuButton" class="menuItem black" href="comps.html">Comps</a>
-<button id="eventsMenuButton" class="menuItem black" onclick="menuToggle('events');">Events ▼</button>
-<a id="threeEventMenuButton" class="menuItem red" href="threeEvent.html">3x3</a>
-<a id="otherEventMenuButton" class="menuItem red" href="otherEvents.html">Other</a>
-	
-	*/
-}
 
-//[original tab to be expanded, tab text, whether it is expanded yet or not, [children of tab]]
-var tabInfo = [
-["index", "Menu", false, ["cube", "aboutMe", "hobbies", "javascript", "other"], ""], 
-["aboutMe", "", false, [], ""],
-["cube", "Cubing", false, ["cubeHome", "events", "comps", "cubeBeginners", "algs"], ""],
-["cubeHome", "", false, [], ""], 
-["events", "Events", false, ["threeCube", "otherEvents"], ""],
-["threeCube", "", false, [], ""], 
-["otherEvents", "", false, [], ""], 
-["comps", "", false, [], ""], 
-["cubeBeginners", "", false, [], ""], 
-["algs", "", false, [], ""], 
-["hobbies", "", false, [], ""], 
-["javascript", "", false, [], ""], 
-["other", "", false, [], ""], 
-]
+}
 
 function menuCollapse(tabToCollapse){
 	
 	var tabNumber;
 	
-	for (let i = 0; i < tabInfo.length; i++){
-		if (tabInfo[i][0] == tabToCollapse){
+	for (let i = 0; i < menuContent.length; i++){
+		if (menuContent[i][2] == tabToCollapse){
 			tabNumber = i;
 		}
+
 	}
 	
-	var parentItem = document.getElementById(tabInfo[tabNumber][0] + "MenuButton");
+	var parentItem = document.getElementById(menuContent[tabNumber][2] + "MenuButton");
 	
-	for (let i = 0; i < tabInfo[tabNumber][3].length; i++){
-		menuCollapse(tabInfo[tabNumber][3][i]);
-		var currentItem = document.getElementById(tabInfo[tabNumber][3][i] + "MenuButton");
+	for (let i = 0; i < menuContent[tabNumber][4].length; i++){
+		menuCollapse(menuContent[tabNumber][4][i]);
+		var currentItem = document.getElementById(menuContent[tabNumber][4][i] + "MenuButton");
 		currentItem.style.display = "none";
-		tabInfo[tabNumber][2] = false
-		parentItem.innerHTML = tabInfo[tabNumber][1] + " ▼";
+		menuContent[tabNumber][5] = false
+		parentItem.innerHTML = menuContent[tabNumber][1] + " ▼";
 	}
 	
 }
@@ -272,34 +248,35 @@ function menuToggle(tabToExpand){
 	
 	var tabNumber;
 	
-	for (let i = 0; i < tabInfo.length; i++){
-		if (tabInfo[i][0] == tabToExpand){
+	for (let i = 0; i < menuContent.length; i++){
+		if (menuContent[i][2] == tabToExpand){
 			tabNumber = i;
 		}
 	}
 	
-	if (tabInfo[tabNumber][2] == false){
+
+	if (menuContent[tabNumber][5] == false){
 		
-		var parentItem = document.getElementById(tabInfo[tabNumber][0] + "MenuButton");
+		var parentItem = document.getElementById(menuContent[tabNumber][2] + "MenuButton");
 		
-		for (let i = 0; i < tabInfo[tabNumber][3].length; i++){
-			var currentItem = document.getElementById(tabInfo[tabNumber][3][i] + "MenuButton");
+		for (let i = 0; i < menuContent[tabNumber][4].length; i++){
+			var currentItem = document.getElementById(menuContent[tabNumber][4][i] + "MenuButton");
 			currentItem.style.display = "block";
-			parentItem.innerHTML = tabInfo[tabNumber][1] + " ▲";
+			parentItem.innerHTML = menuContent[tabNumber][1] + " ▲";
 		}
 		
 		
 		parentItem.style.display = "block";
 		
-		tabInfo[tabNumber][2] = true;
+		menuContent[tabNumber][5] = true;
 		
 	} else {
 		
-		menuCollapse(tabInfo[tabNumber][0]);
+		menuCollapse(menuContent[tabNumber][2]);
 		
-		var parentItem = document.getElementById(tabInfo[tabNumber][0] + "MenuButton");
+		var parentItem = document.getElementById(menuContent[tabNumber][2] + "MenuButton");
 		parentItem.style.display = "block";
 
-		tabInfo[tabNumber][2] = false;
+		menuContent[tabNumber][5] = false;
 	}
 }
