@@ -103,14 +103,14 @@ h1, h2, h3, h4, h5, h6{
 }
 
 #titleText{
-	font-size: 5em;
+	font-size: 4em;
 	font-family: "Roboto Mono", monospace;
 	text-transform: uppercase;
 	color: var(--white);
 	text-align: center;
 	font-weight: 900;
 	padding: 0.125em 0em 0.125em 0em;
-	letter-spacing: 0.15em;
+	letter-spacing: 0.2em;
 }
 
 @media screen and (max-width: 500px){
