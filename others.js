@@ -62,6 +62,46 @@ function randBetween(min, max){
 	return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
+
+function randomWalks(runCount, walkLength){
+	var distance = []
+	var zeroes = 0
+	
+	for (let i = 0; i < runCount; i++){
+		
+		distance[i] = 0
+		
+		for (let j = 0; j < walkLength; j++){
+			var random = randBetween(0, 1);
+			if (random == 0){
+				random = -1
+			}
+			distance[i] += random
+		}
+		
+		if (distance[i] == 0){
+			zeroes++
+		}
+	}
+	
+	console.log(distance)
+	return zeroes;
+	
+}
+
+function vanEck(num){
+	var seq = [0]
+	for (let i = 0; i < num; i++){
+		var prevNumLoc = seq.lastIndexOf(seq[i], -2)
+		if (prevNumLoc == -1){
+			seq.push(0)
+		} else {
+			seq.push(seq.length - (prevNumLoc + 1))
+		}
+	}
+	return seq
+}
+
 function chance(likelyhood){
 	if (Math.random() < likelyhood){
 		return true
@@ -113,7 +153,7 @@ function generateLoot(){
 	};
 	
 	
-
+/*
 	
 	var items = [
 	
@@ -140,5 +180,5 @@ function generateLoot(){
 	console.log(itemName);
 	console.log("Value: " + itemValue);
 	console.log("Intrigue: " + intrigue);
-	
+	*/
 }
