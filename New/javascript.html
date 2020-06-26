@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="index.css">
+<script src = "index.js" type = "text/javascript"></script>
+<!--Insert additional JS files here-->
+<script src = "morseCode.js" type = "text/javascript"></script>
+<script src = "monopolyHeatmap.js" type = "text/javascript"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+<title>Nicbudd</title>
+
+<script>
+
+/*shield your eyes from what you are about to see below*/
+
+var qVar = "q"
+var wVar = "w"
+var eVar = "e"
+var rVar = "r"
+var tVar = "t"
+var yVar = "y"
+var uVar = "u"
+var iVar = "i"
+var oVar = "o"
+var pVar = "p"
+var aVar = "a"
+var sVar = "s"
+var dVar = "d"
+var fVar = "f"
+var gVar = "g"
+var hVar = "h"
+var jVar = "j"
+var kVar = "k"
+var lVar = "l"
+var zVar = "z"
+var xVar = "x"
+var cVar = "c"
+var vVar = "v"
+var bVar = "b"
+var nVar = "n"
+var mVar = "m"
+
+function loadAll(){
+	morseLoad();
+	monoLoad();
+	bodyLoad('javascript');
+}
+
+</script>
+
+
+<style>
+
+
+#morseCodeBox{
+	color: #303030;
+	padding: 0.25em;
+	padding-left: 4em;
+	padding-right: 4em;
+	background: #C3C3C3;
+	width: 70%;
+	border-radius: 32px;
+	margin-top: 16px;
+	margin-bottom: 16px;
+	border: 4px solid #303030;
+	position: relative;
+	z-index: 0;
+	text-align: center;
+}
+
+
+
+#bigMorseCode{
+	font-family:  Lato;
+	font-weight: 700;
+	font-size: 48px;
+	letter-spacing: 0.2em;
+	margin: 16px;
+}
+
+#morseHelperText{
+	margin: 1.25em;
+	margin-left: 7em;
+	margin-right: 7em;
+	transition: 0.5s margin-left;
+}
+
+@media screen and (max-width: 800px){
+	#morseCodeBox{
+		padding: 0.1em;
+	}
+	#morseHelperText{
+		margin-bottom: 6em;
+		margin-left: 1em;
+		margin-right: 1em;
+	}
+}
+
+@media screen and (max-width: 600px){
+	#morseCodeBox{
+		font-size: 80%;
+		margin: 0.5em;
+		width: auto;
+	}
+}
+
+@media screen and (max-width: 400px){
+	#morseCodeBox{
+		font-size: 70%;
+	}
+}
+
+.morseWrongAndRight{
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	align-items: center;
+	font-family:  Lato;
+	font-weight: 600;
+	font-size: 16px;
+	margin: 16px;
+	
+}
+
+.morseWrongAndRight > div{
+	padding: 16px;
+	width: 50%
+}
+
+.morseWrongAndRight div div{
+	padding: 16px;
+	font-size: 36px;
+}
+
+#morseNumbers{
+	font-weight: 700;
+	font-size: 2em;
+	display: inline-block;
+	margin: 0.2em;
+}
+
+.morseButtonsContainer{
+	position: absolute;
+	bottom: 1em;
+	left: 1em;
+}
+
+.morseNumbersContainer{
+	position: absolute;
+	bottom: 1em;
+	right: 1em;
+}
+
+#morseDifficultyContainer{
+	display: flex;
+	flex-direction: column;
+	position: absolute;
+	bottom: 5em;
+	left: 1em;
+	visibility: hidden;
+}
+
+
+
+.morseButtonsContainer div{
+	border: 2px solid #303030;
+	font-size: 1.5em;
+	display: inline-block;
+	padding: 0.3em 0.5em;
+	margin: 0.2em 0.3em;
+	border-radius: 8px;
+	font-weight: 700;
+	transition: 0.5s opacity, 0.5s color, 0.5s background;
+}
+
+#morseDifficultyContainer div{
+	border: 2px solid #303030;
+	font-size: 1.5em;
+	display: inline-block;
+	padding: 0.1em 0.8em;
+	margin: 0.1em 0.3em;
+	border-radius: 8px;
+	font-weight: 700;
+	opacity: 0;
+	color: #C3C3C3;
+	background: #303030;
+	transition: 0.5s opacity, 0.5s color, 0.5s background, 0.5s padding-top, 0.5s padding-bottom;
+}
+
+.morseReset{
+	border: 2px solid #303030;
+	font-size: 1.5em;
+	display: inline-block;
+	padding: 0.3em 0.5em;
+	margin: 0.2em 0.3em;
+	border-radius: 8px;
+	font-weight: 700;
+	transition: 0.5s color, 0.5s background;
+}
+
+.morseButtonsContainer div:hover{
+	background: #303030;
+	color: #C3C3C3;
+	cursor: pointer;
+}
+
+.morseDifficultyContainer div:hover{
+	background: #303030;
+	color: #C3C3C3;
+	cursor: pointer;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+}
+
+.morseReset:hover{
+	background: #303030;
+	color: #C3C3C3;
+	cursor: pointer;
+}
+
+#morseKeyboardContainer{
+	margin-bottom: 1em;
+}
+
+.morseKeyRow{
+	display: flex;
+	justify-content: center;
+}
+
+.morseKeyRow div{
+	border: 2px solid #303030;
+	font-size: 1.25em;
+	display: block;
+	width: 2em;
+	height: 1.75em;
+	margin: 0.2em;
+	border-radius: 8px;
+	font-weight: 700;
+	color: #303030;
+	background: rgba(0, 0, 0, 0);
+	cursor: pointer;
+}
+
+@media screen and (max-width:600px){
+	.morseKeyRow div{
+		font-size: 125%;
+		margin: 0.1em;
+	}
+}
+
+@media screen and (max-width:600px){
+	.morseKeyRow div{
+		font-size: 200%;
+		margin: 0.05em;
+		
+	}
+}
+
+.morseKeyRow div:hover{
+	background: #303030;
+	color: #C3C3C3;
+}
+
+
+
+#monoBoard{
+	display: grid;
+	/*grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto;*/
+	grid-gap: 3px;
+	background-color: #303030;
+	padding: 4px;
+	max-width: 900px;
+	margin: auto;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+#monoBoard div{
+	background-color: #E6E6E6;
+	color: #303030;
+	font-size:1em;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+}
+
+
+</style>
+
+</head>
+
+
+<body onload="loadAll();">
+<noscript><div id="noscript">Javascript is not working. Please enable javascript for proper site functionality</div></noscript>
+
+<a id="title" href="index.html">
+<div id="titleText">
+Nicbudd
+</div>
+</a>
+
+<div id="menu">
+<button onclick="menuToggle('menu')" class="menuItem menuHeader blue" id="menuMenuButton">Menu ▼</button>
+</div>
+
+
+<div id="mainBody">
+<!-- Fill with body-->
+
+
+
+
+
+
+<h2>Morse Code Practice</h2>
+
+<div id="morseCodeBox" onkeypress="keyPress(event)" tabindex="0">
+
+<div id="bigMorseCode">·--·</div>
+
+<div class="morseWrongAndRight">
+<div id="guessBox">Your Guess<div id="guessLetter">N</div></div>
+<div id="correctBox">Correct Answer<div id="correctLetter">W</div></div>
+</div>
+
+<div class="morseNumbersContainer">
+<div class="morseReset" onclick="resetCounter()"><i class="fas fa-undo-alt"></i></div>
+<div id="morseNumbers"><span id="correct">0</span>/<span id="attempts">0</span></div>
+</div>
+
+<div class="morseButtonsContainer">
+<div class="morseDifficulty" onclick="showHideDifficulty()"><i class="fas fa-tachometer-alt"></i></div>
+<div class="morseKeyboard" onclick="showHideKeyboard()"><i class="far fa-keyboard"></i></div>
+</div>
+
+<div id="morseDifficultyContainer">
+<div class="morseDifficultySetting" id="morseDiff1" onclick="difficulty1()">1</div>
+<div class="morseDifficultySetting" id="morseDiff2" onclick="difficulty2()">2</div>
+<div class="morseDifficultySetting" id="morseDiff3" onclick="difficulty3()">3</div>
+<div class="morseDifficultySetting" id="morseDiff4" onclick="difficulty4()">4</div>
+</div>
+
+
+<div id="morseKeyboardContainer" style="display:none;">
+
+<div class="morseKeyRow">
+<div onclick="virtualKeyPress(qVar)">Q</div>
+<div onclick="virtualKeyPress(wVar)">W</div>
+<div onclick="virtualKeyPress(eVar)">E</div>
+<div onclick="virtualKeyPress(rVar)">R</div>
+<div onclick="virtualKeyPress(tVar)">T</div>
+<div onclick="virtualKeyPress(yVar)">Y</div>
+<div onclick="virtualKeyPress(uVar)">U</div>
+<div onclick="virtualKeyPress(iVar)">I</div>
+<div onclick="virtualKeyPress(oVar)">O</div>
+<div onclick="virtualKeyPress(pVar)">P</div>
+</div>
+
+<div class="morseKeyRow">
+<div onclick="virtualKeyPress(aVar)">A</div>
+<div onclick="virtualKeyPress(sVar)">S</div>
+<div onclick="virtualKeyPress(dVar)">D</div>
+<div onclick="virtualKeyPress(fVar)">F</div>
+<div onclick="virtualKeyPress(gVar)">G</div>
+<div onclick="virtualKeyPress(hVar)">H</div>
+<div onclick="virtualKeyPress(jVar)">J</div>
+<div onclick="virtualKeyPress(kVar)">K</div>
+<div onclick="virtualKeyPress(lVar)">L</div>
+</div>
+
+<div class="morseKeyRow">
+<div onclick="virtualKeyPress(zVar)">Z</div>
+<div onclick="virtualKeyPress(xVar)">X</div>
+<div onclick="virtualKeyPress(cVar)">C</div>
+<div onclick="virtualKeyPress(vVar)">V</div>
+<div onclick="virtualKeyPress(bVar)">B</div>
+<div onclick="virtualKeyPress(nVar)">N</div>
+<div onclick="virtualKeyPress(mVar)">M</div>
+</div>
+
+</div>
+
+<div id="morseHelperText">Hit the letter that corresponds with the morse code above.</div>
+
+</div>
+
+
+<h2>Monopoly Heatmap</h2>
+
+<br>
+
+<button onclick="monoReset()">Reset</button>
+<button onclick="monoStepForward()">Step Forward</button>
+
+<div id="monoBoard"></div>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<div id="sideBar">
+</div>
+
+
+
+</body>
+
+</html>

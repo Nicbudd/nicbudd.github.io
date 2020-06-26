@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="index.css">
+<script src = "index.js" type = "text/javascript"></script>
+<!--Insert additional JS files here-->
+
+<title>Nicbudd</title>
+
+
+
+
+
+<script>
+
+var lukeG = {fullName: "Luke Griesser"}
+var billW = {fullName: "Bill Wang"}
+var leoB = {fullName: "Leo Borromeo"}
+var lucasE = {fullName: "Lucas Etter"}
+var tymonK = {fullName: "Tymon Kolasiński"}
+var mattyHI = {fullName: "Matty Hiroto Inaba"}
+
+var DNF = "-"
+
+var season = [
+
+{
+	solves: [],
+	matches: [],
+	competitors: [],
+},
+
+{
+	solves: [{matchNum: 1, solveNum: 1, solve1: 8.86, solve2: 9.54, link: ''}, {matchNum: 1, solveNum: 2, solve1: 5.65, solve2: 6.77, link: ''}, {matchNum: 1, solveNum: 3, solve1: 6.79, solve2: 6.38, link: ''}, {matchNum: 1, solveNum: 4, solve1: 6.31, solve2: 9.35, link: ''}, {matchNum: 1, solveNum: 5, solve1: 6.85, solve2: 8.46, link: ''}, {matchNum: 1, solveNum: 6, solve1: 7.91, solve2: 6.36, link: ''}, {matchNum: 1, solveNum: 7, solve1: 6.95, solve2: 6.46, link: ''}, {matchNum: 1, solveNum: 8, solve1: 7.4, solve2: 6.95, link: ''}, {matchNum: 1, solveNum: 9, solve1: 6.74, solve2: 6.62, link: ''}, {matchNum: 1, solveNum: 10, solve1: 8.64, solve2: 7.39, link: ''}, {matchNum: 1, solveNum: 11, solve1: 6.4, solve2: 7.14, link: ''}, {matchNum: 1, solveNum: 12, solve1: 6.49, solve2: 9.36, link: ''}, {matchNum: 1, solveNum: 13, solve1: 8.78, solve2: 7.49, link: ''}, {matchNum: 1, solveNum: 14, solve1: 6.37, solve2: 6.95, link: ''}, {matchNum: 1, solveNum: 15, solve1: 7.51, solve2: 10.66, link: ''}, {matchNum: 1, solveNum: 16, solve1: 6.33, solve2: 6.48, link: ''}, {matchNum: 1, solveNum: 17, solve1: 4.86, solve2: 7.56, link: ''}, {matchNum: 1, solveNum: 18, solve1: 6.62, solve2: 5.62, link: ''}, {matchNum: 1, solveNum: 19, solve1: 7.95, solve2: 7.78, link: ''}, {matchNum: 1, solveNum: 20, solve1: 7.45, solve2: 5.41, link: ''}, {matchNum: 1, solveNum: 21, solve1: 4.92, solve2: 6.03, link: ''}, {matchNum: 1, solveNum: 22, solve1: 7.64, solve2: 6.72, link: ''}, {matchNum: 1, solveNum: 23, solve1: 5.98, solve2: 6.46, link: ''}, {matchNum: 1, solveNum: 24, solve1: 8.62, solve2: 7.31, link: ''}, {matchNum: 1, solveNum: 25, solve1: 6.75, solve2: 7.43, link: ''}, {matchNum: 1, solveNum: 26, solve1: 7.53, solve2: 5.92, link: ''}, {matchNum: 1, solveNum: 27, solve1: 7, solve2: 5.86, link: ''}, {matchNum: 1, solveNum: 28, solve1: 6.62, solve2: 6.73, link: ''}, {matchNum: 1, solveNum: 29, solve1: DNF, solve2: 5.43, link: ''}, {matchNum: 1, solveNum: 30, solve1: 7.97, solve2: 6.86, link: ''}, {matchNum: 1, solveNum: 31, solve1: 7.61, solve2: 6.23, link: ''}, {matchNum: 1, solveNum: 32, solve1: 8.3, solve2: 6.54, link: ''}, {matchNum: 1, solveNum: 33, solve1: 9.18, solve2: 6.37, link: ''}, {matchNum: 1, solveNum: 34, solve1: 20.56, solve2: 5.92, link: ''}, {matchNum: 1, solveNum: 35, solve1: 6.04, solve2: 5.59, link: ''}, {matchNum: 1, solveNum: 36, solve1: 9.37, solve2: 5.94, link: ''}, {matchNum: 1, solveNum: 37, solve1: 5.96, solve2: 6.9, link: ''}, {matchNum: 1, solveNum: 38, solve1: 7.46, solve2: 8.14, link: ''}, {matchNum: 1, solveNum: 39, solve1: 6.94, solve2: 6.13, link: ''}, {matchNum: 1, solveNum: 40, solve1: 12.1, solve2: 7.53, link: ''}, {matchNum: 2, solveNum: 1, solve1: 6.41, solve2: 6.62, link: ''}, {matchNum: 2, solveNum: 2, solve1: 6.09, solve2: 5.83, link: ''}, {matchNum: 2, solveNum: 3, solve1: 5.96, solve2: 7.04, link: ''}, {matchNum: 2, solveNum: 4, solve1: 5.76, solve2: 8.43, link: ''}, {matchNum: 2, solveNum: 5, solve1: 7.86, solve2: 6.51, link: ''}, {matchNum: 2, solveNum: 6, solve1: 6.46, solve2: 8.38, link: ''}, {matchNum: 2, solveNum: 7, solve1: 7.17, solve2: 6.27, link: ''}, {matchNum: 2, solveNum: 8, solve1: 5.73, solve2: 7.61, link: ''}, {matchNum: 2, solveNum: 9, solve1: 6.69, solve2: 6.37, link: ''}, {matchNum: 2, solveNum: 10, solve1: 6.71, solve2: 8.16, link: ''}, {matchNum: 2, solveNum: 11, solve1: 6.23, solve2: 7.5, link: ''}, {matchNum: 2, solveNum: 12, solve1: 5.92, solve2: 5.87, link: ''}, {matchNum: 2, solveNum: 13, solve1: 5.58, solve2: 6.46, link: ''}, {matchNum: 2, solveNum: 14, solve1: 6.54, solve2: 7.95, link: ''}, {matchNum: 2, solveNum: 15, solve1: 7.93, solve2: 6.09, link: ''}, {matchNum: 2, solveNum: 16, solve1: 7.01, solve2: 6.76, link: ''}, {matchNum: 2, solveNum: 17, solve1: 7.88, solve2: 9.12, link: ''}, {matchNum: 2, solveNum: 18, solve1: 5.04, solve2: 5.79, link: ''}, {matchNum: 2, solveNum: 19, solve1: 5.77, solve2: 7.48, link: ''}, {matchNum: 2, solveNum: 20, solve1: 5.99, solve2: 5.99, link: ''}, {matchNum: 2, solveNum: 21, solve1: 4.76, solve2: 5.12, link: ''}, {matchNum: 2, solveNum: 22, solve1: 7.42, solve2: 5.91, link: ''}, {matchNum: 2, solveNum: 23, solve1: 6.31, solve2: 5.84, link: ''}, {matchNum: 2, solveNum: 24, solve1: 8.32, solve2: 7.06, link: ''}, {matchNum: 2, solveNum: 25, solve1: 6.95, solve2: 6.58, link: ''}, {matchNum: 2, solveNum: 26, solve1: 6.72, solve2: 6.02, link: ''}, {matchNum: 2, solveNum: 27, solve1: 7.04, solve2: 6.61, link: ''}, {matchNum: 2, solveNum: 28, solve1: 4.56, solve2: 7.01, link: ''}, {matchNum: 2, solveNum: 29, solve1: 9.56, solve2: 7.41, link: ''}, {matchNum: 2, solveNum: 30, solve1: 5.89, solve2: 6.36, link: ''}, {matchNum: 3, solveNum: 1, solve1: 6.2, solve2: 7.73, link: ''}, {matchNum: 3, solveNum: 2, solve1: 6.54, solve2: 6.47, link: ''}, {matchNum: 3, solveNum: 3, solve1: 9.66, solve2: 6.07, link: ''}, {matchNum: 3, solveNum: 4, solve1: 4.42, solve2: 6.45, link: ''}, {matchNum: 3, solveNum: 5, solve1: 5.48, solve2: 6.18, link: ''}, {matchNum: 3, solveNum: 6, solve1: 5.24, solve2: 6.15, link: ''}, {matchNum: 3, solveNum: 7, solve1: 7.67, solve2: 5.14, link: ''}, {matchNum: 3, solveNum: 8, solve1: 7.61, solve2: 8.11, link: ''}, {matchNum: 3, solveNum: 9, solve1: 6.15, solve2: 6, link: ''}, {matchNum: 3, solveNum: 10, solve1: 6.41, solve2: 6.73, link: ''}, {matchNum: 3, solveNum: 11, solve1: 5.22, solve2: 8.15, link: ''}, {matchNum: 3, solveNum: 12, solve1: 6.62, solve2: 7.08, link: ''}, {matchNum: 3, solveNum: 13, solve1: 7.84, solve2: 7.05, link: ''}, {matchNum: 3, solveNum: 14, solve1: 5.56, solve2: 6.35, link: ''}, {matchNum: 3, solveNum: 15, solve1: 5.36, solve2: 5.81, link: ''}, {matchNum: 3, solveNum: 16, solve1: 7.03, solve2: 9.29, link: ''}, {matchNum: 3, solveNum: 17, solve1: 7.23, solve2: 7.87, link: ''}, {matchNum: 3, solveNum: 18, solve1: 6.27, solve2: 8.55, link: ''}, {matchNum: 3, solveNum: 19, solve1: 6.73, solve2: 7.25, link: ''}, {matchNum: 3, solveNum: 20, solve1: 6.89, solve2: 6.28, link: ''}, {matchNum: 3, solveNum: 21, solve1: 7.8, solve2: 6.54, link: ''}, {matchNum: 3, solveNum: 22, solve1: 7.11, solve2: 6.28, link: ''}, {matchNum: 3, solveNum: 23, solve1: 6.47, solve2: 6.45, link: ''}, {matchNum: 3, solveNum: 24, solve1: 6.82, solve2: 4.58, link: ''}, {matchNum: 3, solveNum: 25, solve1: 7.68, solve2: 5.83, link: ''}, {matchNum: 3, solveNum: 26, solve1: 6.13, solve2: 7.52, link: ''}, {matchNum: 3, solveNum: 27, solve1: 8.33, solve2: 7.92, link: ''}, {matchNum: 3, solveNum: 28, solve1: 7.72, solve2: 7.53, link: ''}, {matchNum: 3, solveNum: 29, solve1: 6.38, solve2: 6.62, link: ''}, {matchNum: 3, solveNum: 30, solve1: 5.81, solve2: 6.49, link: ''}, {matchNum: 3, solveNum: 31, solve1: 5.39, solve2: 7.31, link: ''}, {matchNum: 3, solveNum: 32, solve1: 7.33, solve2: 7.1, link: ''}, {matchNum: 3, solveNum: 33, solve1: 6.43, solve2: 6.02, link: ''}, {matchNum: 3, solveNum: 34, solve1: 3.98, solve2: 6.76, link: ''}, {matchNum: 3, solveNum: 35, solve1: 4.89, solve2: 5.38, link: ''}, {matchNum: 4, solveNum: 1, solve1: 4.84, solve2: 7.47, link: ''}, {matchNum: 4, solveNum: 2, solve1: 5.4, solve2: 6.8, link: ''}, {matchNum: 4, solveNum: 3, solve1: 6.57, solve2: 9.93, link: ''}, {matchNum: 4, solveNum: 4, solve1: 6.25, solve2: 6.51, link: ''}, {matchNum: 4, solveNum: 5, solve1: 6.09, solve2: 7.85, link: ''}, {matchNum: 4, solveNum: 6, solve1: 4.14, solve2: 6.7, link: ''}, {matchNum: 4, solveNum: 7, solve1: 5.96, solve2: 6.89, link: ''}, {matchNum: 4, solveNum: 8, solve1: 5.84, solve2: 7.82, link: ''}, {matchNum: 4, solveNum: 9, solve1: 5.46, solve2: 6.13, link: ''}, {matchNum: 4, solveNum: 10, solve1: 5.92, solve2: 6.89, link: ''}, {matchNum: 4, solveNum: 11, solve1: 7.18, solve2: DNF, link: ''}, {matchNum: 4, solveNum: 12, solve1: 8.02, solve2: 6.53, link: ''}, {matchNum: 4, solveNum: 13, solve1: 6.59, solve2: 6.93, link: ''}, {matchNum: 4, solveNum: 14, solve1: 6.28, solve2: 6.57, link: ''}, {matchNum: 4, solveNum: 15, solve1: 6.38, solve2: 7.25, link: ''}, {matchNum: 4, solveNum: 16, solve1: 6.6, solve2: 7.87, link: ''}, {matchNum: 4, solveNum: 17, solve1: 6.74, solve2: 6.3, link: ''}, {matchNum: 4, solveNum: 18, solve1: 4.88, solve2: 6.56, link: ''}, {matchNum: 4, solveNum: 19, solve1: 7.16, solve2: 7.02, link: ''}, {matchNum: 4, solveNum: 20, solve1: 7.85, solve2: 6.81, link: ''}, {matchNum: 4, solveNum: 21, solve1: 4.77, solve2: 8.1, link: ''}, {matchNum: 4, solveNum: 22, solve1: 6.96, solve2: 6.89, link: ''}, {matchNum: 4, solveNum: 23, solve1: 5.32, solve2: 6.48, link: ''}, {matchNum: 4, solveNum: 24, solve1: 6.05, solve2: 5.99, link: ''}, {matchNum: 4, solveNum: 25, solve1: 5.52, solve2: 6.39, link: ''}, ],
+	matches: [[lukeG, billW], [leoB, lucasE], [tymonK, mattyHI], [tymonK, billW]],
+	competitors: [lukeG, billW, leoB, lucasE, tymonK, mattyHI],
+},
+
+]
+
+
+function calculateAverage(solves){
+
+	var dnfSolveCount = 0;
+	var dnfSolve = 0;
+	
+	for (var i = 0; i < solves.length; i++){
+		if (solves[i] == DNF){
+			dnfSolveCount++;
+			dnfSolve = i;
+		};
+	};
+	
+	if (dnfSolveCount == 0){
+	
+		solves.sort(function(a, b){return a-b});
+		return Math.round((solves[1] + solves[2] + solves[3])/3*100)/100;
+		
+	} else if (dnfSolveCount == 1){
+		
+		console.log(solves);
+		solves.splice(dnfSolve, 1);
+		solves.sort(function(a, b){return a-b});
+		return Math.round((solves[1] + solves[2] + solves[3])/3*100)/100;
+		
+	} else {
+		return "DNF";
+	};	
+	
+};
+
+
+
+
+var ELOType = "points"
+function calculateELO(ELOType){
+
+	var seasonNum = 1
+	var currentSeason = season[seasonNum]
+
+	
+	for (var i = 0; i < currentSeason.matches.length; i++){
+	
+		var currentMatch = currentSeason.matches[i]
+		
+		currentMatch.averages1 = []
+		currentMatch.averages2 = []
+		currentMatch.points1 = [0]
+		currentMatch.points2 = [0]
+		currentMatch.solves = []
+	}
+	
+	
+	//fill in data for each solve
+	for (var i = 0; i < currentSeason.solves.length; i++){
+
+		var currentSolve = currentSeason.solves[i]
+		var match = currentSolve.matchNum - 1
+		var currentMatch = currentSeason.matches[match]
+		
+		currentMatch.solves.push(currentSolve)
+		
+		//assign competitors to the solves
+		currentSolve.comp1 = currentSeason.matches[match][0]
+		currentSolve.comp2 = currentSeason.matches[match][1]
+		
+		currentSolve.avgNum = Math.floor((currentSolve.solveNum - 1) / 5)
+
+
+		//on every fifth solve
+		if (i%5 == 4){
+		
+			//calculate average
+			var avgSolves1 = [];
+			var avgSolves2 = [];
+			
+			for (var j = 0; j < 5; j++){
+				avgSolves1.push(currentSeason.solves[i-j].solve1);
+				avgSolves2.push(currentSeason.solves[i-j].solve2);
+			}
+			
+			var avg1 = calculateAverage([currentSeason.solves[i].solve1, currentSeason.solves[i-1].solve1, currentSeason.solves[i-2].solve1, currentSeason.solves[i-3].solve1, currentSeason.solves[i-4].solve1])
+			var avg2 = calculateAverage([currentSeason.solves[i].solve2, currentSeason.solves[i-1].solve2, currentSeason.solves[i-2].solve2, currentSeason.solves[i-3].solve2, currentSeason.solves[i-4].solve2])
+			
+			currentMatch.averages1.push(avg1);
+			currentMatch.averages2.push(avg2);
+			
+			//calculate points
+			var points1 = 0
+			var points2 = 0
+			
+			console.log(avg1)
+			console.log(avg2)
+			
+			//add 2 for best average
+			if (avg1 < avg2){
+				points1 += 2
+				console.log("Best average: " + currentSolve.comp1.fullName)
+				
+			} else if (avg2 < avg1){
+				points2 += 2
+				console.log("Best average: " + currentSolve.comp2.fullName)
+			}
+			
+			
+			//going through each solve
+			var totalComp1WonSolves = 0
+			var bestSolve = avgSolves1[0]
+			var bestSolveComp = 0
+			
+			for (var j = 0; j < 5; j++){
+			
+				//how many solves has competitor 1 won
+				if (avgSolves1[j] < avgSolves2[j]){
+					totalComp1WonSolves++
+				}
+				
+				//whats the best solve?
+				for (var k = 0; k < 2; k++){
+				
+					var currentComp
+					
+					if (k == 0){
+						currentComp = avgSolves1
+					} else {
+						currentComp = avgSolves2
+					}
+					
+					if (currentComp[j] < bestSolve){
+						bestSolve = currentComp[j];
+						bestSolveComp = k;
+						
+					} else if (currentComp[j] == bestSolve && bestSolveComp != k){
+						bestSolveComp = "TIED"
+					}
+					
+				}
+				
+			}
+			
+			//add 1 for better 5 solves
+			if (totalComp1WonSolves == 5){
+				points1++
+				console.log("Won 5 solves: " + currentSolve.comp1.fullName)
+			} else if (totalComp1WonSolves == 0){
+				points2++
+				console.log("Won 5 solves: " + currentSolve.comp2.fullName)
+			}
+			
+			console.log(bestSolve)
+			
+			//add 1 for best solve
+			if (bestSolveComp == 0){
+				points1++
+				console.log("Best Single: " + currentSolve.comp1.fullName)
+			} else {
+				points2++
+				console.log("Best Single: " + currentSolve.comp2.fullName)
+			}
+			
+			points1 += currentMatch.points1[currentSolve.avgNum];
+			points2 += currentMatch.points2[currentSolve.avgNum];
+			
+			currentMatch.points1.push(points1);
+			currentMatch.points2.push(points2);
+
+			//console.log(currentMatch[0].fullName + " vs. " + currentMatch[1].fullName);
+			console.log(currentMatch.points1);
+			console.log(currentMatch.points2);
+
+		}
+		
+	}
+
+}
+
+
+</script>
+
+
+
+
+</head>
+
+<body onload="bodyLoad('monkeyLeague');">
+<noscript><div id="noscript">Javascript is not working. Please enable javascript for proper site functionality</div></noscript>
+
+<a id="title" href="index.html">
+<div id="titleText">
+Nicbudd
+</div>
+</a>
+
+<div id="menu">
+<button onclick="menuToggle('menu')" class="menuItem menuHeader blue" id="menuMenuButton">Menu ▼</button>
+</div>
+
+
+<div id="mainBody">
+<!-- Fill with body-->
+
+</div>
+
+
+<div id="sideBar">
+</div>
+
+
+
+</body>
+
+</html>
