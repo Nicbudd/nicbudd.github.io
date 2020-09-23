@@ -3,15 +3,14 @@ var mainBody = document.getElementById("mainBody");
 var head = document.getElementsByTagName("head")[0];
 
 var menuContent = [
-	["header", "Menu", "menu", "blue", ["index", "aboutMe", "cube", "hobbies", "javascript", "other"]],
+	["header", "Menu", "menu", "blue", ["index", "aboutMe", "cube", "conlangs", "javascript", "other"]],
 	["a", "Home", "index", "green", []],
-	["a", "About Me", "aboutMe", "green", []],
-	["button", "Cubing", "cube", "green", ["cubeHome", "algs", "monkeyLeague"]],
+	["button", "Cubing", "cube", "green", ["cubeHome", "algs"]],
 	["a", "Home", "cubeHome", "red", []],
 	["a", "Algorithms", "algs", "red", []],
-	["a", "Monkey League", "monkeyLeague", "red", []],
-	["a", "Hobbies", "hobbies", "green", []],
-	["a", "JS Toys", "javascript", "green", []],
+	["a", "Conlangs", "conlangs", "green", []],
+	["a", "Projects", "javascript", "green", []],
+	["a", "About Me", "aboutMe", "green", []],
 	["a", "Other", "other", "green", []],
 	];
 	
@@ -116,10 +115,7 @@ function conditionedColor(prevColors){
 
 function bodyLoad(page){
 	
-	var cubingPages = ["cubeHome", "algs", "comps", "cubeBeginners"];
-	var eventsPages = ["threeCube", "otherEvents"];
-	
-	cubingPages = cubingPages.concat(eventsPages);
+	var cubingPages = ["cubeHome", "algs", "monkeyLeague"];
 	
 	//color all of the body headings
 	var mainBody = document.getElementById("mainBody");
@@ -160,8 +156,7 @@ function bodyLoad(page){
 	
 	var sideBarContent = [
 	"<h1>Contact Me</h1><p>Have a question? Need help? Want to report an issue? Here's how to get in touch:</p><ul><li>Professional Emails: <a href='mailto:nhh8629@wmich.edu'>nhh8629@wmich.edu</a></li><li>Personal Messages, Website Related: <a href='mailto:niczippy77@gmail.com'>niczippy77@gmail.com</a></li></ul>",
-	"<h2>Want to learn how to solve a rubiks cube?</h2><div class='centerFlex'><a class='button' href='cubeBeginners.html'>Click here to learn</a></div>",
-	"<h1>Jump to Event</h1><div class='centerFlex'><a class='button' href='threeCube.html'>3x3</a><a class='button' href='otherEvents.html'>Other Events</a></div>",
+	"<h2>Want to learn how to solve a rubiks cube?</h2><p>I highly recommend this video tutorial:</p><div class='centerFlex'><a class='button' href='https://www.youtube.com/watch?v=1t1OL2zN0LQ'>Video Tutorial</a></div>",
 	//"",
 	];
 	
@@ -172,11 +167,8 @@ function bodyLoad(page){
 		
 		var displayObj = true
 		
+		//dont display 2nd sidebar content if it is not a cubing page
 		if (cubingPages.indexOf(page) == -1 && i == 1){
-			displayObj = false
-		}
-		
-		if (eventsPages.indexOf(page) == -1 && i == 2){
 			displayObj = false
 		}
 		
