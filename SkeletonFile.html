@@ -4,44 +4,43 @@
 
 <head>
 
-<script src = "https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<link rel="stylesheet" href="Nicbudd.css">
-<script src = "import.js" type = "text/javascript"></script>
-<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="index.css">
+<script src = "index.js" type = "text/javascript"></script>
+<!--Insert additional JS files here-->
 
-<title><!--%% Title %%--></title>
+<title>Nicbudd</title>
+
 </head>
 
-<body>
-<noscript><div id="noscript"><h2>Uh-oh!</h2><p>It appears that javascript is not working here, for whatever reason.</p><p>Sadly, this site doesn't work without javascript. You might be able to see it looks a bit... broken.</p><p>Please enable javascript or switch to a browser that is compatible with javascript if you want to continue browsing this website.</p><p>If you don't want to, that's ok too. I'll just be sad that you cant see my website.</p><h2>;(</h2></div></noscript>
+<!--%% Fill out body load with page url 
+Example: bodyLoad('index') for the index page
+%%-->
+<body onload="bodyLoad('');">
+<noscript><div id="noscript">Javascript is not working. Please enable javascript for proper site functionality</div></noscript>
+
+<a id="title" href="index.html">
+<div id="titleText">
+Nicbudd
+</div>
+</a>
+
+<div id="menu">
+<button onclick="menuToggle('menu')" class="menuItem menuHeader blue" id="menuMenuButton">Menu ▼</button>
+</div>
+
+
+<div id="mainBody">
+<!-- Fill with body-->
+
+</div>
+
+
+<div id="sideBar">
+</div>
 
 
 
-<div class="lightergrayblock"><h1><!--%% Title %%--></h1>
-
-<!--%%  First Block Content %%-->
-
-</div><div class="%%color%%block"><h2><!--%% Header %%--></h2>
-
-
-
-
-
-
-
-
-
-
-<!--
-
-copy paste this line above for extra blocks
-
-</div><div class="%%color%%block"><h2><!--%% Header %%</h2>
-
--->
-
-
-
-</div></body>
+</body>
 
 </html>

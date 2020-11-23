@@ -4,44 +4,61 @@
 
 <head>
 
-<script src = "https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<link rel="stylesheet" href="Nicbudd.css">
-<script src = "import.js" type = "text/javascript"></script>
-<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="index.css">
+<script src = "index.js" type = "text/javascript"></script>
+<!--Insert additional JS files here-->
 
-<title>Zythe</title>
+<title>Nicbudd</title>
+
 </head>
 
-<body>
-<noscript><div id="noscript"><h2>Uh-oh!</h2><p>It appears that javascript is not working here, for whatever reason.</p><p>Sadly, this site doesn't work without javascript. You might be able to see it looks a bit... broken.</p><p>Please enable javascript or switch to a browser that is compatible with javascript if you want to continue browsing this website.</p><p>If you don't want to, that's ok too. I'll just be sad that you cant see my website.</p><h2>;(</h2></div></noscript>
+
+<body onload="bodyLoad('zythe');">
+<noscript><div id="noscript">Javascript is not working. Please enable javascript for proper site functionality</div></noscript>
+
+<a id="title" href="index.html">
+<div id="titleText">
+Nicbudd
+</div>
+</a>
+
+<div id="menu">
+<button onclick="menuToggle('menu')" class="menuItem menuHeader blue" id="menuMenuButton">Menu ▼</button>
+</div>
+
+<div id="mainBody">
+
+<h1>Zythë</h1><br>
+
+<p>Zythë is a fantasy language (conlang) I am creating. It is nearing completion, and I am working on a variety of daughter languages derived from Zythë. I started work on Zythë about 4 years ago, and I've become a better conlanger since then, so I don't regard Zythë to be my best work, however it is my most complete work. As such, I'm treating it as a protolang as sorts.</p>
+
+<p><b>Note 1: This version is not final and is certainly subject to change in the future.</b></p>
+
+<p><b>Note 2: This page is currently incomplete.</b></p>
+
+<h2>Lore & History</h2><br>
+
+<p>On a different world, a village of humans lived. They were very similar to us. They never truly knew where they came from, just like us, and they could only imagine that another world existed with other humans on it.
+</p><p>They lived near the ocean on a polar ice cap. There were a few other villages nearby that kept in contact with this one, but never very regularly, as the terrain and climate made travel very dangerous. The village of around three hundred people relied heavily on a large ocean dwelling animal, known as “sifa”, who were similar to whales. They made windproof coats, sheets, and tarps out of its skin, and structures, such as houses, out of its bones. They ate the animal's flesh for food, and used it's fat for candles and fire. They made string out of strong, tall, fibrous plants that grew in the water.
+</p><p>The village needed all of these resources, so during the summer time, when the sea ice melted, large fishing boats, crewed by about twenty people each, were launched to catch sifa. It was a big risk for the village to send so many people on one trip, but the trips rarely went wrong if crewed by experienced people. After all, the village needed to eat or else they would starve. The boats were designed to be very stable, made of bones, fiber, skins, and driftwood, weather was forecasted, waves were measured, and in the rare event of a boat sinking, they had smaller lifeboats to save some of their lives.
+</p><p>On one such trip, the worst scenario occurred. An unusually strong storm struck their vessel. They rode waves many times taller than their houses, winds stronger than even the more experienced mentors had ever seen. A harpoon poked through the strong hide of the boat, and the boat started taking on water. Rain and snow came down hard, causing visibility to drop.
+</p><p>In their panic, twelve people boarded lifeboats and fled. The other nine started trying to repair the fishing boat. The hole grew bigger and bigger, and at some point all of the people on board were taking apart the boat frantically, trying to get anything they can to float. One last wave rips the boat in half and seven people are never seen again.
+</p><p>After the rain and winds cleared, it became very clear that the shore was gone. The people who were still alive were stranded, alone in the open ocean. One boat had nine people on it, the other one had three. In the morning, the raft with nine found a stranded woman, clinging onto a piece of the ship. They welcomed her onboard, making them a boat of ten. The two boats eventually found each other and the passengers connected the two boats together. Later that day, they came across a dead body floating on another piece of wreckage.
+</p><p>Winds and water currents pushed the boat north, and away from their homeland. They were running out of food and water and started coming up with gruesome plans on what to do. The next day, they discovered an island in the distance. They used their training and strength to bring themselves towards it. When they arrived, they realized it was no ordinary island, it was a floating paradise island.
+</p><p>In more tropical areas, a plant has found a way to take advantage of the ocean and its sunlight. It grows on the water, growing strong air sacs that it floats on. A huge leaf is connected via strong 4m high stalks to the air sacs. The leaf expands outwards from the center and grows more stalks downwards, which, when they hit water, create more air sacs, connecting with the other air sacs to create a strong flat surface on top. An isolated ecosystem lives on the island. Small animals, known as “äshëku”, fish from the side of the island, and when they die, the plant absorbs their body to gather nutrients. In return, the island uses reverse osmosis and collects rainwater from the many tropical storms to create fresh water for the animals. Mosses and fungi grow on the floor of the island, consuming energy that the main plant missed. When they die, they are consumed by the plant. Some of these islands can grow to be over a half kilometer wide.
+</p><p>Our travelers found an island that measured around 300m. It normally inhabited much warmer waters, but was blown much further south than normal by the storm. They were very relieved to find it, it saved their lives. It had fresh water, edible plants, and a few species of these “äshëku”. For now, they were safe. They continued to drift northwards towards the equator, pushed by winds and ocean currents. After 5 months of drifting, the island hit the shores of a new continent.
+</p><p>This new continent was a jungle, never inhabited by humans. There was an excess of plants, foods, herbs, fungi, animals, sunlight, and warmth. Rain fell every day and caused low areas to flood. In this new land, these people made the best of their new environment. They stopped wearing their fat filled whale-skin clothing, and started to eat what they had around them. These fourteen people named themselves “the travelers” (zythë), and started a small village, and tried to survive on what they had.
+</p>
+
+<h2>Reference Grammar</h2>
+
+<h3>§1 Phonology</h3>
+
+<h5>Consonants</h5>
 
 
-
-<div class="lightergrayblock"><h1>Zythë</h1>
-
-<h3>a language currently being created by Nicbudd</h3>
-
-</div><div class="blackblock"><h2>History</h2>
-
-<p>On a different world, a village of humans lived. They were much similar to us. They never truly knew where they came from, just like us, and they could only imagine that another world existed with other humans on it.
-</p><p>They lived in a cold, coastal tundra with very little plant and animal life. There were a few other villages nearby that kept in contact with this one, but never very regularly, as the terrain and climate made the trip very dangerous. The village of around 300 people relied on a very large ocean dwelling animal, similar to whales. They made water and windproof coats, sheets, and membranes out of it's skin, and structures, such as houses, out of its bones. They ate the animal's flesh for food, and used it's fat for candles and fire. They made string out of strong, tall, fibrous plants that grew in the water.
-</p><p>The village needed these resources, so every fortnight a large fishing boat with about 20 people was sent out to catch one of these creatures. It was a big risk for the village to send so many people on one trip, but the trips had a very low failure rate, and if they didn't make the trips, they would die. The boats were designed to be very stable, made of the bones, fiber, skins, and driftwood, weather was forecasted, waves were measured, and in the rare event of a boat sinking, they had smaller lifeboats to save some of their lives.
-</p><p>On one such trip, exactly what they feared happened. An unusually strong storm struck their homelands. They rode waves taller than their houses, winds stronger than the mostly inexperienced crew and their more experienced mentors had ever seen. A harpoon poked through the strong hide of the boat, and the boat started taking on water. Rain starts pouring, causing visibility to drop. 
-</p><p>In their panic, 12 people went into lifeboats and flee. The other 9 started trying to repair the larger boat. The hole grew bigger and bigger, and at some point all of the people on board were taking apart the boat frantically, trying to salvage any floatable driftwood they can. One last wave rips the boat in half and 7 people are never seen again.
-</p><p>After the rain and winds clear, it became very clear that the shore is gone. The people still alive were out on the open ocean, and the wind had pushed them north. One boat had 9 people on it, the other one had 3. In the morning, the larger boat found a stranded woman, clinging onto a piece of driftwood. They welcomed her onboard. The two boats eventually found each other and the passengers connected the two boats together. Later that day, they came across a dead body floating on a piece of driftwood.
-</p><p>Winds and water currents pushed the boat north, and away from their homeland. They were running out of food and water and were planning on what to do. The next day, something incredible happened. They discovered an island in the distance. They used their training and strength to bring themselves towards it, but when they arrived, they realized it wasn't an island, it was a plant!
-</p><p>In more tropical areas, a plant has found a way to take advantage of the ocean and its sunlight. It grows on the water, growing strong air sacs that it floats on. A huge leaf is connected via a strong 4m high stalk to the air sacs. The leaf expands outwards from the center and grows other stalks downwards, which, when they hit water, create more air sacs. A whole ecosystem lives on the island. Animals, free from predators, eat small ocean creatures, and when they die, the plant decomposes their body and gains the nutrients that were in the oceans. In return, the island uses reverse osmosis and collects rainwater from the many storms to create fresh water for the animals. Mosses and fungi grow on the floor of the island, consuming energy that the main plant missed. When they died, they were consumed by the plant. Some of these islands can grow to be over a half kilometer wide.
-</p><p>Our travelers found an island that measured around 300m. It normally inhabited much warmer waters, but was blown further south than normal by the storm. They were relieved to find it. It had fresh water, edible plants, and a few species of small fish eating animals. For now, they were safe. They continued to drift northwards towards the equator, pushed by winds and ocean currents. After 5 months of drifting, the island approached the shores of a new continent.
-</p><p>This new continent was a jungle, uninhabited by humans before. There was an excess of plants, foods, herbs, fungi, animals, sunlight, and warmth. Rain fell every day and caused low areas to flood. In this new land, these people made the best of their new environment. They stopped wearing their fat filled whale-skin clothing, and started to eat what they had around them. These 13 people grew a brand new civilization rapidly, and they prospered for a very long time. These are the Zythë, and this is their language.
-
-</div><div class="blueblock"><h2>Phonology</h2>
-	
-	<h3>Consonants</h3>
-	
-
-		<div class="center"><div class="bordered">
-	<table>
-	
+<table>
 	<tr>
 	<th></th>
 	<th>Bilabial</th>
@@ -58,9 +75,9 @@
 	<tr>
 	<th>Nasal</th>
 	<td></td>
-	<td>m̪̊   m̪</td>
+	<td><span>m̊</span><span>m</span></td>
 	<td></td>
-	<td>n̊   n</td>
+	<td><span>n̊</span><span>n</span></td>
 	<td></td>
 	<td></td>
 	<td>ŋ̊</td>
@@ -71,9 +88,9 @@
 	<tr>
 	<th>Plosive</th>
 	<td></td>
-	<td>p̪   b̪</td>
+	<td><span>p</span><span>b</span></td>
 	<td></td>
-	<td>t   d</td>
+	<td><span>t</span><span>d</span></td>
 	<td></td>
 	<td></td>
 	<td>k</td>
@@ -83,11 +100,11 @@
 	
 	<tr>
 	<th>Fricative</th>
-	<td>ɸ   β</td>
-	<td>f   v</td>
-	<td>θ   ð</td>
-	<td>s   z</td>
-	<td>ʃ   ʒ</td>
+	<td><span>ɸ</span>   <span>β</span></td>
+	<td><span>f</span>   <span>v</span></td>
+	<td><span>θ</span>   <span>ð</span></td>
+	<td><span>s</span>   <span>z</span></td>
+	<td><span>ʃ</span>   <span>ʒ</span></td>
 	<td></td>
 	<td>x</td>
 	<td>ꭓ</td>
@@ -95,11 +112,11 @@
 	</tr>
 	
 	<tr>
-	<th>Approximant</th>
+	<th>Approximant/Trills</th>
 	<td></td>
 	<td></td>
 	<td></td>
-	<td>ɹ</td>
+	<td>r</td>
 	<td></td>
 	<td>j</td>
 	<td></td>
@@ -120,15 +137,33 @@
 	<td></td>
 	</tr>
 	
-	</table></div></div>
+</table>
+
+
+<p>For the orthography, all of the consonants are written as their IPA values except for the following:</p>
+
+<ul>
+<li>/m̊/ is written as mm</li>
+<li>/n̊/ is written as nn</li>
+<li>/ŋ̊/ is written as ng</li>
+<li>/ɸ/ is written as ph</li>
+<li>/β/ is written as bh</li>
+<li>/θ/ is written as th</li>
+<li>/ð/ is written as dh</li>
+<li>/ʃ/ is written as sh</li>
+<li>/ʒ/ is written as zh</li>
+<li>/ꭓ/ is written as g</li>
+<li>/h/ is written as c</li>
+<li>/ɹ/ is written as r</li>
+</ul>
 	
-	<h3>Vowels</h3>
 	
-	<div class="center"><div class="bordered">
-	<table>
+<h5>Vowel Phonemes</h5>
+	
+<table>
 	
 	<tr>
-	<th></th>
+	<th>Vowels</th>
 	<th>Front</th>
 	<th>Central</th>
 	<th>Back</th>
@@ -155,437 +190,188 @@
 	<td>ɑ</td>
 	</tr>
 	
-	</table></div></div>
+</table>
 	
-	<!--
-	<table>
+<p>For the orthography, all of the vowels are written as their IPA values except for the following:</p>
+
+<p>Words are never capitalized, and periods are used at the ends of sentences.</p>
+
+<ul>
+<li>/ɑ/ is written as ä</li>
+<li>/ə/ is written as ë</li>
+<li>/ɪ/ is written as î</li>
+<li>/i/ is written as i</li>
+</ul>
 	
+<h5>Syllable Structure</h5>
+<p>Syllables in Zythë are restricted to CV in the middle of words, however, they may be (C)V at the beginning of words and CV(C) at the ends of words. For example: guzi, guzik, uzik, and uzi are all valid words</p>	
+
+<h6>Vowel Strength Hierarchy</h6>
+<p>When two vowels touch for grammatical reasons, breaking the syllable structure, the vowel strength hierarchy will determine which vowel is "stronger" and gets used at the junction. If they are on the same level on the hierarchy, the vowel in the root word is considered stronger.</p>	
+
+Vowel Strength Hierarchy:
+<ul>
+<li>î is stronger than ë</li>
+<li>all vowels except î and ë are stronger than î</li>
+<li>ä is stronger than a</li>
+</ul>
+
+
+<h3>§2 Nouns</h3>
+
+<p>In this document, a single isolated dash (&nbsp;"-"&nbsp;) will represent an unmarked form. two slashes (&nbsp;"//"&nbsp;) will represent an impossible construction.</p>
+
+<p>Nouns in Zythë decline for case and number. If a noun ends in y (except the pronouns qy and py), then it will decline as shown by the second table. All other nouns are declined as shown by the first table.</p>
+
+<p>Zythë is a Fluid-S Active-Stative language, which means that sometimes the subject of an intransitive verb will be marked with the agentive case, and sometimes with the patientive case. As a general rule, the subject of an intransitive verb will be marked agentive if volition was involved, as in the subject voluntarily performed the action, and will get marked patientive if the verb is done involuntarily.</p>
+
+
+<h6>Standard Declension</h6>
 	
-	
-	<tr>
-	<th></th>
-	<th colspan=2>Bilabial</th>
-	<th colspan=2>Labio-dental</th>
-	<th colspan=2>Dental</th>
-	<th colspan=2>Alveolar</th>
-	<th colspan=2>Palatal-Alveolar</th>
-	<th colspan=2>Velar</th>
-	<th colspan=2>Uvular</th>
-	<th colspan=2>Glottal</th>
-	</tr>
-	
-	<tr>
-	<th>Nasal</th>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	<td style="border-right:0px;padding-right:0px;">m̪̊</td>
-	<td style="border-left:0px;padding-left:0px;">m̪</td>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	<td style="border-right:0px;padding-right:0px;">n̊</td>
-	<td style="border-left:0px;padding-left:0px;">n</td>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	<td style="border-right:0px;padding-right:0px;">ŋ̊</td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	</tr>
-	
-	<tr>
-	<th>Plosive / Stop</th>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	<td style="border-right:0px;padding-right:0px;">p̪</td>
-	<td style="border-left:0px;padding-left:0px;">b̪</td>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	<td style="border-right:0px;padding-right:0px;">t</td>
-	<td style="border-left:0px;padding-left:0px;">d</td>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	</tr>
-	
-	<tr>
-	<th>Fricative</th>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	</tr>
-	
-	<tr>
-	<th>Approximant</th>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	</tr>
-	
-	<tr>
-	<th>Lateral</th>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	<td style="border-right:0px;padding-right:0px;"></td>
-	<td style="border-left:0px;padding-left:0px;"></td>
-	</tr>
-	
-	
-	
-	</table>
-	
-	-->
-	
-	<h3>Phonotactics</h3>
-	
-	<p>Syllables are made by combining a consonant with a vowel, consonant being first. For example: /si/ is a syllable that can exist in Zythë, but /s/ or /i/ may not. Words are made out of 1 or more syllables stuck together, for example, /si.βe/ is a possible word. However, there is an exception to this rule: a vowel may be added at the beginning of a word, and/or a consonant may be added at the end of a word.  For example: /ꭓuzi/ is a possible word, but so is /eꭓuzi/, /ꭓuzik/, and /eꭓuzik/</p>
-	<p>If two vowels touch in a word for grammatical reasons, then only one of them can exist. Refer to the vowel hierarchy below. The vowel that is lower down in the hierarchy will disappear. If the two vowels are in the same place in the hierarchy, different things will happen depending on what is grammatically more important for the sentence.</p>
-	
-	
-	<div class="center"><div class="bordered">
-	<table>
-	<tr><th>Vowel Strength Hierarchy</th></tr>
-	<tr><td>i, y, u, e, ø, o, a*, ɑ*</td></tr>
-	<tr><td>ɪ</td></tr>
-	<tr><td>ə</td></tr>
-	</table></div></div>
-	
-	<p>*ɑ always overpowers a</p>
-	
-	<h3>Orthography</h3>
-	
-	<div class="center"><div class="bordered">
-	<table>
-	
-	<tr>
-	<th></th>
-	<th>Bilabial</th>
-	<th>Labio-Dental</th>
-	<th>Dental</th>
-	<th>Alveolar</th>
-	<th>Palatal-Alveolar</th>
-	<th>Palatal</th>
-	<th>Velar</th>
-	<th>Uvular</th>
-	<th>Glottal</th>
-	</tr>
-	
-	<tr>
-	<th>Nasal</th>
-	<td></td>
-	<td>mm   m</td>
-	<td></td>
-	<td>nn   n</td>
-	<td></td>
-	<td></td>
-	<td>ng</td>
-	<td></td>
-	<td></td>
-	</tr>
-	
-	<tr>
-	<th>Plosive</th>
-	<td></td>
-	<td>p   b</td>
-	<td></td>
-	<td>t   d</td>
-	<td></td>
-	<td></td>
-	<td>k</td>
-	<td>q</td>
-	<td></td>
-	</tr>
-	
-	<tr>
-	<th>Fricative</th>
-	<td>ph   bh</td>
-	<td>f   v</td>
-	<td>th   dh</td>
-	<td>s   z</td>
-	<td>sh   zh</td>
-	<td></td>
-	<td>x</td>
-	<td>g</td>
-	<td>c</td>
-	</tr>
-	
-	<tr>
-	<th>Approximant</th>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td>r</td>
-	<td></td>
-	<td>j</td>
-	<td></td>
-	<td></td>
-	<td></td>
-	</tr>
-	
-	<tr>
-	<th>Lateral</th>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td>l</td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	<td></td>
-	</tr>
-	
-	</table></div></div>
-	
-	<div class="center"><div class="bordered">
-	<table>
-	
-	<tr>
-	<th></th>
-	<th>Front</th>
-	<th>Central</th>
-	<th>Back</th>
-	</tr>
-	
-	<tr>
-	<th>Close</th>
-	<td>ï   y</td>
-	<td>î</td>
-	<td>u</td>
-	</tr>
-	
-	<tr>
-	<th>Mid</th>
-	<td>e   ø</td>
-	<td>ë</td>
-	<td>o</td>
-	</tr>
-	
-	<tr>
-	<th>Open</th>
-	<td>a</td>
-	<td></td>
-	<td>ä</td>
-	</tr>
-	
-	</table></div></div>
-	
-	<p>The letter &lt;&nbsp;i&nbsp;&gt; is pronounced as either /i/ or /ɪ/ depending on the dialect and context.</p>
-	
-	<p>All letters are always lowercase, even at the beginning of sentences. Periods are used at the end of sentences.</p>
-	
-</div><div class="lightgrayblock"><h2>Nouns</h2>
-	
-	<h3>Declension</h3>
-	<p>Nouns in Zythë are declined for case and number. Different nouns have different endings and decline in different ways. To decline a noun, remove the last vowel and add the ending shown by the correct chart. If a noun ends in &lt;&nbsp;y&nbsp;&gt; (except the pronouns &lt;&nbsp;Qy,&nbsp;Py&nbsp;&gt;), then it will decline as shown by the 2nd table, labeled "Y&nbsp;Form". All other nouns are declined as shown by the first table, labeled "Standard Form"</p>
-	<p>If an ending has an asterisk attacked, then the first letter of the root word needs to be devoiced, if it is a consonant. If the first letter is &lt;&nbsp;k&nbsp;&gt;, then it gets transformed into &lt;&nbsp;q&nbsp;&gt; </p>
-	<p>If two vowels in the same place in the hierarchy touch due to declension, the vowel in the ending will take precedent.</p>
-	
-	
-	
-	<h4>Standard Form</h4>
-	
-	<div class="center"><div class="bordered">
 	<table>
 	
 	<tr>
 	<th></th>
 	<th>Singular</th>
-	<th>Dual</th>
 	<th>Plural</th>
 	</tr>
 	
 	<tr>
 	<th>Agentive</th>
-	<td>-o</td>
-	<td>-ok</td>
-	<td>-ob</td>
+	<td>-</td>
+	<td>-ik</td>
 	</tr>
 	
 	<tr>
 	<th>Patientive</th>
-	<td>-(/)</td>
-	<td>-ik*</td>
-	<td>-ob*</td>
+	<td>-o</td>
+	<td>-ok</td>
 	</tr>
 	
 	<tr>
 	<th>Dative</th>
 	<td>-ut</td>
 	<td>-utik</td>
-	<td>-udob</td>
 	</tr>
 	
 	<tr>
 	<th>Genetive</th>
 	<td>-ëm</td>
 	<td>-im</td>
-	<td>-ëmob</td>
 	</tr>
 	
 	<tr>
 	<th>Instrumentive</th>
 	<td>-omo</td>
 	<td>-im</td>
-	<td>-omob</td>
 	</tr>
 	
 	<tr>
 	<th>Benefactive</th>
-	<td>-irï</td>
-	<td>-ikirï*</td>
-	<td>-irob*</td>
+	<td>-iri</td>
+	<td>-ikiri</td>
 	</tr>
 	
 	<tr>
 	<th>Vocative</th>
 	<td>-os</td>
 	<td>-osik</td>
-	<td>-osob</td>
 	</tr>
 	
 	<tr>
 	<th>Locative</th>
 	<td>-orîre</td>
-	<td>-orîrik*</td>
-	<td>-orîb</td>
+	<td>-orîrik</td>
 	</tr>
 	
-	</table></div></div>
+	</table>
 	
-	<h4>Y Form</h4>
+<h6>Y Declension</h6>
 	
-	<div class="center"><div class="bordered">
 	<table>
 	
 	<tr>
 	<th></th>
 	<th>Singular</th>
-	<th>Dual</th>
 	<th>Plural</th>
 	</tr>
 	
 	<tr>
 	<th>Agentive</th>
-	<td>-o</td>
-	<td>-ok</td>
-	<td>-ob</td>
+	<td>-y</td>
+	<td>-yk</td>
+
 	</tr>
 	
 	<tr>
 	<th>Patientive</th>
-	<td>-y</td>
-	<td>-yk</td>
-	<td>-ob</td>
+	<td>-o</td>
+	<td>-ok</td>
 	</tr>
 	
 	<tr>
 	<th>Dative</th>
 	<td>-yt</td>
 	<td>-ytik</td>
-	<td>-ydob</td>
 	</tr>
 	
 	<tr>
 	<th>Genetive</th>
 	<td>-ym</td>
 	<td>-ym</td>
-	<td>-ymob</td>
 	</tr>
 	
 	<tr>
 	<th>Instrumentive</th>
 	<td>-omo</td>
 	<td>-ym</td>
-	<td>-omob</td>
 	</tr>
 	
 	<tr>
 	<th>Benefactive</th>
 	<td>-yry</td>
 	<td>-yky</td>
-	<td>-yrob</td>
 	</tr>
 	
 	<tr>
 	<th>Vocative</th>
 	<td>-os</td>
 	<td>-osyk</td>
-	<td>-osob</td>
 	</tr>
 	
 	<tr>
 	<th>Locative</th>
 	<td>-orîre</td>
 	<td>-orîryk</td>
-	<td>-oryb</td>
 	</tr>
 	
-	</table></div></div>
+	</table>
 	
-	<p>Zythë is a Fluid-S Active-Stative language, which means that sometimes the subject of an intransitive verb will be marked with the agentive case, and sometimes with the patientive case. It will get marked agentive if the action was deliberate, and patientive if the action was involuntary.</p>
 	
-	<h3>Pronouns</h3>
-	
-	<p>There are eight pronouns, one singular and one plural for each of the four persons. The 1st and 2nd persons are the normal 1st and 2nd persons, but the 3rd and 4th persons are the proximate and obviative third persons respectively. The two versions distinguish between two different third persons in a conversation. The proximate, or 3rd person as we are calling it here, is the most important in the conversation, generally the first pronoun to get used. The obviative pronoun is the less prominant one, generally the second one to be used.</p>
-	
-	<div class="center"><div class="bordered">
-	<table>
+<h4>Pronouns</h4>
+
+<p>Zythë has 8 pronouns, a singular and plural form for each of four person distincions, that decline to the 8 cases.</p>
+
+<table>
 	
 	<tr>
-	<th></th>
-	<th>1SG</th>
-	<th>1PL</th>
-	<th>2SG</th>
-	<th>2PL</th>
-	<th>3SG</th>
-	<th>3PL</th>
-	<th>4SG</th>
-	<th>4PL</th>
+	<th>Person</th>
+	<th colspan="2">1st</th>
+	<th colspan="2">2nd</th>
+	<th colspan="2">3rd Proximate</th>
+	<th colspan="2">3rd Obviate (4th)</th>
+	</tr>
+	
+	<tr>
+	<th>Number</th>
+	<th>Singular</th>
+	<th>Plural</th>
+	<th>Singular</th>
+	<th>Plural</th>
+	<th>Singular</th>
+	<th>Plural</th>
+	<th>Singular</th>
+	<th>Plural</th>
 	</tr>
 	
 	<tr>
@@ -594,7 +380,7 @@
 	<td>pob</td>
 	<td>pho</td>
 	<td>phidob</td>
-	<td>shïto</td>
+	<td>shito</td>
 	<td>tidob</td>
 	<td>tuno</td>
 	<td>dyshob</td>
@@ -606,7 +392,7 @@
 	<td>pob</td>
 	<td>phi</td>
 	<td>phidob</td>
-	<td>shïtë</td>
+	<td>shitë</td>
 	<td>tidob</td>
 	<td>tunoko</td>
 	<td>dyshëb</td>
@@ -618,7 +404,7 @@
 	<td>pydob</td>
 	<td>phit</td>
 	<td>bhidob</td>
-	<td>shïtët</td>
+	<td>shitët</td>
 	<td>didob</td>
 	<td>tunukut</td>
 	<td>dyshëd</td>
@@ -630,7 +416,7 @@
 	<td>pymob</td>
 	<td>phim</td>
 	<td>bhidob</td>
-	<td>shïtëm</td>
+	<td>shitëm</td>
 	<td>didob</td>
 	<td>tunokom</td>
 	<td>dyshëm</td>
@@ -642,7 +428,7 @@
 	<td>pomob</td>
 	<td>phim</td>
 	<td>bhimob</td>
-	<td>shïtomo</td>
+	<td>shitomo</td>
 	<td>dimob</td>
 	<td>tunokom</td>
 	<td>dyshomob</td>
@@ -652,9 +438,9 @@
 	<th>Benefactive</th>
 	<td>qyry</td>
 	<td>pyrob</td>
-	<td>phirï</td>
+	<td>phiri</td>
 	<td>phirob</td>
-	<td>shïtërï</td>
+	<td>shitëri/td>
 	<td>tirob</td>
 	<td>tuniroko</td>
 	<td>tyshërob</td>
@@ -666,7 +452,7 @@
 	<td>posob</td>
 	<td>phidos</td>
 	<td>bhisob</td>
-	<td>shïtos</td>
+	<td>shitos</td>
 	<td>disob</td>
 	<td>tunoso</td>
 	<td>dyshosob</td>
@@ -678,296 +464,74 @@
 	<td>poryb</td>
 	<td>phidorîre</td>
 	<td>bhidorîb</td>
-	<td>shïtorëre</td>
+	<td>shitorëre</td>
 	<td>didorîb</td>
 	<td>tunorîreko</td>
 	<td>dyshorëb</td>
 	</tr>
 	
-	</table></div></div>
+	</table>
 	
-	<h4>Correlatives</h4>
-	<p>I dunno I just stole this from Esperanto</p>
 	
-	<div class="center"><div class="bordered">
-	<table>
-	
-	<tr>
-	<th rowspan=2></th>
-	<th rowspan=2>Interro&#8203;gative</th>
-	<th rowspan=2>Relative</th>
-	<th colspan=2>Demonstrative</th>
-	<th colspan=4>Quantifier</th>
-	</tr>
-	
-	<tr>
-	<th>Proximal</th>
-	<th>Medial</th>
-	<th>Existential</th>
-	<th>Universal</th>
-	<th>Negatory</th>
-	<th>Positive Alternative</th>
-	</tr>
-	
-	<tr>
-	<th>Animate</th>
-	<td>beqä</td>
-	<td>thoqä</td>
-	<td>paqä</td>
-	<td>vaqä</td>
-	<td>nëqä</td>
-	<td>vëqä</td>
-	<td>aqä</td>
-	<td>yqä</td>
-	</tr>
-	
-	<tr>
-	<th>Inanimate</th>
-	<td>bemä</td>
-	<td>thomä</td>
-	<td>pamä</td>
-	<td>vamä</td>
-	<td>nëmä</td>
-	<td>vëmä</td>
-	<td>amä</td>
-	<td>ymä</td>
-	</tr>
-	
-	<tr>
-	<th>Dual</th>
-	<td>bik</td>
-	<td>tholik</td>
-	<td>pik</td>
-	<td>vik</td>
-	<td>nik</td>
-	<td>vik</td>
-	<td>ak</td>
-	<td>yk</td>
-	</tr>
-	
-	<tr>
-	<th>Plural</th>
-	<td>bob</td>
-	<td>tholob</td>
-	<td>pob</td>
-	<td>vob</td>
-	<td>nob</td>
-	<td>vob</td>
-	<td>ab</td>
-	<td>yb</td>
-	</tr>
-	
-	<tr>
-	<th>Location</th>
-	<td>bexa</td>
-	<td>thoxa</td>
-	<td>paxa</td>
-	<td>vaxa</td>
-	<td>nëxa</td>
-	<td>vëxa</td>
-	<td>axa</td>
-	<td>yxa</td>
-	</tr>
-	
-	<tr>
-	<th>Source</th>
-	<td>bepa</td>
-	<td>tholepa</td>
-	<td>pepa</td>
-	<td>vepa</td>
-	<td>nepa</td>
-	<td>vepa</td>
-	<td>apa</td>
-	<td>ypa</td>
-	</tr>
-	
-	<tr>
-	<th>Time</th>
-	<td>bezhong</td>
-	<td>thozhong</td>
-	<td>pazhong</td>
-	<td>vazhong</td>
-	<td>nëzhong</td>
-	<td>vëzhong</td>
-	<td>azhong</td>
-	<td>yzhong</td>
-	</tr>
-	
-	<tr>
-	<th>Manner</th>
-	<td>bi</td>
-	<td>tholi</td>
-	<td>pi</td>
-	<td>vi</td>
-	<td>ni</td>
-	<td>vi</td>
-	<td>ati</td>
-	<td>yti</td>
-	
-	</tr>
-	
-	<tr>
-	<th>Reason</th>
-	<td>bemy</td>
-	<td>thomy</td>
-	<td>pamy</td>
-	<td>vamy</td>
-	<td>nëmy</td>
-	<td>vëmy</td>
-	<td>amy</td>
-	<td>ymy</td>
-	
-	</tr>
-	
-	<tr>
-	<th>Amount</th>
-	<td>bebusu</td>
-	<td>thobusu</td>
-	<td>pabusu</td>
-	<td>vabusu</td>
-	<td>nëbusu</td>
-	<td>vëbusu</td>
-	<td>abusu</td>
-	<td>ybusu</td>
-	</tr>
-	
-	</table></div></div>
+	<h4>Honorifics</h4>
 
+<br>
 	
+	<p>Zythë has 4 classes of honorifics which are applied to nouns of people, such as names or pronouns. Applying honorifics can help establish the speakers relationship to others, and can be used to express politeness (or impoliteness). The word for "hello" has 4 different unique forms for each of the honorifics, meaning one must apply an honorific to the listener when saying hello.</p>
 	
-	<h3>Honorifics</h3>
-	
-	<p>There are four classes of honor that can be placed on someone. They are:</p>
-	<ol>
-	<li><b>Respect</b> - This is almost always used when talking to people who you would consider dating OR people at least about 20 years older than you. This class is used to show respect to someone you may or may not know. It can also be used for strangers and people you want to be particularly nice to.</li>
-	<li><b>Demonstrative</b> - For people at least a few years younger than you. It can also be used is someone is being childish or immature, or if you want to mock that person for being childish or immature. It's often times used among a group of male friends who like to poke/make fun of each other.</li>
-	<li><b>Friends/Family</b> - For people you are close friends with, or close family members; people you would be devastated to lose.</li>
-	<li><b>Extreme Respect/Fame</b> - This is almost always used when talking to people you have extreme respect for, usually celebrities and elders. It can also be a more exaggerated form of H1</li>
-	</ol>
-	
-	<p>They can be attached to most nouns relating to people by using the following suffixes:</p>
-	
-	<ol>
-	<li>r(e)-</li>
-	<li>i(q)-</li>
-	<li>ve(s)-</li>
-	<li>dhe(p)-</li>
-	</ol>
-	
-	<p>Honorifics have become so ingrained with greetings that some words are completely different depending on honorifics.</p>
-	
-	<p>The word for "hello" is normally esiq, but is different for the following honorifics:</p>
-	<ol>
-	<li>req</li>
-	<li>iqî</li>
-	<li>vesoq</li>
-	<li>dhepiq</li>
-	</ol>
-	
-	
-</div><div class="greenblock"><h2>Verbs</h2>
-	
-	<h3>Evidentiality, Transitivity, & Negativity</h3>
-	
-	<p>A prefix is added before all verbs that denotes Evidentiality, Transitivity, and Negativity.</p>
-	
-	<div class="center"><div class="bordered">
-	<table>
-	
-	<tr>
-	<th colspan=3>Positive</th>
-	</tr>
-	
-	<tr>
-	<th></th>
-	<th>Intransitive</th>
-	<th>Transitive</th>
-	</tr>
-	
-	<tr>
-	<th>F.</th>
-	<td>y-</td>
-	<td>(/)-</td>
-	</tr>
-	
-	<tr>
-	<th>I.</th>
-	<td>na-</td>
-	<td>ra-</td>
-	</tr>
-	
-	<tr>
-	<th>R.</th>
-	<td>nø-</td>
-	<td>ø-</td>
-	</tr>
-	
-	<tr>
-	<th colspan=3>Negative</th>
-	</tr>
-	
-	<tr>
-	<th></th>
-	<th>Intransitive</th>
-	<th>Transitive</th>
-	</tr>
-	
-	<tr>
-	<th>F.</th>
-	<td>apy-</td>
-	<td>a-</td>
-	</tr>
-	
-	<tr>
-	<th>I.</th>
-	<td>ana-</td>
-	<td>ara-</td>
-	</tr>
-	
-	<tr>
-	<th>R.</th>
-	<td>anø-</td>
-	<td>apø-</td>
-	</tr>
-	
-	</table></div></div>
-	
-	<p>V. stands for First-Hand/Sensory, which means the speaker personally experienced the action, maybe by seeing it happen, hearing it happen, or any other sense, or because it happened entirely inside their head <br> I. stands for Inferential, which means the speaker inferred the action. Maybe Jeff is sad, and the speaker inferred that he was sad due to the fact that he was crying.<br>R. stands for Reportative, which means that the speaker is reporting what someone else told them.</p>
-	<p>If two vowels come into contact this way, &lt;&nbsp;t&nbsp;&gt; goes in between the two vowels</p>
-	
-	<h4>For Example:</h4>
-	
-	<p>vage (v.) - swim
-	<br>ebhi (v.) - work
-	<br>sypo (v.) - fight
-	<br>go (v.) - sleep
-	</p>
-	
-	<p>qo y-vage<br>1SG.A INTR-swim<br>I swam</p>
-	
-	<p>qo yt-ebhi<br>1SG.A INTR-work<br>I worked</p>
-	
-	<p>shïto qy sypo<br>1SG.AGT 1SG.PAT fight<br>He/she fights me</p>
-	
-	<p>shïto tunoko ø-sypo<br>3SG.AGT 4SG.PAT TRANS.REP-fight<br>He/she fought him/her</p>
-	
-	<p>shïtë ana-go<br>3SG.P INTR.INFR.NEG-sleep<br>He/she doesn't look like they slept</p>
-	
+<table>
 
-	
-	
-	
-	<h3>Tense, Modality, Aspect</h3>
-	
-	<p>Verbs are conjugated based on Tense, Modality, and Aspect. Right now I don't have Modality done, but it will be a prefix to the verb when I finish it. For now, verbs are conjugated with Tense and Aspect.</p>
-	
-	<p>The chart below shows the prefixes that correspond to the different verb conjugations</p>
-	
-	
-	<div class="center"><div class="bordered">
-	<table>
+	<tr>
+
+	<th colspan = "2">Honorific</th>
+	<th>Prefix</th>
+	<th>"Hello"</th>
+	<th>Description</th>
+	</tr>
 	
 	<tr>
+	<th>H1</th>
+	<td>Respect</td>
+	<td>re-</td>
+	<td>req</td>
+	<td>Used to show respect to someone. It's typically used when talking to strangers, bosses, people in an older generation (people around the age of your parents), and people who you could/could've dated.</td>
+	</tr>
+	
+	<tr>
+	<th>H2</th>
+	<td>Extreme Respect</td>
+	<td>dhep-</td>
+	<td>dhepiq</td>
+	<td>Used to show extreme respect to someone. It's typically used when talking to celebrities and elders. More exaggerated form of H1.</td>
+	</tr>
+	
+	<tr>
+	<th>H3</th>
+	<td>Demonstrative</td>
+	<td>iq-</td>
+	<td>iqî</td>
+	<td>Used when talking to people much younger than the speaker. It's also used in a mocking way when someone is acting childish or immature. It's often times used among a group of male friends who like to poke/make fun of each other.</td>
+	</tr>
+	
+	<tr>
+	<th>H4</th>
+	<td>Friends/Family</td>
+	<td>ves-</td>
+	<td>vesoq</td>
+	<td>For close friends or family</td>
+	</tr>
+
+</table>
+
+<h3>§3 Verbs</h3>
+
+<h4>Tense & Aspect</h4>
+
+<p>Zythë verbs conjugate to 9 tenses. These tenses can have up to three aspectual distinctions and four temporal distinctions.</p>
+
+<table>
+
+<tr>
 	<th></th>
 	<th>Perfective</th>
 	<th>Continuous</th>
@@ -982,106 +546,236 @@
 	
 	<tr>
 	<th>Present</th>
-	<td>(no ending)</td>
+	<td>//</td>
 	<td>-q</td>
-	<td>-xï</td>
+	<td>-xi</td>
 	</tr>
 	
 	<tr>
 	<th>Recent Past</th>
-	<td>(no ending)*</td>
-	<td>-la*</td>
-	<td rowspan=3>-las*</td>
+	<td>-</td>
+	<td>-me</td>
+	<td rowspan=2>-las</td>
 	</tr>
 	
 	<tr>
 	<th>Distant Past</th>
-	<td>-kä*</td>
-	<td>-të*</td>
+	<td>-thë</td>
+	<td>-kä</td>
+	</tr>
+	
+</table>
+
+<p>The present continuous is known as the present tense, and the present habitual tense is known as the habitual tense.</p>
+
+<p>While the present tense is used the most often, it is marked with the -q suffix, giving zythë its distinctive sound.</p>
+
+<h4>Mood</h4>
+
+<p>Zythë has a realis/irrealis mood distinction. Some modal constructions and phrases require the realis mood and some require the irrealis mood. Some constructions can take both moods and change meaning depending on the mood.</p>
+
+<p>The irrealis mood is marked with the suffix -te.</p>
+
+<table>
+	
+	<tr>
+	<th colspan=2></th>
+	
+	<th>Realis</th>
+	<th>Irrealis</th>
 	</tr>
 	
 	<tr>
-	<th>Ancient Past</th>
-	<td>-me shï*</td>
-	<td>-køth*</td>
-
-	</tr>
-	
-	</table></div></div>
-	
-	
-	
-	<p>*for all of the past tenses, sometimes the last vowel of the root verb will be modified. Only five vowels get modified, and how they are modified is shown below:</p>
-
-	<div class="center"><div class="borderless">
-	<table>
-	
-	<tr>
-	<td>e</td>
-	<td>→</td>
-	<td>ø</td>
+	<th colspan=2>Morphology</th>
+	<td>-</td>
+	<td>-te</td>
 	</tr>
 	
 	<tr>
-	<td>i</td>
-	<td>→</td>
-	<td>y</td>
+	<th>Tense</th>
+	<th>Future</th>
+	<td>Future</td>
+	<td>Imperative</td>
 	</tr>
 	
 	<tr>
-	<td>a</td>
-	<td>→</td>
-	<td>ä</td>
+	<th rowspan=3>Evidentiality</th>
+	<th>First Hand</th>
+	<td>First Hand</td>
+	<td>//</td>
 	</tr>
 	
 	<tr>
-	<td>ø</td>
-	<td>→</td>
-	<td>o</td>
+	<th>Inferrential</th>
+	<td>Deductive</td>
+	<td>Speculative/Assumptive</td>
+	</tr>
+	<tr>
+	
+	<th>Reportive</th>
+	<td>Reportive (2)</td>
+	<td>Reportive (3, Gen)</td>
 	</tr>
 	
 	<tr>
-	<td>y</td>
-	<td>→</td>
-	<td>u</td>
+	<th>Question</th>
+	<th>Interrogative</th>
+	<td>//</td>
+	<td>Interrogative</td>
 	</tr>
 	
-	</table></div></div>
+	<tr>
+	<th rowspan=4>Auxiliary Verbs</th>
+	<th>Obligative</th>
+	<td>Obligative</td>
+	<td>Imperative (polite)</td>
+	</tr>
 	
-	<p>If the vowel isn't in the first column on the chart, then it doesn't get converted, and it just stays normal.</p>
+	<tr>
+	<th>Abilitive</th>
+	<td>//</td>
+	<td>Abilitive</td>
+	</tr>
 	
-	<p>Verbs will always end in a vowel, so there should be no phonotactic conflicts.</p>
-
-	<p>Now that we know this, we can fix the example sentences above in the Evidentiality, Transitivity, & Negativity section. </p>
+	<tr>
+	<th>Permissive</th>
+	<td>//</td>
+	<td>Permissive</td>
+	</tr>
 	
-	<p>First, let's look at shïtë anago, "He/she doesn't look like they slept". It happened last night, so the tense is recent past, and sleeping is a continuous action, so it would be continuous. Inflected for the recent past continuous, the sentence would be shïtë anagola. </p>
+	<tr>
+	<th>Conditional</th>
+	<td>//</td>
+	<td>Conditional</td>
+	</tr>
 	
-	<p>Let's look at shïto qy sypo, "He/she fights me". The way the sentence is in english makes it seem that he/she is fights me regularly, almost habitually. They still are in the habit of fighting me, so it would be present habitual, and so the sentence should be shïto qy sypoxï. shïto tunoko øsypo is a similar story, but it would become shïto tunoko øsypolas, since it happened in the past.</p>
+	<tr>
+	<th>Constructions</th>
+	<th>Volitive</th>
+	<td>//</td>
+	<td>Volitive</td>
+	</tr>
 	
-	<p>Finally, let's look at qo yvage and qo ytebhi. "I swam" and "I worked" are both in the perfective aspect, because they were both completed. In this case, tense is tricky, because the English language doesn't give us enough information to determine how recently the action took place. This doesn't mean any language is worse than the other, or that one language is harder than the other, it's just natural for languages to leave out information or to encode it in different ways. For the perfective aspect, it's hard to say that something is completed right now, just typing that sounds weird, so the present perfective aspect doesn't really exist. In Zythë, the present perfective aspect really represents something that has happened very recently today. Those sentences are conjugated in the present perfective, and so they remain qo yvage and qo ytebhi.
-	</p>
+	<!--<tr>
+	<th></th>
+	<td></td>
+	<td></td>
+	</tr>-->
 	
-	</div><div class="lightergrayblock"><h2>Dictionary</h2>
-	<div class="buttonlist">
-	<div><a href="zythedictionary.html">Zythë Dictionary</a></div>
-	</div>
+
+</table>
+
+
+<h3>§4 Syntax</h3>
 
 
 
 
 
+</div>
+
+<div id="sideBar">
+</div>
 
 
 <!--
 
-copy paste this line above for extra blocks
+<h5>Other Pronouns</h5>
 
-</div><div class="%%color%%block"><h2><!--%% Header %%</h2>
+<p>This table lists all of the rest of the pronouns.</p>
+
+<table>
+	
+	<tr>
+	<th rowspan=2></th>
+	<th rowspan=2>Query</th>
+	<th rowspan=2>Relative<br>(subclauses)</th>
+	<th colspan=2>Demonstrative </th>
+	<th colspan=2>Quantifier </th>
+	</tr>
+	
+	<tr>
+	<th>this</th>
+	<th>that</th>
+	<th>none</th>
+	<th>every</th>
+
+	</tr>
+	
+	<tr>
+	<th>Animate</th>
+	<td>beqä</td>
+	<td>thoqä</td>
+	<td>paqä</td>
+	<td>vaqä</td>
+	<td>vëqä</td>
+	<td>aqä</td>
+	</tr>
+	
+	<tr>
+	<th>Inanimate</th>
+	<td>bemä</td>
+	<td>thomä</td>
+	<td>pamä</td>
+	<td>vamä</td>
+	<td>vëmä</td>
+	<td>amä</td>
+	</tr>
+	
+	<tr>
+	<th>Location</th>
+	<td>bexa</td>
+	<td>thoxa</td>
+	<td>paxa</td>
+	<td>vaxa</td>
+	<td>vëxa</td>
+	<td>axa</td>
+	</tr>
+	
+	<tr>
+	<th>Time</th>
+	<td>bezhong</td>
+	<td>thozhong</td>
+	<td>pazhong</td>
+	<td>vazhong</td>
+	<td>vëzhong</td>
+	<td>azhong</td>
+	</tr>
+	
+	<tr>
+	<th>Manner</th>
+	<td>bi</td>
+	<td>tholi</td>
+	<td>pi</td>
+	<td>vi</td>
+	<td>vi</td>
+	<td>ati</td>
+	</tr>
+	
+	<tr>
+	<th>Reason</th>
+	<td>bemy</td>
+	<td>thomy</td>
+	<td>pamy</td>
+	<td>vamy</td>
+	<td>vëmy</td>
+	<td>amy</td>
+	</tr>
+	
+	<tr>
+	<th>Amount</th>
+	<td>bebusu</td>
+	<td>thobusu</td>
+	<td>pabusu</td>
+	<td>vabusu</td>
+	<td>vëbusu</td>
+	<td>abusu</td>
+	</tr>
+	
+	</table>
 
 -->
 
-
-
-</div></body>
+</body>
 
 </html>

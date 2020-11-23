@@ -3,14 +3,13 @@ var mainBody = document.getElementById("mainBody");
 var head = document.getElementsByTagName("head")[0];
 
 var menuContent = [
-	["header", "Menu", "menu", "blue", ["index", "aboutMe", "cube", "conlangs", "javascript", "other"]],
+	["header", "Menu", "menu", "blue", ["index", "cube", "conlangs", "javascript", "other"]],
 	["a", "Home", "index", "green", []],
 	["button", "Cubing", "cube", "green", ["cubeHome", "algs"]],
 	["a", "Home", "cubeHome", "red", []],
 	["a", "Algorithms", "algs", "red", []],
 	["a", "Conlangs", "conlangs", "green", []],
 	["a", "Projects", "javascript", "green", []],
-	["a", "About Me", "aboutMe", "green", []],
 	["a", "Other", "other", "green", []],
 	];
 	
@@ -88,6 +87,8 @@ function conditionedColor(prevColors){
 		randColor = randomColor();
 		var generateNew = false;
 		
+		console.log(randColor + " " + prevColors.length)
+		
 		//first color can't be black
 		if(prevColors.length == 0 && randColor == "black"){
 			generateNew = true;
@@ -96,11 +97,13 @@ function conditionedColor(prevColors){
 		//regenerate if same as previous 2 colors
 		if (randColor == prevColors[prevColors.length - 1] || randColor == prevColors[prevColors.length - 2]){
 			generateNew = true;
+			console.log("regenerating cause prev 2")
 		};
 		
 		//regenerate if it is the last in the sequence of 4 headings
 		if (prevColors.length % 4 == 3 && randColor == prevColors[prevColors.length - 3]){
 			generateNew = true;
+			console.log("regenerating cause last")
 		};
 		
 	}
@@ -121,36 +124,20 @@ function bodyLoad(page){
 	var mainBody = document.getElementById("mainBody");
 	
 	var headingPrevColors = [];
-	var h1Elem = mainBody.getElementsByTagName("h1");
-	var h2Elem = mainBody.getElementsByTagName("h2");
-	var h3Elem = mainBody.getElementsByTagName("h3");
-	var h4Elem = mainBody.getElementsByTagName("h4");
+	var mainBodyElements = mainBody.getElementsByTagName("*");
+
 	//var h5Elem = document.getElementsByTagName("h5");
 	//var h6Elem = document.getElementsByTagName("h6");
 	
-	for (let i = 0; i < h1Elem.length; i++){
-		var color = conditionedColor(headingPrevColors);
-		h1Elem[i].setAttribute("class", color);
-		headingPrevColors.push(color);
+	for (var i = 0; i < mainBodyElements.length; i++){
+		var elem = mainBodyElements[i].tagName
+		if(elem == "H1" || elem == "H2" || elem == "H3" || elem == "H4"){
+			var color = conditionedColor(headingPrevColors);
+			mainBodyElements[i].setAttribute("class", color);
+			headingPrevColors.push(color);
+		}
 	}
-	
-	for (let i = 0; i < h2Elem.length; i++){
-		var color = conditionedColor(headingPrevColors);
-		h2Elem[i].setAttribute("class", color);
-		headingPrevColors.push(color);
-	}
-	
-	for (let i = 0; i < h3Elem.length; i++){
-		var color = conditionedColor(headingPrevColors);
-		h3Elem[i].setAttribute("class", color);
-		headingPrevColors.push(color);
-	}
-	
-	for (let i = 0; i < h4Elem.length; i++){
-		var color = conditionedColor(headingPrevColors);
-		h4Elem[i].setAttribute("class", color);
-		headingPrevColors.push(color);
-	}
+
 	
 	//load sideBar content
 	

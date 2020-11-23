@@ -4,46 +4,50 @@
 
 <head>
 
-<script src = "https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<link rel="stylesheet" href="Nicbudd.css">
-<script src = "import.js" type = "text/javascript"></script>
-<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="index.css">
+<script src = "index.js" type = "text/javascript"></script>
+<!--Insert additional JS files here-->
 
-<title>Conlangs</title>
+<title>Nicbudd</title>
+
 </head>
 
-<body>
-<noscript><div id="noscript"><h2>Uh-oh!</h2><p>It appears that javascript is not working here, for whatever reason.</p><p>Sadly, this site doesn't work without javascript. You might be able to see it looks a bit... broken.</p><p>Please enable javascript or switch to a browser that is compatible with javascript if you want to continue browsing this website.</p><p>If you don't want to, that's ok too. I'll just be sad that you cant see my website.</p><h2>;(</h2></div></noscript>
+<!--%% Fill out body load with page url 
+Example: bodyLoad('index') for the index page
+%%-->
+<body onload="bodyLoad('conlangs');">
+<noscript><div id="noscript">Javascript is not working. Please enable javascript for proper site functionality</div></noscript>
+
+<a id="title" href="index.html">
+<div id="titleText">
+Nicbudd
+</div>
+</a>
+
+<div id="menu">
+<button onclick="menuToggle('menu')" class="menuItem menuHeader blue" id="menuMenuButton">Menu ▼</button>
+</div>
 
 
+<div id="mainBody">
 
-<div class="lightergrayblock"><h1>Conlangs</h1>
+<h1>Conlangs</h1>
+<p>Constructed Languages (conlangs for short) are languages that are created and designed rather than naturally evolved. There are many reasons to invent languages, but I make languages for fun. Sometimes they are connected to fantasy worlds, but most of the time I create them for the fun of creating languages, and I have no ideas in mind. Conlanging takes a lot of work and a conlang can never be considered complete, as there are always new words to add. I also take commissions for conlangs. Send me an email for details about pricing!</p>
+<h6>Commissions: Open</h6>
+<p>Here are some examples of my current and previous projects:</p>
 
-<p>In my free time, I like to make languages. The term "conlang" comes from "constructed" and "language".</p>
+<a class="button" href="zythe.html">Zythë</a>
+<a class="button" href="Mobian Reference Grammar.pdf">Mobian (PDF)</a>
 
-</div><div class="greenblock"><h2>Directory</h2>
+</div>
 
-<div class="buttonlist">
-<div><a href="zythe.html">Zythë</a></div>
-<div><a href="cordovish.html">Cordovish</a></div>
-<!--<div><a href="moreconlangs.html">Other</a></div>-->
+
+<div id="sideBar">
 </div>
 
 
 
-
-
-
-<!--
-
-copy paste this line above for extra blocks
-
-</div><div class="%%color%%block"><h2><!--%% Header %%</h2>
-
--->
-
-
-
-</div></body>
+</body>
 
 </html>

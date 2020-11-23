@@ -287,22 +287,22 @@ p{
 }
 
 #mainBody h2{
-	font-size: 1.75em;
+	font-size: 1.8em;
 	margin: 0.5em 2em 0.5em 8px;
 }
 
 #mainBody h3{
-	font-size: 1.4em;
+	font-size: 1.6em;
 	margin: 0.5em 2em 0.5em 8px;
 }
 
 #mainBody h4{
-	font-size: 1.25em;
+	font-size: 1.4em;
 	margin: 0.5em 2em 0.5em 8px;
 }
 
 #mainBody h5{
-	font-size: 1.5em;
+	font-size: 1.25em;
 	margin: 0.75em 2em 0.75em 8px;
 }
 
@@ -311,6 +311,10 @@ p{
 	margin: 0.75em 2em 0.75em 8px;
 }
 
+#mainBody h1, #mainBody h2, #mainBody h3, #mainBody h4, #mainBody h5, #mainBody h6{
+	margin-right: 9999px;
+	white-space: nowrap;
+}
 
 
 

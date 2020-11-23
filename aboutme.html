@@ -4,158 +4,43 @@
 
 <head>
 
-<script src = "https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<link rel="stylesheet" href="Nicbudd.css">
-<script src = "import.js" type = "text/javascript"></script>
-<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="index.css">
+<script src = "index.js" type = "text/javascript"></script>
+<!--Insert additional JS files here-->
 
-<title>About Me</title>
-
-<style>
-
-#contact{
-	
-	text-align: center;
-	
-}
-
-#contact > div{
-	
-
-	
-}
-
-#contact > div a{
-	border-radius: 8px;
-	margin:8px;
-	padding: 16px;
-  font-size: 2em;
-}
-
-@media screen and (max-width: 600px){
-
-#contact > div a{
-	border-radius: 8px;
-	margin:6px;
-	padding: 14px;
-  font-size: 1.5em;
-}
-
-}
-
-@media screen and (max-width:400px){
-
-#contact > div a{
-	border-radius: 4px;
-	margin:6px;
-	padding: 4px;
-  font-size: 1em;
-}
-
-}
-
-#Email{
-background-color:#3BA769;
-color:#E6E6E6;
--webkit-transition: color 0.5s, background-color 0.5s;
-transition: color 0.5s, background-color 0.5s;
-}
-
-
-
-
-#Reddit{
-background-color:#C14747;
-color:#E6E6E6;
--webkit-transition: color 0.5s, background-color 0.5s;
-transition: color 0.5s, background-color 0.5s;
-}
-
-#Twitter{
-background-color:#316FA6;
-color:#E6E6E6;
--webkit-transition: color 0.5s, background-color 0.5s;
-transition: color 0.5s, background-color 0.5s;
-}
-
-#Youtube{
-background-color:#C14747;
-color:#E6E6E6;
--webkit-transition: color 0.5s, background-color 0.5s;
-transition: color 0.5s, background-color 0.5s;
-}
-
-
-
-
-@media screen and (min-width:768px){
-
-#Email:hover{
-background-color:#E6E6E6;
-color:#3BA769;
-}
-
-#Reddit:hover{
-background-color:#E6E6E6;
-color:#C14747;
-}
-
-#Twitter:hover{
-background-color:#E6E6E6;
-color:#316FA6;
-}
-
-#Youtube:hover{
-background-color:#E6E6E6;
-color:#C14747;
-}
-
-}
-
-</style>
+<title>Nicbudd</title>
 
 </head>
 
-<body>
+<body onload="bodyLoad('aboutMe');">
+<noscript><div id="noscript">Javascript is not working. Please enable javascript for proper site functionality</div></noscript>
 
-<noscript><div id="noscript"><h2>Uh-oh!</h2><p>It appears that javascript is not working here, for whatever reason.</p><p>Sadly, this site doesn't work without javascript. You might be able to see it looks a bit... broken.</p><p>Please enable javascript or switch to a browser that is compatible with javascript if you want to continue browsing this website.</p><p>If you don't want to, that's ok too. I'll just be sad that you cant see my website.</p><h2>;(</h2></div></noscript>
+<a id="title" href="index.html">
+<div id="titleText">
+Nicbudd
+</div>
+</a>
 
+<div id="menu">
+<button onclick="menuToggle('menu')" class="menuItem menuHeader blue" id="menuMenuButton">Menu ▼</button>
+</div>
 
-<div class="lightergrayblock"><h1>About Me</h1>
-
+<div id="mainBody">
+<h1>About Me</h1>
+<p>Hi, I'm Nicolas Zerbinopoulos. I'm a 18 year old first year college student attending Western Michigan University going for an aviation flight sciences degree. I have many hobbies, such as Rubiks Cube Speedsolving (Cubing), Language Creation (Conlanging), Aviation, Meteorology, Website Design, Programming, and Music Production.</p>
 <img src="E99.jpg"></img>
-
-<p>Hello, I am Nicolas Zerbinopoulos. I am an amateur pilot, speed Rubik's Cube solver, language creator (constructed languages, or "conlangs"), webpage designer, music producer, and amateur meteorlogist<!-- And also a furry. You never saw this. -->. I was born in Southern New Hampshire and I've lived there ever since. I have so many hobbies that I can't count them all, but I know that one day I would like to be a pilot. I am currently attending Western Michigan University enrolled in the College of Aviation. On some weekends, I go to local speedcubing competitions and try to break my fastest times solving various twisty puzzles.</p>
-
-</div><div class="blueblock"><h2>Facts</h2>
-
-Name: Nicolas Zerbinopoulos 
-<br>Age: 17
-<br>Grade: College Freshman
-<br>Likes: Music, Twisty Puzzles (like the Rubik's Cube), Stormy Weather, Pizza, Pasta, Toffee, Dark Chocolate, My Friends, My Website, Computers
-<br>Dislikes: Tomatoes (in any form; ketchup, raw, salsa, sauce), Soup,  Carrots, Milk Chocolate, Pineapple on Pizza, Movies.
-</div><div class="blackblock"><h2>Contact Me</h2>
+<p>I grew up in southern New Hampshire, and as such I will always be a New Hampshirite. I'll take any chance I can to go back to New Hampshire!</p>
 
 
-<div class="listbar" id="contact">
-<div><a id="Email" href="mailto:niczippy77@gmail.com"><i class="fas fa-envelope fa-2x"></i></a></div>
-<div><a id="Twitter" href="https://www.twitter.com/Nicbudd77"><i class="fab fa-twitter fa-2x"></i></a></div>
-<div><a id="Youtube" href="https://www.youtube.com/channel/UCgDgBDKP0bRTwU890mdbGoQ"><i class="fab fa-youtube fa-2x"></i></a></div>
+</div>
+
+
+<div id="sideBar">
 </div>
 
 
 
-
-<!--
-
-copy paste this line above for extra blocks
-
-</div><div class="%%color%%block"><h2><!--%% Header %%</h2>
-
--->
-
-
-
-</div></body>
+</body>
 
 </html>
