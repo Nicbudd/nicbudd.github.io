@@ -87,8 +87,6 @@ function conditionedColor(prevColors){
 		randColor = randomColor();
 		var generateNew = false;
 		
-		console.log(randColor + " " + prevColors.length)
-		
 		//first color can't be black
 		if(prevColors.length == 0 && randColor == "black"){
 			generateNew = true;
@@ -97,13 +95,11 @@ function conditionedColor(prevColors){
 		//regenerate if same as previous 2 colors
 		if (randColor == prevColors[prevColors.length - 1] || randColor == prevColors[prevColors.length - 2]){
 			generateNew = true;
-			console.log("regenerating cause prev 2")
 		};
 		
 		//regenerate if it is the last in the sequence of 4 headings
 		if (prevColors.length % 4 == 3 && randColor == prevColors[prevColors.length - 3]){
 			generateNew = true;
-			console.log("regenerating cause last")
 		};
 		
 	}
@@ -112,7 +108,7 @@ function conditionedColor(prevColors){
 	//regenerates random color if any condition is met
 	
 	
-	return randColor
+	return randColor;
 
 }
 
