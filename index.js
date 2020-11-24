@@ -15,9 +15,16 @@ var menuContent = [
 	
 var hiddenContent = []
 
-function showHide(contentID, showText, hideText){
+function showHide(contentID){
 	var content = document.getElementById(contentID);
-	content.style.display = "none"
+	
+	if (content.style.display == "none"){
+		content.style.display = "block"
+	} else {
+		content.style.display = "none"
+	}
+	
+	/*content.style.display = "none"
 	var hidden = true
 	for (let i = 0; i < hiddenContent.length; i++){
 		if (hiddenContent[i] == contentID){
@@ -28,7 +35,7 @@ function showHide(contentID, showText, hideText){
 	}
 	if (hidden == true){
 		hiddenContent.push(contentID);
-	}
+	}*/
 }
 
 function addToHead(content){
