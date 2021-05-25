@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="index.css">
+<script src = "index.js" type = "text/javascript"></script>
+<!--Insert additional JS files here-->
+
+<title>Nicbudd</title>
+
+</head>
+
+<body>
+
+
+<body onload="bodyLoad('');">
+<noscript><div id="noscript">Javascript is not working. Please enable javascript for proper site functionality</div></noscript>
+
+<a id="title" href="index.html">
+<div id="titleText">
+Nicbudd
+</div>
+</a>
+
+<div id="menu">
+<button onclick="menuToggle('menu')" class="menuItem menuHeader blue" id="menuMenuButton">Menu ▼</button>
+</div>
+
+
+<div id="mainBody">
+
+<h1>Weather Links</h1>
+
+<p>As a weather enthusiast, I've always found it difficult to find resources on the internet to find meteorological data, so I've compiled a set of links that I believe will be helpful resources for weather enthusiasts such as myself. There are a few charts for different categories ranked roughly by how usefel I find them.</p>
+
+
+<h2>Tropical Weather</h2><table><tr><th>Link</th><th>Organization</th><th>Description</th></tr><tr><td><a href='https://nhc.noaa.gov'>https://nhc.noaa.gov</a></td><td>NHC @ NWS</td><td>Official National Hurricane Center guidance on tropical systems. 2 Day & 5 Day tropical weather outlooks and impact guidance.</td></tr><tr><td><a href='https://www.tropicaltidbits.com'>https://www.tropicaltidbits.com</a></td><td>Dr. Levi Cowan</td><td>Collection of commonly used tools. Blog posts with a professional opinion on US-affecting tropical cyclones, current storm information, satellite imagery, forecast models, aircraft reconnaissance data, climate analysis tools.</td></tr><tr><td><a href='http://tropic.ssec.wisc.edu/'>http://tropic.ssec.wisc.edu/</a></td><td>SSEC @ UW-Madison</td><td>Wide variety of specific products. ADT, AMSU, ARCHER, SATCON for estimating TC strength and position, MIMIC microwave imagery, basin-wide wind analysis, SAL tracking.</td></tr><tr><td><a href='https://rammb-data.cira.colostate.edu/tc_realtime/'>https://rammb-data.cira.colostate.edu/tc_realtime/</a></td><td>CIRA @ CSU</td><td>Compilation and archive of storm imagery and data. Many graphs of numerical product data, mainly regarding TC intensity forecasts.</td></tr><tr><td><a href='https://www.ospo.noaa.gov/Products/ocean/sst/contour/index.html'>https://www.ospo.noaa.gov/Products/ocean/sst/contour/index.html</a></td><td>OSPO @ NOAA</td><td>Detailed Sea Surface Temperature analysis images.</td></tr><tr><td><a href='http://www.atmos.albany.edu/student/ppapin/'>http://www.atmos.albany.edu/student/ppapin/</a></td><td>Phillipe Papin</td><td>Hyperspecific TC research. Authored paper on Central American Gyres, website has great CAG Diagnostics charts. Historical IR imagery.</td></tr><tr><td><a href='http://moe.met.fsu.edu/~rhart/web.php'>http://moe.met.fsu.edu/~rhart/web.php</a></td><td>Robert Hart @ FSU</td><td>Various TC research products.</td></tr><tr><td><a href='http://spaghettimodels.com/'>http://spaghettimodels.com/</a></td><td></td><td>Busy webpage compiling graphical products from many sources.</td></tr><tr><td><a href='https://www.weathernerds.org/tc_guidance/'>https://www.weathernerds.org/tc_guidance/</a></td><td>WeatherNerds</td><td>Spaghetti plots.</td></tr><tr><td><a href='https://web.uwm.edu/hurricane-models/models/index.html'>https://web.uwm.edu/hurricane-models/models/index.html</a></td><td>UW</td><td></td></tr><tr><td><a href='http://www.marineheatwaves.org/tracker.html'>http://www.marineheatwaves.org/tracker.html</a></td><td></td><td>Marine heatwaves (I have not been able to load this website).</td></tr><tr><td><a href='http://www.cyclocane.com/'>http://www.cyclocane.com/</a></td><td></td><td></td></tr></table>
+
+<h2>Satellite Imagery</h2><table><tr><th>Link</th><th>Organization</th><th>Description</th></tr><tr><td><a href='http://weather.cod.edu/satrad/exper/'>http://weather.cod.edu/satrad/exper/</a></td><td>College of Dupage</td><td>GOES-16 & GOES-17 easy to navigate high quality visualization with localized imagery sectors. Overlays for extra data visualization.</td></tr><tr><td><a href='https://www.tropicaltidbits.com/sat/'>https://www.tropicaltidbits.com/sat/</a></td><td>Dr. Levi Cowan</td><td>Tropical Weather specific satellite imagery.</td></tr><tr><td><a href='http://rammb-slider.cira.colostate.edu'>http://rammb-slider.cira.colostate.edu</a></td><td>CIRA @ CSU</td><td>GOES-16, GOES-17, Himiwari-8, Meteosat-8, Meteosat-11, JPSS visualizer. Zoomable, wide product range, and easy to use, but choppy.</td></tr><tr><td><a href='https://www.fnmoc.navy.mil/tcweb/cgi-bin/tc_home.cgi'>https://www.fnmoc.navy.mil/tcweb/cgi-bin/tc_home.cgi</a></td><td>FNMOC @ U.S. Military</td><td>High quality visualization of microwave satellite imagery. Sketchy website entry, but trusted U.S. Military site.</td></tr><tr><td><a href='https://geosphere.ssec.wisc.edu/'>https://geosphere.ssec.wisc.edu/</a></td><td>SSEC @ UW-Madison</td><td>GOES-16 only, similar to RAMMB Slider.</td></tr><tr><td><a href='https://www.star.nesdis.noaa.gov/GOES/'>https://www.star.nesdis.noaa.gov/GOES/</a></td><td>NESDIS @ NOAA</td><td>NOAA premade satellite GIFs.</td></tr><tr><td><a href='https://himawari8.nict.go.jp/'>https://himawari8.nict.go.jp/</a></td><td>Government of Japan</td><td></td></tr><tr><td><a href='http://www.nhc.noaa.gov/satellite.php'>http://www.nhc.noaa.gov/satellite.php</a></td><td>NHC @ NWS</td><td>Legacy NHC satellite imagery.</td></tr><tr><td><a href='https://weather.msfc.nasa.gov/GOES/'>https://weather.msfc.nasa.gov/GOES/</a></td><td>MSFC @ NOAA</td><td>Customizable satellite GIF generator.</td></tr><tr><td><a href='https://www.weathernerds.org/satellite'>https://www.weathernerds.org/satellite</a></td><td>WeatherNerds</td><td></td></tr></table>
+
+<h2>Other Data Visualization</h2><table><tr><th>Link</th><th>Organization</th><th>Description</th></tr><tr><td><a href='https://realearth.ssec.wisc.edu/'>https://realearth.ssec.wisc.edu/</a></td><td>SSEC @ UW-Madison</td><td>Layerable, zoomable data visualization tool mainly for use with satellite and radar.</td></tr><tr><td><a href='http://moe.met.fsu.edu/maproom/'>http://moe.met.fsu.edu/maproom/</a></td><td>Robert Hart @ FSU</td><td>Maps used in FSU map room.</td></tr><tr><td><a href='https://www.windy.com/'>https://www.windy.com/</a></td><td></td><td>Mercator view simplified forecast visualization.</td></tr><tr><td><a href='http://earth.nullschool.net/'>http://earth.nullschool.net/</a></td><td></td><td>Simplified visualization of the world's weather.</td></tr><tr><td><a href='https://www.ventusky.com/'>https://www.ventusky.com/</a></td><td></td><td></td></tr></table>
+
+<h2>Severe Weather</h2><table><tr><th>Link</th><th>Organization</th><th>Description</th></tr><tr><td><a href='https://www.spc.noaa.gov/'>https://www.spc.noaa.gov/</a></td><td>SPC @ NWS</td><td>Official Storm Prediction Center severe weather outlooks for Days 1-7. Watches, mesoscale discussions, specific hazard based guidance.</td></tr><tr><td><a href='https://www.spc.noaa.gov/exper/mesoanalysis/'>https://www.spc.noaa.gov/exper/mesoanalysis/</a></td><td>SPC @ NWS</td><td>Versitile mesoscale analysis and forecasting tools with a variety of data types.</td></tr><tr><td><a href='https://wof.nssl.noaa.gov/realtime/'>https://wof.nssl.noaa.gov/realtime/</a></td><td>NSSL @ NOAA</td><td>Warn on Forecast model for short-range forecasting with 30 minute refresh, 10 minute time steps, and 6 hour range.</td></tr><tr><td><a href='https://cameronnixonphotography.wordpress.com/'>https://cameronnixonphotography.wordpress.com/</a></td><td>Cameron N. Nixon</td><td></td></tr></table>
+
+<h2>Radar</h2><table><tr><th>Link</th><th>Organization</th><th>Description</th></tr><tr><td><a href='http://moe.met.fsu.edu/~mnissenbaum/radar.html'>http://moe.met.fsu.edu/~mnissenbaum/radar.html</a></td><td>Mark Missenbaum</td><td>Sporadic Level II NEXRAD radar loops with particular focus on tropical systems.</td></tr><tr><td><a href='https://www.weathernerds.org/radar/'>https://www.weathernerds.org/radar/</a></td><td>WeatherNerds</td><td>Customizable Level II NEXRAD loops.</td></tr><tr><td><a href='https://weather.cod.edu/satrad/nexrad/'>https://weather.cod.edu/satrad/nexrad/</a></td><td>College of DuPage</td><td></td></tr><tr><td><a href='https://www.wunderground.com/weather-radar'>https://www.wunderground.com/weather-radar</a></td><td>Wunderground</td><td></td></tr><tr><td><a href='https://radar.weather.gov/'>https://radar.weather.gov/</a></td><td>NWS</td><td>Stitched NWS weather radar maps.</td></tr><tr><td><a href='http://tropicalatlantic.com/radars/#database'>http://tropicalatlantic.com/radars/#database</a></td><td></td><td>Database of international radar sites.</td></tr></table>
+
+<h2>Forecast Models</h2><table><tr><th>Link</th><th>Organization</th><th>Description</th></tr><tr><td><a href='https://www.pivotalweather.com/model.php'>https://www.pivotalweather.com/model.php</a></td><td>Pivotal Weather</td><td>Model visualizations with large model selection, extensive list of parameters to visualize, and visually pleasing colormaps. Severe weather focus.</td></tr><tr><td><a href='https://www.tropicaltidbits.com/analysis/models/'>https://www.tropicaltidbits.com/analysis/models/</a></td><td>Dr. Levi Cowan</td><td>Similar to pivotal weather. Slightly different products and tropical focus.</td></tr><tr><td><a href='https://weather.us/model-charts/standard'>https://weather.us/model-charts/standard</a></td><td>Weather.US</td><td>Large selection of uncommon forecast models with many parameters to visualize, including fire weather data.</td></tr><tr><td><a href='http://arctic.som.ou.edu/tburg/models/'>http://arctic.som.ou.edu/tburg/models/</a></td><td>Tomer Burg</td><td>Visually pleasing layer based visualizer. Limited selection in models and parameters.</td></tr><tr><td><a href='https://wof.nssl.noaa.gov/realtime/'>https://wof.nssl.noaa.gov/realtime/</a></td><td>NSSL @ NOAA</td><td>Warn on Forecast model for short-range forecasting with 30 minute refresh, 10 minute time steps, and 6 hour range.</td></tr><tr><td><a href='http://www.atmos.albany.edu/student/abentley/realtime.html'>http://www.atmos.albany.edu/student/abentley/realtime.html</a></td><td>Dr. Alicia M. Bentley</td><td>Specific pre-generated information-dense GFS analysis and forecast maps.</td></tr><tr><td><a href='https://www.weathernerds.org/models/'>https://www.weathernerds.org/models/</a></td><td>WeatherNerds</td><td></td></tr><tr><td><a href='http://mag.ncep.noaa.gov/'>http://mag.ncep.noaa.gov/</a></td><td>NCEP @ NOAA</td><td></td></tr></table>
+
+<h2>Observations</h2><table><tr><th>Link</th><th>Organization</th><th>Description</th></tr><tr><td><a href='https://www.wunderground.com/wundermap'>https://www.wunderground.com/wundermap</a></td><td>Wunderground</td><td>Hyperlocalized map of IoT personal weather stations.</td></tr><tr><td><a href='https://www.pivotalweather.com/maps.php?ds=rtma_ru'>https://www.pivotalweather.com/maps.php?ds=rtma_ru</a></td><td>Pivotal Weather</td><td>Real Time Mesoscale Analysis.</td></tr><tr><td><a href='https://www.spc.noaa.gov/exper/soundings/'>https://www.spc.noaa.gov/exper/soundings/</a></td><td>SPC @ NWS</td><td>NWS official radiosonde soundings. Launched from ~90 locations across the nation at 00z and 12z.</td></tr><tr><td><a href='https://www.flightradar24.com/'>https://www.flightradar24.com/</a></td><td></td><td>Provides METAR data for various ariports.</td></tr><tr><td><a href='https://mesonet.agron.iastate.edu/'>https://mesonet.agron.iastate.edu/</a></td><td>Iowa State</td><td>Large database for current and historical data for many networks of weather stations.</td></tr><tr><td><a href='http://tropicalatlantic.com/recon/recon.cgi'>http://tropicalatlantic.com/recon/recon.cgi</a></td><td></td><td>(I have not been able to test this website, presumably aircraft reconnaissance data.)</td></tr><tr><td><a href='http://autumnsky.us/vad/'>http://autumnsky.us/vad/</a></td><td></td><td>Vertical Wind Profiles from radar velocity data.</td></tr></table>
+
+<h2>Historical Data</h2><table><tr><th>Link</th><th>Organization</th><th>Description</th></tr><tr><td><a href='https://mesonet.agron.iastate.edu/sites/locate.php'>https://mesonet.agron.iastate.edu/sites/locate.php</a></td><td>Iowa State</td><td>Large database for current and historical data for many networks of weather stations.</td></tr><tr><td><a href='https://weather.us/reanalysis'>https://weather.us/reanalysis</a></td><td>Weather.US</td><td>ERA5 reanalysis visualization.</td></tr><tr><td><a href='http://rawinsonde.com/ERA5_USA/'>http://rawinsonde.com/ERA5_USA/</a></td><td></td><td>ERA5 reanalysis sounding extrapolation.</td></tr><tr><td><a href='https://www.spc.noaa.gov/archive/'>https://www.spc.noaa.gov/archive/</a></td><td>SPC @ NWS</td><td>SPC outlook, mesoscale discussion, watch archive.</td></tr></table>
+
+<h2>Reference / Education</h2><table><tr><th>Link</th><th>Organization</th><th>Description</th></tr><tr><td><a href='https://meteorology101.com/'>https://meteorology101.com/</a></td><td></td><td></td></tr><tr><td><a href='https://cameronnixonphotography.wordpress.com/research/severe-weather-sounding-analysis/'>https://cameronnixonphotography.wordpress.com/research/severe-weather-sounding-analysis/</a></td><td>Cameron Nixon</td><td>Sounding reading tutorial.</td></tr><tr><td><a href='http://www.theweatherprediction.com/'>http://www.theweatherprediction.com/</a></td><td>Jeff Haby</td><td>Habyhints has well explained, highly detailed information for hyperspecific meteorological terminology.</td></tr></table>
+
+<h2>Other</h2><table><tr><th>Link</th><th>Organization</th><th>Description</th></tr><tr><td><a href='https://droughtmonitor.unl.edu/'>https://droughtmonitor.unl.edu/</a></td><td>UN-Lincoln</td><td>US Drought Monitor.</td></tr><tr><td><a href='http://coolwx.com/'>http://coolwx.com/</a></td><td>Robert Hart</td><td>Plots buoy data, showcases unique weather from around the world, RTMA.</td></tr><tr><td><a href='https://alg.umbc.edu/'>https://alg.umbc.edu/</a></td><td>UMBC</td><td></td></tr><tr><td><a href='http://www.bom.gov.au/climate/mjo/'>http://www.bom.gov.au/climate/mjo/</a></td><td>BoM @ AUS Govt.</td><td>MJO Phase Diagram.</td></tr></table>
+
+<h2>Bulk Data</h2><table><tr><th>Link</th><th>Organization</th><th>Description</th></tr><tr><td><a href='http://cimss.ssec.wisc.edu/goes/goesdata.html'>http://cimss.ssec.wisc.edu/goes/goesdata.html</a></td><td>SSEC @ UW-Madison</td><td></td></tr><tr><td><a href='https://home.chpc.utah.edu/~u0553130/Brian_Blaylock/cgi-bin/goes16_download.cgi'>https://home.chpc.utah.edu/~u0553130/Brian_Blaylock/cgi-bin/goes16_download.cgi</a></td><td></td><td></td></tr><tr><td><a href='https://www.ncdc.noaa.gov/airs-web/search'>https://www.ncdc.noaa.gov/airs-web/search</a></td><td>NCEI @ NOAA</td><td></td></tr></table>
+
+<h2>Meteorology Research</h2><table><tr><th>Link</th><th>Organization</th><th>Description</th></tr><tr><td><a href='http://meteorology.ou.edu/research/research-centers/'>http://meteorology.ou.edu/research/research-centers/</a></td><td>OU</td><td></td></tr><tr><td><a href='https://tropical.colostate.edu/'>https://tropical.colostate.edu/</a></td><td>CSU</td><td></td></tr><tr><td><a href='http://www.nrlmry.navy.mil/'>http://www.nrlmry.navy.mil/</a></td><td>NRL - U.S. Navy</td><td></td></tr><tr><td><a href='https://rammb2.cira.colostate.edu/'>https://rammb2.cira.colostate.edu/</a></td><td>CIRA @ CSU</td><td></td></tr></table>
+
+
+
+
+
+
+
+<!--
+
+copy paste this line above for extra blocks
+
+</div><div class="%%color%%block"><h2><!--%% Header %%</h2>
+
+-->
+
+
+
+</div>
+
+<div id="sideBar">
+</div>
+
+</body>
+
+</html>

@@ -312,7 +312,7 @@ p{
 }
 
 #mainBody h1, #mainBody h2, #mainBody h3, #mainBody h4, #mainBody h5, #mainBody h6{
-	margin-right: 9999px;
+	margin-right: 70%;
 	white-space: nowrap;
 }
 

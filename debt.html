@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="index.css">
+<script src = "index.js" type = "text/javascript"></script>
+<script src = "debt.js" type = "text/javascript"></script>
+<!--Insert additional JS files here-->
+
+<title>Debt</title>
+
+<style>
+#debtBigValue, #debtSmallValue{
+	font-size: 24px;
+}
+
+.number{
+	font-family: "Roboto Mono", monospace
+}
+
+.hide{
+	display: none;
+}
+
+</style>
+
+</head>
+
+<body onload="bodyLoad('debt');">
+<noscript><div id="noscript">Javascript is not working. Please enable javascript for proper site functionality</div></noscript>
+
+<a id="title" href="index.html">
+<div id="titleText">
+Nicbudd
+</div>
+</a>
+
+<div id="menu">
+<button onclick="menuToggle('menu')" class="menuItem menuHeader blue" id="menuMenuButton">Menu ▼</button>
+</div>
+
+<div id="mainBody">
+
+<h1>Debt</h1>
+
+<p>In the 7th grade, I had my teacher clean my locker for me. She charged me $1.00 for the service, with 10% interest compounded daily. I forgot to pay her back. It compounded higher and higher like a runaway chain reaction. By the end of the year, I calculated the shockingly massive amount of debt I had acquired and forgave the debt after I gave her a $20 gift card and taught the class a lesson about compound interest. But what if she hadn't forgiven my debt? Click the button below to see how much I would still owe. All values are in 2013 USD.</p>
+
+<h2>Live Debt Counter</h2>
+<button id="showMe" onclick="showMe();">Show Debt</button>
+
+<div class="hide number">
+<p id="debtBigValue"></p>
+<p id="debtSmallValue"></p>
+
+<p>Milestones:</p>
+<p id="dateOneDollar"></p>
+<p id="dateTenDollar"></p>
+<p id="dateHundredDollar"></p>
+<p id="dateThousandDollar"></p>
+<p id="dateHundredThousand"></p>
+<p id="dateMillion"></p>
+<p id="dateBillion"></p>
+<p id="dateTrillion"></p>
+<p id="dateUSDebt"></p>
+<p id="dateQuadrillion"></p>
+<p id="dateRubiksThree"></p>
+<p id="dateAtomsSand"></p>
+<p id="dateAtomsHuman"></p>
+<p id="dateButterSun"></p>
+<p id="dateRubiksFour"></p>
+<p id="dateAtomsEarth"></p>
+<p id="dateAtomsSun"></p>
+<p id="dateButterGalaxy"></p>
+<p id="dateRubiksFive"></p>
+<p id="dateAtomsUniverse"></p>
+<p id="dateButterAtoms"></p>
+<p id="dateButterUniverse"></p>
+<p id="dateGoogol"></p>
+<p id="dateRubiksSix"></p>
+<p id="dateAtomsUniverception"></p>
+<p id="dateRubiksSeven"></p>
+</div>
+
+
+</div>
+
+
+<div id="sideBar">
+</div>
+
+<!--
+
+copy paste this line above for extra blocks
+
+</div><div class="%%color%%block"><h2><!--%% Header %%</h2>
+
+-->
+
+
+
+</div></body>
+
+</html>

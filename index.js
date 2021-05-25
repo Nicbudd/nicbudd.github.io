@@ -3,14 +3,17 @@ var mainBody = document.getElementById("mainBody");
 var head = document.getElementsByTagName("head")[0];
 
 var menuContent = [
-	["header", "Menu", "menu", "blue", ["index", "cube", "conlangs", "javascript", "other"]],
+	["header", "Menu", "menu", "blue", ["index", "cube", "conlangs", "weather", "javascript", "other",]],
 	["a", "Home", "index", "green", []],
 	["button", "Cubing", "cube", "green", ["cubeHome", "algs"]],
 	["a", "Home", "cubeHome", "red", []],
 	["a", "Algorithms", "algs", "red", []],
 	["a", "Conlangs", "conlangs", "green", []],
+	["a", "Weather", "weather", "green", []],
 	["a", "Projects", "javascript", "green", []],
-	["a", "Other", "other", "green", []],
+	["button", "Other", "other", "green", ["debt", "credits"]],
+	["a", "Debt", "debt", "red", []],
+	["a", "Credits", "credits", "red", []],
 	];
 	
 var hiddenContent = []
@@ -24,18 +27,6 @@ function showHide(contentID){
 		content.style.display = "none"
 	}
 	
-	/*content.style.display = "none"
-	var hidden = true
-	for (let i = 0; i < hiddenContent.length; i++){
-		if (hiddenContent[i] == contentID){
-			content.style.display = "block"
-			hiddenContent.splice(i, 1);
-			hidden = false
-		}
-	}
-	if (hidden == true){
-		hiddenContent.push(contentID);
-	}*/
 }
 
 function addToHead(content){
