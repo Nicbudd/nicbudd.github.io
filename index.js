@@ -3,8 +3,7 @@ var mainBody = document.getElementById("mainBody");
 var head = document.getElementsByTagName("head")[0];
 
 var menuContent = [
-	["header", "Menu", "menu", "blue", ["index", "cube", "conlangs", "weather", "javascript", "other",]],
-	["a", "Home", "index", "green", []],
+	["header", "Menu", "menu", "blue", ["cube", "conlangs", "weather", "javascript", "other",]],
 	["button", "Cubing", "cube", "green", ["cubeHome", "algs"]],
 	["a", "Home", "cubeHome", "red", []],
 	["a", "Algorithms", "algs", "red", []],
