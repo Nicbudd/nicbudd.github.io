@@ -168,6 +168,9 @@ p{
 	text-decoration: none;
 	transition: transform 0.3s, padding 0.3s;
 	color: var(--white);
+	margin: 0;
+	border: none;
+	border-radius: 0;
 	
 	/*BOING*/
 	transition-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);
