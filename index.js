@@ -58,7 +58,7 @@ function buildMenu(content){
 		}
 		
 		if (content[i][0] == "header"){
-			item.setAttribute("class", "menuItem menuHeader " + content[i][3]);
+			item.setAttribute("class", "menuHeader menuItem " + content[i][3]);
 		} else {
 			item.setAttribute("class", "menuItem " + content[i][3]);
 		}

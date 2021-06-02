@@ -182,6 +182,7 @@ p{
 	display: block;
 }
 
+
 @media screen and (max-width: 1200px){
 	.menuItem:hover{
 		transform: translate(-24px, 0px);
@@ -195,7 +196,11 @@ p{
 	}
 }
 
-
+.menuHeader:hover{
+	transform: none;
+	font-weight: 600;
+	padding: 0.5em 0;
+}
 
 
 #sideBar{
@@ -379,7 +384,7 @@ button{
 }
 
 
-.button{
+.button, button{
 	display: inline-block;
 	font-size: 1em;
 	border: 2px solid;
@@ -398,63 +403,63 @@ button{
 	border-radius: 0.5em;
 }
 
-.button:hover{
+.button:hover, button:hover{
 	border-color: var(--blue);
 	color: var(--white);
 	background: var(--blue);
 }
 
-.centerFlex .button{
+.centerFlex .button, .centerFlex button{
 	margin: 0.5em 0.25em;
 }
 
 
-.red .button{
+.red .button, .red button{
 	border-color: var(--white);
 	color: var(--white);
 	background: var(--red);
 }
 
-.red .button:hover{
+.red .button:hover, .red button:hover{
 	border-color: var(--white);
 	color: var(--red);
 	background: var(--white);
 }
 
 
-.green .button{
+.green .button, .green button{
 	border-color: var(--white);
 	color: var(--white);
 	background: var(--green);
 }
 
-.green .button:hover{
+.green .button:hover, .green button:hover{
 	border-color: var(--white);
 	color: var(--green);
 	background: var(--white);
 }
 
 
-.blue .button{
+.blue .button, .blue button{
 	border-color: var(--white);
 	color: var(--white);
 	background: var(--blue);
 }
 
-.blue .button:hover{
+.blue .button:hover, .blue button:hover{
 	border-color: var(--white);
 	color: var(--blue);
 	background: var(--white);
 }
 
 
-.black .button{
+.black .button, .black button{
 	border-color: var(--white);
 	color: var(--white);
 	background: var(--black);
 }
 
-.black .button:hover{
+.black .button:hover, .black button:hover{
 	border-color: var(--white);
 	color: var(--black);
 	background: var(--white);
