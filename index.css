@@ -39,14 +39,13 @@ body{
 }
 
 a{
-	text-decoration: underline;
-	font-weight: 400;
+	text-decoration: none;
+	font-weight: 700;
 	color: var(--blue);
 }
 
 a:hover{
-	/*text-decoration: none;*/
-	font-weight: 700;
+	text-decoration: underline;
 }
 
 
@@ -179,6 +178,7 @@ p{
 .menuItem:hover{
 	transform: translate(24px, 0px);
 	font-weight: 700;
+	text-decoration: none;
 }
 
 .menuHeader{

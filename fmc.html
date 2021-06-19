@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="index.css">
+<script src = "index.js" type = "text/javascript"></script>
+
+<style>
+
+.solve{
+	border: 2px solid var(--black);
+	font-family: "Roboto Mono";
+}
+
+.solve .moves{
+	border: none;
+	display: block;
+	padding: 0 0.5em 0 0;
+}
+
+td, th, table{
+	border: none;
+}
+
+
+td{
+	color: var(--darkGray);
+	text-align: right;
+}
+
+th{
+	font-weight: 400;
+	text-align: left;
+}
+
+.solve .main img{
+	display: inline-block;
+	margin: auto;
+	float: right;
+	margin: 0 0.5em;
+}
+
+.solve .title span{
+	padding: 0 0.5em;
+}
+
+.solve .title{
+	font-family: "Noto Sans", sans-serif;
+	font-weight: 700;
+	font-size: 1.25em;
+	text-transform: uppercase;
+}
+
+.official{
+	float: right;
+}
+
+.solve .main{
+	padding: 1em;
+	font-family: "Roboto Mono";
+}
+
+.solve .scramble, .solve .main{
+	border-bottom: 2px solid var(--black);
+}
+
+.solve .scramble, .solve .solution{
+	padding: 0.5em 1em;
+}
+
+.solve .line{
+}
+
+</style>
+<!--Insert additional JS files here-->
+
+<title>Nicbudd</title>
+
+</head>
+
+<!--%% Fill out body load with page url 
+Example: bodyLoad('index') for the index page
+%%-->
+<body onload="bodyLoad('fmc');">
+<noscript><div id="noscript">Javascript is not working. Please enable javascript for proper site functionality</div></noscript>
+
+<a id="title" href="index.html">
+<div id="titleText">
+Nicbudd
+</div>
+</a>
+
+<div id="menu">
+<button onclick="menuToggle('menu')" class="menuHeader menuItem blue" id="menuMenuButton">Menu ▼</button>
+</div>
+
+
+<div id="mainBody">
+<!-- Fill with body-->
+
+<h1>FMC</h1>
+
+<p>FMC (officially known as "3x3 Fewest Moves") is an acronym for "Fewest Move Challenge", and is an official World Cubing Association (WCA) event where competitors are given a 3x3 Rubik's Cube scramble and are given 1 hour to write down the shortest possible solution to that scramble. It has some of the lowest participation out of all cubing events, but I personally love the event! It is fun to try to work out creative solutions to the puzzles that don't rely on fast finger movements and repetition of a method. Infact, many of the main 3x3 solving methods aren't great for FMC. Instead, FMC relies heavily on blockbuilding and EO with no specific method in mind. It also employs a number of tricks that can only be done in FMC, like Normal-Inverse-Scramble-Switch (NISS) and insertions.</p>
+
+<p>If you want to get into FMC, I highly recommend the bible of FMC, <a href="https://fmcsolves.cubing.net/fmc_tutorial_ENG.pdf">Sebastiano Tronto's FMC Tutorial</a>. As of the time of this writing (June 2021), he holds the world record for FMC single at just 16 moves, which he will likely hold for a very long time, considering only 1 in 442 scrambles can be solved in 15 moves or less.</p>
+
+<p>Listed below are an archive of solves that I've done over the years, officially or unofficially. While some of them do not have dates, they are in chronological order.</p>
+
+<h2>Solves</h2>
+
+<div class="solve">
+<div class="title"><span class="red">Mass. Championships - Solve 1 </span><span class="official red">Official</span></div>
+<div class="scramble">Scramble: R' U' F R2 U' R2 D' B2 F2 L2 D' L2 D U' L F U2 F2 D' U' R F L2 D R' U' F</div>
+<div class="main">
+<img src="fmcimages/visualcube.png"></img>
+<table class="moves">
+
+<tr><th>B2 L2 F U' R' D2</th><td>// 2x2x2</td><td>(6/6)</td></tr>
+<tr><th>L2 R B R' L' B2</th><td>// 2x2x3</td><td>(6/12)</td></tr>
+<tr><th>L2 U2 B' U' B U2 B' U2 B U B L' B' L</th><td>// F2L&nbsp;-1</td><td>(14/26)</td></tr>
+<tr><th>U L F' L' F U F U' F' U'</th><td>// 2E4C</td><td>(10/36)</td></tr>
+<tr><th>L2 B2 D' B' D B' L2 F U' F'</th><td>// 4C (J&nbsp;Perm)</td><td>(10/46)</td></tr>
+<tr><th>[U2, B D' B']</th><td>// 3C</td><td>(8/54)</td></tr>
+<tr><th>[F2, U' B' U]</th><td>// Solved</td><td>(8/62)</td></tr>
+<!--<tr><th></th><td></td></tr>-->
+
+
+</table>
+</div>
+<div class="solution">Solution: </div>
+</div>
+
+
+</div>
+
+
+<div id="sideBar">
+</div>
+
+
+
+</body>
+
+</html>

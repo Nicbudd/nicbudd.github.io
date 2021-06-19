@@ -4,9 +4,12 @@ var head = document.getElementsByTagName("head")[0];
 
 var menuContent = [
 	["header", "Menu", "menu", "blue", ["cube", "conlangs", "weather", "javascript", "other",]],
+	//["button", "Cubing", "cube", "green", ["cubeHome", "algs", "fmc"]],
+	//comment below out when FMC page is finished
 	["button", "Cubing", "cube", "green", ["cubeHome", "algs"]],
 	["a", "Home", "cubeHome", "red", []],
 	["a", "Algorithms", "algs", "red", []],
+	//["a", "FMC", "fmc", "red", []],
 	["a", "Conlangs", "conlangs", "green", []],
 	["a", "Weather", "weather", "green", []],
 	["a", "Projects", "javascript", "green", []],
