@@ -138,7 +138,7 @@ function bodyLoad(page){
 	//load sideBar content
 
 	var sideBarContent = [
-	"<h1>Contact Me</h1><p>Have a question? Need help? Want to report an issue? Here's how to get in touch:</p><ul><li>Professional Emails: <a href='mailto:nhh8629@wmich.edu'>nhh8629@wmich.edu</a></li><li>Personal Messages, Website Related: <a href='mailto:niczippy77@gmail.com'>niczippy77@gmail.com</a></li></ul>",
+	"<h1>Contact Me</h1><p>Have a question? Need help? Want to report an issue? Here's how to get in touch:</p><ul><li>Professional Emails: <a href='mailto:naz1008@unh.edu'>naz1008@unh.edu</a></li><li>Personal Messages, Website Related: <a href='mailto:nicbudd@nicbudd.com'>nicbudd@nicbudd.com</a></li></ul>",
 	"<h2>Want to learn how to solve a rubiks cube?</h2><p>I highly recommend this video tutorial:</p><div class='centerFlex'><a class='button' href='https://www.youtube.com/watch?v=1t1OL2zN0LQ'>Video Tutorial</a></div>",
 	//"",
 	];
