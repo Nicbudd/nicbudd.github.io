@@ -335,14 +335,20 @@ p{
 
 /* Special Classes*/
 
-.centerFlex{
+.centerFlex {
 	display:flex;
 	justify-content:center;
 	align-items:center;
 }
 
+.right {
+	float:right;
+	text-align: right;
+}
 
-
+.left {
+	text-align: left;
+}
 
 
 
