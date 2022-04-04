@@ -122,6 +122,52 @@ Example: bodyLoad('index') for the index page
 
       </table>
 
+
+      <h2>Online Interpreter</h2>
+
+      <p>
+        The online interpreter is a version of the Rust 16b64 interpreter
+        compiled for WebAssembly. This online version is definitely a work in
+        progress still; it uses a modified version of the interpreter which I
+        intend to merge with the original. If it doesn't respond to your input
+        then it has probably encountered an error of some sort.
+      </p>
+      <textarea id="i16b64_input" rows="8" cols="80" placeholder="code"></textarea>
+      <textarea id="i16b64_stdin" rows="4" cols="80" placeholder="stdin"></textarea>
+      <br />
+      <button type="button" id="i16b64_run">Run!</button>
+      <input type="checkbox" id="i16b64_debug">Debug Messages</button>
+      <br />
+      <textarea readonly id="i16b64_output" rows="8" cols="80"></textarea>
+
+      <h3>Examples</h3>
+
+
+      <h6><a href="https://github.com/Nicbudd/16b64/blob/main/examples/helloWorld.16b">Hello, World!</a></h6>
+      <p>Prints "Hello, World!"<br />
+      <span class="code">5r61lAaC3l33RAC7N92XlaC081lXlXC585raNXC042lANaC015AaC</span></p>
+
+
+      <h6><a href="https://github.com/Nicbudd/16b64/blob/main/examples/helloWorldx10.16b">Hello, World! x10</a></h6>
+      <p>Prints "Hello, World!" 10 times, using loops.<br />
+      <span class="code">613LA3bd(5r61lAaC3l33RAC7N92XlaC081lXlXC585raNXC042lANaC015AaC54Oa)</span></p>
+
+
+      <h6><a href="https://github.com/Nicbudd/16b64/blob/main/examples/oddPlus11.16b">Doomsday Method Calculator</a></h6>
+      <p>Calculates the anchor day for a given year for use in the <a href="">doomsday method</a> of determining the day of the week.<br />
+      <span class="code">
+      45O3bd(J099lalaa25Oleid)dS45Oed(S00Xi)lDllaa6Nf3bd(J099lalaa25Oleid)dS45Oed(S00Xi)lDllaa6NfdJJJJ099lalaa1Np099lalaa1Np099lalaa1Np099lalaa1NpSlDllaa0pSlDllaaSDN7r7ArMDrAS00Xed(0fD7r7ArM00Xeidd0f(S00XAi)0f3bdi)S5lpb(6r92aAa)rb(6r92aAa)77r7NOaMN77rAaS1r5NAM00Xed(d092aAa9)52ONed(d00Xa9)092aAed(d58ONa9)102laXed(d102laXa9)d77r7NOaM0p2rN3aaS6r14XAcd(bi(N52ONaai))6r14XAed(d6rN0lOai)58ONed(d9l24Aaai)1r1Arred(d58Olai)2r3Xrred(d25Ollai)7r1Arred(d0l5Ollai)14X0Aed(d0fb0p(1r1ANai)0fbid(6rN0lOai))52ONed(d0fb0p(0l5Olai)0fbid(25Olai))a77r7NOaM00Xed(231lXaC26NArCi)52ONed(69r4raXC26NArCi)092aAed(763AraC663NalXC)102laXed(105laNXC3l67OAC663NalXC)1r5NAed(168AlXC608XrXC51r1lXaC)58ONed(792ONaC629lAaC)621rAAed(932laXC13N6NaXC393rarAC)9r55RXC701lOXC16NAlC106AAaU1l06AXC
+      </span></p>
+
+
+      <h6><a href="https://github.com/Nicbudd/16b64/blob/main/examples/dayOfWeek.16b">Day of Week Calculator</a></h6>
+      <p>Calculates the day of the week given a date in MM-DD-YYYY format. Built
+        off previous doomsday method calculator. WORK IN PROGRESS.<br />
+      <span class="code">
+      45O3bd(J099lalaa25Oleid)dS45Oed(S00Xi)lDllaa6Nf3bd(J099lalaa25Oleid)dS45Oed(S00Xi)lDllaa6NfdJJJJ099lalaa1Np099lalaa1Np099lalaa1Np099lalaa1NpSlDllaa0pSlDllaaSDN7r7ArMDrAS00Xed(0fD7r7ArM00Xeidd0f(S00XAi)0f3bdi)S5lpb(6r92aAa)rb(6r92aAa)77r7NOaMN77rAaS1r5NAM00Xed(d092aAa9)52ONed(d00Xa9)092aAed(d58ONa9)102laXed(d102laXa9)d77r7NOaM0p2rN3aaS6r14XAcd(bi(N52ONaai))6r14XAed(d6rN0lOai)58ONed(d9l24Aaai)1r1Arred(d58Olai)2r3Xrred(d25Ollai)7r1Arred(d0l5Ollai)14X0Aed(d0fb0p(1r1ANai)0fbid(6rN0lOai))52ONed(d0fb0p(0l5Olai)0fbid(25Olai))a77r7NOaM00Xed(231lXaC26NArCi)52ONed(69r4raXC26NArCi)092aAed(763AraC663NalXC)102laXed(105laNXC3l67OAC663NalXC)1r5NAed(168AlXC608XrXC51r1lXaC)58ONed(792ONaC629lAaC)621rAAed(932laXC13N6NaXC393rarAC)9r55RXC701lOXC16NAlC106AAaU1l06AXC
+      </span></p>
+
+
       <h2>Reference</h2>
 
       <h5>Constants</h5>
@@ -201,50 +247,6 @@ Example: bodyLoad('index') for the index page
         <tr><td>)</td><td>loop if flag == TRUE</td></tr>
       </table>
 
-
-      <h2>Online Interpreter</h2>
-
-      <p>
-        The online interpreter is a version of the Rust 16b64 interpreter
-        compiled for WebAssembly. This online version is definitely a work in
-        progress still; it uses a modified version of the interpreter which I
-        intend to merge with the original. If it doesn't respond to your input
-        then it has probably encountered an error of some sort.
-      </p>
-      <textarea id="i16b64_input" rows="8" cols="80" placeholder="code"></textarea>
-      <textarea id="i16b64_stdin" rows="4" cols="80" placeholder="stdin"></textarea>
-      <br />
-      <button type="button" id="i16b64_run">Run!</button>
-      <input type="checkbox" id="i16b64_debug">Debug Messages</button>
-      <br />
-      <textarea readonly id="i16b64_output" rows="8" cols="80"></textarea>
-
-      <h3>Examples</h3>
-
-
-      <h6><a href="https://github.com/Nicbudd/16b64/blob/main/examples/helloWorld.16b">Hello, World!</a></h6>
-      <p>Prints "Hello, World!"<br />
-      <span class="code">5r61lAaC3l33RAC7N92XlaC081lXlXC585raNXC042lANaC015AaC</span></p>
-
-
-      <h6><a href="https://github.com/Nicbudd/16b64/blob/main/examples/helloWorldx10.16b">Hello, World! x10</a></h6>
-      <p>Prints "Hello, World!" 10 times, using loops.<br />
-      <span class="code">613LA3bd(5r61lAaC3l33RAC7N92XlaC081lXlXC585raNXC042lANaC015AaC54Oa)</span></p>
-
-
-      <h6><a href="https://github.com/Nicbudd/16b64/blob/main/examples/oddPlus11.16b">Doomsday Method Calculator</a></h6>
-      <p>Calculates the anchor day for a given year for use in the <a href="">doomsday method</a> of determining the day of the week.<br />
-      <span class="code">
-      45O3bd(J099lalaa25Oleid)dS45Oed(S00Xi)lDllaa6Nf3bd(J099lalaa25Oleid)dS45Oed(S00Xi)lDllaa6NfdJJJJ099lalaa1Np099lalaa1Np099lalaa1Np099lalaa1NpSlDllaa0pSlDllaaSDN7r7ArMDrAS00Xed(0fD7r7ArM00Xeidd0f(S00XAi)0f3bdi)S5lpb(6r92aAa)rb(6r92aAa)77r7NOaMN77rAaS1r5NAM00Xed(d092aAa9)52ONed(d00Xa9)092aAed(d58ONa9)102laXed(d102laXa9)d77r7NOaM0p2rN3aaS6r14XAcd(bi(N52ONaai))6r14XAed(d6rN0lOai)58ONed(d9l24Aaai)1r1Arred(d58Olai)2r3Xrred(d25Ollai)7r1Arred(d0l5Ollai)14X0Aed(d0fb0p(1r1ANai)0fbid(6rN0lOai))52ONed(d0fb0p(0l5Olai)0fbid(25Olai))a77r7NOaM00Xed(231lXaC26NArCi)52ONed(69r4raXC26NArCi)092aAed(763AraC663NalXC)102laXed(105laNXC3l67OAC663NalXC)1r5NAed(168AlXC608XrXC51r1lXaC)58ONed(792ONaC629lAaC)621rAAed(932laXC13N6NaXC393rarAC)9r55RXC701lOXC16NAlC106AAaU1l06AXC
-      </span></p>
-
-
-      <h6><a href="https://github.com/Nicbudd/16b64/blob/main/examples/dayOfWeek.16b">Day of Week Calculator</a></h6>
-      <p>Calculates the day of the week given a date in MM-DD-YYYY format. Built
-        off previous doomsday method calculator. WORK IN PROGRESS.<br />
-      <span class="code">
-      45O3bd(J099lalaa25Oleid)dS45Oed(S00Xi)lDllaa6Nf3bd(J099lalaa25Oleid)dS45Oed(S00Xi)lDllaa6NfdJJJJ099lalaa1Np099lalaa1Np099lalaa1Np099lalaa1NpSlDllaa0pSlDllaaSDN7r7ArMDrAS00Xed(0fD7r7ArM00Xeidd0f(S00XAi)0f3bdi)S5lpb(6r92aAa)rb(6r92aAa)77r7NOaMN77rAaS1r5NAM00Xed(d092aAa9)52ONed(d00Xa9)092aAed(d58ONa9)102laXed(d102laXa9)d77r7NOaM0p2rN3aaS6r14XAcd(bi(N52ONaai))6r14XAed(d6rN0lOai)58ONed(d9l24Aaai)1r1Arred(d58Olai)2r3Xrred(d25Ollai)7r1Arred(d0l5Ollai)14X0Aed(d0fb0p(1r1ANai)0fbid(6rN0lOai))52ONed(d0fb0p(0l5Olai)0fbid(25Olai))a77r7NOaM00Xed(231lXaC26NArCi)52ONed(69r4raXC26NArCi)092aAed(763AraC663NalXC)102laXed(105laNXC3l67OAC663NalXC)1r5NAed(168AlXC608XrXC51r1lXaC)58ONed(792ONaC629lAaC)621rAAed(932laXC13N6NaXC393rarAC)9r55RXC701lOXC16NAlC106AAaU1l06AXC
-      </span></p>
 
     </div>
 
