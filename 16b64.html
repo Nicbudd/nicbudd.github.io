@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<link rel="stylesheet" href="index.css">
+<script src = "index.js" type = "text/javascript"></script>
+
+<script type="module">
+
+  import init, { wasm_main } from './i16b64/pkg/webi16b64.js';
+
+  async function run() {
+    await init();
+
+    document.getElementById('i16b64_run').addEventListener("click", event => {
+      let code = document.getElementById('i16b64_input').value;
+      let stdin = document.getElementById('i16b64_stdin').value;
+      let debug
+      if (document.getElementById('i16b64_debug').checked) {
+        debug = true;
+      } else {
+        debug = false;
+      }
+      const output = wasm_main(code, debug, stdin);
+      document.getElementById('i16b64_output').innerHTML = output;
+    });
+
+  }
+
+  run();
+
+
+</script>
+
+<style>
+  .code {
+    font-family: "Roboto Mono", monospace;
+    font-size: 0.75em;
+    word-wrap: break-word;
+  }
+</style>
+
+<title>Nicbudd</title>
+
+</head>
+
+<!--%% Fill out body load with page url
+Example: bodyLoad('index') for the index page
+%%-->
+  <body onload="bodyLoad('');">
+    <noscript><div id="noscript">Javascript is not working. Please enable JavaScript and WebAssembly for proper site functionality.</div></noscript>
+
+    <a id="title" href="index.html"><div id="titleText">Nicbudd</div></a>
+
+    <div id="menu">
+      <button onclick="menuToggle('menu')" class="menuHeader menuItem blue" id="menuMenuButton">Menu ▼</button>
+    </div>
+
+
+    <div id="mainBody">
+
+      <h1 style="text-transform: lowercase">16b64</h1>
+      <h6>The world's silliest programming language.</h6>
+
+      <p>
+        <a href="https://github.com/Nicbudd/16b64">Github Link</a>
+      </p>
+
+      <p><b>16b64</b> is a work-in-progress esoteric joke programming language
+        designed to question the fundamentality of constants in programming.</p>
+      <p>There are ten 16-bit constants in 16b64 that must be manipulated to
+        generate the other numbers. They are numbered 0-9 and are based on the
+        first 20 bytes of the SHA-256 hash of "16b64".</p>
+
+      <p>Operations are done to a stack with 16 bit words in reverse polish
+        notation. The language has 64 instructions, each written with single
+        characters. The operations include the characters A-Z, a-z and loops
+        are done with (), giving 64 possible instructions.</p>
+
+        <p>The name comes from two parts: "16b" from the 16-bit stack and
+          variables, and "64" from the 64 possible instructions that can be
+          used.</p>
+
+      <h5>The Birth Of The Idea</h5>
+
+      <p>
+        The idea for 16b64 came while I was looking over other esolangs,
+        specifically Brainf**k (which I will shorten to "bf"). Something about
+        bf intrigued me, the pure simplicity of the rules leading to intensely
+        complex and creative solutions to work around the language, however,
+        something seemed just too "easy" about it, and helpfully convenient.
+        The idea of the + and - operators, being able to simply increment by one
+        just didn't sit right with me as being inconvenient enough like the rest
+        of the language. If you want the number 200, you can just type 200 "+"!
+        Nonsense.
+      </p>
+
+      <p>That gave the inspiration to make a language with the goal of being
+        terribly inconvenient. Perhaps not the most inconvenient to exist, but
+      certainly difficult to use.</p>
+
+      <p>Here is a quick example for the general concepts of 16b64.</p>
+
+      <table>
+        <tr><th>Code</th><th>Explanation</th></tr>
+        <tr><th>5</th><td>Puts 0x4fda (the value of the constant 5) on the stack.</td></tr>
+        <tr><th>2</th><td>Puts 0xfc26 (the value of the constant 2) on the stack.</td></tr>
+        <tr><th>N</th><td>Bitwise NOT previous item on stack.</td></tr>
+        <tr><th>a</th><td>Add together previous two items on stack (ignore overflow).</td></tr>
+        <tr><th>X</th><td>Bitwise XOR previous two items on stack.</td></tr>
+        <tr><th>5N</th><td>Puts 0xb025 (bitwise NOT of 0x4fda) on the stack.</td></tr>
+        <tr><th>22a</th><td> Puts 0xf84c (0xfc26 + 0xfc26) on the stack.</td></tr>
+        <tr><th>5N22aX</th><td>Puts 0x4869 (0xb025 XOR 0xf84c) on the stack.</td></tr>
+        <tr><th>C</th><td>Print previous two bytes on stack to stdout in two 8-bit characters.</td></tr>
+        <tr><th>5N22aXC</th><td>Prints "Hi" ("H" = 0x48, "i" = 0x69)</td></tr>
+
+      </table>
+
+      <h2>Reference</h2>
+
+      <h5>Constants</h5>
+
+      <table>
+        <tr><th>Instruction</th><th>Value (hex)</th></tr>
+        <tr><td>0</td><td>0x1c72</td></tr>
+        <tr><td>1</td><td>0x14bc</td></tr>
+        <tr><td>2</td><td>0xfc26</td></tr>
+        <tr><td>3</td><td>0x7e37</td></tr>
+        <tr><td>4</td><td>0xb53f</td></tr>
+        <tr><td>5</td><td>0x4fda</td></tr>
+        <tr><td>6</td><td>0x20fe</td></tr>
+        <tr><td>7</td><td>0x445a</td></tr>
+        <tr><td>8</td><td>0xb76a</td></tr>
+        <tr><td>9</td><td>0x25e5</td></tr>
+      </table>
+
+      <h5>Instructions</h5>
+
+      <p>Unmarked instructions are currently unused.</p>
+      <table style="max-width:75%">
+        <tr><th>Instruction</th><th>Action</th></tr>
+        <tr><td>A</td><td>x AND y</td></tr>
+        <tr><td>B</td><td></td></tr>
+        <tr><td>C</td><td>push x to STDOUT as two ASCII char</td></tr>
+        <tr><td>D</td><td>duplicate x</td></tr>
+        <tr><td>E</td><td>halt; exit program</td></tr>
+        <tr><td>F</td><td>find value x positions down in the stack and move it to the top. (0 = top, 1 = second from top, etc)</td></tr>
+        <tr><td>G</td><td></td></tr>
+        <tr><td>H</td><td>push next STDIN to two words</td></tr>
+        <tr><td>I</td><td>push next two STDIN to one stack word</td></tr>
+        <tr><td>J</td><td>push next one STDIN byte to stack</td></tr>
+        <tr><td>K</td><td></td></tr>
+        <tr><td>L</td><td>x cyclic shift left by y places</td></tr>
+        <tr><td>M</td><td>y modulo x</td></tr>
+        <tr><td>N</td><td>NOT x</td></tr>
+        <tr><td>O</td><td>x OR y</td></tr>
+        <tr><td>P</td><td>move y to x positions down in the stack.</td></tr>
+        <tr><td>Q</td><td>push random number to stack</td></tr>
+        <tr><td>R</td><td>x cyclic shift right by y places</td></tr>
+        <tr><td>S</td><td>swaps x, y on stack</td></tr>
+        <tr><td>T</td><td></td></tr>
+        <tr><td>U</td><td>push U+x to STDOUT as Unicode</td></tr>
+        <tr><td>V</td><td>push U+yx to STDOUT as Unicode</td></tr>
+        <tr><td>W</td><td></td></tr>
+        <tr><td>X</td><td>x XOR y</td></tr>
+        <tr><td>Y</td><td></td></tr>
+        <tr><td>Z</td><td></td></tr>
+        <tr><td>a</td><td>x + y, set flag true if overflow</td></tr>
+        <tr><td>b</td><td>flag = LSB of x</td></tr>
+        <tr><td>c</td><td>x < y, set flag to result</td></tr>
+        <tr><td>d</td><td>delete x</td></tr>
+        <tr><td>e</td><td>x == y, set flag to result</td></tr>
+        <tr><td>f</td><td>find value x%16 positions down in the stack and move it to the top (4 bit version of F)</td></tr>
+        <tr><td>g</td><td>x > y, set flag to result</td></tr>
+        <tr><td>h</td><td></td></tr>
+        <tr><td>i</td><td>invert flag</td></tr>
+        <tr><td>j</td><td></td></tr>
+        <tr><td>k</td><td></td></tr>
+        <tr><td>l</td><td>x cyclic shift left by 1</td></tr>
+        <tr><td>m</td><td></td></tr>
+        <tr><td>n</td><td></td></tr>
+        <tr><td>o</td><td></td></tr>
+        <tr><td>p</td><td>move y to x%16 positions down in the stack. (4 bit version of P)</td></tr>
+        <tr><td>q</td><td>randomly set flag to true or false</td></tr>
+        <tr><td>r</td><td>x cyclic shift right by 1</td></tr>
+        <tr><td>s</td><td></td></tr>
+        <tr><td>t</td><td></td></tr>
+        <tr><td>u</td><td></td></tr>
+        <tr><td>v</td><td></td></tr>
+        <tr><td>w</td><td></td></tr>
+        <tr><td>x</td><td></td></tr>
+        <tr><td>y</td><td>Pull bottom of stack to top of stack</td></tr>
+        <tr><td>z</td><td>Push x to bottom of stack</td></tr>
+        <tr><td>(</td><td>start of loop, enter only if flag == TRUE</td></tr>
+        <tr><td>)</td><td>loop if flag == TRUE</td></tr>
+      </table>
+
+
+      <h2>Online Interpreter</h2>
+
+      <p>
+        The online interpreter is a version of the Rust 16b64 interpreter
+        compiled for WebAssembly. This online version is definitely a work in
+        progress still; it uses a modified version of the interpreter which I
+        intend to merge with the original. If it doesn't respond to your input
+        then it has probably encountered an error of some sort.
+      </p>
+      <textarea id="i16b64_input" rows="8" cols="80" placeholder="code"></textarea>
+      <textarea id="i16b64_stdin" rows="4" cols="80" placeholder="stdin"></textarea>
+      <br />
+      <button type="button" id="i16b64_run">Run!</button>
+      <input type="checkbox" id="i16b64_debug">Debug Messages</button>
+      <br />
+      <textarea readonly id="i16b64_output" rows="8" cols="80"></textarea>
+
+      <h3>Examples</h3>
+
+
+      <h6><a href="https://github.com/Nicbudd/16b64/blob/main/examples/helloWorld.16b">Hello, World!</a></h6>
+      <p>Prints "Hello, World!"<br />
+      <span class="code">5r61lAaC3l33RAC7N92XlaC081lXlXC585raNXC042lANaC015AaC</span></p>
+
+
+      <h6><a href="https://github.com/Nicbudd/16b64/blob/main/examples/helloWorldx10.16b">Hello, World! x10</a></h6>
+      <p>Prints "Hello, World!" 10 times, using loops.<br />
+      <span class="code">613LA3bd(5r61lAaC3l33RAC7N92XlaC081lXlXC585raNXC042lANaC015AaC54Oa)</span></p>
+
+
+      <h6><a href="https://github.com/Nicbudd/16b64/blob/main/examples/oddPlus11.16b">Doomsday Method Calculator</a></h6>
+      <p>Calculates the anchor day for a given year for use in the <a href="">doomsday method</a> of determining the day of the week.<br />
+      <span class="code">
+      45O3bd(J099lalaa25Oleid)dS45Oed(S00Xi)lDllaa6Nf3bd(J099lalaa25Oleid)dS45Oed(S00Xi)lDllaa6NfdJJJJ099lalaa1Np099lalaa1Np099lalaa1Np099lalaa1NpSlDllaa0pSlDllaaSDN7r7ArMDrAS00Xed(0fD7r7ArM00Xeidd0f(S00XAi)0f3bdi)S5lpb(6r92aAa)rb(6r92aAa)77r7NOaMN77rAaS1r5NAM00Xed(d092aAa9)52ONed(d00Xa9)092aAed(d58ONa9)102laXed(d102laXa9)d77r7NOaM0p2rN3aaS6r14XAcd(bi(N52ONaai))6r14XAed(d6rN0lOai)58ONed(d9l24Aaai)1r1Arred(d58Olai)2r3Xrred(d25Ollai)7r1Arred(d0l5Ollai)14X0Aed(d0fb0p(1r1ANai)0fbid(6rN0lOai))52ONed(d0fb0p(0l5Olai)0fbid(25Olai))a77r7NOaM00Xed(231lXaC26NArCi)52ONed(69r4raXC26NArCi)092aAed(763AraC663NalXC)102laXed(105laNXC3l67OAC663NalXC)1r5NAed(168AlXC608XrXC51r1lXaC)58ONed(792ONaC629lAaC)621rAAed(932laXC13N6NaXC393rarAC)9r55RXC701lOXC16NAlC106AAaU1l06AXC
+      </span></p>
+
+
+      <h6><a href="https://github.com/Nicbudd/16b64/blob/main/examples/dayOfWeek.16b">Hello, World! x10</a></h6>
+      <p>Calculates the day of the week given a date in MM-DD-YYYY format. Built
+        off previous doomsday method calculator. WORK IN PROGRESS.<br />
+      <span class="code">
+      45O3bd(J099lalaa25Oleid)dS45Oed(S00Xi)lDllaa6Nf3bd(J099lalaa25Oleid)dS45Oed(S00Xi)lDllaa6NfdJJJJ099lalaa1Np099lalaa1Np099lalaa1Np099lalaa1NpSlDllaa0pSlDllaaSDN7r7ArMDrAS00Xed(0fD7r7ArM00Xeidd0f(S00XAi)0f3bdi)S5lpb(6r92aAa)rb(6r92aAa)77r7NOaMN77rAaS1r5NAM00Xed(d092aAa9)52ONed(d00Xa9)092aAed(d58ONa9)102laXed(d102laXa9)d77r7NOaM0p2rN3aaS6r14XAcd(bi(N52ONaai))6r14XAed(d6rN0lOai)58ONed(d9l24Aaai)1r1Arred(d58Olai)2r3Xrred(d25Ollai)7r1Arred(d0l5Ollai)14X0Aed(d0fb0p(1r1ANai)0fbid(6rN0lOai))52ONed(d0fb0p(0l5Olai)0fbid(25Olai))a77r7NOaM00Xed(231lXaC26NArCi)52ONed(69r4raXC26NArCi)092aAed(763AraC663NalXC)102laXed(105laNXC3l67OAC663NalXC)1r5NAed(168AlXC608XrXC51r1lXaC)58ONed(792ONaC629lAaC)621rAAed(932laXC13N6NaXC393rarAC)9r55RXC701lOXC16NAlC106AAaU1l06AXC
+      </span></p>
+
+    </div>
+
+
+    <div id="sideBar"></div>
+
+  </body>
+
+</html>
