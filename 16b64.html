@@ -189,62 +189,78 @@ Example: bodyLoad('index') for the index page
       <h5>Instructions</h5>
 
       <p>Unmarked instructions are currently unused.</p>
+      <p>The "Mode" category describes how the instructions interact with the
+      stack. A table of modes is provided below this table. The "Stack" column
+      describes how the total size of the stack will change after each operation.</p>
       <table style="max-width:75%">
-        <tr><th>Instruction</th><th>Action</th></tr>
-        <tr><td>A</td><td>x AND y</td></tr>
-        <tr><td>B</td><td></td></tr>
-        <tr><td>C</td><td>push x to STDOUT as two ASCII char</td></tr>
-        <tr><td>D</td><td>duplicate x</td></tr>
-        <tr><td>E</td><td>halt; exit program</td></tr>
-        <tr><td>F</td><td>find value x positions down in the stack and move it to the top. (0 = top, 1 = second from top, etc)</td></tr>
-        <tr><td>G</td><td></td></tr>
-        <tr><td>H</td><td>push next STDIN to two words</td></tr>
-        <tr><td>I</td><td>push next two STDIN to one stack word</td></tr>
-        <tr><td>J</td><td>push next one STDIN byte to stack</td></tr>
-        <tr><td>K</td><td></td></tr>
-        <tr><td>L</td><td>x cyclic shift left by y places</td></tr>
-        <tr><td>M</td><td>y modulo x</td></tr>
-        <tr><td>N</td><td>NOT x</td></tr>
-        <tr><td>O</td><td>x OR y</td></tr>
-        <tr><td>P</td><td>move y to x positions down in the stack.</td></tr>
-        <tr><td>Q</td><td>push random number to stack</td></tr>
-        <tr><td>R</td><td>x cyclic shift right by y places</td></tr>
-        <tr><td>S</td><td>swaps x, y on stack</td></tr>
-        <tr><td>T</td><td></td></tr>
-        <tr><td>U</td><td>push U+x to STDOUT as Unicode</td></tr>
-        <tr><td>V</td><td>push U+yx to STDOUT as Unicode</td></tr>
-        <tr><td>W</td><td></td></tr>
-        <tr><td>X</td><td>x XOR y</td></tr>
-        <tr><td>Y</td><td></td></tr>
-        <tr><td>Z</td><td></td></tr>
-        <tr><td>a</td><td>x + y, set flag true if overflow</td></tr>
-        <tr><td>b</td><td>flag = LSB of x</td></tr>
-        <tr><td>c</td><td>x < y, set flag to result</td></tr>
-        <tr><td>d</td><td>delete x</td></tr>
-        <tr><td>e</td><td>x == y, set flag to result</td></tr>
-        <tr><td>f</td><td>find value x%16 positions down in the stack and move it to the top (4 bit version of F)</td></tr>
-        <tr><td>g</td><td>x > y, set flag to result</td></tr>
-        <tr><td>h</td><td></td></tr>
-        <tr><td>i</td><td>invert flag</td></tr>
-        <tr><td>j</td><td></td></tr>
-        <tr><td>k</td><td></td></tr>
-        <tr><td>l</td><td>x cyclic shift left by 1</td></tr>
-        <tr><td>m</td><td></td></tr>
-        <tr><td>n</td><td></td></tr>
-        <tr><td>o</td><td></td></tr>
-        <tr><td>p</td><td>move y to x%16 positions down in the stack. (4 bit version of P)</td></tr>
-        <tr><td>q</td><td>randomly set flag to true or false</td></tr>
-        <tr><td>r</td><td>x cyclic shift right by 1</td></tr>
-        <tr><td>s</td><td></td></tr>
-        <tr><td>t</td><td></td></tr>
-        <tr><td>u</td><td></td></tr>
-        <tr><td>v</td><td></td></tr>
-        <tr><td>w</td><td></td></tr>
-        <tr><td>x</td><td></td></tr>
-        <tr><td>y</td><td>Pull bottom of stack to top of stack</td></tr>
-        <tr><td>z</td><td>Push x to bottom of stack</td></tr>
-        <tr><td>(</td><td>start of loop, enter only if flag == TRUE</td></tr>
-        <tr><td>)</td><td>loop if flag == TRUE</td></tr>
+        <tr><th>Instruction</th><th>Mode</th><th>Action</th></tr>
+        <tr><td>A</td><td>Arithmetic</td><td>x AND y</td></tr>
+        <tr><td>B</td><td></td><td></td></tr>
+        <tr><td>C</td><td>Write</td><td>push x to STDOUT as two ASCII char</td></tr>
+        <tr><td>D</td><td>Duplicate</td><td>duplicate x</td></tr>
+        <tr><td>E</td><td>-</td><td>halt; exit program</td></tr>
+        <tr><td>F</td><td>Complex Move</td><td>find value x positions down in the stack and move it to the top. (0 = top, 1 = second from top, etc)</td></tr>
+        <tr><td>G</td><td></td><td></td></tr>
+        <tr><td>H</td><td>Read</td><td>push next stdin to two values</td></tr>
+        <tr><td>I</td><td>Read</td><td>push next two STDIN to one stack value</td></tr>
+        <tr><td>J</td><td>Read</td><td>push next one STDIN byte to stack</td></tr>
+        <tr><td>K</td><td></td><td></td></tr>
+        <tr><td>L</td><td>Modify</td><td>x cyclic shift left by y places</td></tr>
+        <tr><td>M</td><td>Arithmetic</td><td>y modulo x</td></tr>
+        <tr><td>N</td><td>Modify</td><td>NOT x</td></tr>
+        <tr><td>O</td><td>Arithmetic</td><td>x OR y</td></tr>
+        <tr><td>P</td><td>Complex Move</td><td>move y to x positions down in the stack.</td></tr>
+        <tr><td>Q</td><td>Constant</td><td>push random number to stack</td></tr>
+        <tr><td>R</td><td>Modify</td><td>x cyclic shift right by y places</td></tr>
+        <tr><td>S</td><td>Move</td><td>swaps x, y on stack</td></tr>
+        <tr><td>T</td><td></td><td></td></tr>
+        <tr><td>U</td><td>Write</td><td>push U+x to STDOUT as Unicode</td></tr>
+        <tr><td>V</td><td>Write</td><td>push U+yx to STDOUT as Unicode</td></tr>
+        <tr><td>W</td><td></td><td></td></tr>
+        <tr><td>X</td><td>Arithmetic</td><td>x XOR y</td></tr>
+        <tr><td>Y</td><td></td><td></td></tr>
+        <tr><td>Z</td><td></td><td></td></tr>
+        <tr><td>a</td><td>Arithmetic</td><td>x + y, set flag true if overflow</td></tr>
+        <tr><td>b</td><td>-</td><td>flag = LSB of x</td></tr>
+        <tr><td>c</td><td>-</td><td>x < y, set flag to result</td></tr>
+        <tr><td>d</td><td>Delete</td><td>delete x</td></tr>
+        <tr><td>e</td><td>-</td><td>x == y, set flag to result</td></tr>
+        <tr><td>f</td><td>Complex Move</td><td>find value x%16 positions down in the stack and move it to the top (4 bit version of F)</td></tr>
+        <tr><td>g</td><td>-</td><td>x > y, set flag to result</td></tr>
+        <tr><td>h</td><td></td><td></td></tr>
+        <tr><td>i</td><td>-</td><td>invert flag</td></tr>
+        <tr><td>j</td><td></td><td></td></tr>
+        <tr><td>k</td><td></td><td></td></tr>
+        <tr><td>l</td><td>Modify</td><td>x cyclic shift left by 1</td></tr>
+        <tr><td>m</td><td></td><td></td></tr>
+        <tr><td>n</td><td></td><td></td></tr>
+        <tr><td>o</td><td></td><td></td></tr>
+        <tr><td>p</td><td>Complex Move</td><td>move y to x%16 positions down in the stack. (4 bit version of P)</td></tr>
+        <tr><td>q</td><td>-</td><td>randomly set flag to true or false</td></tr>
+        <tr><td>r</td><td>Modify</td><td>x cyclic shift right by 1</td></tr>
+        <tr><td>s</td><td></td><td></td></tr>
+        <tr><td>t</td><td></td><td></td></tr>
+        <tr><td>u</td><td></td><td></td></tr>
+        <tr><td>v</td><td></td><td></td></tr>
+        <tr><td>w</td><td></td><td></td></tr>
+        <tr><td>x</td><td></td><td></td></tr>
+        <tr><td>y</td><td>Move</td><td>Pull bottom of stack to top of stack</td></tr>
+        <tr><td>z</td><td>Move</td><td>Push x to bottom of stack</td></tr>
+        <tr><td>(</td><td>-</td><td>start of loop, enter only if flag == TRUE</td></tr>
+        <tr><td>)</td><td>-</td><td>loop if flag == TRUE</td></tr>
+      </table>
+
+      <table>
+        <tr><th colspan="2">Modes</th><th></th></tr>
+        <tr><td>Arithmetic</td><td>Removes two values from the stack and adds one back.</td></tr>
+        <tr><td>Read</td><td>Removes one or two values from the stack.</td></tr>
+        <tr><td>Write</td><td>Adds one or two values to the stack.</td></tr>
+        <tr><td>Move</td><td>Moves values around without changing amount of elements.</td></tr>
+        <tr><td>Modify</td><td>Removes one value from stack, performs some operation on it, and places it back.</td></tr>
+        <tr><td>Complex Move</td><td>Removes the top variable on the stack and moves the rest of the variables around.</td></tr>
+        <tr><td>Duplicate</td><td>Removes one value from stack and adds two.</td></tr>
+        <tr><td>Delete</td><td>Removes one value from stack.</td></tr>
+        <tr><td>Constant</td><td>Adds one value to stack.</td></tr>
       </table>
 
 
