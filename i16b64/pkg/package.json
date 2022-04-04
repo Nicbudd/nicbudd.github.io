@@ -1,0 +1,15 @@
+{
+  "name": "webi16b64",
+  "collaborators": [
+    "Nicbudd"
+  ],
+  "version": "0.1.0",
+  "files": [
+    "webi16b64_bg.wasm",
+    "webi16b64.js",
+    "webi16b64.d.ts"
+  ],
+  "module": "webi16b64.js",
+  "types": "webi16b64.d.ts",
+  "sideEffects": false
+}
