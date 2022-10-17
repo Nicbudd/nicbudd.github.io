@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                background-color: #e6e6e6;
+            }
+
+            .blockcontainer {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .blockcontainer > div {
+                width: 300px;
+                height: 150px;
+                margin: 16px;
+                display: block;
+            }
+
+            .block {
+                border: 0px solid #e6e6e6;
+                border-radius: 32px;
+                color: #e6e6e6;
+
+            }
+
+            .blockcontainer h1 {
+                text-align: center;
+                position: relative;
+                top: 50%;
+                -ms-transform: translateY(-50%);
+                -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+                font-size: 24px;
+                font-family: 'Courier New', Courier, monospace;
+                font-weight: bold;             
+                text-align: center;
+                justify-content: center;
+                margin: 0;
+            }
+
+
+            .wrap > div {
+                display: block;
+                height: 100%;
+                border: 0px;
+                background: #e6e6e6;
+                color: #303030;
+                border-radius: 24px;
+                margin: 0px;
+            }
+
+            .wrap {
+                border-radius: 32px;
+                padding: 8px;
+                margin: 16px;
+            }
+
+            .c1 {
+                background: linear-gradient(to bottom right, #316fa6, #3ba769) no-repeat center center;
+            }
+            .c2 {
+                background: linear-gradient(to bottom right, #316fa6, #c14747) no-repeat center center;
+            }
+            .c3 {
+                background: linear-gradient(to bottom right, #3ba769, #c14747) no-repeat center center;
+            }
+            .c4 {
+                background: linear-gradient(to bottom right, #316fa6, #7c56b5) no-repeat center center;
+            }
+            .c5 {
+                background: linear-gradient(to bottom right, #c14747, #7c56b5) no-repeat center center;
+            }
+            .c6 {
+                background: linear-gradient(to bottom right, #3ba769, #7c56b5) no-repeat center center;
+            }
+
+            .c7 {
+                background: linear-gradient(to bottom right, #316fa6, #949494) no-repeat center center;
+            }
+
+            .c8 {
+                background: linear-gradient(to bottom right, #316fa6, #c3c3c3) no-repeat center center;
+            }
+
+            .c9 {
+                background: linear-gradient(to bottom right, #316fa6, #303030) no-repeat center center;
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <div class="blockcontainer">
+            <div class="block c1"><h1>Blue-Green</h1></div>
+            <div class="wrap c1"><div><h1>Blue-Green</h1></div></div>
+            <div class="block c2"><h1>Blue-Red</h1></div>
+            <div class="wrap c2"><div><h1>Blue-Red</h1></div></div>
+            <div class="block c4"><h1>Blue-Purple</h1></div>
+            <div class="wrap c4"><div><h1>Blue-Purple</h1></div></div>
+            <div class="block c5"><h1>Red-Purple</h1></div>
+            <div class="wrap c5"><div><h1>Red-Purple</h1></div></div>
+            <div class="block c6"><h1>Green-Purple</h1></div>
+            <div class="wrap c6"><div><h1>Green-Purple</h1></div></div>
+            <div class="block c3"><h1>Green-Red</h1></div>
+            <div class="wrap c3"><div><h1>Green-Red</h1></div></div>
+            <div class="block c7"><h1>Blue-Gray</h1></div>
+            <div class="wrap c7"><div><h1>Blue-Gray</h1></div></div>
+            <div class="block c8"><h1>Blue-LightGray</h1></div>
+            <div class="wrap c8"><div><h1>Blue-LightGray</h1></div></div>
+            <div class="block c9"><h1>Blue-Black</h1></div>
+            <div class="wrap c9"><div><h1>Blue-Black</h1></div></div>
+
+        </div>
+    </body>
+</html>
