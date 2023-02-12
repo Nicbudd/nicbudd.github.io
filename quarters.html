@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="index.css">
+    <script src = "index.js" type = "text/javascript"></script>
+    <!--Insert additional JS files here-->
+
+    <script>
+        let quarter = {type:"state", state:"Missouri", mint:"D", condition:"good"} 
+        // types: state, year, 
+    </script>
+
+    <title>Nicbudd</title>
+
+    </head>
+
+    <body onload="bodyLoad('quarters');">
+        <noscript><div id="noscript">Javascript is not working. Please enable javascript for proper site functionality</div></noscript>
+
+        <a id="title" href="index.html">
+            <div id="titleText">Nicbudd</div>
+        </a>
+
+        <div id="menu">
+            <button onclick="menuToggle('menu')" class="menuHeader menuItem blue" id="menuMenuButton">Menu ▼</button>
+        </div>
+
+
+        <div id="mainBody">
+            <h1>Quarter Collection<br>Wishlist</h1>
+            <li id="quarterlist"></li>
+        </div>
+
+        <div id="sideBar"></div>
+
+    </body>
+
+</html>
