@@ -92,12 +92,12 @@ enum Mint {
     D,
 }
 
-#[derive(Debug, Eq, PartialEq, EnumIter, Copy, Clone, Serialize, Deserialize)]
+#[derive(Debug, Copy, Clone, Serialize, Deserialize, PartialEq, PartialOrd, Eq, Ord)]
 enum Condition {
+    Bad,
     Good,
     Great,
-    Bad,
-    NonExistant,
+    Wish
 }
 
 #[derive(Debug, Copy, Clone, Serialize, Deserialize)]
@@ -108,26 +108,26 @@ struct Quarter {
 }
 
 impl Quarter {
-    fn betterthan(self, q: Quarter) -> bool {
+    fn comparecondition(self, q: &Quarter) -> i32 {
 
         let firstrank: i32 = match self.condition {
-            Condition::NonExistant => 0,
+            Condition::Wish => 0,
             Condition::Bad => 1,
             Condition::Good => 2,
             Condition::Great => 3,
         };
 
         let secondrank: i32 = match q.condition {
-            Condition::NonExistant => 0,
+            Condition::Wish => 0,
             Condition::Bad => 1,
             Condition::Good => 2,
             Condition::Great => 3,
         };
 
-        return (firstrank - secondrank) > 0;
+        firstrank - secondrank
     }
 
-    fn isEquivalent(self, q: Quarter) -> bool {
+    fn isEquivalent(self, q: &Quarter) -> bool {
         return q.qtype == self.qtype && q.mint == self.mint;
     }
 }
@@ -140,27 +140,31 @@ enum QuarterAction {
 }
 
 // returns true if quarter was added to 
-fn add_quarter(newQuarter: Quarter, collection: &mut Vec<Quarter>) -> QuarterAction {
-    for q in collection {
-        if newQuarter.isEquivalent(*q) {
-            if q.condition == Condition::NonExistant {
-                *q = newQuarter;
+fn add_quarter(new_quarter: Quarter, collection: &mut Vec<Quarter>) -> QuarterAction {
+
+    for q in collection.iter_mut() {
+        if new_quarter.isEquivalent(q) {
+
+            let cmp = new_quarter.comparecondition(q);
+
+            if cmp <= 0 { // if they're the same condition or worse
+                return QuarterAction::Reject;
+
+            } else if q.condition == Condition::Wish {
+                *q = new_quarter;
                 return QuarterAction::Add;
 
-            } else if newQuarter.betterthan(*q) {
-                *q = newQuarter;
+            } else { // new quarter is better and exists
+                *q = new_quarter;
                 return QuarterAction::Replace;
 
             }
         }
     }
 
-    if newQuarter.condition == Condition::NonExistant {
-        collection.push(newQuarter);
-        return QuarterAction::Expansion;
-    }
+    collection.push(new_quarter);
+    return QuarterAction::Expansion;
 
-    return QuarterAction::Reject;
 }
 
 fn generate_collection() {
@@ -175,14 +179,14 @@ fn generate_collection() {
                 Quarter {
                     qtype: QType::State(st),
                     mint: m,
-                    condition: Condition::NonExistant,
+                    condition: Condition::Wish,
                 });
 
             collection.push(
                 Quarter {
                     qtype: QType::AmericaTheBeautiful(st),
                     mint: m,
-                    condition: Condition::NonExistant,
+                    condition: Condition::Wish,
                 });
         }
 
@@ -191,7 +195,7 @@ fn generate_collection() {
                 Quarter {
                     qtype: QType::Women(w),
                     mint: m,
-                    condition: Condition::NonExistant,
+                    condition: Condition::Wish,
                 }); 
         }
 
@@ -200,7 +204,7 @@ fn generate_collection() {
                 Quarter {
                     qtype: QType::Year(y),
                     mint: m,
-                    condition: Condition::NonExistant,
+                    condition: Condition::Wish,
                 });
         }
     }
