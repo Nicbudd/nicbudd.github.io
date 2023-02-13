@@ -2,17 +2,17 @@ use serde::{Deserialize, Serialize};
 use serde_json::Result;
 use strum::IntoEnumIterator;
 use strum_macros::EnumIter;
+use std::collections::HashMap;
 use std::fs;
 
-#[derive(Debug, Eq, PartialEq, Copy, Clone, Serialize, Deserialize)]
-enum QType {
-    State(State),
-    AmericaTheBeautiful(State),
-    Year(u32),
-    Women(Women),
+enum QuarterAction {
+    Add,
+    Replace,
+    Reject,
+    Expansion,
 }
 
-#[derive(Debug, Eq, PartialEq, EnumIter, Copy, Clone, Serialize, Deserialize)]
+#[derive(Debug, EnumIter, Copy, Clone, Serialize, Deserialize, PartialEq, Eq, Hash)]
 enum Women {
     MayaAngelou,
     SallyRide,
@@ -26,7 +26,7 @@ enum Women {
     MariaTallchief, 
 }
 
-#[derive(Debug, Eq, PartialEq, EnumIter, Copy, Clone, Serialize, Deserialize)]
+#[derive(Debug, EnumIter, Copy, Clone, Serialize, Deserialize, PartialEq, Eq, Hash)]
 enum State {
     Delaware,
     Pennsylvania,
@@ -86,140 +86,103 @@ enum State {
     NorthernMarianaIslands,
 }
 
-#[derive(Debug, Eq, PartialEq, EnumIter, Copy, Clone, Serialize, Deserialize)]
+#[derive(Debug, Copy, Clone, Serialize, Deserialize, PartialEq, Eq, Hash)]
+enum QType {
+    State(State),
+    AmericaTheBeautiful(State),
+    Year(u32),
+    Women(Women),
+}
+
+#[derive(Debug, EnumIter, Clone, Serialize, Deserialize, PartialEq, Eq, Hash)]
 enum Mint {
     P,
     D,
 }
 
-#[derive(Debug, Copy, Clone, Serialize, Deserialize, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, PartialOrd, Eq, Ord)]
 enum Condition {
     Bad,
     Good,
     Great,
-    Wish
 }
 
-#[derive(Debug, Copy, Clone, Serialize, Deserialize)]
-struct Quarter {
-    qtype: QType,
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, Eq, Hash)]
+struct QuarterId {
+    kind: QType,
     mint: Mint,
+}
+
+struct Quarter {
+    id: QuarterId,
     condition: Condition,
 }
 
-impl Quarter {
-    fn comparecondition(self, q: &Quarter) -> i32 {
-
-        let firstrank: i32 = match self.condition {
-            Condition::Wish => 0,
-            Condition::Bad => 1,
-            Condition::Good => 2,
-            Condition::Great => 3,
-        };
-
-        let secondrank: i32 = match q.condition {
-            Condition::Wish => 0,
-            Condition::Bad => 1,
-            Condition::Good => 2,
-            Condition::Great => 3,
-        };
-
-        firstrank - secondrank
-    }
-
-    fn isEquivalent(self, q: &Quarter) -> bool {
-        return q.qtype == self.qtype && q.mint == self.mint;
-    }
+#[derive(Debug, Clone, Serialize, Deserialize)]
+struct QuarterCollection {
+    slots: HashMap<QuarterId, Option<Condition>>
 }
 
-enum QuarterAction {
-    Add,
-    Replace,
-    Reject,
-    Expansion,
-}
+impl QuarterCollection {
+    pub fn add(&mut self, q: Quarter) -> QuarterAction {
+        let Some(entry) = self.slots.get_mut(&q.id) else {
+            self.slots.insert(q.id, Some(q.condition));
+            return QuarterAction::Expansion;
+        };
 
-// returns true if quarter was added to 
-fn add_quarter(new_quarter: Quarter, collection: &mut Vec<Quarter>) -> QuarterAction {
-
-    for q in collection.iter_mut() {
-        if new_quarter.isEquivalent(q) {
-
-            let cmp = new_quarter.comparecondition(q);
-
-            if cmp <= 0 { // if they're the same condition or worse
-                return QuarterAction::Reject;
-
-            } else if q.condition == Condition::Wish {
-                *q = new_quarter;
-                return QuarterAction::Add;
-
-            } else { // new quarter is better and exists
-                *q = new_quarter;
-                return QuarterAction::Replace;
-
+        if let Some(existing) = entry {
+            if *existing >= q.condition {
+                QuarterAction::Reject
+            } else {
+                *existing = q.condition;
+                QuarterAction::Replace 
             }
+        } else {
+            *entry = Some(q.condition);
+            QuarterAction::Add
         }
     }
 
-    collection.push(new_quarter);
-    return QuarterAction::Expansion;
+    pub fn save(self) -> Result<Type> {
 
+        let collection_vec = self.slots.iter().collect::<Vec<(QuarterId, Option<Condition>)>>();
+
+        let write_str = serde_json::to_string(collection_vec)
+                                            .expect("Can't construct JSON");
+
+        let _ = fs::write("../quarters.json", write_str)
+                .expect("Can't write to file.");
+    }
 }
 
-fn generate_collection() {
+fn generate_collection() -> QuarterCollection {
 
-    let mut collection: Vec<Quarter> = vec![];
+    let mut collection: QuarterCollection = QuarterCollection{ slots: HashMap::new() };
 
     // Generate complete collection
     for m in Mint::iter() {
         for st in State::iter() {
-
-            collection.push(
-                Quarter {
-                    qtype: QType::State(st),
-                    mint: m,
-                    condition: Condition::Wish,
-                });
-
-            collection.push(
-                Quarter {
-                    qtype: QType::AmericaTheBeautiful(st),
-                    mint: m,
-                    condition: Condition::Wish,
-                });
+            collection.slots.insert(QuarterId{ kind: QType::State(st), mint: m.clone() }, None);
+            collection.slots.insert(QuarterId{ kind: QType::AmericaTheBeautiful(st), mint: m.clone() }, None);
         }
 
         for w in Women::iter() {
-            collection.push(
-                Quarter {
-                    qtype: QType::Women(w),
-                    mint: m,
-                    condition: Condition::Wish,
-                }); 
+            collection.slots.insert(QuarterId{ kind: QType::Women(w), mint: m.clone() }, None);
         }
 
+        //#[allow(unused_parens)]
         for y in (1960..=2023) {
-            collection.push(
-                Quarter {
-                    qtype: QType::Year(y),
-                    mint: m,
-                    condition: Condition::Wish,
-                });
+            collection.slots.insert(QuarterId{ kind: QType::Year(y), mint: m.clone() }, None);
         }
     }
 
-    let write_str = serde_json::to_string(&collection)
-                                .expect("Can't construct JSON");
 
-    let _ = fs::write("../quarters.json", write_str)
-                                .expect("Can't write to file.");
 
 }
 
 fn main() {
 
-    generate_collection();
+    let mut collection = generate_collection();
 
     // // Add a quarter to the collection 
     // let action = add_quarter(Quarter{qtype: QType::Year(2023), mint: Mint::D, condition: Condition::Good}, &mut collection);
