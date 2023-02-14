@@ -185,6 +185,15 @@ impl QuarterCollection {
         }
     }
 
+    pub fn correct(&mut self, q: Quarter) -> Option<()> {
+        match self.slots.get_mut(&q.id) {
+            Some(_) => self.slots.insert(q.id, Some(q.condition)),
+            None => {return None}
+        };
+        
+        Some(())
+    }
+
     pub fn export(&self) {
 
         let mut collection_vec: Vec<(&String, &Option<Condition>)> = self.slots.iter()
@@ -299,8 +308,37 @@ fn main() {
                     id: id,
                     condition: condition,
                 };
-        
+                
                 collection.add(q);
+                // let result = match collection.add(q) {
+                //     QuarterAction::Add => "Added Quarter.",
+                //     QuarterAction::Replace => "Replaced Quarter.",
+                //     QuarterAction::Reject => "Rejected Quarter.",
+                //     QuarterAction::Expansion => "Added new slot.",
+                // };
+
+                // println!("{}", result)
+
+            } else if args[1] == "correct" {
+                let condition_str = &args[args.len() - 1];
+                let id: String = args[2..(args.len() - 1)].join(" ");
+
+                match collection.slots.get(&id) {
+                    None => {println!("Slot \"{}\" does not exist", id); std::process::exit(1);}
+                    Some(_) => {},
+                };
+                
+                let condition = match Condition::from_str(&capitalize(&condition_str)) {
+                    Ok(c) => c,
+                    Err(_) => {println!("Could not derive condition from {}", condition_str); std::process::exit(1)},
+                };
+
+                let q = Quarter {
+                    id: id,
+                    condition: condition,
+                };
+  
+                collection.correct(q);
                 
             } else if args[1] == "add_slot" {
                 let id: String = args[2..(args.len())].join(" ");
@@ -316,9 +354,18 @@ fn main() {
                 }
 
                 collection.add_slot(id, None)
+
+            } else if args[1] == "remove_slot" {
+                let id: String = args[2..(args.len())].join(" ");
+
+                match collection.slots.remove(&id) {
+                    None => {println!("Slot \"{}\" did not exist", id); std::process::exit(1);},
+                    Some(_) => {println!("Removed \"{}\"", id)}
+                };
         
             } else if args[1] == "clear" {
                 collection.slots.clear();
+                println!("Cleared all quarters and slots")
 
             } else {
                 println!("Unknown command {}", args[1]);
