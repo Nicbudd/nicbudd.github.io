@@ -1,9 +1,30 @@
 use serde::{Deserialize, Serialize};
 use serde_json::Result;
 use strum::IntoEnumIterator;
-use strum_macros::EnumIter;
+use strum_macros::{EnumIter, EnumString};
 use std::collections::HashMap;
-use std::fs;
+use std::str::FromStr;
+use std::{fs, hash};
+use lazy_static::lazy_static;
+use regex::Regex;
+
+fn uncamelcase(s: &str) -> String {
+    lazy_static! {
+        static ref re: Regex = Regex::new("([A-Z]+|[a-z])([A-Z])").unwrap();
+    };
+
+    let newS = re.replace_all(s, "$1 $2");
+
+    newS.to_string()
+}
+
+fn capitalize(s: &str) -> String {
+    let mut c = s.chars();
+    match c.next() {
+        None => String::new(),
+        Some(f) => f.to_uppercase().collect::<String>() + c.as_str(),
+    }
+}
 
 enum QuarterAction {
     Add,
@@ -94,13 +115,25 @@ enum QType {
     Women(Women),
 }
 
+// this is a bad but I don't care
+impl QType {
+    pub fn pretty(self) -> String {
+        match self {
+            QType::State(s) => uncamelcase(&format!("{:?}", s)),
+            QType::AmericaTheBeautiful(s) => uncamelcase(&format!("{:?} (America the Beautiful)", s)),
+            QType::Year(y) => format!("{}", y),
+            QType::Women(w) => uncamelcase(&format!("{:?}", w)),
+        }
+    }
+}
+
 #[derive(Debug, EnumIter, Clone, Serialize, Deserialize, PartialEq, Eq, Hash)]
 enum Mint {
     P,
     D,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize, PartialEq, PartialOrd, Eq, Ord)]
+#[derive(Debug, EnumString, Clone, Serialize, Deserialize, PartialEq, PartialOrd, Eq, Ord)]
 enum Condition {
     Bad,
     Good,
@@ -114,83 +147,186 @@ struct QuarterId {
 }
 
 struct Quarter {
-    id: QuarterId,
+    id: String,
     condition: Condition,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
 struct QuarterCollection {
-    slots: HashMap<QuarterId, Option<Condition>>
+    slots: HashMap<String, Option<Condition>>
 }
 
 impl QuarterCollection {
     pub fn add(&mut self, q: Quarter) -> QuarterAction {
-        let Some(entry) = self.slots.get_mut(&q.id) else {
-            self.slots.insert(q.id, Some(q.condition));
-            return QuarterAction::Expansion;
-        };
-
-        if let Some(existing) = entry {
-            if *existing >= q.condition {
-                QuarterAction::Reject
-            } else {
-                *existing = q.condition;
-                QuarterAction::Replace 
+        match self.slots.get_mut(&q.id) {
+            Some(Some(existing)) => {
+                if *existing >= q.condition {
+                    QuarterAction::Reject
+                } else {
+                    *existing = q.condition;
+                    QuarterAction::Replace
+                }
             }
-        } else {
-            *entry = Some(q.condition);
-            QuarterAction::Add
+            Some(slot @ None) => {
+                *slot = Some(q.condition);
+                QuarterAction::Add
+            }
+            None => {
+                self.slots.insert(q.id, Some(q.condition));
+                QuarterAction::Expansion
+            }
         }
     }
 
-    pub fn save(self) -> Result<Type> {
+    pub fn add_slot(&mut self, id: String, condition: Option<Condition>) {
+        match self.slots.get_mut(&id) {
+            None => {self.slots.insert(id, condition);},
+            Some(c) => {}
+        }
+    }
 
-        let collection_vec = self.slots.iter().collect::<Vec<(QuarterId, Option<Condition>)>>();
+    pub fn export(&self) {
 
-        let write_str = serde_json::to_string(collection_vec)
+        let mut collection_vec: Vec<(&String, &Option<Condition>)> = self.slots.iter()
+                                                                            .collect();
+
+        collection_vec.sort();
+
+        // for i in &collection_vec {
+        //     println!("{:?}", i)
+        // }
+        
+        let write_str = serde_json::to_string(&collection_vec)
                                             .expect("Can't construct JSON");
 
         let _ = fs::write("../quarters.json", write_str)
-                .expect("Can't write to file.");
+                .expect("write to file.");
+    }
+
+    pub fn import(&mut self) {
+
+        let strin = fs::read_to_string("../quarters.json").expect("read from file");
+
+        let collection_vec: Vec<(String, Option<Condition>)> = serde_json::from_str(&strin).expect("unpack the json to collection");
+
+        for item in collection_vec {
+            self.add_slot(item.0, item.1);
+        }
     }
 }
 
-fn generate_collection() -> QuarterCollection {
-
-    let mut collection: QuarterCollection = QuarterCollection{ slots: HashMap::new() };
+fn generate_collection(collection: &mut QuarterCollection) {
 
     // Generate complete collection
     for m in Mint::iter() {
         for st in State::iter() {
-            collection.slots.insert(QuarterId{ kind: QType::State(st), mint: m.clone() }, None);
-            collection.slots.insert(QuarterId{ kind: QType::AmericaTheBeautiful(st), mint: m.clone() }, None);
+            collection.add_slot(QType::State(st).pretty() + &format!(" {:?}", m), None);
+            collection.add_slot(QType::AmericaTheBeautiful(st).pretty() + &format!(" {:?}", m), None);
         }
 
         for w in Women::iter() {
-            collection.slots.insert(QuarterId{ kind: QType::Women(w), mint: m.clone() }, None);
+            collection.add_slot(QType::Women(w).pretty() + &format!(" {:?}", m), None);
         }
 
         //#[allow(unused_parens)]
-        for y in (1960..=2023) {
-            collection.slots.insert(QuarterId{ kind: QType::Year(y), mint: m.clone() }, None);
+        for y in 1960..=2023 {
+            collection.add_slot(QType::Year(y).pretty() + &format!(" {:?}", m), None);
         }
     }
+}
 
+fn test_collection() {
+    let mut collection =  QuarterCollection{ slots: HashMap::new() };
+    
+    generate_collection(&mut collection);
+    generate_collection(&mut collection);
 
+    collection.add(
+        Quarter {
+            id: String::from("1941 D"),
+            condition: Condition::Great
+        });
 
+    collection.add(
+        Quarter {
+            id: String::from("2003 P"), 
+            condition: Condition::Great
+        });
+
+    generate_collection(&mut collection);
 }
 
 fn main() {
 
-    let mut collection = generate_collection();
+    let mut collection =  QuarterCollection{ slots: HashMap::new() };
+    collection.import();
+    generate_collection(&mut collection);
 
-    // // Add a quarter to the collection 
-    // let action = add_quarter(Quarter{qtype: QType::Year(2023), mint: Mint::D, condition: Condition::Good}, &mut collection);
 
-    // for q in &collection {
-    //     println!("{:?}", q);
-    // }
 
-    // println!("{}", &collection.len());
+    // println!("{}", &collection.slots.len());
 
+
+
+    let args: Vec<String> = std::env::args().collect();
+
+    match args.len() {
+        1 => {
+            for i in collection.slots.iter() {
+                if i.1 != &None {
+                    println!("{:?}", i);
+                }
+           }
+        },
+        _ => {
+            if args[1] == "add" {
+                let condition_str = &args[args.len() - 1];
+                let id: String = args[2..(args.len() - 1)].join(" ");
+
+                match collection.slots.get(&id) {
+                    None => {println!("Slot \"{}\" does not exist", id); std::process::exit(1);}
+                    Some(_) => {},
+                };
+                
+                let condition = match Condition::from_str(&capitalize(&condition_str)) {
+                    Ok(c) => c,
+                    Err(_) => {println!("Could not derive condition from {}", condition_str); std::process::exit(1)},
+                };
+
+
+        
+                let q = Quarter {
+                    id: id,
+                    condition: condition,
+                };
+        
+                collection.add(q);
+                
+            } else if args[1] == "add_slot" {
+                let id: String = args[2..(args.len())].join(" ");
+
+                match collection.slots.get(&id) {
+                    Some(_) => {println!("Slot \"{}\" already exists", id); std::process::exit(1);}
+                    None => {},
+                };
+
+                if !(id.ends_with(" D") || id.ends_with(" P")) {
+                    println!("There is no mint mark at the end.");
+                    std::process::exit(1)
+                }
+
+                collection.add_slot(id, None)
+        
+            } else if args[1] == "clear" {
+                collection.slots.clear();
+
+            } else {
+                println!("Unknown command {}", args[1]);
+            }
+        }
+    }
+
+    
+
+    collection.export();
 }

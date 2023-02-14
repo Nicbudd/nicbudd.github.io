@@ -3,15 +3,32 @@
 <html>
 
     <head>
-
+    
+    <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="index.css">
     <script src = "index.js" type = "text/javascript"></script>
     <!--Insert additional JS files here-->
 
     <script>
-        let quarter = {type:"state", state:"Missouri", mint:"D", condition:"good"} 
-        // types: state, year, 
+        fetch('./quarters.json')
+            .then((response) => response.json())
+            .then((json) => {
+                
+                for (i in json) {
+                    if (json[i][1] == null) {
+                        var quarter = document.createElement("li")
+                        quarter.innerHTML = json[i][0]
+                        $("#quarterlistnull").append(quarter)
+
+                    } else if (json[i][1] == "Bad") {
+                        var quarter = document.createElement("li")
+                        quarter.innerHTML = json[i][0]
+                        $("#quarterlistbad").append(quarter)
+                    }
+                }
+            });
+
     </script>
 
     <title>Nicbudd</title>
@@ -32,7 +49,11 @@
 
         <div id="mainBody">
             <h1>Quarter Collection<br>Wishlist</h1>
-            <li id="quarterlist"></li>
+            <h4>Do Not Have</h4>
+            <ul id="quarterlistnull"></ul>
+
+            <h4>In Bad Condition</h4>
+            <ul id="quarterlistbad"></ul>
         </div>
 
         <div id="sideBar"></div>
