@@ -11,16 +11,44 @@
     <!--Insert additional JS files here-->
 
     <script>
+        var women = [
+            "Maya Angelou",
+            "Sally Ride",
+            "Wilma Mankiller",
+            "Nina Otero Warren",
+            "Anna May Wong",
+            "Bessie Coleman",
+            "Edith Kanakaole",
+            "Eleanor Roosevelt",
+            "Jovita Idar",
+            "Maria Tallchief" 
+        ]
+
+        const yearpattern = /\d{4} ?[DP]?/
+
         fetch('./quarters.json')
             .then((response) => response.json())
             .then((json) => {
                 
                 for (i in json) {
                     if (json[i][1] == null) {
+
                         var quarter = document.createElement("li")
                         quarter.innerHTML = json[i][0]
-                        $("#quarterlistnull").append(quarter)
+                        
+                        var name = json[i][0];
 
+                        if (yearpattern.test(name)) {
+                            $("#quarterlistyears").append(quarter)
+                        } else if (name.includes("(America the Beautiful)")) {
+                            $("#quarterlistatb").append(quarter)
+                        } else if (women.some(v => name.includes(v))) {
+                            $("#quarterlistwomen").append(quarter)
+                        } else {
+                            $("#quarterliststates").append(quarter)
+                        }
+                        
+                        
                     } else if (json[i][1] == "Bad") {
                         var quarter = document.createElement("li")
                         quarter.innerHTML = json[i][0]
@@ -50,7 +78,15 @@
         <div id="mainBody">
             <h1>Quarter Collection<br>Wishlist</h1>
             <h4>Do Not Have</h4>
-            <ul id="quarterlistnull"></ul>
+            <ul id="quarterliststates"></ul>
+
+            <ul id="quarterlistyears"></ul>
+
+            <ul id="quarterlistwomen"></ul>
+
+            <ul id="quarterlistatb"></ul>
+
+
 
             <h4>In Bad Condition</h4>
             <ul id="quarterlistbad"></ul>
