@@ -11,7 +11,7 @@
     <!--Insert additional JS files here-->
 
     <script>
-        var women = [
+        const women = [
             "Maya Angelou",
             "Sally Ride",
             "Wilma Mankiller",
@@ -24,6 +24,24 @@
             "Maria Tallchief" 
         ]
 
+        const strikethrough = [
+            "Hawaii D",
+            "Connecticut (America the Beautiful) D",
+            "Edith Kanakaole D",
+            "Nina Otero Warren D",
+            "Arizona (America the Beautiful) D",
+            "Minnesota (America the Beautiful) D",
+            "Pennsylvania (America the Beautiful) D",
+            "2014 D",
+            "Maine (America the Beautiful) D",
+            "Michigan D",
+            "2013 D",
+            "North Carolina (America the Beautiful) D",
+            "Anna May Wong D",
+            "2023 D",
+            "Idaho (America the Beautiful) D",
+        ]
+
         const yearpattern = /\d{4} ?[DP]?/
 
         fetch('quarters.json')
@@ -32,10 +50,17 @@
             .then((json) => {
                 
                 for (i in json) {
+
                     if (json[i][1] == null) {
 
                         var quarter = document.createElement("li")
                         quarter.innerHTML = json[i][0]
+
+                        if (strikethrough.includes(json[i][0])) {
+                            quarter.style.textDecoration = "line-through"
+                            quarter.style.color = "#c3c3c3"
+
+                        }
                         
                         var name = json[i][0];
 
