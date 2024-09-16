@@ -44,7 +44,17 @@ enum Women {
     EdithKanakaole,
     EleanorRoosevelt,
     JovitaIdar,
-    MariaTallchief, 
+    MariaTallchief,
+    PauliMurray,
+    PatsyTakemotoMink,
+    MaryEdwardsWalker,
+    CeliaCruz,
+    ZitkalaSa,
+    IdaBWells,
+    JulietteGordonLow,
+    VeraRubin,
+    StacyMilbern,
+    AltheaGibson,
 }
 
 #[derive(Debug, EnumIter, Copy, Clone, Serialize, Deserialize, PartialEq, Eq, Hash)]
@@ -238,7 +248,7 @@ fn generate_collection(collection: &mut QuarterCollection) {
         }
 
         //#[allow(unused_parens)]
-        for y in 1960..=2023 {
+        for y in 1960..=2024 {
             collection.add_slot(QType::Year(y).pretty() + &format!(" {:?}", m), None);
         }
     }
