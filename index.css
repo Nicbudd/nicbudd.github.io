@@ -113,7 +113,11 @@ textarea {
 }
 
 
-
+mark {
+	background: var(--green);
+	font-weight: 600;
+	color: var(--white);
+}
 
 
 
@@ -177,6 +181,7 @@ textarea {
 	margin: 0;
 	border: none;
 	border-radius: 0;
+	text-wrap: wrap;
 
 	/*BOING*/
 	transition-timing-function: cubic-bezier(0.18, 0.89, 0.32, 1.28);

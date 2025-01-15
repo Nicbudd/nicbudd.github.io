@@ -3,20 +3,41 @@ var mainBody = document.getElementById("mainBody");
 var head = document.getElementsByTagName("head")[0];
 
 var menuContent = [
-	["header", "Menu", "menu", "blue", ["cube", "conlangs", "weather", "javascript", "other",]],
-	//["button", "Cubing", "cube", "green", ["cubeHome", "algs", "fmc"]],
-	//comment below out when FMC page is finished
-	["button", "Cubing", "cube", "green", ["cubeHome", "algs"]],
-	["a", "Home", "cubeHome", "red", []],
+	["header", "Menu", "menu", "blue", ["index", "programming", "cube", "conlangs", "weatherbutton", "other"]],
+	["a", "Home", "index", "blue", []],
+
+	["button", "Programming", "programming", "green", ["github", "javascript", "16b64"]],
+	["link", "Github ↗", "github", "red", [], "https://github.com/Nicbudd"],
+	["a", "16b64", "16b64", "red", []],
+	["a", "Javascript Projects<br>(Legacy)", "javascript", "red", []],
+
+	["button", "Weather", "weatherbutton", "green", ["weather", "chaserdocs", "chase2021", "chase2022", "chase2023", "chase2024"]],
+	["a", "Links", "weather", "red", []],
+	["a", "Chaser Docs (WIP)", "chaserdocs", "red", []],
+	["a", "Storm Chase 2021 (WIP)", "chase2021", "red", []],
+	["a", "Storm Chase 2022 (WIP)", "chase2022", "red", []],
+	["a", "Storm Chase 2023 (WIP)", "chase2023", "red", []],
+	["a", "Storm Chase 2024 (WIP)", "chase2024", "red", []],
+
+	["button", "Cubing", "cube", "green", ["cubetimes", "algs"]],
+	["a", "Times", "cubetimes", "red", []],
 	["a", "Algorithms", "algs", "red", []],
-	//["a", "FMC", "fmc", "red", []],
-	["a", "Conlangs", "conlangs", "green", []],
-	["a", "Weather", "weather", "green", []],
-	["a", "Projects", "javascript", "green", []],
-	["button", "Other", "other", "green", ["debt", "credits"]],
+
+	["button", "Conlangs", "conlangs", "green", ["zythe", "hypernavajo"]],
+	["a", "Zythë", "zythe", "red", []],
+	["a", "Unnamed (WIP)", "hypernavajo", "red", []],
+
+
+	["button", "Other", "other", "green", ["friday13", "debt", "unfinished", "credits"]],
+	["a", "Is It Friday the 13th?", "friday13", "red", []],
 	["a", "Debt", "debt", "red", []],
+
+	["button", "Unfinished", "unfinished", "red", ["fmc", "monkeyleague", "plovercheatsheet"]],
+	["a", "Plover Cheatsheet", "plovercheatsheet", "black", []],
+	["a", "FMC (cubing)", "fmc", "black", []],
+	["a", "Monkey League (cubing)", "monkeyleague", "black", []],
 	["a", "Credits", "credits", "red", []],
-	];
+];
 
 var hiddenContent = []
 
@@ -47,10 +68,15 @@ function buildMenu(content){
 
 		var item
 
-		if (content[i][0] == "button" || content[i][0] == "header"){
+		if (content[i][0] == "button" || content[i][0] == "header") {
 			item = document.createElement("button");
 			item.setAttribute("onclick", "menuToggle('" + content[i][2] + "')")
 			item.innerHTML = content[i][1] + " ▼"
+
+		} else if (content[i][0] == "link") {
+			item = document.createElement("a")
+			item.setAttribute("href", content[i][5])
+			item.innerHTML = content[i][1]
 
 		} else {
 			item = document.createElement("a")
@@ -59,7 +85,7 @@ function buildMenu(content){
 
 		}
 
-		if (content[i][0] == "header"){
+		if (content[i][0] == "header") {
 			item.setAttribute("class", "menuHeader menuItem " + content[i][3]);
 		} else {
 			item.setAttribute("class", "menuItem " + content[i][3]);

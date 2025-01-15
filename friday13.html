@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<style>
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900');
+
+
+body {
+	text-align: center;
+	font-family: 'Raleway';
+}
+
+#noscript {
+
+	font-size: 24px;
+	text-align: center;
+
+}
+
+h1{
+	font-weight: 700;
+	margin: auto;
+}
+
+h2{
+	font-weight: 600;
+	margin: auto;
+}
+
+h3{
+	font-weight: 500;
+	margin: auto;
+}
+
+p {
+	font-size: 12px;
+	font-weight: 300;
+	margin: auto;
+	position: fixed;
+	bottom: 6px;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+#result {	
+	
+}
+
+</style>
+
+
+<script>
+
+function load() {
+
+	sizeText();
+	
+	var result = document.getElementById('result');
+	var darnElement = document.getElementById('darn');
+	var tomorrowElement = document.getElementById('tomorrow');
+	var output
+	var darn
+	var tomorrow
+	
+	var date = new Date();
+	var dayOfWeek = date.getDay();
+	var dateNum = date.getDate();
+	
+	
+	if (dayOfWeek == 5 && dateNum == 13){
+		output = "Yes"
+		darn = ""
+		tomorrow = ""
+	} else {
+		output = "No"
+		darn = "Darn."
+		tomorrow = "Maybe tomorrow?"	
+	}
+	
+	result.innerHTML = output
+	darnElement.innerHTML = darn
+	tomorrowElement.innerHTML = tomorrow
+	
+	
+	
+}
+
+window.onresize = function(){sizeText()};
+
+function sizeText() {
+	
+	var width = window.innerWidth
+	var height = window.innerHeight
+	//short for criticalDimension
+	var critDim
+	
+	if (width < height){
+		critDim = width
+	} else {
+		critDim = height
+	}
+	
+	h1Size = (critDim + 200) * 0.2
+	h2Size = h1Size * 0.1
+	h3Size = h2Size * 0.5
+	
+	h1Margin = h1Size * 0.2
+	h2Margin = h2Size * 0.5
+	h3Margin = h3Size * 0.5
+	
+	var css = document.createElement('style');
+	css.innerHTML = `h1{font-size: ${h1Size}px; margin-top: ${h1Margin}px; margin-bottom: ${h1Margin}px;} h2{font-size: ${h2Size}px; margin-top: ${h2Margin}px; margin-bottom: ${h2Margin}px;} h3{font-size: ${h3Size}px; margin-top: ${h3Margin}px; margin-bottom: ${h3Margin}px;}`;
+	document.body.appendChild(css);
+	
+}
+
+</script>
+
+<title>Is Today Friday the 13th?</title>
+</head>
+
+<body onload="load()">
+<noscript><div id="noscript"><h2>Uh-oh!</h2><p>It appears that javascript is not working here, for whatever reason.</p><p>Sadly, this site doesn't work without javascript. You might be able to see it looks a bit... broken.</p><p>Please enable javascript or switch to a browser that is compatible with javascript if you want to continue browsing this website.</p><p>If you don't want to, that's ok too. I'll just be sad that you cant see my website.</p><h2>;(</h2></div></noscript>
+
+<h1 id="result"></h1>
+<h2 id="darn"></h2>
+<h3 id="tomorrow"></h3>
+
+<p>Made by <a href="https://www.nicbudd.com">Nicbudd</a></p>
+
+</body>
